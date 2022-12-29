@@ -13,6 +13,7 @@
 		4DF8839B295D59A400B507E2 /* iOS_Mongsil.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88399295D59A400B507E2 /* iOS_Mongsil.xcdatamodeld */; };
 		4DF8839D295D59A500B507E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DF8839C295D59A500B507E2 /* Assets.xcassets */; };
 		4DF883A0295D59A500B507E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DF8839E295D59A500B507E2 /* LaunchScreen.storyboard */; };
+		4DF883AF295D6A7F00B507E2 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF883AE295D6A7F00B507E2 /* Diary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		4DF8839C295D59A500B507E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4DF8839F295D59A500B507E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4DF883A1295D59A500B507E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DF883AE295D6A7F00B507E2 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				4DF883A7295D5FC900B507E2 /* Application */,
+				4DF883AC295D6A5F00B507E2 /* Domain */,
 				4DF883AB295D605800B507E2 /* Presentation */,
 				4DF883A9295D602C00B507E2 /* Data */,
 				4DF883A8295D5FE100B507E2 /* Resources */,
@@ -105,6 +108,22 @@
 				4DF88394295D59A400B507E2 /* ViewController.swift */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		4DF883AC295D6A5F00B507E2 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				4DF883AD295D6A7600B507E2 /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		4DF883AD295D6A7600B507E2 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				4DF883AE295D6A7F00B507E2 /* Diary.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DF88395295D59A400B507E2 /* ViewController.swift in Sources */,
+				4DF883AF295D6A7F00B507E2 /* Diary.swift in Sources */,
 				4DF88391295D59A400B507E2 /* AppDelegate.swift in Sources */,
 				4DF88393295D59A400B507E2 /* SceneDelegate.swift in Sources */,
 				4DF8839B295D59A400B507E2 /* iOS_Mongsil.xcdatamodeld in Sources */,
