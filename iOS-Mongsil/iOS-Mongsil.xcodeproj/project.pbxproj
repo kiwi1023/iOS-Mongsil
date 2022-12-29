@@ -56,15 +56,55 @@
 		4DF8838F295D59A400B507E2 /* iOS-Mongsil */ = {
 			isa = PBXGroup;
 			children = (
+				4DF883A7295D5FC900B507E2 /* Application */,
+				4DF883AB295D605800B507E2 /* Presentation */,
+				4DF883A9295D602C00B507E2 /* Data */,
+				4DF883A8295D5FE100B507E2 /* Resources */,
+			);
+			path = "iOS-Mongsil";
+			sourceTree = "<group>";
+		};
+		4DF883A7295D5FC900B507E2 /* Application */ = {
+			isa = PBXGroup;
+			children = (
 				4DF88390295D59A400B507E2 /* AppDelegate.swift */,
 				4DF88392295D59A400B507E2 /* SceneDelegate.swift */,
-				4DF88394295D59A400B507E2 /* ViewController.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		4DF883A8295D5FE100B507E2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				4DF8839C295D59A500B507E2 /* Assets.xcassets */,
 				4DF8839E295D59A500B507E2 /* LaunchScreen.storyboard */,
 				4DF883A1295D59A500B507E2 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4DF883A9295D602C00B507E2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				4DF883AA295D603400B507E2 /* CoreDataStorage */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		4DF883AA295D603400B507E2 /* CoreDataStorage */ = {
+			isa = PBXGroup;
+			children = (
 				4DF88399295D59A400B507E2 /* iOS_Mongsil.xcdatamodeld */,
 			);
-			path = "iOS-Mongsil";
+			path = CoreDataStorage;
+			sourceTree = "<group>";
+		};
+		4DF883AB295D605800B507E2 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				4DF88394295D59A400B507E2 /* ViewController.swift */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,7 +320,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS-Mongsil/Info.plist";
+				INFOPLIST_FILE = "iOS-Mongsil/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -310,7 +350,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS-Mongsil/Info.plist";
+				INFOPLIST_FILE = "iOS-Mongsil/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
