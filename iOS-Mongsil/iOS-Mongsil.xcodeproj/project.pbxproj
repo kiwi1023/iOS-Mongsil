@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		374670C0295D6572004AC4B0 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374670BF295D6572004AC4B0 /* Diary.swift */; };
 		4DF88391295D59A400B507E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88390295D59A400B507E2 /* AppDelegate.swift */; };
 		4DF88393295D59A400B507E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88392295D59A400B507E2 /* SceneDelegate.swift */; };
 		4DF88395295D59A400B507E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88394295D59A400B507E2 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		374670BF295D6572004AC4B0 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		4DF8838D295D59A400B507E2 /* iOS-Mongsil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Mongsil.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF88390295D59A400B507E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DF88392295D59A400B507E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		374670BB295D6480004AC4B0 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				374670BC295D6491004AC4B0 /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		374670BC295D6491004AC4B0 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				374670BF295D6572004AC4B0 /* Diary.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		4DF88384295D59A400B507E2 = {
 			isa = PBXGroup;
 			children = (
@@ -57,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				4DF883A7295D5FC900B507E2 /* Application */,
+				374670BB295D6480004AC4B0 /* Domain */,
 				4DF883AB295D605800B507E2 /* Presentation */,
 				4DF883A9295D602C00B507E2 /* Data */,
 				4DF883A8295D5FE100B507E2 /* Resources */,
@@ -181,6 +200,7 @@
 				4DF88391295D59A400B507E2 /* AppDelegate.swift in Sources */,
 				4DF88393295D59A400B507E2 /* SceneDelegate.swift in Sources */,
 				4DF8839B295D59A400B507E2 /* iOS_Mongsil.xcdatamodeld in Sources */,
+				374670C0295D6572004AC4B0 /* Diary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
