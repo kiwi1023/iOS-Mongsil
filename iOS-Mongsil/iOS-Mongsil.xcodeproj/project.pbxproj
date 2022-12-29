@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		374670C3295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374670C2295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift */; };
+		374670C7295D6DA5004AC4B0 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374670C6295D6DA5004AC4B0 /* StorageManager.swift */; };
 		4DF88391295D59A400B507E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88390295D59A400B507E2 /* AppDelegate.swift */; };
 		4DF88393295D59A400B507E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88392295D59A400B507E2 /* SceneDelegate.swift */; };
 		4DF88395295D59A400B507E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88394295D59A400B507E2 /* ViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		374670C2295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDiaryUseCase.swift; sourceTree = "<group>"; };
+		374670C6295D6DA5004AC4B0 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		4DF8838D295D59A400B507E2 /* iOS-Mongsil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Mongsil.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF88390295D59A400B507E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DF88392295D59A400B507E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +43,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		374670C1295D6B22004AC4B0 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				374670C2295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		374670C4295D6D6F004AC4B0 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				374670C5295D6D7D004AC4B0 /* StorageManager */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		374670C5295D6D7D004AC4B0 /* StorageManager */ = {
+			isa = PBXGroup;
+			children = (
+				374670C6295D6DA5004AC4B0 /* StorageManager.swift */,
+			);
+			path = StorageManager;
+			sourceTree = "<group>";
+		};
 		4DF88384295D59A400B507E2 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +141,8 @@
 		4DF883AC295D6A5F00B507E2 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				374670C4295D6D6F004AC4B0 /* Interfaces */,
+				374670C1295D6B22004AC4B0 /* UseCases */,
 				4DF883AD295D6A7600B507E2 /* Entities */,
 			);
 			path = Domain;
@@ -199,6 +229,8 @@
 				4DF88395295D59A400B507E2 /* ViewController.swift in Sources */,
 				4DF883AF295D6A7F00B507E2 /* Diary.swift in Sources */,
 				4DF88391295D59A400B507E2 /* AppDelegate.swift in Sources */,
+				374670C7295D6DA5004AC4B0 /* StorageManager.swift in Sources */,
+				374670C3295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift in Sources */,
 				4DF88393295D59A400B507E2 /* SceneDelegate.swift in Sources */,
 				4DF8839B295D59A400B507E2 /* iOS_Mongsil.xcdatamodeld in Sources */,
 			);
