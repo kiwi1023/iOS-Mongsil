@@ -78,18 +78,18 @@
 		374670C4295D6D6F004AC4B0 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
-				374670C5295D6D7D004AC4B0 /* StorageManager */,
+				374670C5295D6D7D004AC4B0 /* Repository */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
 		};
-		374670C5295D6D7D004AC4B0 /* StorageManager */ = {
+		374670C5295D6D7D004AC4B0 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
 				374670C6295D6DA5004AC4B0 /* RepositoryManager.swift */,
 				4D1B808C2961A94B00A64940 /* DiaryRepository.swift */,
 			);
-			path = StorageManager;
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		4DF88384295D59A400B507E2 = {
