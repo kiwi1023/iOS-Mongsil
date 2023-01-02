@@ -6,36 +6,37 @@
 //
 
 import Foundation
+import Combine
 
 protocol DiaryUseCase {
-    var storageManager: StorageManager { get set }
+    var repositoryManager: RepositoryManager { get set }
     
-    func create(input: Diary)
-    func read() -> [Diary]
-    func update(input: Diary)
-    func delete(date: Date)
+    func create(input: Diary) -> AnyPublisher<Void, Error>
+    func read() -> AnyPublisher<[Diary], Error>
+    func update(input: Diary) -> AnyPublisher<Void, Error>
+    func delete(date: Date) -> AnyPublisher<Void, Error>
 }
 
 final class DefaultDiaryUseCase: DiaryUseCase {
-    var storageManager: StorageManager
-    
-    init(storageManager: StorageManager) {
-        self.storageManager = storageManager
+    var repositoryManager: RepositoryManager
+
+    init(repositoryManager: RepositoryManager) {
+        self.repositoryManager = repositoryManager
     }
     
-    func create(input: Diary) {
-        storageManager.create(input: input)
+    func create(input: Diary) -> AnyPublisher<Void, Error> {
+        repositoryManager.create(input: input)
     }
     
-    func read() -> [Diary] {
-        return storageManager.read()
+    func read() -> AnyPublisher<[Diary], Error> {
+        repositoryManager.read()
     }
     
-    func update(input: Diary) {
-        storageManager.update(input: input)
+    func update(input: Diary) -> AnyPublisher<Void, Error> {
+        repositoryManager.update(input: input)
     }
     
-    func delete(date: Date) {
-        storageManager.delete(date: date)
+    func delete(date: Date) -> AnyPublisher<Void, Error> {
+        repositoryManager.delete(date: date)
     }
 }
