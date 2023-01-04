@@ -11,6 +11,11 @@
 		374670C7295D6DA5004AC4B0 /* RepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374670C6295D6DA5004AC4B0 /* RepositoryManager.swift */; };
 		37B67C482965541700F81118 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B67C472965541700F81118 /* Comment.swift */; };
 		37B67C4A2965544F00F81118 /* DefaultCommentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B67C492965544F00F81118 /* DefaultCommentUseCase.swift */; };
+		37B67C4F2965682F00F81118 /* CoreDataCommentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B67C4E2965682F00F81118 /* CoreDataCommentRepository.swift */; };
+		37B67C512965685100F81118 /* CoreDataDiaryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B67C502965685100F81118 /* CoreDataDiaryRepository.swift */; };
+		37B67C542965906100F81118 /* DefaultDiaryRepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B67C532965906100F81118 /* DefaultDiaryRepositoryManager.swift */; };
+		37B67C57296590AC00F81118 /* DefaultCommentRepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B67C56296590AC00F81118 /* DefaultCommentRepositoryManager.swift */; };
+		37B67C59296591D000F81118 /* RepositoryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B67C58296591D000F81118 /* RepositoryError.swift */; };
 		4D1B808D2961A94B00A64940 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B808C2961A94B00A64940 /* Repository.swift */; };
 		4D3033B229655D4C00234166 /* DiaryEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3033AE29655D4C00234166 /* DiaryEntity+CoreDataClass.swift */; };
 		4D3033B329655D4C00234166 /* DiaryEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3033AF29655D4C00234166 /* DiaryEntity+CoreDataProperties.swift */; };
@@ -42,6 +47,11 @@
 		374670C6295D6DA5004AC4B0 /* RepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryManager.swift; sourceTree = "<group>"; };
 		37B67C472965541700F81118 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		37B67C492965544F00F81118 /* DefaultCommentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCommentUseCase.swift; sourceTree = "<group>"; };
+		37B67C4E2965682F00F81118 /* CoreDataCommentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCommentRepository.swift; sourceTree = "<group>"; };
+		37B67C502965685100F81118 /* CoreDataDiaryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDiaryRepository.swift; sourceTree = "<group>"; };
+		37B67C532965906100F81118 /* DefaultDiaryRepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDiaryRepositoryManager.swift; sourceTree = "<group>"; };
+		37B67C56296590AC00F81118 /* DefaultCommentRepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCommentRepositoryManager.swift; sourceTree = "<group>"; };
+		37B67C58296591D000F81118 /* RepositoryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryError.swift; sourceTree = "<group>"; };
 		4D1B808C2961A94B00A64940 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		4D3033AE29655D4C00234166 /* DiaryEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4D3033AF29655D4C00234166 /* DiaryEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -103,6 +113,43 @@
 				4D1B808C2961A94B00A64940 /* Repository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		37B67C4C296567FB00F81118 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				37B67C4D2965680A00F81118 /* CoreDataRepsotories */,
+				4D3033B629655EA500234166 /* CoreDataManager */,
+				4DF883AA295D603400B507E2 /* CoreDataStorage */,
+				37B67C5A296591DD00F81118 /* Error */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		37B67C4D2965680A00F81118 /* CoreDataRepsotories */ = {
+			isa = PBXGroup;
+			children = (
+				37B67C4E2965682F00F81118 /* CoreDataCommentRepository.swift */,
+				37B67C502965685100F81118 /* CoreDataDiaryRepository.swift */,
+			);
+			path = CoreDataRepsotories;
+			sourceTree = "<group>";
+		};
+		37B67C552965908B00F81118 /* DefaultRepositoryManager */ = {
+			isa = PBXGroup;
+			children = (
+				37B67C532965906100F81118 /* DefaultDiaryRepositoryManager.swift */,
+				37B67C56296590AC00F81118 /* DefaultCommentRepositoryManager.swift */,
+			);
+			path = DefaultRepositoryManager;
+			sourceTree = "<group>";
+		};
+		37B67C5A296591DD00F81118 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				37B67C58296591D000F81118 /* RepositoryError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		4D3033B629655EA500234166 /* CoreDataManager */ = {
@@ -169,8 +216,8 @@
 		4DF883A9295D602C00B507E2 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				4D3033B629655EA500234166 /* CoreDataManager */,
-				4DF883AA295D603400B507E2 /* CoreDataStorage */,
+				37B67C552965908B00F81118 /* DefaultRepositoryManager */,
+				37B67C4C296567FB00F81118 /* CoreData */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -334,21 +381,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37B67C4F2965682F00F81118 /* CoreDataCommentRepository.swift in Sources */,
 				4DF88395295D59A400B507E2 /* ViewController.swift in Sources */,
 				4DF883AF295D6A7F00B507E2 /* Diary.swift in Sources */,
 				4DF88391295D59A400B507E2 /* AppDelegate.swift in Sources */,
 				4D3033B829655EBE00234166 /* CoreDataManager.swift in Sources */,
+				37B67C542965906100F81118 /* DefaultDiaryRepositoryManager.swift in Sources */,
 				4D1B808D2961A94B00A64940 /* Repository.swift in Sources */,
 				4D3033B329655D4C00234166 /* DiaryEntity+CoreDataProperties.swift in Sources */,
 				374670C7295D6DA5004AC4B0 /* RepositoryManager.swift in Sources */,
 				374670C3295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift in Sources */,
 				4DF88393295D59A400B507E2 /* SceneDelegate.swift in Sources */,
+				37B67C57296590AC00F81118 /* DefaultCommentRepositoryManager.swift in Sources */,
 				4D3033B529655D4C00234166 /* CommentEntity+CoreDataProperties.swift in Sources */,
 				37B67C4A2965544F00F81118 /* DefaultCommentUseCase.swift in Sources */,
+				37B67C59296591D000F81118 /* RepositoryError.swift in Sources */,
 				4D3033B229655D4C00234166 /* DiaryEntity+CoreDataClass.swift in Sources */,
 				4D3033B429655D4C00234166 /* CommentEntity+CoreDataClass.swift in Sources */,
 				37B67C482965541700F81118 /* Comment.swift in Sources */,
 				4DF8839B295D59A400B507E2 /* iOS_Mongsil.xcdatamodeld in Sources */,
+				37B67C512965685100F81118 /* CoreDataDiaryRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

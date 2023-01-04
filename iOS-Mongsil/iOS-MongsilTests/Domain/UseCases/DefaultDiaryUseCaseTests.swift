@@ -10,16 +10,7 @@ import Combine
 @testable import iOS_Mongsil
 
 final class DefaultDiaryUseCaseTests: XCTestCase {
-   static let stubDiary = Diary(date: Date(),
-                          url: "url",
-                          isScrapped: true)
-    
-    enum RepositoryError: Error {
-        case failedCreating
-        case failedReading
-        case failedUpdating
-        case failedDeleting
-    }
+   static let stubDiary = Diary(date: Date(), url: "url")
     
     enum Result {
         case defaultResult
@@ -30,27 +21,27 @@ final class DefaultDiaryUseCaseTests: XCTestCase {
     var subscriptions = Set<AnyCancellable>()
     var defaultUseCase: DefaultDiaryUseCase? = nil
     
-    struct MockDiaryRepositoryManager: DiaryRepositoryManager {
-        let defaultRepository: DiaryRepository
+    final class MockDiaryRepositoryManager: DiaryRepositoryManager {
+        var repository: DiaryRepository
+        
+        init(repository: DiaryRepository) {
+            self.repository = repository
+        }
         
         func create(input: Diary) -> AnyPublisher<Void, Error> {
-            defaultRepository.create(input: input)
+            repository.create(input: input)
         }
         
         func read() -> AnyPublisher<[Diary], Error> {
-            defaultRepository.read()
-        }
-        
-        func update(input: Diary) -> AnyPublisher<Void, Error> {
-            defaultRepository.update(input: input)
+            repository.read()
         }
         
         func delete(date: Date) -> AnyPublisher<Void, Error> {
-            defaultRepository.delete(date: date)
+            repository.delete(date: date)
         }
     }
     
-    class MockDiaryRepository: DiaryRepository {
+    final class MockDiaryRepository: DiaryRepository {
         static var isSuccess: Bool = true
         var diary: [Diary] = {
             let diary = stubDiary
@@ -86,19 +77,6 @@ final class DefaultDiaryUseCaseTests: XCTestCase {
             }.eraseToAnyPublisher()
         }
         
-        func update(input: Diary) -> AnyPublisher<Void, Error> {
-            Future<Void, Error> { promise in
-                DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
-                    if DefaultDiaryUseCaseTests.MockDiaryRepository.isSuccess {
-                        promise(.success(()))
-                        
-                        return
-                    }
-                    promise(.failure(RepositoryError.failedUpdating))
-                }
-            }.eraseToAnyPublisher()
-        }
-        
         func delete(date: Date) -> AnyPublisher<Void, Error> {
             Future<Void, Error> { promise in
                 DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
@@ -115,7 +93,7 @@ final class DefaultDiaryUseCaseTests: XCTestCase {
     
     override func setUpWithError() throws {
         try super.setUpWithError()
-        defaultUseCase = DefaultDiaryUseCase(repositoryManager: MockDiaryRepositoryManager(defaultRepository: MockDiaryRepository()))
+        defaultUseCase = DefaultDiaryUseCase(repositoryManager: MockDiaryRepositoryManager(repository: MockDiaryRepository()))
     }
     
     override func tearDownWithError() throws {

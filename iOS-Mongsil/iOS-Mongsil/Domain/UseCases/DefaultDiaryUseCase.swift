@@ -9,11 +9,10 @@ import Foundation
 import Combine
 
 protocol DiaryUseCase {
-    var repositoryManager: DiaryRepositoryManager { get set }
+    var repositoryManager: DiaryRepositoryManager { get }
     
     func create(input: Diary) -> AnyPublisher<Void, Error>
     func read() -> AnyPublisher<[Diary], Error>
-    func update(input: Diary) -> AnyPublisher<Void, Error>
     func delete(date: Date) -> AnyPublisher<Void, Error>
 }
 
@@ -30,10 +29,6 @@ final class DefaultDiaryUseCase: DiaryUseCase {
     
     func read() -> AnyPublisher<[Diary], Error> {
         repositoryManager.read()
-    }
-    
-    func update(input: Diary) -> AnyPublisher<Void, Error> {
-        repositoryManager.update(input: input)
     }
     
     func delete(date: Date) -> AnyPublisher<Void, Error> {

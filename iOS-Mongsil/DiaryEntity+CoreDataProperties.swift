@@ -18,8 +18,6 @@ extension DiaryEntity {
 
     @NSManaged public var date: Date
     @NSManaged public var url: String
-    @NSManaged public var isScrapped: Bool
-
 }
 
 extension DiaryEntity : Identifiable {

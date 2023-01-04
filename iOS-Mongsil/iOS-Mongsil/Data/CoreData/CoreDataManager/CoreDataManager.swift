@@ -14,7 +14,7 @@ final class CoreDataManager {
     private init() {}
     
     private lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "iOS-Mongsil")
+        let container = NSPersistentContainer(name: "iOS_Mongsil")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -27,8 +27,6 @@ final class CoreDataManager {
         let diary = DiaryEntity(context: persistentContainer.viewContext)
         diary.date = input.date
         diary.url = input.url
-        diary.isScrapped = input.isScrapped
-        
         try save()
     }
     
@@ -68,19 +66,7 @@ final class CoreDataManager {
         return commentEntities
     }
     
-    func updateDiary(input: Diary) throws {
-        
-        guard let diaryEntity = try readDiaryEntities().filter ({ $0.date == input.date }).first
-        else { throw RepositoryError.failedReading }
-        
-        diaryEntity.date = input.date
-        diaryEntity.url = input.url
-        diaryEntity.isScrapped = input.isScrapped
-        try save()
-    }
-    
     func updateComment(input: Comment) throws {
-        
         guard let commentEntity = try readCommentEntities().filter ({ $0.date == input.date }).first
         else { throw RepositoryError.failedReading }
         
@@ -121,8 +107,7 @@ extension CoreDataManager {
     private func mapDiaryData(_ diaryEntities: [DiaryEntity]) -> [Diary] {
         let diaries = diaryEntities.map {
             Diary(date: $0.date,
-                  url: $0.url,
-                  isScrapped: $0.isScrapped)
+                  url: $0.url)
         }
         
         return diaries
@@ -137,11 +122,4 @@ extension CoreDataManager {
         
         return comments
     }
-}
-
-enum RepositoryError: Error {
-    case failedCreating
-    case failedReading
-    case failedUpdating
-    case failedDeleting
 }

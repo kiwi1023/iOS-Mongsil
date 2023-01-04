@@ -10,5 +10,4 @@ import Foundation
 struct Diary {
     let date: Date
     var url: String
-    var isScrapped: Bool
 }

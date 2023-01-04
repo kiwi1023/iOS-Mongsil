@@ -11,7 +11,6 @@ import Combine
 protocol DiaryRepository {
     func create(input: Diary) -> AnyPublisher<Void, Error>
     func read() -> AnyPublisher<[Diary], Error>
-    func update(input: Diary) -> AnyPublisher<Void, Error>
     func delete(date: Date) -> AnyPublisher<Void, Error>
 }
 
