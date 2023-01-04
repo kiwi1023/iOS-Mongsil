@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol DiaryUseCase {
-    var repositoryManager: RepositoryManager { get set }
+    var repositoryManager: DiaryRepositoryManager { get set }
     
     func create(input: Diary) -> AnyPublisher<Void, Error>
     func read() -> AnyPublisher<[Diary], Error>
@@ -18,9 +18,9 @@ protocol DiaryUseCase {
 }
 
 final class DefaultDiaryUseCase: DiaryUseCase {
-    var repositoryManager: RepositoryManager
+    var repositoryManager: DiaryRepositoryManager
 
-    init(repositoryManager: RepositoryManager) {
+    init(repositoryManager: DiaryRepositoryManager) {
         self.repositoryManager = repositoryManager
     }
     

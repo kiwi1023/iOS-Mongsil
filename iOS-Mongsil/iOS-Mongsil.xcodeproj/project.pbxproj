@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		374670C3295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374670C2295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift */; };
 		374670C7295D6DA5004AC4B0 /* RepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374670C6295D6DA5004AC4B0 /* RepositoryManager.swift */; };
-		4D1B808D2961A94B00A64940 /* DiaryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B808C2961A94B00A64940 /* DiaryRepository.swift */; };
+		37B67C482965541700F81118 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B67C472965541700F81118 /* Comment.swift */; };
+		37B67C4A2965544F00F81118 /* DefaultCommentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B67C492965544F00F81118 /* DefaultCommentUseCase.swift */; };
+		4D1B808D2961A94B00A64940 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B808C2961A94B00A64940 /* Repository.swift */; };
 		4DF88391295D59A400B507E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88390295D59A400B507E2 /* AppDelegate.swift */; };
 		4DF88393295D59A400B507E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88392295D59A400B507E2 /* SceneDelegate.swift */; };
 		4DF88395295D59A400B507E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88394295D59A400B507E2 /* ViewController.swift */; };
@@ -18,7 +20,6 @@
 		4DF883A0295D59A500B507E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DF8839E295D59A500B507E2 /* LaunchScreen.storyboard */; };
 		4DF883AF295D6A7F00B507E2 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF883AE295D6A7F00B507E2 /* Diary.swift */; };
 		4DF883B7295D9EBB00B507E2 /* DefaultDiaryUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF883B6295D9EBB00B507E2 /* DefaultDiaryUseCaseTests.swift */; };
-		4DF883C1295DA01800B507E2 /* Comment+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF883C0295DA01800B507E2 /* Comment+Stub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +35,9 @@
 /* Begin PBXFileReference section */
 		374670C2295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDiaryUseCase.swift; sourceTree = "<group>"; };
 		374670C6295D6DA5004AC4B0 /* RepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryManager.swift; sourceTree = "<group>"; };
-		4D1B808C2961A94B00A64940 /* DiaryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryRepository.swift; sourceTree = "<group>"; };
+		37B67C472965541700F81118 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		37B67C492965544F00F81118 /* DefaultCommentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCommentUseCase.swift; sourceTree = "<group>"; };
+		4D1B808C2961A94B00A64940 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		4DF8838D295D59A400B507E2 /* iOS-Mongsil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Mongsil.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF88390295D59A400B507E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DF88392295D59A400B507E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,7 +49,6 @@
 		4DF883AE295D6A7F00B507E2 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		4DF883B4295D9EBB00B507E2 /* iOS-MongsilTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-MongsilTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF883B6295D9EBB00B507E2 /* DefaultDiaryUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDiaryUseCaseTests.swift; sourceTree = "<group>"; };
-		4DF883C0295DA01800B507E2 /* Comment+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comment+Stub.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				374670C2295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift */,
+				37B67C492965544F00F81118 /* DefaultCommentUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -87,7 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				374670C6295D6DA5004AC4B0 /* RepositoryManager.swift */,
-				4D1B808C2961A94B00A64940 /* DiaryRepository.swift */,
+				4D1B808C2961A94B00A64940 /* Repository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				4DF883AE295D6A7F00B507E2 /* Diary.swift */,
+				37B67C472965541700F81118 /* Comment.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -187,7 +191,6 @@
 			isa = PBXGroup;
 			children = (
 				4DF883BD295D9EC300B507E2 /* Domain */,
-				4DF883BF295DA00000B507E2 /* Mocks */,
 			);
 			path = "iOS-MongsilTests";
 			sourceTree = "<group>";
@@ -206,14 +209,6 @@
 				4DF883B6295D9EBB00B507E2 /* DefaultDiaryUseCaseTests.swift */,
 			);
 			path = UseCases;
-			sourceTree = "<group>";
-		};
-		4DF883BF295DA00000B507E2 /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				4DF883C0295DA01800B507E2 /* Comment+Stub.swift */,
-			);
-			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,10 +314,12 @@
 				4DF88395295D59A400B507E2 /* ViewController.swift in Sources */,
 				4DF883AF295D6A7F00B507E2 /* Diary.swift in Sources */,
 				4DF88391295D59A400B507E2 /* AppDelegate.swift in Sources */,
-				4D1B808D2961A94B00A64940 /* DiaryRepository.swift in Sources */,
+				4D1B808D2961A94B00A64940 /* Repository.swift in Sources */,
 				374670C7295D6DA5004AC4B0 /* RepositoryManager.swift in Sources */,
 				374670C3295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift in Sources */,
 				4DF88393295D59A400B507E2 /* SceneDelegate.swift in Sources */,
+				37B67C4A2965544F00F81118 /* DefaultCommentUseCase.swift in Sources */,
+				37B67C482965541700F81118 /* Comment.swift in Sources */,
 				4DF8839B295D59A400B507E2 /* iOS_Mongsil.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,7 +329,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DF883B7295D9EBB00B507E2 /* DefaultDiaryUseCaseTests.swift in Sources */,
-				4DF883C1295DA01800B507E2 /* Comment+Stub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

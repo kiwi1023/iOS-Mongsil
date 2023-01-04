@@ -12,11 +12,7 @@ import Combine
 final class DefaultDiaryUseCaseTests: XCTestCase {
    static let stubDiary = Diary(date: Date(),
                           url: "url",
-                          isScrapped: true,
-                          comments: [
-                            Comment.stub(date: Date(),
-                                         emoticon: Emoticon.notBad,
-                                         description: "test")])
+                          isScrapped: true)
     
     enum RepositoryError: Error {
         case failedCreating
@@ -34,7 +30,7 @@ final class DefaultDiaryUseCaseTests: XCTestCase {
     var subscriptions = Set<AnyCancellable>()
     var defaultUseCase: DefaultDiaryUseCase? = nil
     
-    struct DiaryRepositoryManager: RepositoryManager {
+    struct MockDiaryRepositoryManager: DiaryRepositoryManager {
         let defaultRepository: DiaryRepository
         
         func create(input: Diary) -> AnyPublisher<Void, Error> {
@@ -119,7 +115,7 @@ final class DefaultDiaryUseCaseTests: XCTestCase {
     
     override func setUpWithError() throws {
         try super.setUpWithError()
-        defaultUseCase = DefaultDiaryUseCase(repositoryManager: DiaryRepositoryManager(defaultRepository: MockDiaryRepository()))
+        defaultUseCase = DefaultDiaryUseCase(repositoryManager: MockDiaryRepositoryManager(defaultRepository: MockDiaryRepository()))
     }
     
     override func tearDownWithError() throws {
