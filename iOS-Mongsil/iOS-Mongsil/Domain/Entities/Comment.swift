@@ -9,8 +9,8 @@ import Foundation
 
 struct Comment {
     let date: Date
-    var emoticion: Emoticon
-    var description: String
+    var emoticon: Emoticon
+    var text: String
 }
 
 enum Emoticon: String {
