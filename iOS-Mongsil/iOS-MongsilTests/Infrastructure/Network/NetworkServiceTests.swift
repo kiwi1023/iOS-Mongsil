@@ -20,16 +20,16 @@ final class NetworkServiceTests: XCTestCase {
         try super.tearDownWithError()
     }
     
-    func test_Mock_session_dataTask성공() {
+    func test_mockNetworkManger_dataTask성공() {
         //given
         var result = ""
         let expectation = expectation(description: "비동기테스트")
-        let mockSession = MockSession(isSuccess: true)
+        let mockNetworkManger = MockNetworkManager(isSuccess: true)
         let backgroundImageRequest = BackgroundImageRequest(method: .get,
                                                             urlHost: .backgroundImage,
                                                             path: .backgroundImages)
         
-        mockSession.backgroundImageDataTask(with: backgroundImageRequest).sink { completion in
+        mockNetworkManger.backgroundImageDataTask(with: backgroundImageRequest).sink { completion in
             switch completion {
             case .failure(let error):
                 print(error)
@@ -48,16 +48,16 @@ final class NetworkServiceTests: XCTestCase {
         XCTAssertEqual(result, "TestId")
     }
     
-    func test_Mock_session_dataTask실패() {
+    func test_mockNetworkManger_dataTask실패() {
         //given
         var result = ""
         let expectation = expectation(description: "비동기테스트")
-        let mockSession = MockSession(isSuccess: false)
+        let mockNetworkManger = MockNetworkManager(isSuccess: false)
         let backgroundImageRequest = BackgroundImageRequest(method: .get,
                                                             urlHost: .backgroundImage,
                                                             path: .backgroundImages)
         
-        mockSession.backgroundImageDataTask(with: backgroundImageRequest).sink { completion in
+        mockNetworkManger.backgroundImageDataTask(with: backgroundImageRequest).sink { completion in
             switch completion {
             case .failure(let error):
                 print(error)
@@ -74,34 +74,5 @@ final class NetworkServiceTests: XCTestCase {
         
         //then
         XCTAssertNotEqual(result, "TestId")
-    }
-    
-    func test_Mock_Session() {
-        //given
-        var result = ""
-        let expectation = expectation(description: "비동기테스트")
-        let mockSession = MockSession(isSuccess: true)
-        let networkManager = NetworkManager(urlSession: mockSession)
-        let backgroundImageRequest = BackgroundImageRequest(method: .get,
-                                                            urlHost: .backgroundImage,
-                                                            path: .backgroundImages)
-        
-        networkManager.backgroundImageDataTask(with: backgroundImageRequest).sink { completion in
-            switch completion {
-            case .failure(let error):
-                print(error)
-            case .finished:
-                break
-            }
-            expectation.fulfill()
-        } receiveValue: { images in
-            //when
-            result = images.first!.id
-        }.store(in: &cancellable)
-        
-        wait(for: [expectation], timeout: 3)
-        
-        //then
-        XCTAssertEqual(result, "TestId")
     }
 }

@@ -1,5 +1,5 @@
 //
-//  MockSessionData.swift
+//  MockNetworkData.swift
 //  iOS-MongsilTests
 //
 //  Created by Groot on 2023/01/05.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MockSessionData {
+struct MockNetworkData {
     let data: Data?
     
     init(fileName: String) {

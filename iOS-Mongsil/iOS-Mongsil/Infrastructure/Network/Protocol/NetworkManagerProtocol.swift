@@ -8,6 +8,6 @@
 import Foundation
 import Combine
 
-protocol SessionProtocol {
+protocol NetworkManagerProtocol {
     func backgroundImageDataTask(with request: APIRequestProtocol) -> AnyPublisher<[BackgroundImageDTO], Error>
 }

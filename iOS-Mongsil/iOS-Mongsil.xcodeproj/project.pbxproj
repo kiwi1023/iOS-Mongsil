@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		373D1C9029669165002A3B3D /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D1C8F29669165002A3B3D /* NetworkServiceTests.swift */; };
-		373D1C9329669228002A3B3D /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D1C9229669228002A3B3D /* MockSession.swift */; };
-		373D1C9529669277002A3B3D /* MockSessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D1C9429669277002A3B3D /* MockSessionData.swift */; };
+		373D1C9329669228002A3B3D /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D1C9229669228002A3B3D /* MockNetworkManager.swift */; };
+		373D1C9529669277002A3B3D /* MockNetworkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D1C9429669277002A3B3D /* MockNetworkData.swift */; };
 		373D1C9D2966B8ED002A3B3D /* BackGroundImage.json in Resources */ = {isa = PBXBuildFile; fileRef = 373D1C9C2966B8ED002A3B3D /* BackGroundImage.json */; };
 		373D1C9E2966B963002A3B3D /* BackGroundImage.json in Resources */ = {isa = PBXBuildFile; fileRef = 373D1C9C2966B8ED002A3B3D /* BackGroundImage.json */; };
 		374670C3295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374670C2295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift */; };
@@ -31,7 +31,7 @@
 		4D3033BF296596A000234166 /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3033BE296596A000234166 /* APIConfiguration.swift */; };
 		4D3033C229659A1000234166 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3033C129659A1000234166 /* APIError.swift */; };
 		4D3033C429659AB800234166 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3033C329659AB800234166 /* NetworkManager.swift */; };
-		4D3033C629659ADB00234166 /* SessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3033C529659ADB00234166 /* SessionProtocol.swift */; };
+		4D3033C629659ADB00234166 /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3033C529659ADB00234166 /* NetworkManagerProtocol.swift */; };
 		4D3033CA29668E3300234166 /* BackgroundImageDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3033C929668E3300234166 /* BackgroundImageDTO.swift */; };
 		4D3033CC29668E8600234166 /* BackgroundImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3033CB29668E8600234166 /* BackgroundImageRequest.swift */; };
 		4DF88391295D59A400B507E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88390295D59A400B507E2 /* AppDelegate.swift */; };
@@ -56,8 +56,8 @@
 
 /* Begin PBXFileReference section */
 		373D1C8F29669165002A3B3D /* NetworkServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
-		373D1C9229669228002A3B3D /* MockSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
-		373D1C9429669277002A3B3D /* MockSessionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSessionData.swift; sourceTree = "<group>"; };
+		373D1C9229669228002A3B3D /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
+		373D1C9429669277002A3B3D /* MockNetworkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkData.swift; sourceTree = "<group>"; };
 		373D1C9C2966B8ED002A3B3D /* BackGroundImage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BackGroundImage.json; sourceTree = "<group>"; };
 		374670C2295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDiaryUseCase.swift; sourceTree = "<group>"; };
 		374670C6295D6DA5004AC4B0 /* RepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryManager.swift; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 		4D3033BE296596A000234166 /* APIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
 		4D3033C129659A1000234166 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		4D3033C329659AB800234166 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		4D3033C529659ADB00234166 /* SessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionProtocol.swift; sourceTree = "<group>"; };
+		4D3033C529659ADB00234166 /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
 		4D3033C929668E3300234166 /* BackgroundImageDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageDTO.swift; sourceTree = "<group>"; };
 		4D3033CB29668E8600234166 /* BackgroundImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageRequest.swift; sourceTree = "<group>"; };
 		4DF8838D295D59A400B507E2 /* iOS-Mongsil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Mongsil.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,8 +132,8 @@
 		373D1C91296691F0002A3B3D /* TestDouble */ = {
 			isa = PBXGroup;
 			children = (
-				373D1C9229669228002A3B3D /* MockSession.swift */,
-				373D1C9429669277002A3B3D /* MockSessionData.swift */,
+				373D1C9229669228002A3B3D /* MockNetworkManager.swift */,
+				373D1C9429669277002A3B3D /* MockNetworkData.swift */,
 				373D1C9C2966B8ED002A3B3D /* BackGroundImage.json */,
 			);
 			path = TestDouble;
@@ -242,7 +242,7 @@
 		4D3033C729659AEB00234166 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				4D3033C529659ADB00234166 /* SessionProtocol.swift */,
+				4D3033C529659ADB00234166 /* NetworkManagerProtocol.swift */,
 				4D3033BC2965957700234166 /* APIRequestProtocol.swift */,
 			);
 			path = Protocol;
@@ -500,7 +500,7 @@
 				4D3033CA29668E3300234166 /* BackgroundImageDTO.swift in Sources */,
 				37B67C57296590AC00F81118 /* DefaultCommentRepositoryManager.swift in Sources */,
 				4D3033B529655D4C00234166 /* CommentEntity+CoreDataProperties.swift in Sources */,
-				4D3033C629659ADB00234166 /* SessionProtocol.swift in Sources */,
+				4D3033C629659ADB00234166 /* NetworkManagerProtocol.swift in Sources */,
 				37B67C4A2965544F00F81118 /* DefaultCommentUseCase.swift in Sources */,
 				37B67C59296591D000F81118 /* RepositoryError.swift in Sources */,
 				4D3033B229655D4C00234166 /* DiaryEntity+CoreDataClass.swift in Sources */,
@@ -515,8 +515,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				373D1C9529669277002A3B3D /* MockSessionData.swift in Sources */,
-				373D1C9329669228002A3B3D /* MockSession.swift in Sources */,
+				373D1C9529669277002A3B3D /* MockNetworkData.swift in Sources */,
+				373D1C9329669228002A3B3D /* MockNetworkManager.swift in Sources */,
 				373D1C9029669165002A3B3D /* NetworkServiceTests.swift in Sources */,
 				4DF883B7295D9EBB00B507E2 /* DefaultDiaryUseCaseTests.swift in Sources */,
 			);

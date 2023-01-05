@@ -1,5 +1,5 @@
 //
-//  MockSession.swift
+//  MockNetworkManager.swift
 //  iOS-MongsilTests
 //
 //  Created by Groot on 2023/01/05.
@@ -9,7 +9,7 @@ import Foundation
 import Combine
 @testable import iOS_Mongsil
 
-final class MockSession: SessionProtocol {
+final class MockNetworkManager: NetworkManagerProtocol {
     let isSuccess: Bool
     
     init(isSuccess: Bool) {
@@ -17,7 +17,7 @@ final class MockSession: SessionProtocol {
     }
     
     func backgroundImageDataTask(with request: iOS_Mongsil.APIRequestProtocol) -> AnyPublisher<[BackgroundImageDTO], Error> {
-        guard let data = MockSessionData(fileName: "BackGroundImage").data else {
+        guard let data = MockNetworkData(fileName: "BackGroundImage").data else {
             return Fail<[BackgroundImageDTO],Error>(error: APIError.request)
                 .eraseToAnyPublisher()
         }
