@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class NetworkManager {
+final class NetworkManager: SessionProtocol {
     func backgroundImageDataTask(with request: APIRequestProtocol) -> AnyPublisher<[BackgroundImageDTO], Error> {
         guard let url = request.url else {
             return Fail<[BackgroundImageDTO],Error>(error: APIError.request)
@@ -31,4 +31,3 @@ final class NetworkManager {
             .eraseToAnyPublisher()
     }
 }
-

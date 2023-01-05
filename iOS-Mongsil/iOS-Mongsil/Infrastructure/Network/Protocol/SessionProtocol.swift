@@ -9,5 +9,5 @@ import Foundation
 import Combine
 
 protocol SessionProtocol {
-    func dataTask(with request: APIRequestProtocol) -> AnyPublisher<[BackgroundImageDTO], Error>
+    func backgroundImageDataTask(with request: APIRequestProtocol) -> AnyPublisher<[BackgroundImageDTO], Error>
 }

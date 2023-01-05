@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		373D1C9029669165002A3B3D /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D1C8F29669165002A3B3D /* NetworkServiceTests.swift */; };
+		373D1C9329669228002A3B3D /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D1C9229669228002A3B3D /* MockSession.swift */; };
+		373D1C9529669277002A3B3D /* MockSessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D1C9429669277002A3B3D /* MockSessionData.swift */; };
+		373D1C9D2966B8ED002A3B3D /* BackGroundImage.json in Resources */ = {isa = PBXBuildFile; fileRef = 373D1C9C2966B8ED002A3B3D /* BackGroundImage.json */; };
+		373D1C9E2966B963002A3B3D /* BackGroundImage.json in Resources */ = {isa = PBXBuildFile; fileRef = 373D1C9C2966B8ED002A3B3D /* BackGroundImage.json */; };
 		374670C3295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374670C2295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift */; };
 		374670C7295D6DA5004AC4B0 /* RepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374670C6295D6DA5004AC4B0 /* RepositoryManager.swift */; };
 		37B67C482965541700F81118 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B67C472965541700F81118 /* Comment.swift */; };
@@ -50,6 +55,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		373D1C8F29669165002A3B3D /* NetworkServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
+		373D1C9229669228002A3B3D /* MockSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
+		373D1C9429669277002A3B3D /* MockSessionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSessionData.swift; sourceTree = "<group>"; };
+		373D1C9C2966B8ED002A3B3D /* BackGroundImage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BackGroundImage.json; sourceTree = "<group>"; };
 		374670C2295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDiaryUseCase.swift; sourceTree = "<group>"; };
 		374670C6295D6DA5004AC4B0 /* RepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryManager.swift; sourceTree = "<group>"; };
 		37B67C472965541700F81118 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -103,6 +112,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		373D1C8D29669165002A3B3D /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				373D1C91296691F0002A3B3D /* TestDouble */,
+				373D1C8E29669165002A3B3D /* Network */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		373D1C8E29669165002A3B3D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				373D1C8F29669165002A3B3D /* NetworkServiceTests.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		373D1C91296691F0002A3B3D /* TestDouble */ = {
+			isa = PBXGroup;
+			children = (
+				373D1C9229669228002A3B3D /* MockSession.swift */,
+				373D1C9429669277002A3B3D /* MockSessionData.swift */,
+				373D1C9C2966B8ED002A3B3D /* BackGroundImage.json */,
+			);
+			path = TestDouble;
+			sourceTree = "<group>";
+		};
 		374670C1295D6B22004AC4B0 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +357,7 @@
 		4DF883B5295D9EBB00B507E2 /* iOS-MongsilTests */ = {
 			isa = PBXGroup;
 			children = (
+				373D1C8D29669165002A3B3D /* Infrastructure */,
 				4DF883BD295D9EC300B507E2 /* Domain */,
 			);
 			path = "iOS-MongsilTests";
@@ -425,6 +462,7 @@
 			files = (
 				4DF883A0295D59A500B507E2 /* LaunchScreen.storyboard in Resources */,
 				4DF8839D295D59A500B507E2 /* Assets.xcassets in Resources */,
+				373D1C9E2966B963002A3B3D /* BackGroundImage.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +470,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				373D1C9D2966B8ED002A3B3D /* BackGroundImage.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +515,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				373D1C9529669277002A3B3D /* MockSessionData.swift in Sources */,
+				373D1C9329669228002A3B3D /* MockSession.swift in Sources */,
+				373D1C9029669165002A3B3D /* NetworkServiceTests.swift in Sources */,
 				4DF883B7295D9EBB00B507E2 /* DefaultDiaryUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
