@@ -12,8 +12,10 @@
 		373D1C9529669277002A3B3D /* MockNetworkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D1C9429669277002A3B3D /* MockNetworkData.swift */; };
 		373D1C9D2966B8ED002A3B3D /* BackGroundImage.json in Resources */ = {isa = PBXBuildFile; fileRef = 373D1C9C2966B8ED002A3B3D /* BackGroundImage.json */; };
 		373D1C9E2966B963002A3B3D /* BackGroundImage.json in Resources */ = {isa = PBXBuildFile; fileRef = 373D1C9C2966B8ED002A3B3D /* BackGroundImage.json */; };
+		373D1CA12966E860002A3B3D /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D1CA02966E860002A3B3D /* ImageCacheManager.swift */; };
 		374670C3295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374670C2295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift */; };
 		374670C7295D6DA5004AC4B0 /* RepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374670C6295D6DA5004AC4B0 /* RepositoryManager.swift */; };
+		379B0A4A2967EE5E009863F6 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B0A492967EE5E009863F6 /* ImageCache.swift */; };
 		37B67C482965541700F81118 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B67C472965541700F81118 /* Comment.swift */; };
 		37B67C4A2965544F00F81118 /* DefaultCommentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B67C492965544F00F81118 /* DefaultCommentUseCase.swift */; };
 		37B67C4F2965682F00F81118 /* CoreDataCommentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B67C4E2965682F00F81118 /* CoreDataCommentRepository.swift */; };
@@ -59,8 +61,10 @@
 		373D1C9229669228002A3B3D /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
 		373D1C9429669277002A3B3D /* MockNetworkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkData.swift; sourceTree = "<group>"; };
 		373D1C9C2966B8ED002A3B3D /* BackGroundImage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BackGroundImage.json; sourceTree = "<group>"; };
+		373D1CA02966E860002A3B3D /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		374670C2295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDiaryUseCase.swift; sourceTree = "<group>"; };
 		374670C6295D6DA5004AC4B0 /* RepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryManager.swift; sourceTree = "<group>"; };
+		379B0A492967EE5E009863F6 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		37B67C472965541700F81118 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		37B67C492965544F00F81118 /* DefaultCommentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCommentUseCase.swift; sourceTree = "<group>"; };
 		37B67C4E2965682F00F81118 /* CoreDataCommentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCommentRepository.swift; sourceTree = "<group>"; };
@@ -139,6 +143,15 @@
 			path = TestDouble;
 			sourceTree = "<group>";
 		};
+		373D1C9F2966E841002A3B3D /* ImageCacheManager */ = {
+			isa = PBXGroup;
+			children = (
+				373D1CA02966E860002A3B3D /* ImageCacheManager.swift */,
+				379B0A492967EE5E009863F6 /* ImageCache.swift */,
+			);
+			path = ImageCacheManager;
+			sourceTree = "<group>";
+		};
 		374670C1295D6B22004AC4B0 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +226,7 @@
 		4D3033B9296594F500234166 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				373D1C9F2966E841002A3B3D /* ImageCacheManager */,
 				4D3033BA2965951400234166 /* Network */,
 			);
 			path = Infrastructure;
@@ -489,8 +503,10 @@
 				4DF88391295D59A400B507E2 /* AppDelegate.swift in Sources */,
 				4D3033B829655EBE00234166 /* CoreDataManager.swift in Sources */,
 				37B67C542965906100F81118 /* DefaultDiaryRepositoryManager.swift in Sources */,
+				373D1CA12966E860002A3B3D /* ImageCacheManager.swift in Sources */,
 				4D3033BF296596A000234166 /* APIConfiguration.swift in Sources */,
 				4D1B808D2961A94B00A64940 /* Repository.swift in Sources */,
+				379B0A4A2967EE5E009863F6 /* ImageCache.swift in Sources */,
 				4D3033B329655D4C00234166 /* DiaryEntity+CoreDataProperties.swift in Sources */,
 				374670C7295D6DA5004AC4B0 /* RepositoryManager.swift in Sources */,
 				4D3033C229659A1000234166 /* APIError.swift in Sources */,
