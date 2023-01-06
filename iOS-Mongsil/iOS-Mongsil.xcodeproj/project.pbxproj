@@ -36,6 +36,8 @@
 		4D3033C629659ADB00234166 /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3033C529659ADB00234166 /* NetworkManagerProtocol.swift */; };
 		4D3033CA29668E3300234166 /* BackgroundImageDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3033C929668E3300234166 /* BackgroundImageDTO.swift */; };
 		4D3033CC29668E8600234166 /* BackgroundImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3033CB29668E8600234166 /* BackgroundImageRequest.swift */; };
+		4D3033D0296800D900234166 /* ViewSettingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3033CF296800D900234166 /* ViewSettingProtocol.swift */; };
+		4D3033D2296800F000234166 /* ViewModelBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3033D1296800F000234166 /* ViewModelBuilderProtocol.swift */; };
 		4DF88391295D59A400B507E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88390295D59A400B507E2 /* AppDelegate.swift */; };
 		4DF88393295D59A400B507E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88392295D59A400B507E2 /* SceneDelegate.swift */; };
 		4DF88395295D59A400B507E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88394295D59A400B507E2 /* ViewController.swift */; };
@@ -85,6 +87,8 @@
 		4D3033C529659ADB00234166 /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
 		4D3033C929668E3300234166 /* BackgroundImageDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageDTO.swift; sourceTree = "<group>"; };
 		4D3033CB29668E8600234166 /* BackgroundImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageRequest.swift; sourceTree = "<group>"; };
+		4D3033CF296800D900234166 /* ViewSettingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSettingProtocol.swift; sourceTree = "<group>"; };
+		4D3033D1296800F000234166 /* ViewModelBuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBuilderProtocol.swift; sourceTree = "<group>"; };
 		4DF8838D295D59A400B507E2 /* iOS-Mongsil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Mongsil.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF88390295D59A400B507E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DF88392295D59A400B507E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -270,6 +274,15 @@
 			path = DTO;
 			sourceTree = "<group>";
 		};
+		4D3033CE296800C700234166 /* BaseProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				4D3033CF296800D900234166 /* ViewSettingProtocol.swift */,
+				4D3033D1296800F000234166 /* ViewModelBuilderProtocol.swift */,
+			);
+			path = BaseProtocol;
+			sourceTree = "<group>";
+		};
 		4DF88384295D59A400B507E2 = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +357,7 @@
 		4DF883AB295D605800B507E2 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				4D3033CE296800C700234166 /* BaseProtocol */,
 				4DF88394295D59A400B507E2 /* ViewController.swift */,
 			);
 			path = Presentation;
@@ -511,6 +525,7 @@
 				374670C7295D6DA5004AC4B0 /* RepositoryManager.swift in Sources */,
 				4D3033C229659A1000234166 /* APIError.swift in Sources */,
 				4D3033C429659AB800234166 /* NetworkManager.swift in Sources */,
+				4D3033D2296800F000234166 /* ViewModelBuilderProtocol.swift in Sources */,
 				374670C3295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift in Sources */,
 				4DF88393295D59A400B507E2 /* SceneDelegate.swift in Sources */,
 				4D3033CA29668E3300234166 /* BackgroundImageDTO.swift in Sources */,
@@ -518,6 +533,7 @@
 				4D3033B529655D4C00234166 /* CommentEntity+CoreDataProperties.swift in Sources */,
 				4D3033C629659ADB00234166 /* NetworkManagerProtocol.swift in Sources */,
 				37B67C4A2965544F00F81118 /* DefaultCommentUseCase.swift in Sources */,
+				4D3033D0296800D900234166 /* ViewSettingProtocol.swift in Sources */,
 				37B67C59296591D000F81118 /* RepositoryError.swift in Sources */,
 				4D3033B229655D4C00234166 /* DiaryEntity+CoreDataClass.swift in Sources */,
 				4D3033B429655D4C00234166 /* CommentEntity+CoreDataClass.swift in Sources */,
