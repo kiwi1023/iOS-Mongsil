@@ -18,12 +18,12 @@ final class NetworkManager: NetworkManagerProtocol {
         return URLSession.shared
             .dataTaskPublisher(for: url)
             .tryMap { data, response -> Data in
-                guard
-                    let response = response as? HTTPURLResponse,
+                guard let response = response as? HTTPURLResponse,
                     response.statusCode >= 200 &&
                         response.statusCode < 300 else {
                     throw APIError.response
                 }
+                
                 return data
             }
             .decode(type: [BackgroundImageDTO].self, decoder: JSONDecoder())
