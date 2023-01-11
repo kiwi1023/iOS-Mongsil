@@ -10,7 +10,7 @@ import Combine
 @testable import iOS_Mongsil
 
 final class DefaultDiaryUseCaseTests: XCTestCase {
-   static let stubDiary = Diary(date: Date(), url: "url")
+    static let stubDiary = Diary(id: .init(), date: Date(), url: "url", squareUrl: "squareUrl")
     
     enum Result {
         case defaultResult
@@ -36,8 +36,8 @@ final class DefaultDiaryUseCaseTests: XCTestCase {
             repository.read()
         }
         
-        func delete(date: Date) -> AnyPublisher<Void, Error> {
-            repository.delete(date: date)
+        func delete(id: UUID) -> AnyPublisher<Void, Error> {
+            repository.delete(id: id)
         }
     }
     
@@ -77,7 +77,7 @@ final class DefaultDiaryUseCaseTests: XCTestCase {
             }.eraseToAnyPublisher()
         }
         
-        func delete(date: Date) -> AnyPublisher<Void, Error> {
+        func delete(id: UUID) -> AnyPublisher<Void, Error> {
             Future<Void, Error> { promise in
                 DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
                     if DefaultDiaryUseCaseTests.MockDiaryRepository.isSuccess {

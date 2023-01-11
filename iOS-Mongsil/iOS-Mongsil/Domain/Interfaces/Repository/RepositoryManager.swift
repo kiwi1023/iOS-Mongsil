@@ -13,7 +13,7 @@ protocol DiaryRepositoryManager {
     
     func create(input: Diary) -> AnyPublisher<Void, Error>
     func read() -> AnyPublisher<[Diary], Error>
-    func delete(date: Date) -> AnyPublisher<Void, Error>
+    func delete(id: UUID) -> AnyPublisher<Void, Error>
 }
 
 protocol CommentRepositoryManager {
@@ -22,5 +22,5 @@ protocol CommentRepositoryManager {
     func create(input: Comment) -> AnyPublisher<Void, Error>
     func read() -> AnyPublisher<[Comment], Error>
     func update(input: Comment) -> AnyPublisher<Void, Error>
-    func delete(date: Date) -> AnyPublisher<Void, Error>
+    func delete(id: UUID) -> AnyPublisher<Void, Error>
 }

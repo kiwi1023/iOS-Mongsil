@@ -8,6 +8,7 @@
 import Foundation
 
 struct Comment {
+    let id: UUID
     let date: Date
     var emoticon: Emoticon
     var text: String

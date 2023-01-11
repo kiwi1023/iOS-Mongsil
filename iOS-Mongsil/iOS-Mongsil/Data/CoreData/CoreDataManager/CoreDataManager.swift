@@ -25,13 +25,16 @@ final class CoreDataManager {
     
     func createDiary(input: Diary) throws {
         let diary = DiaryEntity(context: persistentContainer.viewContext)
+        diary.id = input.id
         diary.date = input.date
         diary.url = input.url
+        diary.squareUrl = input.squareUrl
         try save()
     }
     
     func createComment(input: Comment) throws {
         let comment = CommentEntity(context: persistentContainer.viewContext)
+        comment.id = input.id
         comment.date = input.date
         comment.emoticon = input.emoticon.name
         comment.text = input.text
@@ -67,17 +70,18 @@ final class CoreDataManager {
     }
     
     func updateComment(input: Comment) throws {
-        guard let commentEntity = try readCommentEntities().filter ({ $0.date == input.date }).first
+        guard let commentEntity = try readCommentEntities().filter ({ $0.id == input.id }).first
         else { throw RepositoryError.failedReading }
         
+        commentEntity.id = input.id
         commentEntity.date = input.date
         commentEntity.emoticon = input.emoticon.name
         commentEntity.text = input.text
         try save()
     }
     
-    func deleteDiary(date: Date) throws {
-        guard let diary = try readDiaryEntities().filter ({ $0.date == date }).first
+    func deleteDiary(id: UUID) throws {
+        guard let diary = try readDiaryEntities().filter ({ $0.id == id }).first
         else { throw RepositoryError.failedReading }
         
         let context = persistentContainer.viewContext
@@ -85,8 +89,8 @@ final class CoreDataManager {
         try save()
     }
     
-    func deleteComment(date: Date) throws {
-        guard let comment = try readCommentEntities().filter ({ $0.date == date }).first
+    func deleteComment(id: UUID) throws {
+        guard let comment = try readCommentEntities().filter ({ $0.id == id }).first
         else { throw RepositoryError.failedReading }
         
         let context = persistentContainer.viewContext
@@ -106,8 +110,10 @@ final class CoreDataManager {
 extension CoreDataManager {
     private func mapDiaryData(_ diaryEntities: [DiaryEntity]) -> [Diary] {
         let diaries = diaryEntities.map {
-            Diary(date: $0.date,
-                  url: $0.url)
+            Diary(id: $0.id,
+                  date: $0.date,
+                  url: $0.url,
+                  squareUrl: $0.squareUrl)
         }
         
         return diaries
@@ -115,7 +121,8 @@ extension CoreDataManager {
     
     private func mapCommentData(_ commentEntities: [CommentEntity]) -> [Comment] {
         let comments = commentEntities.map {
-            Comment(date: $0.date,
+            Comment(id: $0.id,
+                    date: $0.date,
                     emoticon: Emoticon(rawValue: $0.emoticon) ?? .notBad,
                     text: $0.text)
         }

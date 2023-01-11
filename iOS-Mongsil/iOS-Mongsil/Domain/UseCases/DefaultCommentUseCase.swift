@@ -14,7 +14,7 @@ protocol CommentUseCase {
     func create(input: Comment) -> AnyPublisher<Void, Error>
     func read() -> AnyPublisher<[Comment], Error>
     func update(input: Comment) -> AnyPublisher<Void, Error>
-    func delete(date: Date) -> AnyPublisher<Void, Error>
+    func delete(id: UUID) -> AnyPublisher<Void, Error>
 }
 
 final class DefaultCommentUseCase: CommentUseCase {
@@ -36,7 +36,7 @@ final class DefaultCommentUseCase: CommentUseCase {
         repositoryManager.update(input: input)
     }
     
-    func delete(date: Date) -> AnyPublisher<Void, Error> {
-        repositoryManager.delete(date: date)
+    func delete(id: UUID) -> AnyPublisher<Void, Error> {
+        repositoryManager.delete(id: id)
     }
 }

@@ -27,7 +27,7 @@ final class DefaultCommentRepositoryManager: CommentRepositoryManager {
         repository.update(input: input)
     }
     
-    func delete(date: Date) -> AnyPublisher<Void, Error> {
-        repository.delete(date: date)
+    func delete(id: UUID) -> AnyPublisher<Void, Error> {
+        repository.delete(id: id)
     }
 }
