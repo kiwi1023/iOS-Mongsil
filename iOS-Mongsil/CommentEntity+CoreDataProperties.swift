@@ -11,17 +11,14 @@ import CoreData
 
 
 extension CommentEntity {
-
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CommentEntity> {
         return NSFetchRequest<CommentEntity>(entityName: "CommentEntity")
     }
 
+    @NSManaged public var id: UUID
     @NSManaged public var date: Date
     @NSManaged public var text: String
     @NSManaged public var emoticon: String
-
 }
 
-extension CommentEntity : Identifiable {
-
-}
+extension CommentEntity : Identifiable { }

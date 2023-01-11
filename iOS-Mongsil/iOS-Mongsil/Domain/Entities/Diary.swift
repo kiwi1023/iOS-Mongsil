@@ -8,6 +8,8 @@
 import Foundation
 
 struct Diary {
+    let id: UUID
     let date: Date
-    var url: String
+    let url: String
+    let squareUrl: String
 }

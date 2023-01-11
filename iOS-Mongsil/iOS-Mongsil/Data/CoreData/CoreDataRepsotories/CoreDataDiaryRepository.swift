@@ -37,12 +37,12 @@ final class CoreDataDiaryRepository: DiaryRepository {
         }.eraseToAnyPublisher()
     }
     
-    func delete(date: Date) -> AnyPublisher<Void, Error> {
+    func delete(id: UUID) -> AnyPublisher<Void, Error> {
         Future<Void, Error> { [weak self] promise in
             guard let self = self else { return }
             
             do {
-                try self.coreDataManager.deleteDiary(date: date)
+                try self.coreDataManager.deleteDiary(id: id)
                 promise(.success(()))
             } catch RepositoryError.failedReading {
                 promise(.failure(RepositoryError.failedReading))

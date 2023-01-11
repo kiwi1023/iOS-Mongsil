@@ -52,12 +52,12 @@ final class CoreDataCommentRepository: CommentRepository {
         }.eraseToAnyPublisher()
     }
     
-    func delete(date: Date) -> AnyPublisher<Void, Error> {
+    func delete(id: UUID) -> AnyPublisher<Void, Error> {
         Future<Void, Error> { [weak self] promise in
             guard let self = self else { return }
             
             do {
-                try self.coreDataManager.deleteComment(date: date)
+                try self.coreDataManager.deleteComment(id: id)
                 promise(.success(()))
             } catch RepositoryError.failedReading {
                 promise(.failure(RepositoryError.failedReading))
