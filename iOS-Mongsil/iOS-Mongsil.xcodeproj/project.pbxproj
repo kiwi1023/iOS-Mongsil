@@ -36,6 +36,10 @@
 		4D3033C629659ADB00234166 /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3033C529659ADB00234166 /* NetworkManagerProtocol.swift */; };
 		4D3033CA29668E3300234166 /* BackgroundImageDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3033C929668E3300234166 /* BackgroundImageDTO.swift */; };
 		4D3033CC29668E8600234166 /* BackgroundImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3033CB29668E8600234166 /* BackgroundImageRequest.swift */; };
+		4DCAD91E29702C0F00B35717 /* NetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */; };
+		4DCAD92029702F1F00B35717 /* BackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */; };
+		4DD214C82970328600C91CFB /* DefualtNetworkUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */; };
+		4DD214CA2970340A00C91CFB /* DefaultNetworkUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD214C92970340A00C91CFB /* DefaultNetworkUseCaseTests.swift */; };
 		4DF88391295D59A400B507E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88390295D59A400B507E2 /* AppDelegate.swift */; };
 		4DF88393295D59A400B507E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88392295D59A400B507E2 /* SceneDelegate.swift */; };
 		4DF88395295D59A400B507E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88394295D59A400B507E2 /* ViewController.swift */; };
@@ -85,6 +89,10 @@
 		4D3033C529659ADB00234166 /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
 		4D3033C929668E3300234166 /* BackgroundImageDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageDTO.swift; sourceTree = "<group>"; };
 		4D3033CB29668E8600234166 /* BackgroundImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageRequest.swift; sourceTree = "<group>"; };
+		4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepository.swift; sourceTree = "<group>"; };
+		4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImage.swift; sourceTree = "<group>"; };
+		4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefualtNetworkUseCase.swift; sourceTree = "<group>"; };
+		4DD214C92970340A00C91CFB /* DefaultNetworkUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNetworkUseCaseTests.swift; sourceTree = "<group>"; };
 		4DF8838D295D59A400B507E2 /* iOS-Mongsil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Mongsil.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF88390295D59A400B507E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DF88392295D59A400B507E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +165,7 @@
 			children = (
 				374670C2295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift */,
 				37B67C492965544F00F81118 /* DefaultCommentUseCase.swift */,
+				4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -270,6 +279,22 @@
 			path = DTO;
 			sourceTree = "<group>";
 		};
+		4DCAD91B29702BDB00B35717 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4DCAD91C29702BE600B35717 /* NetworkRepository */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		4DCAD91C29702BE600B35717 /* NetworkRepository */ = {
+			isa = PBXGroup;
+			children = (
+				4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */,
+			);
+			path = NetworkRepository;
+			sourceTree = "<group>";
+		};
 		4DF88384295D59A400B507E2 = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +354,7 @@
 			children = (
 				37B67C552965908B00F81118 /* DefaultRepositoryManager */,
 				37B67C4C296567FB00F81118 /* CoreData */,
+				4DCAD91B29702BDB00B35717 /* Network */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -364,6 +390,7 @@
 			children = (
 				4DF883AE295D6A7F00B507E2 /* Diary.swift */,
 				37B67C472965541700F81118 /* Comment.swift */,
+				4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -389,6 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				4DF883B6295D9EBB00B507E2 /* DefaultDiaryUseCaseTests.swift */,
+				4DD214C92970340A00C91CFB /* DefaultNetworkUseCaseTests.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -500,6 +528,7 @@
 				4D3033BD2965957700234166 /* APIRequestProtocol.swift in Sources */,
 				4DF88395295D59A400B507E2 /* ViewController.swift in Sources */,
 				4DF883AF295D6A7F00B507E2 /* Diary.swift in Sources */,
+				4DCAD92029702F1F00B35717 /* BackgroundImage.swift in Sources */,
 				4DF88391295D59A400B507E2 /* AppDelegate.swift in Sources */,
 				4D3033B829655EBE00234166 /* CoreDataManager.swift in Sources */,
 				37B67C542965906100F81118 /* DefaultDiaryRepositoryManager.swift in Sources */,
@@ -508,11 +537,13 @@
 				4D1B808D2961A94B00A64940 /* Repository.swift in Sources */,
 				379B0A4A2967EE5E009863F6 /* ImageCache.swift in Sources */,
 				4D3033B329655D4C00234166 /* DiaryEntity+CoreDataProperties.swift in Sources */,
+				4DD214C82970328600C91CFB /* DefualtNetworkUseCase.swift in Sources */,
 				374670C7295D6DA5004AC4B0 /* RepositoryManager.swift in Sources */,
 				4D3033C229659A1000234166 /* APIError.swift in Sources */,
 				4D3033C429659AB800234166 /* NetworkManager.swift in Sources */,
 				374670C3295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift in Sources */,
 				4DF88393295D59A400B507E2 /* SceneDelegate.swift in Sources */,
+				4DCAD91E29702C0F00B35717 /* NetworkRepository.swift in Sources */,
 				4D3033CA29668E3300234166 /* BackgroundImageDTO.swift in Sources */,
 				37B67C57296590AC00F81118 /* DefaultCommentRepositoryManager.swift in Sources */,
 				4D3033B529655D4C00234166 /* CommentEntity+CoreDataProperties.swift in Sources */,
@@ -535,6 +566,7 @@
 				373D1C9329669228002A3B3D /* MockNetworkManager.swift in Sources */,
 				373D1C9029669165002A3B3D /* NetworkServiceTests.swift in Sources */,
 				4DF883B7295D9EBB00B507E2 /* DefaultDiaryUseCaseTests.swift in Sources */,
+				4DD214CA2970340A00C91CFB /* DefaultNetworkUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

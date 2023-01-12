@@ -12,3 +12,11 @@ struct BackgroundImageDTO: Decodable {
     let image: String
     let squareImage: String
 }
+
+extension BackgroundImageDTO {
+    func toDomain() -> BackgroundImage {
+        return .init(id: id,
+                     image: image,
+                     squareImage: squareImage)
+    }
+}

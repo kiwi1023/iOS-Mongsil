@@ -20,3 +20,7 @@ protocol CommentRepository {
     func update(input: Comment) -> AnyPublisher<Void, Error>
     func delete(id: UUID) -> AnyPublisher<Void, Error>
 }
+
+protocol NetworkRepository {
+    func request() -> AnyPublisher<[BackgroundImage], Error>
+}
