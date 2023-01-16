@@ -45,6 +45,7 @@
 		4D4500C5297563C1005A11B0 /* CalendarListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4500C4297563C1005A11B0 /* CalendarListViewCell.swift */; };
 		4D4500C7297563F5005A11B0 /* CalendarListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4500C6297563F5005A11B0 /* CalendarListView.swift */; };
 		4D4500C92975644D005A11B0 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4500C82975644D005A11B0 /* CalendarViewController.swift */; };
+		4D4500DE297568FB005A11B0 /* CalendarViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4500DD297568FB005A11B0 /* CalendarViewModelTests.swift */; };
 		4DCAD91E29702C0F00B35717 /* NetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */; };
 		4DCAD92029702F1F00B35717 /* BackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */; };
 		4DD214C82970328600C91CFB /* DefualtNetworkUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */; };
@@ -107,6 +108,7 @@
 		4D4500C4297563C1005A11B0 /* CalendarListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarListViewCell.swift; sourceTree = "<group>"; };
 		4D4500C6297563F5005A11B0 /* CalendarListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarListView.swift; sourceTree = "<group>"; };
 		4D4500C82975644D005A11B0 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		4D4500DD297568FB005A11B0 /* CalendarViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModelTests.swift; sourceTree = "<group>"; };
 		4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepository.swift; sourceTree = "<group>"; };
 		4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImage.swift; sourceTree = "<group>"; };
 		4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefualtNetworkUseCase.swift; sourceTree = "<group>"; };
@@ -337,6 +339,22 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		4D4500DB297568A2005A11B0 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				4D4500DC297568D1005A11B0 /* CalendarViewModel */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		4D4500DC297568D1005A11B0 /* CalendarViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4D4500DD297568FB005A11B0 /* CalendarViewModelTests.swift */,
+			);
+			path = CalendarViewModel;
+			sourceTree = "<group>";
+		};
 		4DCAD91B29702BDB00B35717 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -457,6 +475,7 @@
 		4DF883B5295D9EBB00B507E2 /* iOS-MongsilTests */ = {
 			isa = PBXGroup;
 			children = (
+				4D4500DB297568A2005A11B0 /* Presentation */,
 				373D1C8D29669165002A3B3D /* Infrastructure */,
 				4DF883BD295D9EC300B507E2 /* Domain */,
 			);
@@ -634,6 +653,7 @@
 				373D1C9329669228002A3B3D /* MockNetworkManager.swift in Sources */,
 				373D1C9029669165002A3B3D /* NetworkServiceTests.swift in Sources */,
 				4DF883B7295D9EBB00B507E2 /* DefaultDiaryUseCaseTests.swift in Sources */,
+				4D4500DE297568FB005A11B0 /* CalendarViewModelTests.swift in Sources */,
 				4DD214CA2970340A00C91CFB /* DefaultNetworkUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
