@@ -13,7 +13,7 @@ protocol DiaryUseCase {
     
     func create(input: Diary) -> AnyPublisher<Void, Error>
     func read() -> AnyPublisher<[Diary], Error>
-    func delete(id: UUID) -> AnyPublisher<Void, Error>
+    func delete(id: String) -> AnyPublisher<Void, Error>
 }
 
 final class DefaultDiaryUseCase: DiaryUseCase {
@@ -31,7 +31,7 @@ final class DefaultDiaryUseCase: DiaryUseCase {
         repositoryManager.read()
     }
     
-    func delete(id: UUID) -> AnyPublisher<Void, Error> {
+    func delete(id: String) -> AnyPublisher<Void, Error> {
         repositoryManager.delete(id: id)
     }
 }

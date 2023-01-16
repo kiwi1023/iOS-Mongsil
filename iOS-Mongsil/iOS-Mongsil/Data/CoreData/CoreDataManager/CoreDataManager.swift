@@ -80,7 +80,7 @@ final class CoreDataManager {
         try save()
     }
     
-    func deleteDiary(id: UUID) throws {
+    func deleteDiary(id: String) throws {
         guard let diary = try readDiaryEntities().filter ({ $0.id == id }).first
         else { throw RepositoryError.failedReading }
         
