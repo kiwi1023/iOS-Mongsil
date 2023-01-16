@@ -38,6 +38,7 @@
 		4D3033C629659ADB00234166 /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3033C529659ADB00234166 /* NetworkManagerProtocol.swift */; };
 		4D3033CA29668E3300234166 /* BackgroundImageDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3033C929668E3300234166 /* BackgroundImageDTO.swift */; };
 		4D3033CC29668E8600234166 /* BackgroundImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3033CB29668E8600234166 /* BackgroundImageRequest.swift */; };
+		4D4500BD29756192005A11B0 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4500BC29756192005A11B0 /* CalendarViewModel.swift */; };
 		4DCAD91E29702C0F00B35717 /* NetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */; };
 		4DCAD92029702F1F00B35717 /* BackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */; };
 		4DD214C82970328600C91CFB /* DefualtNetworkUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */; };
@@ -93,6 +94,7 @@
 		4D3033C529659ADB00234166 /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
 		4D3033C929668E3300234166 /* BackgroundImageDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageDTO.swift; sourceTree = "<group>"; };
 		4D3033CB29668E8600234166 /* BackgroundImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageRequest.swift; sourceTree = "<group>"; };
+		4D4500BC29756192005A11B0 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepository.swift; sourceTree = "<group>"; };
 		4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImage.swift; sourceTree = "<group>"; };
 		4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefualtNetworkUseCase.swift; sourceTree = "<group>"; };
@@ -292,6 +294,31 @@
 			path = DTO;
 			sourceTree = "<group>";
 		};
+		4D4500B929756151005A11B0 /* CalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				4D4500BB29756182005A11B0 /* ViewModel */,
+				4D4500BA2975617D005A11B0 /* View */,
+			);
+			path = CalendarView;
+			sourceTree = "<group>";
+		};
+		4D4500BA2975617D005A11B0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4DF88394295D59A400B507E2 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4D4500BB29756182005A11B0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4D4500BC29756192005A11B0 /* CalendarViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		4DCAD91B29702BDB00B35717 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,7 +411,7 @@
 			isa = PBXGroup;
 			children = (
 				370EF78129703D1A000DDAF5 /* BaseProtocol */,
-				4DF88394295D59A400B507E2 /* ViewController.swift */,
+				4D4500B929756151005A11B0 /* CalendarView */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -571,6 +598,7 @@
 				37B67C482965541700F81118 /* Comment.swift in Sources */,
 				4DF8839B295D59A400B507E2 /* iOS_Mongsil.xcdatamodeld in Sources */,
 				37B67C512965685100F81118 /* CoreDataDiaryRepository.swift in Sources */,
+				4D4500BD29756192005A11B0 /* CalendarViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
