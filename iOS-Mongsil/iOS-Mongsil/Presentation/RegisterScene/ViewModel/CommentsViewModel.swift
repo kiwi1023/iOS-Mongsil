@@ -15,7 +15,7 @@ final class CommentsViewModel: ViewModelBuilder {
     enum CommentsViewModelInput {
         case viewDidLoad
         case viewWillAppear
-        case didTapCreateCommentButton(Date, String)
+        case didTapCreateCommentButton(String)
         case didTapUpdateCommentButton(Int, String, Emoticon)
         case didTapDeleteCommentButton(UUID)
     }
@@ -44,15 +44,14 @@ final class CommentsViewModel: ViewModelBuilder {
     }
     
     func transform(input: AnyPublisher<Input, Never>) -> AnyPublisher<Output, Never> {
-        input
-            .sink(receiveValue: { [weak self] event in
+        input.sink(receiveValue: { [weak self] event in
             switch event {
             case .viewDidLoad:
                 self?.convertBackgroundURL()
             case .viewWillAppear:
                 self?.fetchComments()
-            case .didTapCreateCommentButton(let date, let text):
-                self?.createComment(date, text)
+            case .didTapCreateCommentButton(let text):
+                self?.createComment(text)
             case .didTapUpdateCommentButton(let index, let text, let comment):
                 self?.updateComment(index, text, comment)
             case .didTapDeleteCommentButton(let id):
@@ -88,8 +87,8 @@ final class CommentsViewModel: ViewModelBuilder {
             }).store(in: &cancellables)
     }
     
-    private func createComment(_ date: Date, _ text: String) {
-        let comment = makeComment(date: date, text: text)
+    private func createComment(_ text: String) {
+        let comment = makeComment(date: date.convertCurrenDate(), text: text)
         commentUseCase.create(input: comment)
             .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
@@ -169,5 +168,24 @@ extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "오후 hh시 mm분"
         return dateFormatter.string(from: self)
+    }
+    
+    func convertCurrenDate() -> Date {
+        let date = Date()
+        let year = Calendar.current.dateComponents([.year], from: self)
+        let month = Calendar.current.dateComponents([.month], from: self)
+        let day = Calendar.current.dateComponents([.day], from: self)
+        let hour = Calendar.current.dateComponents([.hour], from: date)
+        let minute = Calendar.current.dateComponents([.minute], from: date)
+        let second = Calendar.current.dateComponents([.second], from: date)
+        let dateComponents = DateComponents(timeZone: nil ,
+                                            year: year.year,
+                                            month: month.month,
+                                            day: day.day,
+                                            hour: hour.hour,
+                                            minute: minute.minute,
+                                            second: second.second)
+        
+        return Calendar.current.date(from: dateComponents) ?? Date()
     }
 }

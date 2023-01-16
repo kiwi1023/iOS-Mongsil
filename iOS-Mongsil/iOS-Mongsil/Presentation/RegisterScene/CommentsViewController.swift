@@ -301,7 +301,7 @@ extension CommentsViewController: CommentInputViewDelegate {
     }
     
     func didTapAddCommentButton(_ didTapAddCommentButton: String) {
-        input.send(.didTapCreateCommentButton(Date(), didTapAddCommentButton))
+        input.send(.didTapCreateCommentButton(didTapAddCommentButton))
     }
 }
 
