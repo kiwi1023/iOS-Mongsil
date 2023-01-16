@@ -126,7 +126,7 @@ final class CalendarViewController: SuperViewControllerSetting {
     }
     
     @objc private func didTapFavoriteButton() {
-//        self.navigationController?.pushViewController(FavoriteViewController(), animated: true)
+        self.navigationController?.pushViewController(FavoriteViewController(), animated: true)
     }
     
     private let listImageView: UIImageView = {
@@ -231,9 +231,7 @@ final class CalendarViewController: SuperViewControllerSetting {
             case .fetchImageData(let data):
                 self.listview.backgroundImages = data
             case .showCommentView(let randomData, let date):
-                print(randomData)
-                print(date)
-//                self.navigationController?.pushViewController(ViewController(), animated: true)
+                self.navigationController?.pushViewController(CommentsViewController(date: date, image: randomData), animated: true)
             case .fetchLastEmoticon(let emoticon):
                 self.calendarView.getEmoticon(emoticon: emoticon)
             case .fetchCommentsCount(let count):

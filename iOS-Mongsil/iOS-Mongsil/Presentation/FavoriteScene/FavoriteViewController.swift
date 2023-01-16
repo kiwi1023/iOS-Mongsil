@@ -55,8 +55,7 @@ final class FavoriteViewController: SuperViewControllerSetting {
             case .fetchFavoriteDataFailure(let error):
                 print(error)
             case .fetchCellDiaryData(let diary):
-                print(diary)
-//                self.navigationController?.pushViewController(ViewController(), animated: true)
+                self.navigationController?.pushViewController(CommentsViewController(date: diary.date, image: BackgroundImage(id: diary.id, image: diary.url, squareImage: diary.squareUrl)), animated: true)
             }
         }.store(in: &cancellables)
     }

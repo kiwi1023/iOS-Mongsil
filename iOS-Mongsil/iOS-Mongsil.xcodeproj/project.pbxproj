@@ -616,8 +616,8 @@
 			isa = PBXGroup;
 			children = (
 				370EF78129703D1A000DDAF5 /* BaseProtocol */,
-				37A276F429756EB700AF2CA0 /* FavoriteScene */,
 				37A276E129756EAE00AF2CA0 /* CalendarScene */,
+				37A276F429756EB700AF2CA0 /* FavoriteScene */,
 				370EF822297121DF000DDAF5 /* MenuScene */,
 				370EF81029703F88000DDAF5 /* EmoticonsScene */,
 				370EF81529703F88000DDAF5 /* RegisterScene */,
