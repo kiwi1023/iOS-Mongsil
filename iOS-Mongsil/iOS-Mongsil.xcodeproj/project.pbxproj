@@ -49,6 +49,9 @@
 		4D4500D02975656C005A11B0 /* FavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4500CF2975656C005A11B0 /* FavoriteViewCell.swift */; };
 		4D4500D2297565A4005A11B0 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4500D1297565A4005A11B0 /* FavoriteView.swift */; };
 		4D4500D429756618005A11B0 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4500D329756618005A11B0 /* FavoriteViewController.swift */; };
+		4D4500D6297566B4005A11B0 /* GamjaFlower-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D4500D5297566B4005A11B0 /* GamjaFlower-Regular.ttf */; };
+		4D4500D9297566DA005A11B0 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D4500D7297566DA005A11B0 /* Lato-Bold.ttf */; };
+		4D4500DA297566DA005A11B0 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D4500D8297566DA005A11B0 /* Lato-Regular.ttf */; };
 		4DCAD91E29702C0F00B35717 /* NetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */; };
 		4DCAD92029702F1F00B35717 /* BackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */; };
 		4DD214C82970328600C91CFB /* DefualtNetworkUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */; };
@@ -115,6 +118,9 @@
 		4D4500CF2975656C005A11B0 /* FavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewCell.swift; sourceTree = "<group>"; };
 		4D4500D1297565A4005A11B0 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		4D4500D329756618005A11B0 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		4D4500D5297566B4005A11B0 /* GamjaFlower-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GamjaFlower-Regular.ttf"; sourceTree = "<group>"; };
+		4D4500D7297566DA005A11B0 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		4D4500D8297566DA005A11B0 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepository.swift; sourceTree = "<group>"; };
 		4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImage.swift; sourceTree = "<group>"; };
 		4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefualtNetworkUseCase.swift; sourceTree = "<group>"; };
@@ -435,6 +441,9 @@
 		4DF883A8295D5FE100B507E2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4D4500D5297566B4005A11B0 /* GamjaFlower-Regular.ttf */,
+				4D4500D7297566DA005A11B0 /* Lato-Bold.ttf */,
+				4D4500D8297566DA005A11B0 /* Lato-Regular.ttf */,
 				4DF8839C295D59A500B507E2 /* Assets.xcassets */,
 				4DF8839E295D59A500B507E2 /* LaunchScreen.storyboard */,
 				4DF883A1295D59A500B507E2 /* Info.plist */,
@@ -598,6 +607,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DF883A0295D59A500B507E2 /* LaunchScreen.storyboard in Resources */,
+				4D4500DA297566DA005A11B0 /* Lato-Regular.ttf in Resources */,
+				4D4500D9297566DA005A11B0 /* Lato-Bold.ttf in Resources */,
+				4D4500D6297566B4005A11B0 /* GamjaFlower-Regular.ttf in Resources */,
 				4DF8839D295D59A500B507E2 /* Assets.xcassets in Resources */,
 				373D1C9E2966B963002A3B3D /* BackGroundImage.json in Resources */,
 			);
