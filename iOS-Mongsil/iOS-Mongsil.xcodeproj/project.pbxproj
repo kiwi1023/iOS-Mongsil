@@ -39,6 +39,7 @@
 		4D3033CA29668E3300234166 /* BackgroundImageDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3033C929668E3300234166 /* BackgroundImageDTO.swift */; };
 		4D3033CC29668E8600234166 /* BackgroundImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3033CB29668E8600234166 /* BackgroundImageRequest.swift */; };
 		4D4500BD29756192005A11B0 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4500BC29756192005A11B0 /* CalendarViewModel.swift */; };
+		4D4500BF29756286005A11B0 /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4500BE29756286005A11B0 /* CalendarHeaderView.swift */; };
 		4DCAD91E29702C0F00B35717 /* NetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */; };
 		4DCAD92029702F1F00B35717 /* BackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */; };
 		4DD214C82970328600C91CFB /* DefualtNetworkUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */; };
@@ -95,6 +96,7 @@
 		4D3033C929668E3300234166 /* BackgroundImageDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageDTO.swift; sourceTree = "<group>"; };
 		4D3033CB29668E8600234166 /* BackgroundImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageRequest.swift; sourceTree = "<group>"; };
 		4D4500BC29756192005A11B0 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		4D4500BE29756286005A11B0 /* CalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepository.swift; sourceTree = "<group>"; };
 		4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImage.swift; sourceTree = "<group>"; };
 		4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefualtNetworkUseCase.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 		4D4500B929756151005A11B0 /* CalendarView */ = {
 			isa = PBXGroup;
 			children = (
+				4DF88394295D59A400B507E2 /* ViewController.swift */,
 				4D4500BB29756182005A11B0 /* ViewModel */,
 				4D4500BA2975617D005A11B0 /* View */,
 			);
@@ -306,7 +309,7 @@
 		4D4500BA2975617D005A11B0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4DF88394295D59A400B507E2 /* ViewController.swift */,
+				4D4500BE29756286005A11B0 /* CalendarHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				4D3033CA29668E3300234166 /* BackgroundImageDTO.swift in Sources */,
 				37B67C57296590AC00F81118 /* DefaultCommentRepositoryManager.swift in Sources */,
 				4D3033B529655D4C00234166 /* CommentEntity+CoreDataProperties.swift in Sources */,
+				4D4500BF29756286005A11B0 /* CalendarHeaderView.swift in Sources */,
 				4D3033C629659ADB00234166 /* NetworkManagerProtocol.swift in Sources */,
 				37B67C4A2965544F00F81118 /* DefaultCommentUseCase.swift in Sources */,
 				37B67C59296591D000F81118 /* RepositoryError.swift in Sources */,
