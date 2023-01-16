@@ -37,7 +37,7 @@ final class CoreDataDiaryRepository: DiaryRepository {
         }.eraseToAnyPublisher()
     }
     
-    func delete(id: UUID) -> AnyPublisher<Void, Error> {
+    func delete(id: String) -> AnyPublisher<Void, Error> {
         Future<Void, Error> { [weak self] promise in
             guard let self = self else { return }
             

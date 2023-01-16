@@ -9,6 +9,18 @@
 /* Begin PBXBuildFile section */
 		370EF78429703D1A000DDAF5 /* ViewModelBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370EF78229703D1A000DDAF5 /* ViewModelBuilderProtocol.swift */; };
 		370EF78529703D1A000DDAF5 /* ViewSettingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370EF78329703D1A000DDAF5 /* ViewSettingProtocol.swift */; };
+		370EF81A29703F88000DDAF5 /* EmoticonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370EF81129703F88000DDAF5 /* EmoticonCollectionViewCell.swift */; };
+		370EF81B29703F88000DDAF5 /* EmoticonsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370EF81229703F88000DDAF5 /* EmoticonsViewModel.swift */; };
+		370EF81C29703F88000DDAF5 /* EmoticonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370EF81329703F88000DDAF5 /* EmoticonsView.swift */; };
+		370EF81D29703F88000DDAF5 /* EmoticonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370EF81429703F88000DDAF5 /* EmoticonsViewController.swift */; };
+		370EF81E29703F88000DDAF5 /* CommentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370EF81629703F88000DDAF5 /* CommentsViewModel.swift */; };
+		370EF81F29703F88000DDAF5 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370EF81729703F88000DDAF5 /* CommentsViewController.swift */; };
+		370EF82029703F88000DDAF5 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370EF81829703F88000DDAF5 /* CommentTableViewCell.swift */; };
+		370EF82129703F88000DDAF5 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370EF81929703F88000DDAF5 /* CommentsView.swift */; };
+		370EF82429712235000DDAF5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370EF82329712235000DDAF5 /* MenuViewController.swift */; };
+		370EF82629712248000DDAF5 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370EF82529712248000DDAF5 /* MenuViewModel.swift */; };
+		370EF82829712A81000DDAF5 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370EF82729712A81000DDAF5 /* MenuView.swift */; };
+		370EF82A297140F4000DDAF5 /* CommentInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370EF829297140F4000DDAF5 /* CommentInputView.swift */; };
 		373D1C9029669165002A3B3D /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D1C8F29669165002A3B3D /* NetworkServiceTests.swift */; };
 		373D1C9329669228002A3B3D /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D1C9229669228002A3B3D /* MockNetworkManager.swift */; };
 		373D1C9529669277002A3B3D /* MockNetworkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D1C9429669277002A3B3D /* MockNetworkData.swift */; };
@@ -17,6 +29,8 @@
 		373D1CA12966E860002A3B3D /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D1CA02966E860002A3B3D /* ImageCacheManager.swift */; };
 		374670C3295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374670C2295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift */; };
 		374670C7295D6DA5004AC4B0 /* RepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374670C6295D6DA5004AC4B0 /* RepositoryManager.swift */; };
+		374E9C572975171C007AC2DD /* CommentsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374E9C562975171C007AC2DD /* CommentsViewModelTests.swift */; };
+		374E9C59297527DF007AC2DD /* MenuViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374E9C58297527DF007AC2DD /* MenuViewModelTests.swift */; };
 		379B0A4A2967EE5E009863F6 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B0A492967EE5E009863F6 /* ImageCache.swift */; };
 		37B67C482965541700F81118 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B67C472965541700F81118 /* Comment.swift */; };
 		37B67C4A2965544F00F81118 /* DefaultCommentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B67C492965544F00F81118 /* DefaultCommentUseCase.swift */; };
@@ -80,6 +94,18 @@
 /* Begin PBXFileReference section */
 		370EF78229703D1A000DDAF5 /* ViewModelBuilderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelBuilderProtocol.swift; sourceTree = "<group>"; };
 		370EF78329703D1A000DDAF5 /* ViewSettingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewSettingProtocol.swift; sourceTree = "<group>"; };
+		370EF81129703F88000DDAF5 /* EmoticonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonCollectionViewCell.swift; sourceTree = "<group>"; };
+		370EF81229703F88000DDAF5 /* EmoticonsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonsViewModel.swift; sourceTree = "<group>"; };
+		370EF81329703F88000DDAF5 /* EmoticonsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonsView.swift; sourceTree = "<group>"; };
+		370EF81429703F88000DDAF5 /* EmoticonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonsViewController.swift; sourceTree = "<group>"; };
+		370EF81629703F88000DDAF5 /* CommentsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsViewModel.swift; sourceTree = "<group>"; };
+		370EF81729703F88000DDAF5 /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		370EF81829703F88000DDAF5 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		370EF81929703F88000DDAF5 /* CommentsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
+		370EF82329712235000DDAF5 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		370EF82529712248000DDAF5 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		370EF82729712A81000DDAF5 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		370EF829297140F4000DDAF5 /* CommentInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputView.swift; sourceTree = "<group>"; };
 		373D1C8F29669165002A3B3D /* NetworkServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		373D1C9229669228002A3B3D /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
 		373D1C9429669277002A3B3D /* MockNetworkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkData.swift; sourceTree = "<group>"; };
@@ -87,6 +113,8 @@
 		373D1CA02966E860002A3B3D /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		374670C2295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDiaryUseCase.swift; sourceTree = "<group>"; };
 		374670C6295D6DA5004AC4B0 /* RepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryManager.swift; sourceTree = "<group>"; };
+		374E9C562975171C007AC2DD /* CommentsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewModelTests.swift; sourceTree = "<group>"; };
+		374E9C58297527DF007AC2DD /* MenuViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModelTests.swift; sourceTree = "<group>"; };
 		379B0A492967EE5E009863F6 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		37B67C472965541700F81118 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		37B67C492965544F00F81118 /* DefaultCommentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCommentUseCase.swift; sourceTree = "<group>"; };
@@ -165,6 +193,39 @@
 				370EF78329703D1A000DDAF5 /* ViewSettingProtocol.swift */,
 			);
 			path = BaseProtocol;
+			sourceTree = "<group>";
+		};
+		370EF81029703F88000DDAF5 /* EmoticonsScene */ = {
+			isa = PBXGroup;
+			children = (
+				370EF81229703F88000DDAF5 /* EmoticonsViewModel.swift */,
+				370EF81429703F88000DDAF5 /* EmoticonsViewController.swift */,
+				370EF81329703F88000DDAF5 /* EmoticonsView.swift */,
+				370EF81129703F88000DDAF5 /* EmoticonCollectionViewCell.swift */,
+			);
+			path = EmoticonsScene;
+			sourceTree = "<group>";
+		};
+		370EF81529703F88000DDAF5 /* RegisterScene */ = {
+			isa = PBXGroup;
+			children = (
+				370EF81629703F88000DDAF5 /* CommentsViewModel.swift */,
+				370EF81729703F88000DDAF5 /* CommentsViewController.swift */,
+				370EF81929703F88000DDAF5 /* CommentsView.swift */,
+				370EF829297140F4000DDAF5 /* CommentInputView.swift */,
+				370EF81829703F88000DDAF5 /* CommentTableViewCell.swift */,
+			);
+			path = RegisterScene;
+			sourceTree = "<group>";
+		};
+		370EF822297121DF000DDAF5 /* MenuScene */ = {
+			isa = PBXGroup;
+			children = (
+				370EF82529712248000DDAF5 /* MenuViewModel.swift */,
+				370EF82329712235000DDAF5 /* MenuViewController.swift */,
+				370EF82729712A81000DDAF5 /* MenuView.swift */,
+			);
+			path = MenuScene;
 			sourceTree = "<group>";
 		};
 		373D1C8D29669165002A3B3D /* Infrastructure */ = {
@@ -490,9 +551,11 @@
 		4DF883AB295D605800B507E2 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				4DF88394295D59A400B507E2 /* ViewController.swift */,
+				370EF822297121DF000DDAF5 /* MenuScene */,
+				370EF81029703F88000DDAF5 /* EmoticonsScene */,
+				370EF81529703F88000DDAF5 /* RegisterScene */,
 				370EF78129703D1A000DDAF5 /* BaseProtocol */,
-				4D4500B929756151005A11B0 /* CalendarView */,
-				4D4500CA297564A6005A11B0 /* FavoriteView */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -520,7 +583,8 @@
 		4DF883B5295D9EBB00B507E2 /* iOS-MongsilTests */ = {
 			isa = PBXGroup;
 			children = (
-				4D4500E129756B3B005A11B0 /* Presentation */,
+				374E9C58297527DF007AC2DD /* MenuViewModelTests.swift */,
+				374E9C562975171C007AC2DD /* CommentsViewModelTests.swift */,
 				373D1C8D29669165002A3B3D /* Infrastructure */,
 				4DF883BD295D9EC300B507E2 /* Domain */,
 			);
@@ -649,6 +713,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				370EF81D29703F88000DDAF5 /* EmoticonsViewController.swift in Sources */,
 				37B67C4F2965682F00F81118 /* CoreDataCommentRepository.swift in Sources */,
 				4D3033CC29668E8600234166 /* BackgroundImageRequest.swift in Sources */,
 				4D3033BD2965957700234166 /* APIRequestProtocol.swift in Sources */,
@@ -669,17 +734,26 @@
 				4D4500D2297565A4005A11B0 /* FavoriteView.swift in Sources */,
 				4D1B808D2961A94B00A64940 /* Repository.swift in Sources */,
 				379B0A4A2967EE5E009863F6 /* ImageCache.swift in Sources */,
+				370EF81C29703F88000DDAF5 /* EmoticonsView.swift in Sources */,
 				4D3033B329655D4C00234166 /* DiaryEntity+CoreDataProperties.swift in Sources */,
 				4DD214C82970328600C91CFB /* DefualtNetworkUseCase.swift in Sources */,
 				374670C7295D6DA5004AC4B0 /* RepositoryManager.swift in Sources */,
 				4D3033C229659A1000234166 /* APIError.swift in Sources */,
+				370EF82A297140F4000DDAF5 /* CommentInputView.swift in Sources */,
 				4D3033C429659AB800234166 /* NetworkManager.swift in Sources */,
+				370EF82129703F88000DDAF5 /* CommentsView.swift in Sources */,
+				370EF81A29703F88000DDAF5 /* EmoticonCollectionViewCell.swift in Sources */,
 				374670C3295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift in Sources */,
+				370EF81B29703F88000DDAF5 /* EmoticonsViewModel.swift in Sources */,
 				370EF78529703D1A000DDAF5 /* ViewSettingProtocol.swift in Sources */,
 				4DF88393295D59A400B507E2 /* SceneDelegate.swift in Sources */,
+				370EF82029703F88000DDAF5 /* CommentTableViewCell.swift in Sources */,
+				370EF82629712248000DDAF5 /* MenuViewModel.swift in Sources */,
 				4DCAD91E29702C0F00B35717 /* NetworkRepository.swift in Sources */,
 				4D3033CA29668E3300234166 /* BackgroundImageDTO.swift in Sources */,
+				370EF82429712235000DDAF5 /* MenuViewController.swift in Sources */,
 				37B67C57296590AC00F81118 /* DefaultCommentRepositoryManager.swift in Sources */,
+				370EF81F29703F88000DDAF5 /* CommentsViewController.swift in Sources */,
 				4D3033B529655D4C00234166 /* CommentEntity+CoreDataProperties.swift in Sources */,
 				4D4500BF29756286005A11B0 /* CalendarHeaderView.swift in Sources */,
 				4D3033C629659ADB00234166 /* NetworkManagerProtocol.swift in Sources */,
@@ -690,7 +764,9 @@
 				4D3033B429655D4C00234166 /* CommentEntity+CoreDataClass.swift in Sources */,
 				4D4500C7297563F5005A11B0 /* CalendarListView.swift in Sources */,
 				370EF78429703D1A000DDAF5 /* ViewModelBuilderProtocol.swift in Sources */,
+				370EF82829712A81000DDAF5 /* MenuView.swift in Sources */,
 				37B67C482965541700F81118 /* Comment.swift in Sources */,
+				370EF81E29703F88000DDAF5 /* CommentsViewModel.swift in Sources */,
 				4DF8839B295D59A400B507E2 /* iOS_Mongsil.xcdatamodeld in Sources */,
 				37B67C512965685100F81118 /* CoreDataDiaryRepository.swift in Sources */,
 				4D4500BD29756192005A11B0 /* CalendarViewModel.swift in Sources */,
@@ -702,7 +778,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				373D1C9529669277002A3B3D /* MockNetworkData.swift in Sources */,
+				374E9C59297527DF007AC2DD /* MenuViewModelTests.swift in Sources */,
 				373D1C9329669228002A3B3D /* MockNetworkManager.swift in Sources */,
+				374E9C572975171C007AC2DD /* CommentsViewModelTests.swift in Sources */,
 				373D1C9029669165002A3B3D /* NetworkServiceTests.swift in Sources */,
 				4DF883B7295D9EBB00B507E2 /* DefaultDiaryUseCaseTests.swift in Sources */,
 				4D4500E429756B49005A11B0 /* CalendarViewModelTests.swift in Sources */,
@@ -853,6 +931,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T88X9NULSG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS-Mongsil/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -883,6 +962,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T88X9NULSG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS-Mongsil/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

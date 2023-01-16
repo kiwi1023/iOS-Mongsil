@@ -23,7 +23,7 @@ final class DefaultDiaryRepositoryManager: DiaryRepositoryManager {
         repository.read()
     }
     
-    func delete(id: UUID) -> AnyPublisher<Void, Error> {
+    func delete(id: String) -> AnyPublisher<Void, Error> {
         repository.delete(id: id)
     }
 }

@@ -36,7 +36,7 @@ final class DefaultDiaryUseCaseTests: XCTestCase {
             repository.read()
         }
         
-        func delete(id: UUID) -> AnyPublisher<Void, Error> {
+        func delete(id: String) -> AnyPublisher<Void, Error> {
             repository.delete(id: id)
         }
     }
@@ -77,7 +77,7 @@ final class DefaultDiaryUseCaseTests: XCTestCase {
             }.eraseToAnyPublisher()
         }
         
-        func delete(id: UUID) -> AnyPublisher<Void, Error> {
+        func delete(id: String) -> AnyPublisher<Void, Error> {
             Future<Void, Error> { promise in
                 DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
                     if DefaultDiaryUseCaseTests.MockDiaryRepository.isSuccess {
