@@ -233,7 +233,7 @@ final class CalendarViewController: SuperViewControllerSetting {
             case .showCommentView(let randomData, let date):
                 print(randomData)
                 print(date)
-                self.navigationController?.pushViewController(ViewController(), animated: true)
+//                self.navigationController?.pushViewController(ViewController(), animated: true)
             case .fetchLastEmoticon(let emoticon):
                 self.calendarView.getEmoticon(emoticon: emoticon)
             case .fetchCommentsCount(let count):
