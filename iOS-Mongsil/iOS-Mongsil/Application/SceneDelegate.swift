@@ -22,7 +22,9 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func sceneDidBecomeActive(_ scene: UIScene) { }
 
-    func sceneWillResignActive(_ scene: UIScene) { }
+    func sceneWillResignActive(_ scene: UIScene) {
+        window?.rootViewController?.view.endEditing(true)
+    }
 
     func sceneWillEnterForeground(_ scene: UIScene) { }
 

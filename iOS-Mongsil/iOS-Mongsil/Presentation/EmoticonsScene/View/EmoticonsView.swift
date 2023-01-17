@@ -35,7 +35,7 @@ final class EmoticonsView: SuperViewSetting {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .preferredFont(forTextStyle: .title1)
+        label.font = UIFont(name: "GamjaFlower-Regular", size: 26.0)
         label.text = "오늘 기분은 어때요?"
         
         return label
