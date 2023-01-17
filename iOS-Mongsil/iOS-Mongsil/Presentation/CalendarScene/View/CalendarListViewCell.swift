@@ -135,7 +135,7 @@ final class CalendarListViewCell: UICollectionViewCell {
     
     private let placeHolderImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "placeholder")
+        imageView.image = UIImage(named: "placeHolder")
         imageView.translatesAutoresizingMaskIntoConstraints=false
         
         return imageView
