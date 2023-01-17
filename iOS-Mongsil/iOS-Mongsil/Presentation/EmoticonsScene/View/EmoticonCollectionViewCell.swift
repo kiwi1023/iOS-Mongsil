@@ -19,7 +19,7 @@ final class EmoticonCollectionViewCell: UICollectionViewCell {
     private let emoticonLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .preferredFont(forTextStyle: .footnote)
+        label.font = UIFont(name: "GamjaFlower-Regular", size: 18.0)
         
         return label
     }()

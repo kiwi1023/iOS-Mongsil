@@ -39,6 +39,7 @@ final class CommentTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .systemYellow
+        label.font = UIFont(name: "NanumSeHwaCe", size: 20.0)
         
         return label
     }()
@@ -48,6 +49,7 @@ final class CommentTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.textColor = .white
+        label.font = UIFont(name: "NanumSeHwaCe", size: 20.0)
         
         return label
     }()
