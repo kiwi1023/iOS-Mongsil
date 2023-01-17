@@ -105,17 +105,13 @@ final class CommentsViewController: SuperViewControllerSetting {
         else { return }
         
         let keyboardRectangle = keyboardFrame.cgRectValue
-        UIView.animate(withDuration: 0.3,
-                       animations: { [weak self] in
-            self?.view.transform = CGAffineTransform(translationX: 0, y: -(keyboardRectangle.height + 4))
-        })
-        
+        view.frame.origin.y = -keyboardRectangle.height
         isShowKeyboard = true
     }
     
     @objc
     private func keyboardWillHide(_ notification: NSNotification) {
-        view.transform = .identity
+        view.frame.origin.y = 0
         isShowKeyboard = false
     }
     
@@ -184,19 +180,18 @@ extension CommentsViewController: UITableViewDelegate {
                    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let updateSwipeAction = UIContextualAction(style: .normal,
                                                    title: "편집",
-                                                   handler: { [weak self] _, _, completionHaldler in
+                                                   handler: { [weak self] _, _, _ in
             guard let self = self else { return }
             
             self.showCommentTextUpdateAlert(indexPath)
-            completionHaldler(false)
+            self.isShowKeyboard = true
         })
         let deleteSwipeAction = UIContextualAction(style: .normal,
                                                    title: "삭제",
-                                                   handler: { [weak self] _, _, completionHaldler in
+                                                   handler: { [weak self] _, _, _ in
             guard let self = self else { return }
             
             self.input.send(.didTapDeleteCommentButton(self.viewModel.comments[indexPath.row].id))
-            completionHaldler(false)
         })
         updateSwipeAction.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
         deleteSwipeAction.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
@@ -217,8 +212,13 @@ extension CommentsViewController: UITableViewDelegate {
                   let text = alertController.textFields?.first?.text else { return }
             
             self.input.send(.didTapUpdateCommentButton(indexPath.row, text, comment.emoticon))
+            self.isShowKeyboard = false
         }
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel) { [weak self] _ in
+            guard let self = self else { return }
+            
+            self.isShowKeyboard = false
+        }
         
         alertController.addAction(updateAction)
         alertController.addAction(cancelAction)
@@ -271,8 +271,12 @@ extension CommentsViewController: UITextViewDelegate {
 
 extension CommentsViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        guard touch.view?.isDescendant(of: commentsView) == false,
-              touch.view?.isDescendant(of: commentInputView) == false else { return false }
+        guard touch.view?.isDescendant(of: commentInputView) == false else { return false }
+        guard touch.view?.isDescendant(of: commentsView) == false else {
+            view.endEditing(true)
+            
+            return false
+        }
         guard isShowKeyboard == false else {
             view.endEditing(true)
             
