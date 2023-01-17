@@ -119,9 +119,6 @@ final class CalendarViewController: SuperViewControllerSetting {
         )
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "관심", style: .plain, target: self, action: #selector(didTapFavoriteButton))
         navigationItem.leftBarButtonItem?.setTitleTextAttributes(attributes, for: .normal)
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithTransparentBackground()
-        navigationController?.navigationBar.standardAppearance = appearance
     }
     
     @objc private func didTapSettingButton() {
