@@ -66,7 +66,7 @@ final class CalendarListViewCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate([
             commentCountLabel.heightAnchor.constraint(equalToConstant: 15),
-            commentCountLabel.widthAnchor.constraint(equalToConstant: 15),
+            commentCountLabel.widthAnchor.constraint(equalToConstant: 30),
             commentCountLabel.trailingAnchor.constraint(equalTo: backgroundImageView.trailingAnchor, constant: -20),
             commentCountLabel.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: -35)
         ])
@@ -74,7 +74,7 @@ final class CalendarListViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             commentImageView.heightAnchor.constraint(equalToConstant: 20),
             commentImageView.widthAnchor.constraint(equalToConstant: 20),
-            commentImageView.trailingAnchor.constraint(equalTo: commentCountLabel.leadingAnchor, constant: -2),
+            commentImageView.trailingAnchor.constraint(equalTo: commentCountLabel.leadingAnchor),
             commentImageView.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: -31)
         ])
     }

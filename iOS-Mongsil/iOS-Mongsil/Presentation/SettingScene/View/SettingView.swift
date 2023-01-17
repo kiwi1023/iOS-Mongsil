@@ -57,7 +57,7 @@ final class SettingView: SuperViewSetting {
     private var settingCollectionView: UICollectionView! = nil
     private let settingLayout: UICollectionViewLayout = {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 30
+        layout.minimumLineSpacing = 40
         
         return layout
     }()

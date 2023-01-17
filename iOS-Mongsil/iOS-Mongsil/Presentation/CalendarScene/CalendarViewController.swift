@@ -122,7 +122,7 @@ final class CalendarViewController: SuperViewControllerSetting {
     }
     
     @objc private func didTapSettingButton() {
-        print("설정")
+        self.navigationController?.pushViewController(SettingViewController(), animated: true)
     }
     
     @objc private func didTapFavoriteButton() {

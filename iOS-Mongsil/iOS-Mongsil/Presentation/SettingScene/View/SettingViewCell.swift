@@ -31,7 +31,7 @@ final class SettingViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             titleImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             titleImageView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
-            titleImageView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 15),
+            titleImageView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             titleImageView.widthAnchor.constraint(equalToConstant: 30)
         ])
         
@@ -45,7 +45,7 @@ final class SettingViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             chevronImage.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             chevronImage.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
-            chevronImage.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -15),
+            chevronImage.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             chevronImage.widthAnchor.constraint(equalToConstant: 30)
         ])
     }

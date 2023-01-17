@@ -74,7 +74,7 @@
 		4DD8BD87297681DE00D89546 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8BD86297681DE00D89546 /* String + Extension.swift */; };
 		4DD8BD89297681EB00D89546 /* Date + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8BD88297681EB00D89546 /* Date + Extension.swift */; };
 		4DD8BD8E2976844700D89546 /* SettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8BD8D2976844700D89546 /* SettingViewCell.swift */; };
-		4DD8BD90297688ED00D89546 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8BD8F297688ED00D89546 /* ViewController.swift */; };
+		4DD8BD90297688ED00D89546 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8BD8F297688ED00D89546 /* SettingViewController.swift */; };
 		4DD8BD9229768AEC00D89546 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8BD9129768AEC00D89546 /* SettingView.swift */; };
 		4DF88391295D59A400B507E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88390295D59A400B507E2 /* AppDelegate.swift */; };
 		4DF88393295D59A400B507E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88392295D59A400B507E2 /* SceneDelegate.swift */; };
@@ -162,7 +162,7 @@
 		4DD8BD86297681DE00D89546 /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
 		4DD8BD88297681EB00D89546 /* Date + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extension.swift"; sourceTree = "<group>"; };
 		4DD8BD8D2976844700D89546 /* SettingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewCell.swift; sourceTree = "<group>"; };
-		4DD8BD8F297688ED00D89546 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4DD8BD8F297688ED00D89546 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		4DD8BD9129768AEC00D89546 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		4DF8838D295D59A400B507E2 /* iOS-Mongsil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Mongsil.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF88390295D59A400B507E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -568,7 +568,7 @@
 		4DD8BD8A2976834900D89546 /* SettingScene */ = {
 			isa = PBXGroup;
 			children = (
-				4DD8BD8F297688ED00D89546 /* ViewController.swift */,
+				4DD8BD8F297688ED00D89546 /* SettingViewController.swift */,
 				4DD8BD8B2976837300D89546 /* View */,
 			);
 			path = SettingScene;
@@ -854,7 +854,7 @@
 				374670C3295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift in Sources */,
 				4DD8BD89297681EB00D89546 /* Date + Extension.swift in Sources */,
 				370EF81B29703F88000DDAF5 /* EmoticonsViewModel.swift in Sources */,
-				4DD8BD90297688ED00D89546 /* ViewController.swift in Sources */,
+				4DD8BD90297688ED00D89546 /* SettingViewController.swift in Sources */,
 				370EF78529703D1A000DDAF5 /* ViewSettingProtocol.swift in Sources */,
 				4DD8BD87297681DE00D89546 /* String + Extension.swift in Sources */,
 				4DF88393295D59A400B507E2 /* SceneDelegate.swift in Sources */,
