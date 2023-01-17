@@ -8,19 +8,19 @@
 import UIKit
 
 class ViewController: UIViewController {
-//    let settingViewCell = SettingViewCell()
+    let settingView = SettingView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.addSubview(settingViewCell)
-//        settingViewCell.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(settingView)
+        settingView.translatesAutoresizingMaskIntoConstraints = false
 //
-//        NSLayoutConstraint.activate([
-//            settingViewCell.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-//            settingViewCell.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-//            settingViewCell.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-//            settingViewCell.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
-//        ])
+        NSLayoutConstraint.activate([
+            settingView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            settingView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            settingView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            settingView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+        ])
         // Do any additional setup after loading the view.
     }
     

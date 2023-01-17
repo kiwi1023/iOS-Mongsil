@@ -76,7 +76,11 @@ final class SettingViewCell: UICollectionViewCell {
     }()
     
     func configure(text: String, image: String, needChevronImage: Bool) {
-     
+        titleLabel.text = text
+        titleImageView.image = UIImage(named: image)
+        if needChevronImage {
+            chevronImage.image = UIImage(named: "icCloseCopy")
+        }
     }
     
     override func prepareForReuse() {
