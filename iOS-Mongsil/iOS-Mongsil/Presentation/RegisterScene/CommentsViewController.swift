@@ -211,6 +211,7 @@ extension CommentsViewController: UITableViewDelegate {
         let alertController = UIAlertController(title: "편집할 내용을 입력하세요", message: nil, preferredStyle: .alert)
         alertController.addTextField()
         alertController.textFields?.first?.text = comment.text
+        alertController.textFields?.first?.font = UIFont(name: "GamjaFlower-Regular", size: 18.0)
         let updateAction = UIAlertAction(title: "확인", style: .default) { [weak self] _ in
             guard let self = self,
                   let text = alertController.textFields?.first?.text else { return }

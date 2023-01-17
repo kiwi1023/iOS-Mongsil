@@ -42,7 +42,7 @@ final class CommentInputView: SuperViewSetting {
         textView.textContainerInset = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         textView.textColor = .white
         textView.text = "오늘의 기분을 입력해주세요."
-        textView.font = .preferredFont(forTextStyle: .body)
+        textView.font = UIFont(name: "NanumSeHwaCe", size: 20.0)
         textView.showsVerticalScrollIndicator = false
         
         return textView
@@ -55,6 +55,7 @@ final class CommentInputView: SuperViewSetting {
         button.backgroundColor = UIColor.black.withAlphaComponent(0)
         button.setContentCompressionResistancePriority(.required, for: .horizontal)
         button.setTitle("확인", for: .normal)
+        button.titleLabel?.font = UIFont(name: "NanumSeHwaCe", size: 22.0)
         
         return button
     }()

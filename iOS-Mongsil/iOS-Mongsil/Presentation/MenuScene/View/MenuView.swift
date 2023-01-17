@@ -32,6 +32,7 @@ final class MenuView: SuperViewSetting {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "일기 숨기기"
+        label.font = UIFont(name: "GamjaFlower-Regular", size: 18.0)
         
         return label
     }()
@@ -49,6 +50,7 @@ final class MenuView: SuperViewSetting {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "공유"
+        label.font = UIFont(name: "GamjaFlower-Regular", size: 18.0)
         
         return label
     }()
@@ -68,6 +70,7 @@ final class MenuView: SuperViewSetting {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "스크랩"
+        label.font = UIFont(name: "GamjaFlower-Regular", size: 18.0)
         
         return label
     }()
@@ -85,6 +88,7 @@ final class MenuView: SuperViewSetting {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "저장"
+        label.font = UIFont(name: "GamjaFlower-Regular", size: 18.0)
         
         return label
     }()
