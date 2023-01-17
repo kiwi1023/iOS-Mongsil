@@ -71,6 +71,8 @@
 		4DCAD92029702F1F00B35717 /* BackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */; };
 		4DD214C82970328600C91CFB /* DefualtNetworkUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */; };
 		4DD214CA2970340A00C91CFB /* DefaultNetworkUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD214C92970340A00C91CFB /* DefaultNetworkUseCaseTests.swift */; };
+		4DD8BD87297681DE00D89546 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8BD86297681DE00D89546 /* String + Extension.swift */; };
+		4DD8BD89297681EB00D89546 /* Date + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8BD88297681EB00D89546 /* Date + Extension.swift */; };
 		4DF88391295D59A400B507E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88390295D59A400B507E2 /* AppDelegate.swift */; };
 		4DF88393295D59A400B507E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88392295D59A400B507E2 /* SceneDelegate.swift */; };
 		4DF8839B295D59A400B507E2 /* iOS_Mongsil.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88399295D59A400B507E2 /* iOS_Mongsil.xcdatamodeld */; };
@@ -154,6 +156,8 @@
 		4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImage.swift; sourceTree = "<group>"; };
 		4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefualtNetworkUseCase.swift; sourceTree = "<group>"; };
 		4DD214C92970340A00C91CFB /* DefaultNetworkUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNetworkUseCaseTests.swift; sourceTree = "<group>"; };
+		4DD8BD86297681DE00D89546 /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
+		4DD8BD88297681EB00D89546 /* Date + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extension.swift"; sourceTree = "<group>"; };
 		4DF8838D295D59A400B507E2 /* iOS-Mongsil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Mongsil.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF88390295D59A400B507E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DF88392295D59A400B507E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -209,6 +213,7 @@
 				370EF81729703F88000DDAF5 /* CommentsViewController.swift */,
 				37A2770A29756FFD00AF2CA0 /* View */,
 				37A2770929756FF700AF2CA0 /* ViewModel */,
+				4DD8BD84297681C900D89546 /* Common */,
 			);
 			path = RegisterScene;
 			sourceTree = "<group>";
@@ -537,6 +542,23 @@
 			path = NetworkRepository;
 			sourceTree = "<group>";
 		};
+		4DD8BD84297681C900D89546 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				4DD8BD85297681D100D89546 /* Extension */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		4DD8BD85297681D100D89546 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4DD8BD86297681DE00D89546 /* String + Extension.swift */,
+				4DD8BD88297681EB00D89546 /* Date + Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		4DF88384295D59A400B507E2 = {
 			isa = PBXGroup;
 			children = (
@@ -804,8 +826,10 @@
 				370EF82129703F88000DDAF5 /* CommentsView.swift in Sources */,
 				370EF81A29703F88000DDAF5 /* EmoticonCollectionViewCell.swift in Sources */,
 				374670C3295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift in Sources */,
+				4DD8BD89297681EB00D89546 /* Date + Extension.swift in Sources */,
 				370EF81B29703F88000DDAF5 /* EmoticonsViewModel.swift in Sources */,
 				370EF78529703D1A000DDAF5 /* ViewSettingProtocol.swift in Sources */,
+				4DD8BD87297681DE00D89546 /* String + Extension.swift in Sources */,
 				4DF88393295D59A400B507E2 /* SceneDelegate.swift in Sources */,
 				37A276F229756EAE00AF2CA0 /* CalenderView.swift in Sources */,
 				37A276F129756EAE00AF2CA0 /* CalendarListView.swift in Sources */,

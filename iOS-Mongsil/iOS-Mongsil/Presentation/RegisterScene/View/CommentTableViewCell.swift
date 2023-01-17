@@ -64,7 +64,7 @@ final class CommentTableViewCell: UITableViewCell {
     }
     
     func setupItems(comment: Comment) {
-        timeLabel.text = comment.date.convertKorean()
+        timeLabel.text = comment.date.convertKorean
         commentTextLabel.text = comment.text
         emoticonImageView.image = comment.emoticon.image
     }

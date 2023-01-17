@@ -82,7 +82,7 @@ final class CommentsViewModel: ViewModelBuilder {
             }, receiveValue: { [weak self] data in
                 guard let self = self else { return }
                 
-                self.comments = data.filter { $0.date.convertOnlyYearMonthDay() == self.date.convertOnlyYearMonthDay() }
+                self.comments = data.filter { $0.date.dayInfo == self.date.dayInfo }
                 self.output.send(.fetchDataSuccess(()))
             }).store(in: &cancellables)
     }
@@ -154,38 +154,5 @@ extension CommentsViewModel: EmocitonsViewModelDelegate {
     func didTapCollectionViewCell(_ selectedEmoticon: Emoticon, indexPath: IndexPath) {
         let selectedComment = comments[indexPath.row]
         updateComment(indexPath.row, selectedComment.text, selectedEmoticon)
-    }
-}
-
-extension Date {
-    func convertOnlyYearMonthDay() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMdd"
-        return dateFormatter.string(from: self)
-    }
-    
-    func convertKorean() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "오후 hh시 mm분"
-        return dateFormatter.string(from: self)
-    }
-    
-    func convertCurrenDate() -> Date {
-        let date = Date()
-        let year = Calendar.current.dateComponents([.year], from: self)
-        let month = Calendar.current.dateComponents([.month], from: self)
-        let day = Calendar.current.dateComponents([.day], from: self)
-        let hour = Calendar.current.dateComponents([.hour], from: date)
-        let minute = Calendar.current.dateComponents([.minute], from: date)
-        let second = Calendar.current.dateComponents([.second], from: date)
-        let dateComponents = DateComponents(timeZone: nil ,
-                                            year: year.year,
-                                            month: month.month,
-                                            day: day.day,
-                                            hour: hour.hour,
-                                            minute: minute.minute,
-                                            second: second.second)
-        
-        return Calendar.current.date(from: dateComponents) ?? Date()
     }
 }

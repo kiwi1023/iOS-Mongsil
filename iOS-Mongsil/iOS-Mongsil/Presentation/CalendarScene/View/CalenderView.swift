@@ -242,16 +242,3 @@ extension CalenderView: UICollectionViewDelegate {
         }
     }
 }
-
-extension String {
-    static var dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        formatter.timeZone = TimeZone(identifier: "UTC")
-        return formatter
-    }()
-    
-    var date: Date? {
-        return String.dateFormatter.date(from: self)
-    }
-}
