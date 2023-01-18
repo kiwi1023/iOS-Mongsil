@@ -16,7 +16,7 @@ final class CommentsViewModel: ViewModelBuilder {
         case viewDidLoad
         case viewWillAppear
         case didTapCreateCommentButton(String)
-        case didTapUpdateCommentButton(Int, String, Emoticon)
+        case didTapUpdateCommentButton(UUID, String, Emoticon)
         case didTapDeleteCommentButton(UUID)
     }
     
@@ -56,8 +56,8 @@ final class CommentsViewModel: ViewModelBuilder {
                 self?.fetchComments()
             case .didTapCreateCommentButton(let text):
                 self?.createComment(text)
-            case .didTapUpdateCommentButton(let index, let text, let comment):
-                self?.updateComment(index, text, comment)
+            case .didTapUpdateCommentButton(let id, let text, let comment):
+                self?.updateComment(id, text, comment)
             case .didTapDeleteCommentButton(let id):
                 self?.deleteComment(id)
             }
@@ -108,8 +108,9 @@ final class CommentsViewModel: ViewModelBuilder {
         Comment(id: id ?? UUID(), date: date, emoticon: emoticon ?? currentEmoticon, text: text)
     }
     
-    private func updateComment(_ index: Int, _ text: String, _ emoticon: Emoticon) {
-        var comment = comments[index]
+    private func updateComment(_ id: UUID, _ text: String, _ emoticon: Emoticon) {
+        guard var comment = comments.filter({ $0.id == id }).first else { return }
+        
         comment.text = text
         comment.emoticon = emoticon
         commentUseCase.update(input: comment)
@@ -156,6 +157,6 @@ extension CommentsViewModel: EmocitonsViewModelDelegate {
     
     func didTapCollectionViewCell(_ selectedEmoticon: Emoticon, indexPath: IndexPath) {
         let selectedComment = comments[indexPath.row]
-        updateComment(indexPath.row, selectedComment.text, selectedEmoticon)
+        updateComment(selectedComment.id, selectedComment.text, selectedEmoticon)
     }
 }

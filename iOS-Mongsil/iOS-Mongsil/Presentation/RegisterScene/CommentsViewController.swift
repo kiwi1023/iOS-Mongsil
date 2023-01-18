@@ -200,7 +200,7 @@ extension CommentsViewController: UITableViewDelegate {
             guard let self = self,
                   let text = alertController.textFields?.first?.text else { return }
             
-            self.input.send(.didTapUpdateCommentButton(indexPath.row, text, comment.emoticon))
+            self.input.send(.didTapUpdateCommentButton(comment.id, text, comment.emoticon))
             self.isShowKeyboard = false
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel) { [weak self] _ in
