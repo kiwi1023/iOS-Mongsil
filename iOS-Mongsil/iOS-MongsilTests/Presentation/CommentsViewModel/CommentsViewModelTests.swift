@@ -19,7 +19,13 @@ final class CommentsViewModelTests: XCTestCase {
     
     override func setUpWithError() throws {
         try super.setUpWithError()
-        viewModel = CommentsViewModel(date: Date(), image: .init(id: "TestImage", image: "TestImage", squareImage: "TestSquareImage"))
+        viewModel = CommentsViewModel(date: Date(),
+                                      image: .init(id: "TestImage",
+                                                   image: "TestImage",
+                                                   squareImage: "TestSquareImage"),
+                                      commentUseCase: DefaultCommentUseCase(
+                                        repositoryManager: MockCommentRepositoryManager(
+                                            repository: MockCommentRepository())))
         bindViewModel()
     }
 
@@ -40,7 +46,7 @@ final class CommentsViewModelTests: XCTestCase {
                     self.resultComments.send(self.viewModel?.comments)
                 case .postCurrentEmoticon(let emoticon):
                     self.resultEmoticon.send(emoticon)
-                case .dataBaseFailure(let error):
+                case .dataBaseFailure(_):
                     break
                 }
             }).store(in: &cancellables)
@@ -77,14 +83,14 @@ final class CommentsViewModelTests: XCTestCase {
         
         // then
         waitForExpectations(timeout: 3)
-        XCTAssertEqual(result, "Create Test Text")
+        XCTAssertEqual(result, "TestText")
     }
     
     func test_input_didTapCreateCommentButton() {
         // when
         var result: String?
         let expectation = self.expectation(description: "비동기 처리")
-        input.send(.didTapCreateCommentButton(Date(), "Create Test Text"))
+        input.send(.didTapCreateCommentButton("TestText"))
         
         // given
         resultComments.sink { comments in
@@ -94,16 +100,15 @@ final class CommentsViewModelTests: XCTestCase {
         
         // then
         waitForExpectations(timeout: 3)
-        XCTAssertEqual(result, "Create Test Text")
+        XCTAssertEqual(result, "TestText")
     }
     
     func test_input_didTapUpdateCommentButton() {
         // when
         var result: String?
         let expectation = self.expectation(description: "비동기 처리")
-        input.send(.didTapUpdateCommentButton(UUID(uuidString: "064927A3-616F-4D28-926B-9818B7A300E3")!,
-                                              Date(),
-                                              "Update Test Text"))
+        input.send(.viewWillAppear)
+        input.send(.didTapUpdateCommentButton(MockCommentRepository.stubId, "TestText", .notBad))
 
         // given
         resultComments.sink { comments in
@@ -113,14 +118,14 @@ final class CommentsViewModelTests: XCTestCase {
 
         // then
         waitForExpectations(timeout: 3)
-        XCTAssertEqual(result, "Update Test Text")
+        XCTAssertEqual(result, "TestText")
     }
     
     func test_input_didTapDeleteCommentButton() {
         // when
         var result: String?
         let expectation = self.expectation(description: "비동기 처리")
-        input.send(.didTapDeleteCommentButton(UUID(uuidString: "064927A3-616F-4D28-926B-9818B7A300E3")!))
+        input.send(.didTapDeleteCommentButton(MockCommentRepository.stubId))
                    
         // given
         resultComments.sink { comments in
@@ -130,6 +135,6 @@ final class CommentsViewModelTests: XCTestCase {
 
         // then
         waitForExpectations(timeout: 3)
-        XCTAssertEqual(result, "Create Test Text")
+        XCTAssertEqual(result, "TestText")
     }
 }

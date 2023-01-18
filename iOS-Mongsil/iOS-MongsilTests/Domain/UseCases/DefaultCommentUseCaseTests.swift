@@ -1,15 +1,15 @@
 //
-//  DefaultDiaryUseCaseTests.swift
+//  DefaultCommentUseCaseTests.swift
 //  iOS-MongsilTests
 //
-//  Created by Kiwon Song on 2022/12/29.
+//  Created by Groot on 2023/01/18.
 //
 
 import XCTest
 import Combine
 @testable import iOS_Mongsil
 
-final class DefaultDiaryUseCaseTests: XCTestCase {
+final class DefaultCommentUseCaseTests: XCTestCase {
     enum Result {
         case defaultResult
         case success
@@ -17,13 +17,13 @@ final class DefaultDiaryUseCaseTests: XCTestCase {
     }
     
     var subscriptions = Set<AnyCancellable>()
-    var defaultUseCase: DefaultDiaryUseCase? = nil
+    var defaultUseCase: CommentUseCase? = nil
     
     override func setUpWithError() throws {
         try super.setUpWithError()
-        defaultUseCase = DefaultDiaryUseCase(
-            repositoryManager: MockDiaryRepositoryManager(
-                repository: MockDiaryRepository()))
+        defaultUseCase = DefaultCommentUseCase(
+            repositoryManager: MockCommentRepositoryManager(
+                repository: MockCommentRepository()))
     }
     
     override func tearDownWithError() throws {
@@ -35,9 +35,9 @@ final class DefaultDiaryUseCaseTests: XCTestCase {
         //given, when
         let expectation = expectation(description: "비동기테스트")
         var result: Result = .defaultResult
-        MockDiaryRepository.isSuccess = true
+        MockCommentRepository.isSuccess = true
         
-        defaultUseCase?.repositoryManager.create(input: MockDiaryRepository.stubDiary)
+        defaultUseCase?.repositoryManager.create(input: MockCommentRepository.stubComment)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .failure(_):
@@ -59,9 +59,9 @@ final class DefaultDiaryUseCaseTests: XCTestCase {
         //given, when
         let expectation = expectation(description: "비동기테스트")
         var result: Result = .defaultResult
-        MockDiaryRepository.isSuccess = false
+        MockCommentRepository.isSuccess = false
         
-        defaultUseCase?.repositoryManager.create(input: MockDiaryRepository.stubDiary)
+        defaultUseCase?.repositoryManager.create(input: MockCommentRepository.stubComment)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .failure(_):
@@ -83,7 +83,7 @@ final class DefaultDiaryUseCaseTests: XCTestCase {
         //given
         let expectation = expectation(description: "비동기테스트")
         var result: String = ""
-        MockDiaryRepository.isSuccess = true
+        MockCommentRepository.isSuccess = true
         
         defaultUseCase?.repositoryManager.read()
             .sink(receiveCompletion: { completion in
@@ -94,16 +94,16 @@ final class DefaultDiaryUseCaseTests: XCTestCase {
                     print("Success")
                 }
                 expectation.fulfill()
-            }, receiveValue: { diary in
-                guard let diaryData = diary.first?.url else { return }
-                result = diaryData
+            }, receiveValue: { comments in
+                guard let commentData = comments.first?.text else { return }
+                result = commentData
             })
             .store(in: &subscriptions)
         
         wait(for: [expectation], timeout: 3)
         
         //when
-        let testResult = "TestURL"
+        let testResult = "TestText"
         
         //then
         XCTAssertEqual(testResult, result)
@@ -113,7 +113,7 @@ final class DefaultDiaryUseCaseTests: XCTestCase {
         //given
         let expectation = expectation(description: "비동기테스트")
         var result: String = ""
-        MockDiaryRepository.isSuccess = false
+        MockCommentRepository.isSuccess = false
         
         defaultUseCase?.repositoryManager.read()
             .sink(receiveCompletion: { completion in
@@ -124,16 +124,16 @@ final class DefaultDiaryUseCaseTests: XCTestCase {
                     print("Success")
                 }
                 expectation.fulfill()
-            }, receiveValue: { diary in
-                guard let diaryData = diary.first?.url else { return }
-                result = diaryData
+            }, receiveValue: { comments in
+                guard let commentData = comments.first?.text else { return }
+                result = commentData
             })
             .store(in: &subscriptions)
         
         wait(for: [expectation], timeout: 3)
         
         //when
-        let testResult = "TestURL"
+        let testResult = "TestText"
         
         //then
         XCTAssertNotEqual(testResult, result)
