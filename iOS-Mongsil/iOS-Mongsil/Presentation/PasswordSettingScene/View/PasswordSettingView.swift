@@ -83,7 +83,7 @@ final class PasswordSettingView: SuperViewSetting {
         return label
     }()
     
-    func setToggleImage() {
+    private func setToggleImage() {
         if isTappedPasswordButton {
             toggleButton.setImage(UIImage(named: "icSwitchOn"), for: .normal)
             self.editPasswordLabel.alpha = 1.0
@@ -93,7 +93,7 @@ final class PasswordSettingView: SuperViewSetting {
         }
     }
     
-    @objc func setIsTappedPasswordButton() {
+    @objc private func setIsTappedPasswordButton() {
         setToggleButton()
         
         if isTappedPasswordButton == true {
@@ -101,7 +101,7 @@ final class PasswordSettingView: SuperViewSetting {
         }
     }
     
-    func setNotification() {
+    private func setNotification() {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(setToggleButton),
@@ -110,7 +110,7 @@ final class PasswordSettingView: SuperViewSetting {
         )
     }
     
-    @objc func setToggleButton() {
+    @objc private func setToggleButton() {
         isTappedPasswordButton.toggle()
         isTappedPasswordButton ? toggleButton.setImage(UIImage(named: "icSwitchOn"), for: .normal) : toggleButton.setImage(UIImage(named: "icSwitchOff"), for: .normal)
         UserDefaults.standard.set(self.isTappedPasswordButton, forKey: "toggleState")

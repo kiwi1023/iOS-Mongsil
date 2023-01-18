@@ -9,7 +9,7 @@ import UIKit
 
 class PassWordSettingViewController: SuperViewControllerSetting, PassswordSettingViewDelegate {
     
-    let passwordSettingView = PasswordSettingView()
+    private let passwordSettingView = PasswordSettingView()
     
     override func setupDefault() {
         let attributes = [ NSAttributedString.Key.font: UIFont(name: "GamjaFlower-Regular", size: 23)!, NSAttributedString.Key.foregroundColor: UIColor(named: "weekdayColor") as Any]
