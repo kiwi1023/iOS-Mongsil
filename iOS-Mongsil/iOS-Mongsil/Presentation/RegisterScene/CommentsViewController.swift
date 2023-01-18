@@ -182,8 +182,8 @@ extension CommentsViewController: UITableViewDelegate {
             
             self.input.send(.didTapDeleteCommentButton(self.viewModel.comments[indexPath.row].id))
         })
-        updateSwipeAction.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
-        deleteSwipeAction.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
+        updateSwipeAction.backgroundColor = UIColor.black.withAlphaComponent(0)
+        deleteSwipeAction.backgroundColor = UIColor.black.withAlphaComponent(0)
         let configuration = UISwipeActionsConfiguration(actions: [updateSwipeAction, deleteSwipeAction])
         configuration.performsFirstActionWithFullSwipe = false
         
