@@ -45,6 +45,8 @@
 		37A276FE29756EB800AF2CA0 /* FavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A276FA29756EB700AF2CA0 /* FavoriteViewCell.swift */; };
 		37A2770229756ECF00AF2CA0 /* CalendarViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A2770129756ECF00AF2CA0 /* CalendarViewModelTests.swift */; };
 		37A2770C29757F2D00AF2CA0 /* NanumSeHwaCe.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37A2770B29757CDF00AF2CA0 /* NanumSeHwaCe.ttf */; };
+		37A277112976ADF300AF2CA0 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A277102976ADF300AF2CA0 /* NotificationViewController.swift */; };
+		37A277142976B11000AF2CA0 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A277132976B11000AF2CA0 /* NotificationView.swift */; };
 		37B67C482965541700F81118 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B67C472965541700F81118 /* Comment.swift */; };
 		37B67C4A2965544F00F81118 /* DefaultCommentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B67C492965544F00F81118 /* DefaultCommentUseCase.swift */; };
 		37B67C4F2965682F00F81118 /* CoreDataCommentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B67C4E2965682F00F81118 /* CoreDataCommentRepository.swift */; };
@@ -134,6 +136,8 @@
 		37A276FA29756EB700AF2CA0 /* FavoriteViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewCell.swift; sourceTree = "<group>"; };
 		37A2770129756ECF00AF2CA0 /* CalendarViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewModelTests.swift; sourceTree = "<group>"; };
 		37A2770B29757CDF00AF2CA0 /* NanumSeHwaCe.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSeHwaCe.ttf; sourceTree = "<group>"; };
+		37A277102976ADF300AF2CA0 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		37A277132976B11000AF2CA0 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		37B67C472965541700F81118 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		37B67C492965544F00F81118 /* DefaultCommentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCommentUseCase.swift; sourceTree = "<group>"; };
 		37B67C4E2965682F00F81118 /* CoreDataCommentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCommentRepository.swift; sourceTree = "<group>"; };
@@ -442,6 +446,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		37A2770F2976ADD800AF2CA0 /* NotificationScene */ = {
+			isa = PBXGroup;
+			children = (
+				37A277102976ADF300AF2CA0 /* NotificationViewController.swift */,
+				37A277122976B04300AF2CA0 /* View */,
+			);
+			path = NotificationScene;
+			sourceTree = "<group>";
+		};
+		37A277122976B04300AF2CA0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				37A277132976B11000AF2CA0 /* NotificationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		37B67C4C296567FB00F81118 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -664,6 +685,7 @@
 		4DF883AB295D605800B507E2 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				37A2770F2976ADD800AF2CA0 /* NotificationScene */,
 				370EF78129703D1A000DDAF5 /* BaseProtocol */,
 				37A276E129756EAE00AF2CA0 /* CalendarScene */,
 				37A276F429756EB700AF2CA0 /* FavoriteScene */,
@@ -844,6 +866,7 @@
 				373D1CA12966E860002A3B3D /* ImageCacheManager.swift in Sources */,
 				4D3033BF296596A000234166 /* APIConfiguration.swift in Sources */,
 				37A276EF29756EAE00AF2CA0 /* CalendarViewCell.swift in Sources */,
+				37A277112976ADF300AF2CA0 /* NotificationViewController.swift in Sources */,
 				4D1B808D2961A94B00A64940 /* Repository.swift in Sources */,
 				379B0A4A2967EE5E009863F6 /* ImageCache.swift in Sources */,
 				370EF81C29703F88000DDAF5 /* EmoticonsView.swift in Sources */,
@@ -871,6 +894,7 @@
 				370EF82429712235000DDAF5 /* MenuViewController.swift in Sources */,
 				37B67C57296590AC00F81118 /* DefaultCommentRepositoryManager.swift in Sources */,
 				4DD8BD9229768AEC00D89546 /* SettingView.swift in Sources */,
+				37A277142976B11000AF2CA0 /* NotificationView.swift in Sources */,
 				37A276FC29756EB800AF2CA0 /* FavoriteViewController.swift in Sources */,
 				370EF81F29703F88000DDAF5 /* CommentsViewController.swift in Sources */,
 				4D3033B529655D4C00234166 /* CommentEntity+CoreDataProperties.swift in Sources */,
@@ -1058,7 +1082,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1090,7 +1114,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
