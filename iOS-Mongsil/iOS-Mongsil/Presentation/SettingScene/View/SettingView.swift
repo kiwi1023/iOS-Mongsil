@@ -99,8 +99,10 @@ extension SettingView: UICollectionViewDataSource {
         return SettingViewTitleData.allCases.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SettingViewCell", for: indexPath) as! SettingViewCell
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SettingViewCell",
+                                                      for: indexPath) as! SettingViewCell
         let settingData = SettingViewTitleData.allCases[indexPath.item]
         cell.configure(text: settingData.title, image: settingData.image, needChevronImage: settingData.needChavronImage)
         
@@ -109,7 +111,9 @@ extension SettingView: UICollectionViewDataSource {
 }
 
 extension SettingView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = self.settingCollectionView.bounds.width
         let height = self.settingCollectionView.bounds.height * 0.05
         let itemSize = CGSize(width: width, height: height)

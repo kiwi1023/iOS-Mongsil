@@ -28,9 +28,7 @@ final class CommentsViewModel: ViewModelBuilder {
     }
     
     private var cancellables = Set<AnyCancellable>()
-    private let commentUseCase = DefaultCommentUseCase(
-        repositoryManager: DefaultCommentRepositoryManager(
-            repository: CoreDataCommentRepository()))
+    private let commentUseCase: CommentUseCase
     private let output = PassthroughSubject<Output, Never>()
     private (set) var comments = [Comment]()
     private var currentEmoticon: Emoticon = .notBad
@@ -38,9 +36,15 @@ final class CommentsViewModel: ViewModelBuilder {
     let date: Date
     let image: BackgroundImage
     
-    init(date: Date, image: BackgroundImage) {
+    init(date: Date,
+         image: BackgroundImage,
+         commentUseCase: CommentUseCase = DefaultCommentUseCase(
+            repositoryManager: DefaultCommentRepositoryManager(
+                repository: CoreDataCommentRepository())))
+    {
         self.date = date
         self.image = image
+        self.commentUseCase = commentUseCase
     }
     
     func transform(input: AnyPublisher<Input, Never>) -> AnyPublisher<Output, Never> {
@@ -108,7 +112,6 @@ final class CommentsViewModel: ViewModelBuilder {
         var comment = comments[index]
         comment.text = text
         comment.emoticon = emoticon
-        
         commentUseCase.update(input: comment)
             .sink(receiveCompletion: { [weak self] completion in
                 switch completion {

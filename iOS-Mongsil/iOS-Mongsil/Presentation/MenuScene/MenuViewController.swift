@@ -45,8 +45,7 @@ final class MenuViewController: SuperViewControllerSetting {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         bindViewModel()
         setupTapGesture()
-        menuView.delegate = self
-        menuView.setupIsHiddenComments(isHiddenComments)
+        setupMenuView()
     }
     
     private func bindViewModel() {
@@ -93,13 +92,17 @@ final class MenuViewController: SuperViewControllerSetting {
         view.addGestureRecognizer(tapGesture)
     }
     
+    private func setupMenuView() {
+        menuView.delegate = self
+        menuView.setupIsHiddenComments(isHiddenComments)
+    }
+    
     override func addUIComponents() {
         view.addSubview(menuView)
     }
     
     override func setupLayout() {
-        NSLayoutConstraint.activate(
-            [
+        NSLayoutConstraint.activate([
                 menuView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
                 menuView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
                 menuView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -113,6 +116,7 @@ extension MenuViewController: UIGestureRecognizerDelegate {
         guard touch.view?.isDescendant(of: menuView) == false else { return false }
         
         dismiss(animated: true)
+        
         return true
     }
 }
@@ -145,8 +149,11 @@ extension MenuViewController: MenuViewDelegate {
     }
     
     @objc
-    private func alertSavedImage(image: UIImage, didFinishSavingWithError error: Error, contextInfo: UnsafeMutableRawPointer?) {
-        let alertController = UIAlertController(title: "완료", message: "이미지가 갤러리에 저장되었습니다.", preferredStyle: .alert)
+    private func alertSavedImage(image: UIImage,
+                                 didFinishSavingWithError error: Error,
+                                 contextInfo: UnsafeMutableRawPointer?) {
+        let alertController = UIAlertController(title: "완료", message: "이미지가 갤러리에 저장되었습니다.",
+                                                preferredStyle: .alert)
         alertController.addAction(.init(title: "확인", style: .cancel))
         present(alertController, animated: true)
     }

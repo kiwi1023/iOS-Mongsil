@@ -24,8 +24,21 @@ final class FavoriteView: SuperViewSetting {
     }
     var didTapcell: ((Diary) -> ())?
     
+    func getDiaryData(data: [Diary]) {
+        self.diaries = data
+    }
+    
     override func setupDefault() {
         configurationCollectionView()
+    }
+    
+    private func configurationCollectionView() {
+        favoriteCollectionView = UICollectionView(frame: .zero, collectionViewLayout: favoriteLayout)
+        favoriteCollectionView.dataSource = self
+        favoriteCollectionView.delegate = self
+        favoriteCollectionView.register(FavoriteViewCell.self, forCellWithReuseIdentifier: "FavoriteCell")
+        favoriteCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        favoriteCollectionView.showsVerticalScrollIndicator = false
     }
     
     override func addUIComponents() {
@@ -40,19 +53,6 @@ final class FavoriteView: SuperViewSetting {
             favoriteCollectionView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-    
-    private func configurationCollectionView() {
-        favoriteCollectionView = UICollectionView(frame: .zero, collectionViewLayout: favoriteLayout)
-        favoriteCollectionView.dataSource = self
-        favoriteCollectionView.delegate = self
-        favoriteCollectionView.register(FavoriteViewCell.self, forCellWithReuseIdentifier: "FavoriteCell")
-        favoriteCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        favoriteCollectionView.showsVerticalScrollIndicator = false
-    }
-    
-    func getDiaryData(data: [Diary]) {
-        self.diaries = data
-    }
 }
 
 extension FavoriteView: UICollectionViewDataSource {
@@ -61,8 +61,8 @@ extension FavoriteView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteCell", for: indexPath)
-        as! FavoriteViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteCell",
+                                                      for: indexPath) as! FavoriteViewCell
         
         cell.configure(data: diaries[indexPath.item])
         return cell
@@ -70,8 +70,9 @@ extension FavoriteView: UICollectionViewDataSource {
 }
 
 extension FavoriteView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = self.favoriteCollectionView.bounds.width * 1/3
         let height = width
         let itemSize = CGSize(width: width, height: height)

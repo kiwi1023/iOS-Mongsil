@@ -25,7 +25,8 @@ final class CommentsView: SuperViewSetting {
     }()
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder :)")
+        super.init(coder: NSCoder())
+        debugPrint("CommentsView Initialize error")
     }
     
     required init() {
@@ -45,7 +46,8 @@ final class CommentsView: SuperViewSetting {
         DispatchQueue.main.async { [weak self] in
             guard dataCount > 1 else { return }
             
-            self?.commentsTableView.scrollToRow(at: IndexPath(row: dataCount - 1, section: 0), at: .bottom, animated: false)
+            self?.commentsTableView.scrollToRow(at: IndexPath(row: dataCount - 1, section: 0),
+                                                at: .bottom, animated: false)
         }
     }
     

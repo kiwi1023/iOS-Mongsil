@@ -59,6 +59,12 @@ final class NotificationView: SuperViewSetting {
         setupIsHiddenView()
     }
     
+    private func setupIsHiddenView() {
+        selectTimeLabel.isHidden = !isOnNotification
+        chevronButton.isHidden = !isOnNotification
+        toggleButton.setImage(buttonImage, for: .normal)
+    }
+    
     @objc
     private func didTapToggleButton() {
         delegate?.didTapToggleButton()
@@ -67,12 +73,6 @@ final class NotificationView: SuperViewSetting {
     @objc
     private func didTapChevronButton() {
         delegate?.didTapChevronButton()
-    }
-    
-    private func setupIsHiddenView() {
-        selectTimeLabel.isHidden = !isOnNotification
-        chevronButton.isHidden = !isOnNotification
-        toggleButton.setImage(buttonImage, for: .normal)
     }
     
     override func addUIComponents() {

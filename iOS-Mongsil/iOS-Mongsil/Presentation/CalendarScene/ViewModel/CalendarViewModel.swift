@@ -24,7 +24,10 @@ final class CalendarViewModel: ViewModelBuilder {
     private (set) var backgroundImage = [BackgroundImage]()
     private var randomNumber: Int?
     
-    init(networkUseCase: DefaultNetworkUseCase = DefaultNetworkUseCase(networkRepository: BackgroundNetworkImageRepository(networkManager: NetworkManager()))) {
+    init(networkUseCase: DefaultNetworkUseCase = DefaultNetworkUseCase(
+        networkRepository: BackgroundNetworkImageRepository(
+            networkManager: NetworkManager())))
+    {
         self.networkUseCase = networkUseCase
     }
     

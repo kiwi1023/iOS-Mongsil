@@ -40,7 +40,6 @@ final class CalenderView: SuperViewSetting, MonthViewDelegate {
     override func setupDefault() {
         translatesAutoresizingMaskIntoConstraints = false
         setupCalendarData()
-        
         calendarHeaderView.delegate = self
         calendarCollectionView.delegate = self
         calendarCollectionView.dataSource = self
@@ -126,6 +125,7 @@ extension CalenderView: UICollectionViewDataSource {
         if indexPath.item + 1 == todaysDate && currentYear == presentYear && currentMonthIndex == presentMonthIndex {
             cell.todayImageView.isHidden = false
         }
+        
         distributeDay(indexPath: indexPath, cell: cell)
         
         return cell
@@ -167,8 +167,8 @@ extension CalenderView: UICollectionViewDataSource {
             let previousMonth = currentMonthIndex < 2 ? 12 : currentMonthIndex - 1
             let previousMonthDate = numOfDaysInMonth[previousMonth - 1]
             let date = previousMonthDate - (firstWeekDayOfMonth - 2) + indexPath.row
-            
             loadCellEmoticon?([previousYear, previousMonth, date])
+            
             if let emoticon = emoticon {
                 cell.emoticonImageView.image = UIImage(named: emoticon)
                 cell.emoticonImageView.alpha = 0.3
@@ -178,8 +178,8 @@ extension CalenderView: UICollectionViewDataSource {
             let date = indexPath.item - numOfDaysInMonth[currentMonthIndex - 1] - (firstWeekDayOfMonth - 2)
             let nextYear = currentMonthIndex == 12 ? currentYear + 1 : currentYear
             let nextMonth = currentMonthIndex == 12 ? 1 : currentMonthIndex + 1
-           
             loadCellEmoticon?([nextYear, nextMonth, date])
+            
             if let emoticon = emoticon {
                 cell.emoticonImageView.image = UIImage(named: emoticon)
                 cell.emoticonImageView.alpha = 0.3
@@ -187,6 +187,7 @@ extension CalenderView: UICollectionViewDataSource {
             }
         } else {
             loadCellEmoticon?([currentYear, currentMonthIndex, indexPath.item + 2 - (getFirstWeekDay())])
+            
             if let emoticon = emoticon {
                 cell.emoticonImageView.image = UIImage(named: emoticon)
             }
@@ -198,16 +199,15 @@ extension CalenderView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width / 7 - 7
         let height: CGFloat = width
+        
         return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        
         return 7
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        
         return 7
     }
 }
@@ -222,13 +222,11 @@ extension CalenderView: UICollectionViewDelegate {
                 let previousMonth = currentMonthIndex < 2 ? 12 : currentMonthIndex - 1
                 let previousMonthDate = numOfDaysInMonth[previousMonth - 1]
                 let date = previousMonthDate - (firstWeekDayOfMonth - 2) + indexPath.row
-                
                 didTapcell?([previousYear, previousMonth, date])
             } else if indexPath.item > numOfDaysInMonth[currentMonthIndex - 1] + (firstWeekDayOfMonth - 2) {
                 let date = indexPath.item - numOfDaysInMonth[currentMonthIndex - 1] - (firstWeekDayOfMonth - 2)
                 let nextYear = currentMonthIndex == 12 ? currentYear + 1 : currentYear
                 let nextMonth = currentMonthIndex == 12 ? 1 : currentMonthIndex + 1
-                
                 didTapcell?([nextYear, nextMonth, date])
             } else {
                 didTapcell?([currentYear, currentMonthIndex, indexPath.item + 2 - (getFirstWeekDay())])

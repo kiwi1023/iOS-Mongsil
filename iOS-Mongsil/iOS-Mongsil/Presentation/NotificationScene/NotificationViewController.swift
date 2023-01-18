@@ -50,12 +50,12 @@ final class NotificationViewController: SuperViewControllerSetting {
 
 extension NotificationViewController: NotificationViewDelegate {
     func didTapToggleButton() {
-        requestNotificationAuthorization()
         if isOnNotification == true {
             isOnNotification = false
             notificationCenter.removeAllPendingNotificationRequests()
         } else if isOnNotification == false {
             isOnNotification = true
+            requestNotificationAuthorization()
             registerNotifocation()
         }
         

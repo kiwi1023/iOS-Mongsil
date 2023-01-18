@@ -12,7 +12,6 @@ final class CalendarViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemBackground
-        
         addUIComponents()
         setupLayout()
     }
@@ -35,21 +34,18 @@ final class CalendarViewCell: UICollectionViewCell {
             todayImageView.heightAnchor.constraint(equalToConstant: 10),
             todayImageView.widthAnchor.constraint(equalToConstant: 10)
         ])
-        
         NSLayoutConstraint.activate([
             dayLabel.topAnchor.constraint(equalTo: todayImageView.bottomAnchor),
             dayLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             dayLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             dayLabel.bottomAnchor.constraint(equalTo:self.bottomAnchor)
         ])
-        
         NSLayoutConstraint.activate([
             selectedStateImageView.topAnchor.constraint(equalTo: todayImageView.bottomAnchor, constant: -5),
             selectedStateImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: -5),
             selectedStateImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 5),
             selectedStateImageView.bottomAnchor.constraint(equalTo:self.bottomAnchor, constant: 5)
         ])
-        
         NSLayoutConstraint.activate([
             emoticonImageView.topAnchor.constraint(equalTo: todayImageView.bottomAnchor),
             emoticonImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),

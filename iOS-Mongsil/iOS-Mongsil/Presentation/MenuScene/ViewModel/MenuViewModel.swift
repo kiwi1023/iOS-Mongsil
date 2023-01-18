@@ -25,16 +25,20 @@ final class MenuViewModel: ViewModelBuilder {
     
     private let output = PassthroughSubject<Output, Never>()
     private var cancellables = Set<AnyCancellable>()
-    private let diaryUsecase = DefaultDiaryUseCase(
-        repositoryManager: DefaultDiaryRepositoryManager(
-            repository: CoreDataDiaryRepository()))
+    private let diaryUsecase: DiaryUseCase
     private let date: Date
     private let image: BackgroundImage
     private var isScrappad: Bool?
     
-    init(date: Date, image: BackgroundImage) {
+    init(date: Date,
+         image: BackgroundImage,
+         diaryUseCase: DiaryUseCase = DefaultDiaryUseCase(
+            repositoryManager: DefaultDiaryRepositoryManager(
+                repository: CoreDataDiaryRepository())))
+    {
         self.date = date
         self.image = image
+        self.diaryUsecase = diaryUseCase
     }
     
     func transform(input: AnyPublisher<MenuViewModelInput, Never>) -> AnyPublisher<MenuViewModelOutput, Never> {
@@ -56,19 +60,19 @@ final class MenuViewModel: ViewModelBuilder {
     private func fetchDiary() {
         diaryUsecase.read()
             .sink(receiveCompletion: { completion in
-            switch completion {
-            case .failure(let error):
-                self.output.send(.dataBaseFailure(error))
-            case .finished:
-                break
-            }
-        }, receiveValue: { [weak self] data in
-            guard let self = self else { return }
-            
-            let filterResult = data.filter { $0.id == self.image.id }.count > 0
-            self.isScrappad = filterResult
-            self.output.send(.postIsScrappedBackgorund(filterResult))
-        }).store(in: &cancellables)
+                switch completion {
+                case .failure(let error):
+                    self.output.send(.dataBaseFailure(error))
+                case .finished:
+                    break
+                }
+            }, receiveValue: { [weak self] data in
+                guard let self = self else { return }
+                
+                let filterResult = data.filter { $0.id == self.image.id }.count > 0
+                self.isScrappad = filterResult
+                self.output.send(.postIsScrappedBackgorund(filterResult))
+            }).store(in: &cancellables)
     }
     
     private func convertBackgroundURL() {
@@ -99,7 +103,7 @@ final class MenuViewModel: ViewModelBuilder {
     }
     
     private func makeDiary() -> Diary? {
-        return Diary(id: image.id, date: date, url: image.image, squareUrl: image.squareImage)
+        Diary(id: image.id, date: date, url: image.image, squareUrl: image.squareImage)
     }
     
     private func deleteDiary() {

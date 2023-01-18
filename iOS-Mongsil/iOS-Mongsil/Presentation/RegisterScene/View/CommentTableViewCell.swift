@@ -62,7 +62,8 @@ final class CommentTableViewCell: UITableViewCell {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: NSCoder())
+        debugPrint("CommentTableViewCell Initialize error")
     }
     
     func setupItems(comment: Comment) {
@@ -87,15 +88,13 @@ final class CommentTableViewCell: UITableViewCell {
     }
     
     private func setupLayout() {
-        NSLayoutConstraint.activate(
-            [
+        NSLayoutConstraint.activate([
                 mainStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
                 mainStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
                 mainStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
                 mainStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             ])
-        NSLayoutConstraint.activate(
-            [
+        NSLayoutConstraint.activate([
                 verticalStackView.widthAnchor.constraint(equalTo: mainStackView.widthAnchor, multiplier: 0.85)
             ])
     }
