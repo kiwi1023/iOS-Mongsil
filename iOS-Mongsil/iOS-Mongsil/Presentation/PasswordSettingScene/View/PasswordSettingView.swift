@@ -13,11 +13,12 @@ protocol PassswordSettingViewDelegate: AnyObject {
 
 final class PasswordSettingView: SuperViewSetting {
     
-    private var isTappedPasswordButton = false
+    private var isTappedPasswordButton = UserDefaults.standard.bool(forKey: "toggleState")
     weak var delegate: PassswordSettingViewDelegate?
     
     override func setupDefault() {
         editPasswordLabel.alpha = 0
+        setToggleImage()
         toggleButton.addTarget(self, action: #selector(setIsTappedPasswordButton), for: .touchDown)
         setNotification()
     }
@@ -67,7 +68,6 @@ final class PasswordSettingView: SuperViewSetting {
     private let toggleButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "icSwitchOff"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         
         return button
@@ -82,6 +82,16 @@ final class PasswordSettingView: SuperViewSetting {
         
         return label
     }()
+    
+    func setToggleImage() {
+        if isTappedPasswordButton {
+            toggleButton.setImage(UIImage(named: "icSwitchOn"), for: .normal)
+            self.editPasswordLabel.alpha = 1.0
+        } else {
+            toggleButton.setImage(UIImage(named: "icSwitchOff"), for: .normal)
+            self.editPasswordLabel.alpha = 0.0
+        }
+    }
     
     @objc func setIsTappedPasswordButton() {
         setToggleButton()
@@ -103,6 +113,7 @@ final class PasswordSettingView: SuperViewSetting {
     @objc func setToggleButton() {
         isTappedPasswordButton.toggle()
         isTappedPasswordButton ? toggleButton.setImage(UIImage(named: "icSwitchOn"), for: .normal) : toggleButton.setImage(UIImage(named: "icSwitchOff"), for: .normal)
+        UserDefaults.standard.set(self.isTappedPasswordButton, forKey: "toggleState")
         
         if isTappedPasswordButton {
             UIView.animate(withDuration: 0.2, delay: 0.0,

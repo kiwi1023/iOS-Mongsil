@@ -28,8 +28,8 @@ class PasswordViewController: SuperViewControllerSetting, PasswordViewDelegate {
     }
     
     func didTapCloseButton() {
-        NotificationCenter.default.post(name: Notification.Name("SetToggle"),
-                                        object: self)
+//        NotificationCenter.default.post(name: Notification.Name("SetToggle"),
+//                                        object: self)
         dismiss(animated: true)
     }
 }
