@@ -25,25 +25,6 @@ final class FavoriteViewController: SuperViewControllerSetting {
         }
     }
     
-    override func addUIComponents() {
-        view.addSubview(favoriteView)
-    }
-    
-    override func setupLayout() {
-        NSLayoutConstraint.activate([
-            favoriteView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            favoriteView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            favoriteView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            favoriteView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
-        ])
-    }
-    
-    private func setNavigationBar() {
-        let attributes = [ NSAttributedString.Key.font: UIFont(name: "GamjaFlower-Regular", size: 23)!, NSAttributedString.Key.foregroundColor: UIColor(named: "weekdayColor") as Any]
-        navigationController?.navigationBar.titleTextAttributes = attributes
-        navigationItem.title = "관심"
-    }
-    
     private func bind() {
         let output = viewModel.transform(input: input.eraseToAnyPublisher())
         output.sink { [weak self] event in
@@ -58,6 +39,25 @@ final class FavoriteViewController: SuperViewControllerSetting {
                 self.navigationController?.pushViewController(CommentsViewController(date: diary.date, image: BackgroundImage(id: diary.id, image: diary.url, squareImage: diary.squareUrl)), animated: true)
             }
         }.store(in: &cancellables)
+    }
+    
+    private func setNavigationBar() {
+        let attributes = [ NSAttributedString.Key.font: UIFont(name: "GamjaFlower-Regular", size: 23)!, NSAttributedString.Key.foregroundColor: UIColor(named: "weekdayColor") as Any]
+        navigationController?.navigationBar.titleTextAttributes = attributes
+        navigationItem.title = "관심"
+    }
+    
+    override func addUIComponents() {
+        view.addSubview(favoriteView)
+    }
+    
+    override func setupLayout() {
+        NSLayoutConstraint.activate([
+            favoriteView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            favoriteView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            favoriteView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            favoriteView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+        ])
     }
 }
 

@@ -117,8 +117,16 @@ final class MenuView: SuperViewSetting {
     
     private func setIsShowCommentsItems() {
         isHiddenComments.toggle()
-        isHiddenComments ? isShowCommentsButton.setImage(UIImage(named: "icViewOn"), for: .normal) : isShowCommentsButton.setImage(UIImage(named: "icViewOff"), for: .normal)
+        isHiddenComments ? setupIsShowCommentsButtonImageViewOn() : setupIsShowCommentsButtonImageViewOff()
         isShowCommentsLabel.text = isHiddenComments ? "일기 보이기" : "일기 숨기기"
+    }
+    
+    private func setupIsShowCommentsButtonImageViewOn() {
+        isShowCommentsButton.setImage(UIImage(named: "icViewOn"), for: .normal)
+    }
+    
+    private func setupIsShowCommentsButtonImageViewOff() {
+        isShowCommentsButton.setImage(UIImage(named: "icViewOff"), for: .normal)
     }
     
     @objc
@@ -133,8 +141,16 @@ final class MenuView: SuperViewSetting {
     }
     
     func setIsScrappedCommentItems() {
-        isScrappedBackground ? scrapImageButton.setImage(UIImage(named: "icLikeSel"), for: .normal) : scrapImageButton.setImage(UIImage(named: "icLike"), for: .normal)
+        isScrappedBackground ? setupscrapImageButtonImageLikeSel() : setupscrapImageButtonImageLike()
         isScrappedBackground.toggle()
+    }
+    
+    private func setupscrapImageButtonImageLikeSel() {
+        scrapImageButton.setImage(UIImage(named: "icLikeSel"), for: .normal)
+    }
+    
+    private func setupscrapImageButtonImageLike() {
+        scrapImageButton.setImage(UIImage(named: "icLike"), for: .normal)
     }
     
     @objc
@@ -154,16 +170,14 @@ final class MenuView: SuperViewSetting {
     }
     
     override func setupLayout() {
-        NSLayoutConstraint.activate(
-            [
+        NSLayoutConstraint.activate([
                 isShowCommentsButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 45),
                 isShowCommentsButton.bottomAnchor.constraint(equalTo: isShowCommentsLabel.topAnchor),
                 isShowCommentsButton.heightAnchor.constraint(equalToConstant: 30),
                 isShowCommentsLabel.centerXAnchor.constraint(equalTo: isShowCommentsButton.centerXAnchor),
                 isShowCommentsLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
             ])
-        NSLayoutConstraint.activate(
-            [
+        NSLayoutConstraint.activate([
                 shareButton.trailingAnchor.constraint(equalTo: scrapImageButton.leadingAnchor, constant: -25),
                 shareButton.bottomAnchor.constraint(equalTo: shareLabel.topAnchor),
                 shareButton.heightAnchor.constraint(equalToConstant: 30),
@@ -171,16 +185,14 @@ final class MenuView: SuperViewSetting {
                 shareLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
                 
             ])
-        NSLayoutConstraint.activate(
-            [
+        NSLayoutConstraint.activate([
                 scrapImageButton.trailingAnchor.constraint(equalTo: downloadImageButton.leadingAnchor, constant: -25),
                 scrapImageButton.bottomAnchor.constraint(equalTo: scrapImageLabel.topAnchor),
                 scrapImageButton.heightAnchor.constraint(equalToConstant: 30),
                 scrapImageLabel.centerXAnchor.constraint(equalTo: scrapImageButton.centerXAnchor),
                 scrapImageLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
             ])
-        NSLayoutConstraint.activate(
-            [
+        NSLayoutConstraint.activate([
                 downloadImageButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
                 downloadImageButton.bottomAnchor.constraint(equalTo: downloadImageLabel.topAnchor),
                 downloadImageButton.heightAnchor.constraint(equalToConstant: 30),

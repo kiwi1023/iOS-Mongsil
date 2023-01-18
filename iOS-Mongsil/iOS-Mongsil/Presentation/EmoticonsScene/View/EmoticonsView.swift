@@ -45,14 +45,16 @@ final class EmoticonsView: SuperViewSetting {
         let flowLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(EmoticonCollectionViewCell.self, forCellWithReuseIdentifier: "EmoticonCollectionViewCell")
+        collectionView.register(EmoticonCollectionViewCell.self,
+                                forCellWithReuseIdentifier: "EmoticonCollectionViewCell")
         collectionView.showsVerticalScrollIndicator = false
         
         return collectionView
     }()
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder :)")
+        super.init(coder: NSCoder())
+        debugPrint("EmoticonsView Initialize error")
     }
     
     required init() {
@@ -76,7 +78,6 @@ final class EmoticonsView: SuperViewSetting {
     
     override func setupDefault() {
         backgroundColor = UIColor.black.withAlphaComponent(0)
-        translatesAutoresizingMaskIntoConstraints = false
         closeButton.addTarget(self, action: #selector(didTapCloseButton), for: .touchDown)
     }
     
@@ -87,14 +88,12 @@ final class EmoticonsView: SuperViewSetting {
     }
     
     override func setupLayout() {
-        NSLayoutConstraint.activate(
-            [
+        NSLayoutConstraint.activate([
                 closeButton.topAnchor.constraint(equalTo: topAnchor),
                 closeButton.trailingAnchor.constraint(equalTo: trailingAnchor)
             ])
         
-        NSLayoutConstraint.activate(
-            [
+        NSLayoutConstraint.activate([
                 mainStackView.topAnchor.constraint(equalTo: closeButton.bottomAnchor, constant: 30),
                 mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
                 mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor),

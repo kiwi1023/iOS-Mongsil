@@ -34,6 +34,7 @@ final class EmoticonsViewController: SuperViewControllerSetting {
     }
     
     override func setupLayout() {
+        emoticonsView.setupCollectionViewLayout(createLayout())
         NSLayoutConstraint.activate(
             [
                 emoticonsView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
@@ -41,8 +42,6 @@ final class EmoticonsViewController: SuperViewControllerSetting {
                 emoticonsView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30),
                 emoticonsView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
             ])
-        
-        emoticonsView.setupCollectionViewLayout(createLayout())
     }
     
     private func createLayout() -> UICollectionViewCompositionalLayout {

@@ -706,9 +706,9 @@
 		4DF883AB295D605800B507E2 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				370EF78129703D1A000DDAF5 /* BaseProtocol */,
 				37A277192976DE3B00AF2CA0 /* DatePickerScene */,
 				37A2770F2976ADD800AF2CA0 /* NotificationScene */,
-				370EF78129703D1A000DDAF5 /* BaseProtocol */,
 				37A276E129756EAE00AF2CA0 /* CalendarScene */,
 				37A276F429756EB700AF2CA0 /* FavoriteScene */,
 				370EF822297121DF000DDAF5 /* MenuScene */,

@@ -48,6 +48,7 @@ final class FavoriteViewModel: ViewModelBuilder {
         diaryUseCase.read()
             .sink(receiveCompletion: { [weak self] completion in
                 guard let self = self else {return }
+                
                 switch completion {
                 case .failure(let error):
                     self.output.send(.fetchFavoriteDataFailure(error))

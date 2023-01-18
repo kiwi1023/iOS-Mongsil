@@ -11,74 +11,6 @@ import Combine
 final class CalendarListViewCell: UICollectionViewCell {
     private var cancellables = Set<AnyCancellable>()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = .systemBackground
-        addUIComponents()
-        setupLayout()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: NSCoder())
-        debugPrint("ProductListViewController Initialize error")
-    }
-    
-    private func addUIComponents() {
-        addSubview(placeHolderImageView)
-        addSubview(backgroundImageView)
-        addSubview(dayLabel)
-        addSubview(yearMonthStackView)
-        addSubview(commentImageView)
-        addSubview(commentCountLabel)
-        [yearLabel, monthLabel].forEach {
-            yearMonthStackView.addArrangedSubview($0)
-        }
-    }
-    
-    private func setupLayout() {
-        NSLayoutConstraint.activate([
-            backgroundImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            backgroundImageView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-            backgroundImageView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
-            backgroundImageView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -7)
-        ])
-        
-        NSLayoutConstraint.activate([
-            placeHolderImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            placeHolderImageView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-            placeHolderImageView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
-            placeHolderImageView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -7)
-        ])
-        
-        NSLayoutConstraint.activate([
-            dayLabel.heightAnchor.constraint(equalToConstant: 40),
-            dayLabel.widthAnchor.constraint(equalToConstant: 50),
-            dayLabel.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor, constant: 14),
-            dayLabel.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: -30)
-        ])
-        
-        NSLayoutConstraint.activate([
-            yearMonthStackView.heightAnchor.constraint(equalToConstant: 40),
-            yearMonthStackView.widthAnchor.constraint(equalToConstant: 90),
-            yearMonthStackView.leadingAnchor.constraint(equalTo: dayLabel.trailingAnchor, constant: 5),
-            yearMonthStackView.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: -30)
-        ])
-        
-        NSLayoutConstraint.activate([
-            commentCountLabel.heightAnchor.constraint(equalToConstant: 15),
-            commentCountLabel.widthAnchor.constraint(equalToConstant: 30),
-            commentCountLabel.trailingAnchor.constraint(equalTo: backgroundImageView.trailingAnchor, constant: -20),
-            commentCountLabel.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: -35)
-        ])
-        
-        NSLayoutConstraint.activate([
-            commentImageView.heightAnchor.constraint(equalToConstant: 20),
-            commentImageView.widthAnchor.constraint(equalToConstant: 20),
-            commentImageView.trailingAnchor.constraint(equalTo: commentCountLabel.leadingAnchor),
-            commentImageView.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: -31)
-        ])
-    }
-    
     private let backgroundImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
@@ -151,6 +83,27 @@ final class CalendarListViewCell: UICollectionViewCell {
         return label
     }()
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = .systemBackground
+        addUIComponents()
+        setupLayout()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: NSCoder())
+        debugPrint("CalendarListViewCell Initialize error")
+    }
+    
+    override func prepareForReuse() {
+        backgroundImageView.image = nil
+        commentCountLabel.text = nil
+        yearLabel.text = nil
+        monthLabel.text = nil
+        dayLabel.text = nil
+        cancellables.removeAll()
+    }
+    
     func configure(data: BackgroundImage, count: Int, year: Int, month: String, day: Int) {
         guard let url = URL(string: data.squareImage) else { return }
         
@@ -172,13 +125,60 @@ final class CalendarListViewCell: UICollectionViewCell {
         self.dayLabel.text = "\(day)"
     }
     
-    override func prepareForReuse() {
-        backgroundImageView.image = nil
-        commentCountLabel.text = nil
-        yearLabel.text = nil
-        monthLabel.text = nil
-        dayLabel.text = nil
-        cancellables.removeAll()
+    private func addUIComponents() {
+        addSubview(placeHolderImageView)
+        addSubview(backgroundImageView)
+        addSubview(dayLabel)
+        addSubview(yearMonthStackView)
+        addSubview(commentImageView)
+        addSubview(commentCountLabel)
+        [yearLabel, monthLabel].forEach {
+            yearMonthStackView.addArrangedSubview($0)
+        }
+    }
+    
+    private func setupLayout() {
+        NSLayoutConstraint.activate([
+            backgroundImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            backgroundImageView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+            backgroundImageView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+            backgroundImageView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -7)
+        ])
+        
+        NSLayoutConstraint.activate([
+            placeHolderImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            placeHolderImageView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+            placeHolderImageView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+            placeHolderImageView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -7)
+        ])
+        
+        NSLayoutConstraint.activate([
+            dayLabel.heightAnchor.constraint(equalToConstant: 40),
+            dayLabel.widthAnchor.constraint(equalToConstant: 50),
+            dayLabel.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor, constant: 14),
+            dayLabel.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: -30)
+        ])
+        
+        NSLayoutConstraint.activate([
+            yearMonthStackView.heightAnchor.constraint(equalToConstant: 40),
+            yearMonthStackView.widthAnchor.constraint(equalToConstant: 90),
+            yearMonthStackView.leadingAnchor.constraint(equalTo: dayLabel.trailingAnchor, constant: 5),
+            yearMonthStackView.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: -30)
+        ])
+        
+        NSLayoutConstraint.activate([
+            commentCountLabel.heightAnchor.constraint(equalToConstant: 15),
+            commentCountLabel.widthAnchor.constraint(equalToConstant: 30),
+            commentCountLabel.trailingAnchor.constraint(equalTo: backgroundImageView.trailingAnchor, constant: -20),
+            commentCountLabel.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: -35)
+        ])
+        
+        NSLayoutConstraint.activate([
+            commentImageView.heightAnchor.constraint(equalToConstant: 20),
+            commentImageView.widthAnchor.constraint(equalToConstant: 20),
+            commentImageView.trailingAnchor.constraint(equalTo: commentCountLabel.leadingAnchor),
+            commentImageView.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: -31)
+        ])
     }
 }
 

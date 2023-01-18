@@ -32,7 +32,8 @@ final class EmoticonCollectionViewCell: UICollectionViewCell {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: NSCoder())
+        debugPrint("EmoticonCollectionViewCell Initialize error")
     }
     
     func setupItem(emoticon: Emoticon) {
@@ -53,14 +54,12 @@ final class EmoticonCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupLayout() {
-        NSLayoutConstraint.activate(
-            [
+        NSLayoutConstraint.activate([
                 emoticonImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
                 emoticonImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -10),
                 emoticonImageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.5)
             ])
-        NSLayoutConstraint.activate(
-            [
+        NSLayoutConstraint.activate([
                 emoticonLabel.topAnchor.constraint(equalTo: emoticonImageView.bottomAnchor, constant: 4),
                 emoticonLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
             ])

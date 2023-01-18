@@ -22,12 +22,34 @@ final class CalendarListView: SuperViewSetting {
         }
     }
     
-    private let calendarListCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()
-    )
+    private let calendarListCollectionView = UICollectionView(frame: .zero,
+                                                              collectionViewLayout: UICollectionViewFlowLayout())
+    
+    func getCommentsCount(count: Int) {
+        self.commentsCount = count
+    }
     
     override func setupDefault() {
         configurationCollectionView()
         setupCalendarData()
+    }
+    
+    private func configurationCollectionView() {
+        calendarListCollectionView.dataSource = self
+        calendarListCollectionView.delegate = self
+        calendarListCollectionView.register(CalendarListViewCell.self, forCellWithReuseIdentifier: "ListCell")
+        calendarListCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        calendarListCollectionView.showsVerticalScrollIndicator = false
+    }
+    
+    private func setupCalendarData() {
+        currentMonthIndex = Calendar.current.component(.month, from: Date())
+        currentYear = Calendar.current.component(.year, from: Date())
+        todaysDate = Calendar.current.component(.day, from: Date())
+        
+        if currentMonthIndex == 2 && currentYear % 4 == 0 {
+            numOfDaysInMonth[currentMonthIndex - 1] = 29
+        }
     }
     
     override func addUIComponents() {
@@ -42,28 +64,6 @@ final class CalendarListView: SuperViewSetting {
             calendarListCollectionView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-    
-    private func configurationCollectionView() {
-        calendarListCollectionView.dataSource = self
-        calendarListCollectionView.delegate = self
-        calendarListCollectionView.register(CalendarListViewCell.self, forCellWithReuseIdentifier: "ListCell")
-        calendarListCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        calendarListCollectionView.showsVerticalScrollIndicator = false
-    }
-    
-    func getCommentsCount(count: Int) {
-        self.commentsCount = count
-    }
-    
-    private func setupCalendarData() {
-        currentMonthIndex = Calendar.current.component(.month, from: Date())
-        currentYear = Calendar.current.component(.year, from: Date())
-        todaysDate = Calendar.current.component(.day, from: Date())
-        
-        if currentMonthIndex == 2 && currentYear % 4 == 0 {
-            numOfDaysInMonth[currentMonthIndex - 1] = 29
-        }
-    }
 }
 
 extension CalendarListView: UICollectionViewDataSource {
@@ -71,9 +71,10 @@ extension CalendarListView: UICollectionViewDataSource {
         return backgroundImages.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ListCell", for: indexPath)
-        as! CalendarListViewCell
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ListCell",
+                                                      for: indexPath) as! CalendarListViewCell
         var year = currentYear
         var day = todaysDate - indexPath.item
         var month = currentMonthIndex - 1
@@ -85,8 +86,12 @@ extension CalendarListView: UICollectionViewDataSource {
             let previousYear = currentMonthIndex < 2 ? currentYear - 1 : currentYear
             year = previousYear
         }
+        
         loadCommentsCount?([year, month + 1, day])
-        cell.configure(data: backgroundImages[indexPath.row], count: commentsCount, year: year, month:  monthsArray[month], day: day)
+        cell.configure(data: backgroundImages[indexPath.row],
+                       count: commentsCount,
+                       year: year,
+                       month:  monthsArray[month], day: day)
         
         return cell
     }
@@ -94,7 +99,9 @@ extension CalendarListView: UICollectionViewDataSource {
 }
 
 extension CalendarListView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let width = self.calendarListCollectionView.bounds.width
         let height = self.calendarListCollectionView.bounds.height * 0.5

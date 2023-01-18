@@ -127,21 +127,15 @@ final class CommentsViewController: SuperViewControllerSetting {
     }
     
     override func setupLayout() {
-        NSLayoutConstraint.activate(
-            [
-                commentsView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,
-                                                      constant: 8),
-                commentsView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,
-                                                       constant: -8),
+        NSLayoutConstraint.activate([
+                commentsView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+                commentsView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
                 commentsView.bottomAnchor.constraint(equalTo: commentInputView.topAnchor, constant: -4),
                 commentsView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3)
             ])
-        NSLayoutConstraint.activate(
-            [
-                commentInputView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,
-                                                          constant: 8),
-                commentInputView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,
-                                                           constant: -8),
+        NSLayoutConstraint.activate([
+                commentInputView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+                commentInputView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
                 commentInputView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
             ])
     }
@@ -168,8 +162,7 @@ extension CommentsViewController: UITableViewDataSource {
     private func didTapCellEmoticon(sender : UITapGestureRecognizer) {
         let tapLocation = sender.location(in: commentsView.tableView)
         let indexPath = commentsView.tableView.indexPathForRow(at: tapLocation)
-        let viewController = EmoticonsViewController(viewModelDelegate: viewModel.self,
-                                                     indexPath: indexPath)
+        let viewController = EmoticonsViewController(viewModelDelegate: viewModel.self, indexPath: indexPath)
         viewController.modalPresentationStyle = .fullScreen
         present(viewController, animated: true)
     }
@@ -178,17 +171,13 @@ extension CommentsViewController: UITableViewDataSource {
 extension CommentsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let updateSwipeAction = UIContextualAction(style: .normal,
-                                                   title: "편집",
-                                                   handler: { [weak self] _, _, _ in
+        let updateSwipeAction = UIContextualAction(style: .normal, title: "편집", handler: { [weak self] _, _, _ in
             guard let self = self else { return }
             
             self.showCommentTextUpdateAlert(indexPath)
             self.isShowKeyboard = true
         })
-        let deleteSwipeAction = UIContextualAction(style: .normal,
-                                                   title: "삭제",
-                                                   handler: { [weak self] _, _, _ in
+        let deleteSwipeAction = UIContextualAction(style: .normal, title: "삭제", handler: { [weak self] _, _, _ in
             guard let self = self else { return }
             
             self.input.send(.didTapDeleteCommentButton(self.viewModel.comments[indexPath.row].id))
@@ -219,7 +208,6 @@ extension CommentsViewController: UITableViewDelegate {
             
             self.isShowKeyboard = false
         }
-        
         alertController.addAction(updateAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true)

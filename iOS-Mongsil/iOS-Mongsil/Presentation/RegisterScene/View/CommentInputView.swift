@@ -118,8 +118,7 @@ final class CommentInputView: SuperViewSetting {
                 horizontalStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
                 horizontalStackView.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
-        NSLayoutConstraint.activate(
-            [
+        NSLayoutConstraint.activate([
                 commentTextView.widthAnchor.constraint(equalTo: horizontalStackView.widthAnchor, multiplier: 0.75)
             ])
     }
