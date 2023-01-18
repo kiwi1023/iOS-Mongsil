@@ -49,6 +49,9 @@
 		37A277142976B11000AF2CA0 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A277132976B11000AF2CA0 /* NotificationView.swift */; };
 		37A277182976D0DA00AF2CA0 /* DatePickerViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A277172976D0DA00AF2CA0 /* DatePickerViewContoller.swift */; };
 		37A2771C2976DE5500AF2CA0 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A2771B2976DE5500AF2CA0 /* DatePickerView.swift */; };
+		37A2771E29781BC800AF2CA0 /* MockDiaryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A2771D29781BC800AF2CA0 /* MockDiaryRepository.swift */; };
+		37A2772029781BFA00AF2CA0 /* MockCommentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A2771F29781BFA00AF2CA0 /* MockCommentRepository.swift */; };
+		37A277222978205300AF2CA0 /* DefaultCommentUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A277212978205300AF2CA0 /* DefaultCommentUseCaseTests.swift */; };
 		37B67C482965541700F81118 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B67C472965541700F81118 /* Comment.swift */; };
 		37B67C4A2965544F00F81118 /* DefaultCommentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B67C492965544F00F81118 /* DefaultCommentUseCase.swift */; };
 		37B67C4F2965682F00F81118 /* CoreDataCommentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B67C4E2965682F00F81118 /* CoreDataCommentRepository.swift */; };
@@ -142,6 +145,9 @@
 		37A277132976B11000AF2CA0 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		37A277172976D0DA00AF2CA0 /* DatePickerViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewContoller.swift; sourceTree = "<group>"; };
 		37A2771B2976DE5500AF2CA0 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
+		37A2771D29781BC800AF2CA0 /* MockDiaryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDiaryRepository.swift; sourceTree = "<group>"; };
+		37A2771F29781BFA00AF2CA0 /* MockCommentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCommentRepository.swift; sourceTree = "<group>"; };
+		37A277212978205300AF2CA0 /* DefaultCommentUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCommentUseCaseTests.swift; sourceTree = "<group>"; };
 		37B67C472965541700F81118 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		37B67C492965544F00F81118 /* DefaultCommentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCommentUseCase.swift; sourceTree = "<group>"; };
 		37B67C4E2965682F00F81118 /* CoreDataCommentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCommentRepository.swift; sourceTree = "<group>"; };
@@ -247,7 +253,6 @@
 		373D1C8D29669165002A3B3D /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
-				373D1C91296691F0002A3B3D /* TestDouble */,
 				373D1C8E29669165002A3B3D /* Network */,
 			);
 			path = Infrastructure;
@@ -259,16 +264,6 @@
 				373D1C8F29669165002A3B3D /* NetworkServiceTests.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		373D1C91296691F0002A3B3D /* TestDouble */ = {
-			isa = PBXGroup;
-			children = (
-				373D1C9229669228002A3B3D /* MockNetworkManager.swift */,
-				373D1C9429669277002A3B3D /* MockNetworkData.swift */,
-				373D1C9C2966B8ED002A3B3D /* BackGroundImage.json */,
-			);
-			path = TestDouble;
 			sourceTree = "<group>";
 		};
 		373D1C9F2966E841002A3B3D /* ImageCacheManager */ = {
@@ -482,6 +477,18 @@
 				37A2771B2976DE5500AF2CA0 /* DatePickerView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		37A2772329782D3300AF2CA0 /* TestDouble */ = {
+			isa = PBXGroup;
+			children = (
+				373D1C9229669228002A3B3D /* MockNetworkManager.swift */,
+				373D1C9429669277002A3B3D /* MockNetworkData.swift */,
+				373D1C9C2966B8ED002A3B3D /* BackGroundImage.json */,
+				37A2771D29781BC800AF2CA0 /* MockDiaryRepository.swift */,
+				37A2771F29781BFA00AF2CA0 /* MockCommentRepository.swift */,
+			);
+			path = TestDouble;
 			sourceTree = "<group>";
 		};
 		37B67C4C296567FB00F81118 /* CoreData */ = {
@@ -742,6 +749,7 @@
 		4DF883B5295D9EBB00B507E2 /* iOS-MongsilTests */ = {
 			isa = PBXGroup;
 			children = (
+				37A2772329782D3300AF2CA0 /* TestDouble */,
 				37A276FF29756ECF00AF2CA0 /* Presentation */,
 				373D1C8D29669165002A3B3D /* Infrastructure */,
 				4DF883BD295D9EC300B507E2 /* Domain */,
@@ -760,6 +768,7 @@
 		4DF883BE295D9ECA00B507E2 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				37A277212978205300AF2CA0 /* DefaultCommentUseCaseTests.swift */,
 				4DF883B6295D9EBB00B507E2 /* DefaultDiaryUseCaseTests.swift */,
 				4DD214C92970340A00C91CFB /* DefaultNetworkUseCaseTests.swift */,
 			);
@@ -948,6 +957,9 @@
 				374E9C59297527DF007AC2DD /* MenuViewModelTests.swift in Sources */,
 				373D1C9329669228002A3B3D /* MockNetworkManager.swift in Sources */,
 				374E9C572975171C007AC2DD /* CommentsViewModelTests.swift in Sources */,
+				37A2771E29781BC800AF2CA0 /* MockDiaryRepository.swift in Sources */,
+				37A277222978205300AF2CA0 /* DefaultCommentUseCaseTests.swift in Sources */,
+				37A2772029781BFA00AF2CA0 /* MockCommentRepository.swift in Sources */,
 				37A2770229756ECF00AF2CA0 /* CalendarViewModelTests.swift in Sources */,
 				373D1C9029669165002A3B3D /* NetworkServiceTests.swift in Sources */,
 				4DF883B7295D9EBB00B507E2 /* DefaultDiaryUseCaseTests.swift in Sources */,

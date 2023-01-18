@@ -10,8 +10,6 @@ import Combine
 @testable import iOS_Mongsil
 
 final class DefaultDiaryUseCaseTests: XCTestCase {
-    static let stubDiary = Diary(id: .init(), date: Date(), url: "url", squareUrl: "squareUrl")
-    
     enum Result {
         case defaultResult
         case success
@@ -21,79 +19,11 @@ final class DefaultDiaryUseCaseTests: XCTestCase {
     var subscriptions = Set<AnyCancellable>()
     var defaultUseCase: DefaultDiaryUseCase? = nil
     
-    final class MockDiaryRepositoryManager: DiaryRepositoryManager {
-        var repository: DiaryRepository
-        
-        init(repository: DiaryRepository) {
-            self.repository = repository
-        }
-        
-        func create(input: Diary) -> AnyPublisher<Void, Error> {
-            repository.create(input: input)
-        }
-        
-        func read() -> AnyPublisher<[Diary], Error> {
-            repository.read()
-        }
-        
-        func delete(id: String) -> AnyPublisher<Void, Error> {
-            repository.delete(id: id)
-        }
-    }
-    
-    final class MockDiaryRepository: DiaryRepository {
-        static var isSuccess: Bool = true
-        var diary: [Diary] = {
-            let diary = stubDiary
-            
-            return [diary]
-        }()
-        
-        func create(input: Diary) -> AnyPublisher<Void, Error> {
-            Future<Void, Error> { promise in
-                DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
-                    if DefaultDiaryUseCaseTests.MockDiaryRepository.isSuccess {
-                        promise(.success(()))
-                        
-                        return
-                    }
-                    promise(.failure(RepositoryError.failedCreating))
-                }
-            }.eraseToAnyPublisher()
-        }
-        
-        func read() -> AnyPublisher<[Diary], Error> {
-            Future<[Diary], Error> { [weak self] promise in
-                guard let self = self else { return }
-                
-                DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
-                    if DefaultDiaryUseCaseTests.MockDiaryRepository.isSuccess {
-                        promise(.success(self.diary))
-                        
-                        return
-                    }
-                    promise(.failure(RepositoryError.failedReading))
-                }
-            }.eraseToAnyPublisher()
-        }
-        
-        func delete(id: String) -> AnyPublisher<Void, Error> {
-            Future<Void, Error> { promise in
-                DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
-                    if DefaultDiaryUseCaseTests.MockDiaryRepository.isSuccess {
-                        promise(.success(()))
-                        
-                        return
-                    }
-                    promise(.failure(RepositoryError.failedUpdating))
-                }
-            }.eraseToAnyPublisher()
-        }
-    }
-    
     override func setUpWithError() throws {
         try super.setUpWithError()
-        defaultUseCase = DefaultDiaryUseCase(repositoryManager: MockDiaryRepositoryManager(repository: MockDiaryRepository()))
+        defaultUseCase = DefaultDiaryUseCase(
+            repositoryManager: MockDiaryRepositoryManager(
+                repository: MockDiaryRepository()))
     }
     
     override func tearDownWithError() throws {
@@ -105,9 +35,9 @@ final class DefaultDiaryUseCaseTests: XCTestCase {
         //given, when
         let expectation = expectation(description: "비동기테스트")
         var result: Result = .defaultResult
-        DefaultDiaryUseCaseTests.MockDiaryRepository.isSuccess = true
+        MockDiaryRepository.isSuccess = true
         
-        defaultUseCase?.repositoryManager.create(input: DefaultDiaryUseCaseTests.stubDiary)
+        defaultUseCase?.repositoryManager.create(input: MockDiaryRepository.stubDiary)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .failure(_):
@@ -129,9 +59,9 @@ final class DefaultDiaryUseCaseTests: XCTestCase {
         //given, when
         let expectation = expectation(description: "비동기테스트")
         var result: Result = .defaultResult
-        DefaultDiaryUseCaseTests.MockDiaryRepository.isSuccess = false
+        MockDiaryRepository.isSuccess = false
         
-        defaultUseCase?.repositoryManager.create(input: DefaultDiaryUseCaseTests.stubDiary)
+        defaultUseCase?.repositoryManager.create(input: MockDiaryRepository.stubDiary)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .failure(_):
@@ -153,7 +83,7 @@ final class DefaultDiaryUseCaseTests: XCTestCase {
         //given
         let expectation = expectation(description: "비동기테스트")
         var result: String = ""
-        DefaultDiaryUseCaseTests.MockDiaryRepository.isSuccess = true
+        MockDiaryRepository.isSuccess = true
         
         defaultUseCase?.repositoryManager.read()
             .sink(receiveCompletion: { completion in
@@ -173,7 +103,7 @@ final class DefaultDiaryUseCaseTests: XCTestCase {
         wait(for: [expectation], timeout: 3)
         
         //when
-        let testResult = "url"
+        let testResult = "TestURL"
         
         //then
         XCTAssertEqual(testResult, result)
@@ -183,7 +113,7 @@ final class DefaultDiaryUseCaseTests: XCTestCase {
         //given
         let expectation = expectation(description: "비동기테스트")
         var result: String = ""
-        DefaultDiaryUseCaseTests.MockDiaryRepository.isSuccess = false
+        MockDiaryRepository.isSuccess = false
         
         defaultUseCase?.repositoryManager.read()
             .sink(receiveCompletion: { completion in
@@ -203,7 +133,7 @@ final class DefaultDiaryUseCaseTests: XCTestCase {
         wait(for: [expectation], timeout: 3)
         
         //when
-        let testResult = "url"
+        let testResult = "TestURL"
         
         //then
         XCTAssertNotEqual(testResult, result)

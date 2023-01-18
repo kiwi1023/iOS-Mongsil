@@ -18,7 +18,11 @@ final class MenuViewModelTests: XCTestCase {
     
     override func setUpWithError() throws {
         try super.setUpWithError()
-        viewModel = MenuViewModel(date: Date(), image: .init(id: "TestImage", image: "TestImage", squareImage: "TestSquareImage"))
+        viewModel = MenuViewModel(date: Date(),
+                                  image: .init(id: MockDiaryRepository.stubId, image: "TestImage", squareImage: "TestSquareImage"),
+                                  diaryUseCase: DefaultDiaryUseCase(
+                                    repositoryManager: MockDiaryRepositoryManager(
+                                        repository: MockDiaryRepository())))
         bindViewModel()
     }
 
@@ -60,14 +64,14 @@ final class MenuViewModelTests: XCTestCase {
         XCTAssertEqual(result, "TestImage")
     }
     
-    func test_input_didTapBookMarkButton() {
+    func test_input_didTapScrappedButton() {
         // when
         var result: Bool?
         let expectation = self.expectation(description: "비동기 처리")
+        input.send(.viewDidLoad)
         input.send(.didTapScrappedButton)
         
         // given
-        
         resultIsScrapped.sink { isScrapped in
             result = isScrapped
             expectation.fulfill()
@@ -75,6 +79,6 @@ final class MenuViewModelTests: XCTestCase {
         
         // then
         waitForExpectations(timeout: 3)
-        XCTAssertEqual(result, nil)
+        XCTAssertEqual(result, true)
     }
 }
