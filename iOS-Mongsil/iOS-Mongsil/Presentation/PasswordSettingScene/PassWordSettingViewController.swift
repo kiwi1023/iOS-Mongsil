@@ -32,7 +32,7 @@ final class PassWordSettingViewController: SuperViewControllerSetting, Passsword
     }
     
     func didTapToggleButton() {
-        let viewController = PasswordViewController()
+        let viewController = CreatePasswordViewController()
         viewController.modalPresentationStyle = .fullScreen
         present(viewController, animated: true)
     }

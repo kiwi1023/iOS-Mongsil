@@ -1,14 +1,14 @@
 //
-//  ViewController.swift
+//  PasswordViewController.swift
 //  iOS-Mongsil
 //
-//  Created by Kiwon Song on 2023/01/17.
+//  Created by Kiwon Song on 2023/01/19.
 //
 
 import UIKit
 
-final class PasswordViewController: SuperViewControllerSetting, PasswordViewDelegate {    
-    private let passwordView = CreatePasswordView()
+final class PasswordViewController: SuperViewControllerSetting, PasswordViewDelegate {
+    private let passwordView = PasswordView()
     
     override func setupDefault() {
         passwordView.delegate = self
@@ -27,17 +27,11 @@ final class PasswordViewController: SuperViewControllerSetting, PasswordViewDele
         ])
     }
     
-    func didTapCloseButton() {
-        NotificationCenter.default.post(name: Notification.Name("SetToggle"),
-                                        object: self)
-        dismiss(animated: true)
-    }
-    
     func putWrongPassword() {
         let titleAttributes = [NSAttributedString.Key.font: UIFont(name: "GamjaFlower-Regular", size: 23)!, NSAttributedString.Key.foregroundColor: UIColor.black]
         let titleStiring = NSAttributedString(string: "알림", attributes: titleAttributes)
         let massageAttributes = [NSAttributedString.Key.font: UIFont(name: "GamjaFlower-Regular", size: 16)!, NSAttributedString.Key.foregroundColor: UIColor.darkGray]
-        let massageString = NSAttributedString(string: "비밀번호가 일치 하지 않습니다.\n 처음부터 다시 시도해 주세요.", attributes: massageAttributes)
+        let massageString = NSAttributedString(string: "비밀번호가 일치 하지 않습니다", attributes: massageAttributes)
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         alertController.setValue(titleStiring, forKey: "attributedTitle")
         alertController.setValue(massageString, forKey: "attributedMessage")
@@ -48,6 +42,6 @@ final class PasswordViewController: SuperViewControllerSetting, PasswordViewDele
     
     func putCorrectPassword(_ password: [Int]) {
         print(password)
-        dismiss(animated: true)
+        self.navigationController?.pushViewController(CalendarViewController(), animated: true)
     }
 }

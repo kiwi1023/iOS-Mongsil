@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol PasswordViewDelegate: AnyObject {
+protocol CreatePasswordViewDelegate: AnyObject {
     func didTapCloseButton()
     func putWrongPassword()
     func putCorrectPassword(_ password: [Int])
@@ -27,7 +27,7 @@ class CreatePasswordView: SuperViewSetting {
     private var isFirstDataFinished = false
     private var firstPasswordData: [Int] = []
     private var secondPasswordData: [Int] = []
-    weak var delegate: PasswordViewDelegate?
+    weak var delegate: CreatePasswordViewDelegate?
     
     override func setupDefault() {
         translatesAutoresizingMaskIntoConstraints = false
