@@ -17,13 +17,15 @@ extension Date {
     var dayInfo: DateComponents {
         return Calendar.current.dateComponents([.year, .month, .day], from: self)
     }
- 
+    
     var convertKorean: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "오후 hh시 mm분"
-        return dateFormatter.string(from: self)
+        let myDateFormatter = DateFormatter()
+        myDateFormatter.dateFormat = "a hh시 mm분"
+        myDateFormatter.locale = Locale(identifier:"ko_KR")
+        
+        return myDateFormatter.string(from: self)
     }
-
+    
     func convertCurrenDate() -> Date {
         let date = Date()
         let year = Calendar.current.dateComponents([.year], from: self)
@@ -39,7 +41,7 @@ extension Date {
                                             hour: hour.hour,
                                             minute: minute.minute,
                                             second: second.second)
-
+        
         return Calendar.current.date(from: dateComponents) ?? Date()
     }
 }
