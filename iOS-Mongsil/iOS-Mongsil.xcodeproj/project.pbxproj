@@ -77,6 +77,10 @@
 		4DD8BD8E2976844700D89546 /* SettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8BD8D2976844700D89546 /* SettingViewCell.swift */; };
 		4DD8BD90297688ED00D89546 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8BD8F297688ED00D89546 /* SettingViewController.swift */; };
 		4DD8BD9229768AEC00D89546 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8BD9129768AEC00D89546 /* SettingView.swift */; };
+		4DD8BD972976AF0700D89546 /* PassWordSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8BD962976AF0700D89546 /* PassWordSettingViewController.swift */; };
+		4DD8BD9B2976B28A00D89546 /* PasswordSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8BD9A2976B28A00D89546 /* PasswordSettingView.swift */; };
+		4DD8BD9D2976C43A00D89546 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8BD9C2976C43A00D89546 /* PasswordViewController.swift */; };
+		4DD8BD9F29777E5500D89546 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8BD9E29777E5500D89546 /* PasswordView.swift */; };
 		4DF88391295D59A400B507E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88390295D59A400B507E2 /* AppDelegate.swift */; };
 		4DF88393295D59A400B507E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88392295D59A400B507E2 /* SceneDelegate.swift */; };
 		4DF8839B295D59A400B507E2 /* iOS_Mongsil.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88399295D59A400B507E2 /* iOS_Mongsil.xcdatamodeld */; };
@@ -166,6 +170,10 @@
 		4DD8BD8D2976844700D89546 /* SettingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewCell.swift; sourceTree = "<group>"; };
 		4DD8BD8F297688ED00D89546 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		4DD8BD9129768AEC00D89546 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		4DD8BD962976AF0700D89546 /* PassWordSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassWordSettingViewController.swift; sourceTree = "<group>"; };
+		4DD8BD9A2976B28A00D89546 /* PasswordSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSettingView.swift; sourceTree = "<group>"; };
+		4DD8BD9C2976C43A00D89546 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		4DD8BD9E29777E5500D89546 /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		4DF8838D295D59A400B507E2 /* iOS-Mongsil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Mongsil.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF88390295D59A400B507E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DF88392295D59A400B507E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -585,6 +593,25 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		4DD8BD942976AED600D89546 /* PasswordSettingScene */ = {
+			isa = PBXGroup;
+			children = (
+				4DD8BD962976AF0700D89546 /* PassWordSettingViewController.swift */,
+				4DD8BD9C2976C43A00D89546 /* PasswordViewController.swift */,
+				4DD8BD952976AEEA00D89546 /* View */,
+			);
+			path = PasswordSettingScene;
+			sourceTree = "<group>";
+		};
+		4DD8BD952976AEEA00D89546 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4DD8BD9A2976B28A00D89546 /* PasswordSettingView.swift */,
+				4DD8BD9E29777E5500D89546 /* PasswordView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4DF88384295D59A400B507E2 = {
 			isa = PBXGroup;
 			children = (
@@ -671,6 +698,7 @@
 				370EF81029703F88000DDAF5 /* EmoticonsScene */,
 				370EF81529703F88000DDAF5 /* RegisterScene */,
 				4DD8BD8A2976834900D89546 /* SettingScene */,
+				4DD8BD942976AED600D89546 /* PasswordSettingScene */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -828,6 +856,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DD8BD9B2976B28A00D89546 /* PasswordSettingView.swift in Sources */,
 				37A276EE29756EAE00AF2CA0 /* CalendarViewController.swift in Sources */,
 				370EF81D29703F88000DDAF5 /* EmoticonsViewController.swift in Sources */,
 				37B67C4F2965682F00F81118 /* CoreDataCommentRepository.swift in Sources */,
@@ -857,6 +886,7 @@
 				370EF81A29703F88000DDAF5 /* EmoticonCollectionViewCell.swift in Sources */,
 				374670C3295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift in Sources */,
 				4DD8BD89297681EB00D89546 /* Date + Extension.swift in Sources */,
+				4DD8BD9F29777E5500D89546 /* PasswordView.swift in Sources */,
 				370EF81B29703F88000DDAF5 /* EmoticonsViewModel.swift in Sources */,
 				4DD8BD90297688ED00D89546 /* SettingViewController.swift in Sources */,
 				370EF78529703D1A000DDAF5 /* ViewSettingProtocol.swift in Sources */,
@@ -866,12 +896,14 @@
 				37A276F129756EAE00AF2CA0 /* CalendarListView.swift in Sources */,
 				370EF82029703F88000DDAF5 /* CommentTableViewCell.swift in Sources */,
 				370EF82629712248000DDAF5 /* MenuViewModel.swift in Sources */,
+				4DD8BD972976AF0700D89546 /* PassWordSettingViewController.swift in Sources */,
 				4DCAD91E29702C0F00B35717 /* NetworkRepository.swift in Sources */,
 				4D3033CA29668E3300234166 /* BackgroundImageDTO.swift in Sources */,
 				370EF82429712235000DDAF5 /* MenuViewController.swift in Sources */,
 				37B67C57296590AC00F81118 /* DefaultCommentRepositoryManager.swift in Sources */,
 				4DD8BD9229768AEC00D89546 /* SettingView.swift in Sources */,
 				37A276FC29756EB800AF2CA0 /* FavoriteViewController.swift in Sources */,
+				4DD8BD9D2976C43A00D89546 /* PasswordViewController.swift in Sources */,
 				370EF81F29703F88000DDAF5 /* CommentsViewController.swift in Sources */,
 				4D3033B529655D4C00234166 /* CommentEntity+CoreDataProperties.swift in Sources */,
 				37A276FE29756EB800AF2CA0 /* FavoriteViewCell.swift in Sources */,
