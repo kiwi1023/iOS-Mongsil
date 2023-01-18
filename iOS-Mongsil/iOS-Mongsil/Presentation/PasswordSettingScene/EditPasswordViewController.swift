@@ -2,12 +2,12 @@
 //  ViewController.swift
 //  iOS-Mongsil
 //
-//  Created by Kiwon Song on 2023/01/17.
+//  Created by Kiwon Song on 2023/01/18.
 //
 
 import UIKit
 
-final class PasswordViewController: SuperViewControllerSetting, PasswordViewDelegate {    
+final class EditPasswordViewController: SuperViewControllerSetting, PasswordViewDelegate {
     private let passwordView = CreatePasswordView()
     
     override func setupDefault() {
@@ -28,8 +28,6 @@ final class PasswordViewController: SuperViewControllerSetting, PasswordViewDele
     }
     
     func didTapCloseButton() {
-        NotificationCenter.default.post(name: Notification.Name("SetToggle"),
-                                        object: self)
         dismiss(animated: true)
     }
     
@@ -51,3 +49,4 @@ final class PasswordViewController: SuperViewControllerSetting, PasswordViewDele
         dismiss(animated: true)
     }
 }
+

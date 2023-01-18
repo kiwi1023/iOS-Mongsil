@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PassWordSettingViewController: SuperViewControllerSetting, PassswordSettingViewDelegate {
+final class PassWordSettingViewController: SuperViewControllerSetting, PassswordSettingViewDelegate {
     
     private let passwordSettingView = PasswordSettingView()
     
@@ -33,6 +33,12 @@ class PassWordSettingViewController: SuperViewControllerSetting, PassswordSettin
     
     func didTapToggleButton() {
         let viewController = PasswordViewController()
+        viewController.modalPresentationStyle = .fullScreen
+        present(viewController, animated: true)
+    }
+    
+    func didTapEditPasswordLabel() {
+        let viewController = EditPasswordViewController()
         viewController.modalPresentationStyle = .fullScreen
         present(viewController, animated: true)
     }
