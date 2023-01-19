@@ -13,10 +13,8 @@ final class CalendarViewModel: ViewModelBuilder {
     typealias Output = CalendarViewModelOutput
     
     private var cancellable = Set<AnyCancellable>()
-    private let commentUseCase = DefaultCommentUseCase(
-        repositoryManager: DefaultCommentRepositoryManager(
-            repository: CoreDataCommentRepository()))
-    private let networkUseCase: DefaultNetworkUseCase
+    private let commentUseCase: CommentUseCase
+    private let networkUseCase: NetworkUseCase
     private let backgroundImageRequest = BackgroundImageRequest(method: .get,
                                                                 urlHost: .backgroundImage,
                                                                 path: .backgroundImages)
@@ -24,11 +22,15 @@ final class CalendarViewModel: ViewModelBuilder {
     private (set) var backgroundImage = [BackgroundImage]()
     private var randomNumber: Int?
     
-    init(networkUseCase: DefaultNetworkUseCase = DefaultNetworkUseCase(
+    init(networkUseCase: NetworkUseCase = DefaultNetworkUseCase(
         networkRepository: BackgroundNetworkImageRepository(
-            networkManager: NetworkManager())))
+            networkManager: NetworkManager())),
+         commentUseCase: CommentUseCase = DefaultCommentUseCase(
+            repositoryManager: DefaultCommentRepositoryManager(
+                repository: CoreDataCommentRepository())))
     {
         self.networkUseCase = networkUseCase
+        self.commentUseCase = commentUseCase
     }
     
     enum CalendarViewModelInput {

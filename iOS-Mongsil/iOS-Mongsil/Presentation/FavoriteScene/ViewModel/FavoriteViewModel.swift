@@ -13,11 +13,14 @@ final class FavoriteViewModel: ViewModelBuilder {
     typealias Output = FavoriteViewModelOutput
     
     private var cancellable = Set<AnyCancellable>()
-    private let diaryUseCase = DefaultDiaryUseCase(
-        repositoryManager: DefaultDiaryRepositoryManager(
-            repository: CoreDataDiaryRepository()))
+    private let diaryUseCase: DiaryUseCase
     private let output = PassthroughSubject<Output, Never>()
    
+    init(diaryUseCase: DiaryUseCase = DefaultDiaryUseCase(
+        repositoryManager: DefaultDiaryRepositoryManager(
+            repository: CoreDataDiaryRepository()))) {
+        self.diaryUseCase = diaryUseCase
+    }
     enum FavoriteViewModelInput {
         case viewDidLoad
         case didTapCell(Diary)

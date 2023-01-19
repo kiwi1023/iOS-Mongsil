@@ -76,6 +76,7 @@
 		4D4500D9297566DA005A11B0 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D4500D7297566DA005A11B0 /* Lato-Bold.ttf */; };
 		4D4500DA297566DA005A11B0 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D4500D8297566DA005A11B0 /* Lato-Regular.ttf */; };
 		4D9B03312978CBA3001E6191 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9B03302978CBA3001E6191 /* KeychainManager.swift */; };
+		4D9B033529794DDE001E6191 /* FavoriteViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9B033429794DDE001E6191 /* FavoriteViewModelTests.swift */; };
 		4DCAD91E29702C0F00B35717 /* NetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */; };
 		4DCAD92029702F1F00B35717 /* BackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */; };
 		4DD214C82970328600C91CFB /* DefualtNetworkUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */; };
@@ -182,6 +183,7 @@
 		4D4500D7297566DA005A11B0 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		4D4500D8297566DA005A11B0 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		4D9B03302978CBA3001E6191 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		4D9B033429794DDE001E6191 /* FavoriteViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoriteViewModelTests.swift; path = "iOS-MongsilTests/Presentation/CalendarViewModel/FavoriteViewModelTests.swift"; sourceTree = SOURCE_ROOT; };
 		4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepository.swift; sourceTree = "<group>"; };
 		4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImage.swift; sourceTree = "<group>"; };
 		4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefualtNetworkUseCase.swift; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 				37A2770029756ECF00AF2CA0 /* CalendarViewModel */,
 				37A2770429756F5F00AF2CA0 /* CommentsViewModel */,
 				37A2770329756F4600AF2CA0 /* MenuViewModel */,
+				4D9B033329794DAF001E6191 /* FavoriteViewModel */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -620,6 +623,14 @@
 				4D4500D8297566DA005A11B0 /* Lato-Regular.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		4D9B033329794DAF001E6191 /* FavoriteViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4D9B033429794DDE001E6191 /* FavoriteViewModelTests.swift */,
+			);
+			path = FavoriteViewModel;
 			sourceTree = "<group>";
 		};
 		4DCAD91B29702BDB00B35717 /* Network */ = {
@@ -1027,6 +1038,7 @@
 			files = (
 				373D1C9529669277002A3B3D /* MockNetworkData.swift in Sources */,
 				374E9C59297527DF007AC2DD /* MenuViewModelTests.swift in Sources */,
+				4D9B033529794DDE001E6191 /* FavoriteViewModelTests.swift in Sources */,
 				373D1C9329669228002A3B3D /* MockNetworkManager.swift in Sources */,
 				374E9C572975171C007AC2DD /* CommentsViewModelTests.swift in Sources */,
 				37A2771E29781BC800AF2CA0 /* MockDiaryRepository.swift in Sources */,

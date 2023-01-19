@@ -13,7 +13,7 @@ final class CalendarViewModelTests: XCTestCase {
     var viewModel: CalendarViewModel?
     var cancellable = Set<AnyCancellable>()
     
-    func test_CalendarViewModel_Test_fetchImageData_성공() {
+    func test_CalendarViewModel_Test_NetworkManger_성공() {
         //given
         var result = ""
         let expectation = expectation(description: "비동기테스트")
@@ -33,14 +33,14 @@ final class CalendarViewModelTests: XCTestCase {
                 expectation.fulfill()
             case .fetchDataFailure(_):
                 result = "error"
-            case .fetchImageData(let data):
-                result = data.first!.image
-            case .showCommentView(let randomData, _):
-                result = randomData.image
-            case .fetchLastEmoticon(let comment):
-                result = comment ?? ""
-            case .fetchCommentsCount(let count):
-                result = "\(count)"
+            case .fetchImageData(_):
+                break
+            case .showCommentView(_, _):
+                break
+            case .fetchLastEmoticon(_):
+                break
+            case .fetchCommentsCount(_):
+                break
             }
         }.store(in: &cancellable)
         
@@ -49,7 +49,7 @@ final class CalendarViewModelTests: XCTestCase {
         XCTAssertEqual(result, "TestImage")
     }
     
-    func test_CalendarViewModel_Test_fetchImageData_실패() {
+    func test_CalendarViewModel_Test_NetworkManger_실패() {
         //given
         var result = ""
         let expectation = expectation(description: "비동기테스트")
@@ -63,18 +63,87 @@ final class CalendarViewModelTests: XCTestCase {
         output.sink { event in
             switch event {
             case .fetchImageDataSuccess():
-                result = "Success"
+                break
             case .fetchDataFailure(_):
                 result = "error"
                 expectation.fulfill()
-            case .fetchImageData(let data):
-                result = data.first!.image
-            case .showCommentView(let randomData, _):
-                result = randomData.image
-            case .fetchLastEmoticon(let comment):
-                result = comment ?? ""
+            case .fetchImageData(_):
+                break
+            case .showCommentView(_, _):
+                break
+            case .fetchLastEmoticon(_):
+                break
+            case .fetchCommentsCount(_):
+                break
+            }
+        }.store(in: &cancellable)
+        
+        wait(for: [expectation], timeout: 3)
+        // then
+        XCTAssertEqual(result, "error")
+    }
+    
+    func test_CalendarViewModel_Test_CommentUseCase_성공() {
+        //given
+        var result = ""
+        let expectation = expectation(description: "비동기테스트")
+        viewModel = CalendarViewModel(commentUseCase: DefaultCommentUseCase(
+                                        repositoryManager: MockCommentRepositoryManager(
+                                            repository: MockCommentRepository())))
+        let input = CurrentValueSubject<CalendarViewModel.Input, Never>(CalendarViewModel.Input.fetchCommentsCount(Date()))
+        let output = viewModel!.transform(input: input.eraseToAnyPublisher())
+        
+        //when
+        output.sink { event in
+            switch event {
+            case .fetchImageDataSuccess():
+                break
+            case .fetchDataFailure(_):
+                result = "error"
+            case .fetchImageData(_):
+                break
+            case .showCommentView(_, _):
+                break
+            case .fetchLastEmoticon(_):
+                break
             case .fetchCommentsCount(let count):
                 result = "\(count)"
+                expectation.fulfill()
+            }
+        }.store(in: &cancellable)
+        
+        wait(for: [expectation], timeout: 3)
+        // then
+        XCTAssertEqual(result, "3")
+    }
+    
+    func test_CalendarViewModel_Test_CommentUseCase_실패() {
+        //given
+        var result = ""
+        let expectation = expectation(description: "비동기테스트")
+        MockCommentRepository.isSuccess = false
+        viewModel = CalendarViewModel(commentUseCase: DefaultCommentUseCase(
+                                        repositoryManager: MockCommentRepositoryManager(
+                                            repository: MockCommentRepository())))
+        let input = CurrentValueSubject<CalendarViewModel.Input, Never>(CalendarViewModel.Input.fetchCommentsCount(Date()))
+        let output = viewModel!.transform(input: input.eraseToAnyPublisher())
+        
+        //when
+        output.sink { event in
+            switch event {
+            case .fetchImageDataSuccess():
+                break
+            case .fetchDataFailure(_):
+                result = "error"
+                expectation.fulfill()
+            case .fetchImageData(_):
+                break
+            case .showCommentView(_, _):
+                break
+            case .fetchLastEmoticon(_):
+                break
+            case .fetchCommentsCount(_):
+                break
             }
         }.store(in: &cancellable)
         
@@ -83,3 +152,4 @@ final class CalendarViewModelTests: XCTestCase {
         XCTAssertEqual(result, "error")
     }
 }
+
