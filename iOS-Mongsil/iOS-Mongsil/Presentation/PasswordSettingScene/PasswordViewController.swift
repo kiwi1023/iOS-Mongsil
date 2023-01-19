@@ -40,8 +40,7 @@ final class PasswordViewController: SuperViewControllerSetting, PasswordViewDele
         present(alertController, animated: true)
     }
     
-    func putCorrectPassword(_ password: [Int]) {
-        print(password)
+    func putCorrectPassword() {
         self.navigationController?.pushViewController(CalendarViewController(), animated: true)
     }
 }

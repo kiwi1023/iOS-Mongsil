@@ -68,6 +68,7 @@
 		4D4500D6297566B4005A11B0 /* GamjaFlower-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D4500D5297566B4005A11B0 /* GamjaFlower-Regular.ttf */; };
 		4D4500D9297566DA005A11B0 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D4500D7297566DA005A11B0 /* Lato-Bold.ttf */; };
 		4D4500DA297566DA005A11B0 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D4500D8297566DA005A11B0 /* Lato-Regular.ttf */; };
+		4D9B03312978CBA3001E6191 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9B03302978CBA3001E6191 /* KeychainManager.swift */; };
 		4DCAD91E29702C0F00B35717 /* NetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */; };
 		4DCAD92029702F1F00B35717 /* BackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */; };
 		4DD214C82970328600C91CFB /* DefualtNetworkUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */; };
@@ -166,6 +167,7 @@
 		4D4500D5297566B4005A11B0 /* GamjaFlower-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GamjaFlower-Regular.ttf"; sourceTree = "<group>"; };
 		4D4500D7297566DA005A11B0 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		4D4500D8297566DA005A11B0 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		4D9B03302978CBA3001E6191 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepository.swift; sourceTree = "<group>"; };
 		4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImage.swift; sourceTree = "<group>"; };
 		4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefualtNetworkUseCase.swift; sourceTree = "<group>"; };
@@ -507,6 +509,7 @@
 		4D3033B9296594F500234166 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				4D9B032F2978CB8E001E6191 /* KeychainManager */,
 				373D1C9F2966E841002A3B3D /* ImageCacheManager */,
 				4D3033BA2965951400234166 /* Network */,
 			);
@@ -549,6 +552,14 @@
 				4D3033C929668E3300234166 /* BackgroundImageDTO.swift */,
 			);
 			path = DTO;
+			sourceTree = "<group>";
+		};
+		4D9B032F2978CB8E001E6191 /* KeychainManager */ = {
+			isa = PBXGroup;
+			children = (
+				4D9B03302978CBA3001E6191 /* KeychainManager.swift */,
+			);
+			path = KeychainManager;
 			sourceTree = "<group>";
 		};
 		4DCAD91B29702BDB00B35717 /* Network */ = {
@@ -899,6 +910,7 @@
 				370EF82A297140F4000DDAF5 /* CommentInputView.swift in Sources */,
 				4D3033C429659AB800234166 /* NetworkManager.swift in Sources */,
 				4DE8B43D29783D5B00870790 /* EditPasswordViewController.swift in Sources */,
+				4D9B03312978CBA3001E6191 /* KeychainManager.swift in Sources */,
 				370EF82129703F88000DDAF5 /* CommentsView.swift in Sources */,
 				370EF81A29703F88000DDAF5 /* EmoticonCollectionViewCell.swift in Sources */,
 				374670C3295D6BB0004AC4B0 /* DefaultDiaryUseCase.swift in Sources */,

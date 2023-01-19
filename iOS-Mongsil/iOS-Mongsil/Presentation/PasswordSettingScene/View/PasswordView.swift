@@ -9,7 +9,7 @@ import UIKit
 
 protocol PasswordViewDelegate: AnyObject {
     func putWrongPassword()
-    func putCorrectPassword(_ password: [Int])
+    func putCorrectPassword()
 }
 
 class PasswordView: SuperViewSetting {
@@ -108,7 +108,8 @@ extension PasswordView: UICollectionViewDelegate {
         }
         
         if didTapCellCount == 4 {
-            passwordData == [1,2,3,4] ? delegate?.putCorrectPassword(passwordData) : resetPasswordData()
+            let passwordString = passwordData.map(String.init).joined()
+            passwordString == KeyChainManger.shared.readKeyChain()?.passWord ? delegate?.putCorrectPassword() : resetPasswordData()
         }
     }
     

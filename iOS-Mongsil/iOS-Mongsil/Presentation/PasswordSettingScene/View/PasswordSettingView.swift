@@ -144,6 +144,13 @@ final class PasswordSettingView: SuperViewSetting {
             name: Notification.Name("SetToggle"),
             object: nil
         )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(setToggleButton),
+            name: Notification.Name("SwitchTurnOff"),
+            object: nil
+        )
     }
     
     @objc private func setToggleButton() {
@@ -162,6 +169,7 @@ final class PasswordSettingView: SuperViewSetting {
                            options: .curveEaseIn,
                            animations: {
                 self.editPasswordLabel.alpha = 0.0
+                KeyChainManger.shared.deleteItemOnKeyChain()
             })
         }
     }

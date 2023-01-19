@@ -29,6 +29,16 @@ class CreatePasswordView: SuperViewSetting {
     private var secondPasswordData: [Int] = []
     weak var delegate: CreatePasswordViewDelegate?
     
+    deinit {
+        let password = KeyChainManger.shared.readKeyChain()?.passWord
+        if password == nil,
+           secondPasswordData.count != 4,
+           UserDefaults.standard.bool(forKey: "toggleState") == true {
+            NotificationCenter.default.post(name: Notification.Name("SwitchTurnOff"),
+                                            object: self)
+        }
+    }
+    
     override func setupDefault() {
         translatesAutoresizingMaskIntoConstraints = false
         closeButton.addTarget(self, action: #selector(didTapCloseButton), for: .touchDown)
@@ -134,11 +144,11 @@ extension CreatePasswordView: UICollectionViewDelegate {
         }
     }
     
-   private func distributeFirstPasswordData(_ indexPath: IndexPath) {
+    private func distributeFirstPasswordData(_ indexPath: IndexPath) {
         if indexPath.item == 11 {
             guard didTapFirstCellCount != 5,
                   didTapFirstCellCount != 0 else { return }
-          
+            
             didTapFirstCellCount -= 1
             passwordHeader.signImageViews[didTapFirstCellCount].tintColor = UIColor(named: "passwordColor")
             firstPasswordData.removeLast()
