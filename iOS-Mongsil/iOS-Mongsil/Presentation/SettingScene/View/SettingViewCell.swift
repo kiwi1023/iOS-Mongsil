@@ -82,8 +82,4 @@ final class SettingViewCell: UICollectionViewCell {
             chevronImage.image = UIImage(named: "icCloseCopy")
         }
     }
-    
-    override func prepareForReuse() {
-     
-    }
 }

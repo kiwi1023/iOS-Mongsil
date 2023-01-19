@@ -17,6 +17,10 @@ class SettingViewController: SuperViewControllerSetting {
         ]
         navigationController?.navigationBar.titleTextAttributes = attributes
         navigationItem.title = "설정"
+        
+        settingView.didTapcell = {
+            self.navigationController?.pushViewController(PassWordSettingViewController(), animated: true)
+        }
     }
     
     override func addUIComponents() {

@@ -61,9 +61,9 @@ final class SettingView: SuperViewSetting {
         
         return layout
     }()
+    var didTapcell: (() -> ())?
     
     override func setupDefault() {
-        translatesAutoresizingMaskIntoConstraints = false
         
         configurationCollectionView()
         settingCollectionView.delegate = self
@@ -124,6 +124,9 @@ extension SettingView: UICollectionViewDelegateFlowLayout {
 
 extension SettingView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("click")
+        
+        if indexPath.item == 0 {
+            didTapcell?()
+        }
     }
 }
