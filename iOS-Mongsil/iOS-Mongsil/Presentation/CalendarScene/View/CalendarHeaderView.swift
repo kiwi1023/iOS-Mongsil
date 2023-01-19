@@ -104,7 +104,8 @@ final class CalendarHeaderView: SuperViewSetting {
         return botton
     }()
     
-    @objc private func changeMonth(sender: UIButton) {
+    @objc
+    private func changeMonth(sender: UIButton) {
         if sender == rightButton {
             currentMonthIndex += 1
             if currentMonthIndex > 11 {

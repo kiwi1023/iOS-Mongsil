@@ -119,13 +119,18 @@ final class CalendarViewController: SuperViewControllerSetting {
         )
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "관심", style: .plain, target: self, action: #selector(didTapFavoriteButton))
         navigationItem.leftBarButtonItem?.setTitleTextAttributes(attributes, for: .normal)
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+
     }
     
-    @objc private func didTapSettingButton() {
+    @objc
+    private func didTapSettingButton() {
         self.navigationController?.pushViewController(SettingViewController(), animated: true)
     }
     
-    @objc private func didTapFavoriteButton() {
+    @objc
+    private func didTapFavoriteButton() {
         self.navigationController?.pushViewController(FavoriteViewController(), animated: true)
     }
     
@@ -177,7 +182,8 @@ final class CalendarViewController: SuperViewControllerSetting {
         calendarSignImageView.isUserInteractionEnabled = true
     }
     
-    @objc private func didTapListButton() {
+    @objc
+    private func didTapListButton() {
         
         if listSignImageView.isHidden == false {
             showListView()
@@ -187,7 +193,8 @@ final class CalendarViewController: SuperViewControllerSetting {
         }
     }
     
-    @objc private func didTapCalendarButton() {
+    @objc
+    private func didTapCalendarButton() {
         
         if calendarSignImageView.isHidden == false {
             showCalendarView()

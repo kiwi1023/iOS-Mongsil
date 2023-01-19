@@ -18,6 +18,8 @@ class SettingViewController: SuperViewControllerSetting, MFMailComposeViewContro
         ]
         navigationController?.navigationBar.titleTextAttributes = attributes
         navigationItem.title = "설정"
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        self.navigationItem.backBarButtonItem = backBarButtonItem
         
         settingView.didTapFirstCell = {
             self.navigationController?.pushViewController(PassWordSettingViewController(), animated: true)

@@ -611,6 +611,17 @@
 			path = KeychainManager;
 			sourceTree = "<group>";
 		};
+		4D9B03322979196B001E6191 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				37A2770B29757CDF00AF2CA0 /* NanumSeHwaCe.ttf */,
+				4D4500D5297566B4005A11B0 /* GamjaFlower-Regular.ttf */,
+				4D4500D7297566DA005A11B0 /* Lato-Bold.ttf */,
+				4D4500D8297566DA005A11B0 /* Lato-Regular.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		4DCAD91B29702BDB00B35717 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -733,10 +744,7 @@
 		4DF883A8295D5FE100B507E2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				37A2770B29757CDF00AF2CA0 /* NanumSeHwaCe.ttf */,
-				4D4500D5297566B4005A11B0 /* GamjaFlower-Regular.ttf */,
-				4D4500D7297566DA005A11B0 /* Lato-Bold.ttf */,
-				4D4500D8297566DA005A11B0 /* Lato-Regular.ttf */,
+				4D9B03322979196B001E6191 /* Font */,
 				4DF8839C295D59A500B507E2 /* Assets.xcassets */,
 				4DF8839E295D59A500B507E2 /* LaunchScreen.storyboard */,
 				4DF883A1295D59A500B507E2 /* Info.plist */,
