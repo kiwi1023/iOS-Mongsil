@@ -7,7 +7,7 @@
 
 import UIKit
 import Combine
-
+import Photos
 
 protocol MenuViewControllerDelegate: AnyObject {
     func didTapIsShowCommentsButton()
@@ -103,11 +103,11 @@ final class MenuViewController: SuperViewControllerSetting {
     
     override func setupLayout() {
         NSLayoutConstraint.activate([
-                menuView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-                menuView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-                menuView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-                menuView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25)
-            ])
+            menuView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            menuView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            menuView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            menuView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25)
+        ])
     }
 }
 
@@ -145,14 +145,38 @@ extension MenuViewController: MenuViewDelegate {
     private func downloadBackgroundImage() {
         guard let image = backgroundImage else { return }
         
-        UIImageWriteToSavedPhotosAlbum(image, self, #selector(alertSavedImage), nil)
+        PHPhotoLibrary.requestAuthorization({ [weak self] status in
+            guard let self = self else { return }
+            
+            switch status {
+            case .authorized:
+                UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.alertSavedImage), nil)
+            case .denied:
+                DispatchQueue.main.sync {
+                    self.alertPermissionDenied()
+                }
+            case .restricted, .notDetermined:
+                break
+            default:
+                break
+            }
+        })
     }
     
     @objc
     private func alertSavedImage(image: UIImage,
-                                 didFinishSavingWithError error: Error,
+                                 didFinishSavingWithError error: Error?,
                                  contextInfo: UnsafeMutableRawPointer?) {
+        guard error == nil else { return }
+        
         let alertController = UIAlertController(title: "완료", message: "이미지가 갤러리에 저장되었습니다.",
+                                                preferredStyle: .alert)
+        alertController.addAction(.init(title: "확인", style: .cancel))
+        present(alertController, animated: true)
+    }
+    
+    private func alertPermissionDenied() {
+        let alertController = UIAlertController(title: "실패", message: "설정앱에서 권한을 허용해주세요.",
                                                 preferredStyle: .alert)
         alertController.addAction(.init(title: "확인", style: .cancel))
         present(alertController, animated: true)
