@@ -77,7 +77,7 @@ extension NotificationViewController: NotificationViewDelegate {
         
         let content = UNMutableNotificationContent()
         content.title = "몽실"
-        content.body = "오늘의 기분을 입력하세요."
+        content.body = "오늘 하루 어떠셨나요? 오늘의 기분을 한번 기록해 볼까요?"
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let request = UNNotificationRequest(identifier: "Mosil", content: content, trigger: trigger)
         notificationCenter.removeAllPendingNotificationRequests()
