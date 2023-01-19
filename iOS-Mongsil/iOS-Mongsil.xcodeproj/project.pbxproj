@@ -637,6 +637,13 @@
 			path = FavoriteViewModel;
 			sourceTree = "<group>";
 		};
+		4D9B0337297967A6001E6191 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		4DCAD91B29702BDB00B35717 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -757,6 +764,7 @@
 			children = (
 				4D9B03322979196B001E6191 /* Font */,
 				4DF8839C295D59A500B507E2 /* Assets.xcassets */,
+				4D9B0337297967A6001E6191 /* New Group */,
 				4DF8839E295D59A500B507E2 /* LaunchScreen.storyboard */,
 				4DF883A1295D59A500B507E2 /* Info.plist */,
 			);
@@ -1197,6 +1205,7 @@
 				DEVELOPMENT_TEAM = 9RL4DMCL32;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS-Mongsil/Resources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "몽실";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1229,6 +1238,7 @@
 				DEVELOPMENT_TEAM = 9RL4DMCL32;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS-Mongsil/Resources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "몽실";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
