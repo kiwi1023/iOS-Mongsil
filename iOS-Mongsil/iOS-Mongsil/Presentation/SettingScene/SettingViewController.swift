@@ -21,31 +21,43 @@ class SettingViewController: SuperViewControllerSetting, MFMailComposeViewContro
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem = backBarButtonItem
         
-        settingView.didTapFirstCell = {
+        settingView.didTapFirstCell = { [weak self] in
+            guard let self = self else { return }
+            
             self.navigationController?.pushViewController(PassWordSettingViewController(), animated: true)
         }
-        settingView.didTapSecondCell = {
+        settingView.didTapSecondCell = { [weak self] in
+            guard let self = self else { return }
+            
             self.navigationController?.pushViewController(NotificationViewController(), animated: true)
         }
-        settingView.didTapThirdCell = {
-//            if let appstoreURL = URL(string: "https://apps.apple.com/app/id1522259532") {
-//                var components = URLComponents(url: appstoreURL, resolvingAgainstBaseURL: false)
-//                components?.queryItems = [
-//                    URLQueryItem(name: "action", value: "write-review")
-//                ]
-//                guard let writeReviewURL = components?.url else {
-//                    return
-//                }
-//
-//                UIApplication.shared.open(writeReviewURL, options: [:], completionHandler: nil)
-//            }
+        settingView.didTapThirdCell = { [weak self] in
+            guard let self = self else { return }
+            
+            self.presentReviewPage()
         }
         settingView.didTapFourthCell = { [weak self] in
+            guard let self = self else { return }
+            
             if MFMailComposeViewController.canSendMail() {
-                self?.presentMailView()
+                self.presentMailView()
             } else {
-                self?.presentErrorAlert()
+                self.presentErrorAlert()
             }
+        }
+    }
+    
+    private func presentReviewPage() {
+        if let appstoreURL = URL(string: "https://apps.apple.com/app/id1666528737") {
+            var components = URLComponents(url: appstoreURL, resolvingAgainstBaseURL: false)
+            components?.queryItems = [
+                URLQueryItem(name: "action", value: "write-review")
+            ]
+            guard let writeReviewURL = components?.url else {
+                return
+            }
+
+            UIApplication.shared.open(writeReviewURL, options: [:], completionHandler: nil)
         }
     }
     
