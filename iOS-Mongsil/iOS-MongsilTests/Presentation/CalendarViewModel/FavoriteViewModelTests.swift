@@ -2,7 +2,7 @@
 //  FavoriteViewModelTests.swift
 //  iOS-MongsilTests
 //
-//  Created by Kiwon Song on 2023/01/19.
+//  Created by Kiwi, Groot on 2023/01/19.
 //
 
 import XCTest

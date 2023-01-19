@@ -2,7 +2,7 @@
 //  DefaultDiaryUseCase.swift
 //  iOS-Mongsil
 //
-//  Created by Groot on 2022/12/29.
+//  Created by Kiwi, Groot on 2022/12/29.
 //
 
 import Foundation

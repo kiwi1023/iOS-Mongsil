@@ -2,7 +2,7 @@
 //  FavoriteView.swift
 //  iOS-Mongsil
 //
-//  Created by Kiwon Song on 2023/01/16.
+//  Created by Kiwi, Groot on 2023/01/16.
 //
 
 import UIKit
@@ -10,6 +10,13 @@ import Combine
 
 final class FavoriteView: SuperViewSetting {
     private var favoriteCollectionView: UICollectionView! = nil
+    var diaries: [Diary] = [] {
+        didSet {
+            favoriteCollectionView.reloadData()
+        }
+    }
+    var didTapcell: ((Diary) -> ())?
+    
     private let favoriteLayout: UICollectionViewLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
@@ -17,12 +24,6 @@ final class FavoriteView: SuperViewSetting {
         
         return layout
     }()
-    var diaries: [Diary] = [] {
-        didSet {
-            favoriteCollectionView.reloadData()
-        }
-    }
-    var didTapcell: ((Diary) -> ())?
     
     func getDiaryData(data: [Diary]) {
         self.diaries = data

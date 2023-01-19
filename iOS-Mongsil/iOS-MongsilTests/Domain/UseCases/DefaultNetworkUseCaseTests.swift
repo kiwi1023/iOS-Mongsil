@@ -2,7 +2,7 @@
 //  DefaultNetworkUseCaseTests.swift
 //  iOS-MongsilTests
 //
-//  Created by Kiwon Song on 2023/01/12.
+//  Created by Kiwi, Groot on 2023/01/12.
 //
 
 import XCTest

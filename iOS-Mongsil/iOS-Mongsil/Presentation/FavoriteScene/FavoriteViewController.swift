@@ -2,7 +2,7 @@
 //  FavoriteViewController.swift
 //  iOS-Mongsil
 //
-//  Created by Kiwon Song on 2023/01/16.
+//  Created by Kiwi, Groot on 2023/01/16.
 //
 
 import UIKit
@@ -36,13 +36,18 @@ final class FavoriteViewController: SuperViewControllerSetting {
             case .fetchFavoriteDataFailure(let error):
                 print(error)
             case .fetchCellDiaryData(let diary):
-                self.navigationController?.pushViewController(CommentsViewController(date: diary.date, image: BackgroundImage(id: diary.id, image: diary.url, squareImage: diary.squareUrl)), animated: true)
+                self.navigationController?.pushViewController(
+                    CommentsViewController(date: diary.date,
+                                           image: BackgroundImage(id: diary.id,
+                                                                  image: diary.url,
+                                                                  squareImage: diary.squareUrl)),animated: true)
             }
         }.store(in: &cancellables)
     }
     
     private func setNavigationBar() {
-        let attributes = [ NSAttributedString.Key.font: UIFont(name: "GamjaFlower-Regular", size: 23)!, NSAttributedString.Key.foregroundColor: UIColor(named: "weekdayColor") as Any]
+        let attributes = [ NSAttributedString.Key.font: UIFont(name: "GamjaFlower-Regular", size: 23)!,
+                           NSAttributedString.Key.foregroundColor: UIColor(named: "weekdayColor") as Any]
         navigationController?.navigationBar.titleTextAttributes = attributes
         navigationItem.title = "관심"
     }

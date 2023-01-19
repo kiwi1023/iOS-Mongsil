@@ -2,7 +2,7 @@
 //  MenuViewModelTests.swift
 //  iOS-MongsilTests
 //
-//  Created by Groot on 2023/01/13.
+//  Created by Kiwi, Groot on 2023/01/13.
 //
 
 import XCTest
@@ -19,7 +19,9 @@ final class MenuViewModelTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         viewModel = MenuViewModel(date: Date(),
-                                  image: .init(id: MockDiaryRepository.stubId, image: "TestImage", squareImage: "TestSquareImage"),
+                                  image: .init(id: MockDiaryRepository.stubId,
+                                               image: "TestImage",
+                                               squareImage: "TestSquareImage"),
                                   diaryUseCase: DefaultDiaryUseCase(
                                     repositoryManager: MockDiaryRepositoryManager(
                                         repository: MockDiaryRepository())))

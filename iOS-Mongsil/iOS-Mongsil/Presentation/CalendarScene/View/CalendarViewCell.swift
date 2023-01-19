@@ -2,13 +2,12 @@
 //  CalendarViewCell.swift
 //  iOS-Mongsil
 //
-//  Created by Kiwon Song on 2023/01/16.
+//  Created by Kiwi, Groot on 2023/01/16.
 //
 
 import UIKit
 
 final class CalendarViewCell: UICollectionViewCell {
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemBackground
@@ -17,7 +16,8 @@ final class CalendarViewCell: UICollectionViewCell {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: NSCoder())
+        debugPrint("CalendarViewCell Initialize error")
     }
     
     private func addUIComponents() {

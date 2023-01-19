@@ -2,7 +2,7 @@
 //  PassWordSettingViewController.swift
 //  iOS-Mongsil
 //
-//  Created by Kiwon Song on 2023/01/17.
+//  Created by Kiwi, Groot on 2023/01/17.
 //
 
 import UIKit
@@ -12,7 +12,8 @@ final class PassWordSettingViewController: SuperViewControllerSetting, Passsword
     private let passwordSettingView = PasswordSettingView()
     
     override func setupDefault() {
-        let attributes = [ NSAttributedString.Key.font: UIFont(name: "GamjaFlower-Regular", size: 23)!, NSAttributedString.Key.foregroundColor: UIColor(named: "weekdayColor") as Any]
+        let attributes = [ NSAttributedString.Key.font: UIFont(name: "GamjaFlower-Regular", size: 23)!,
+                           NSAttributedString.Key.foregroundColor: UIColor(named: "weekdayColor") as Any]
         navigationController?.navigationBar.titleTextAttributes = attributes
         navigationItem.title = "비밀번호 설정"
         passwordSettingView.delegate = self

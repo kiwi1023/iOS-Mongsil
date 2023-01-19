@@ -2,7 +2,7 @@
 //  PasswordView.swift
 //  iOS-Mongsil
 //
-//  Created by Kiwon Song on 2023/01/19.
+//  Created by Kiwi, Groot on 2023/01/19.
 //
 
 import UIKit
@@ -41,13 +41,11 @@ class PasswordView: SuperViewSetting {
     }
     
     override func setupLayout() {
-        
         NSLayoutConstraint.activate([
             passwordHeader.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 50),
             passwordHeader.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
             passwordHeader.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor)
         ])
-        
         NSLayoutConstraint.activate([
             passwordCollectionView.topAnchor.constraint(equalTo: passwordHeader.bottomAnchor, constant: 30),
             passwordCollectionView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
@@ -81,7 +79,9 @@ extension PasswordView: UICollectionViewDataSource {
 }
 
 extension PasswordView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width * 0.3
         let height: CGFloat = width
         return CGSize(width: width, height: height)

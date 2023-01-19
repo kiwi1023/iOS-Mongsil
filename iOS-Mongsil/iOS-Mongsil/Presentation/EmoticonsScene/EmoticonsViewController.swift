@@ -2,7 +2,7 @@
 //  EmoticonsViewController.swift
 //  iOS-Mongsil
 //
-//  Created by Groot on 2023/01/11.
+//  Created by Kiwi, Groot on 2023/01/11.
 //
 
 import UIKit
@@ -24,9 +24,9 @@ final class EmoticonsViewController: SuperViewControllerSetting {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func setupDefault() {
-        emoticonsView.setupCollecntionViewDelegate(self)
+        emoticonsView.setupCollectionViewDelegate(self)
     }
     
     override func addUIComponents() {
@@ -35,13 +35,12 @@ final class EmoticonsViewController: SuperViewControllerSetting {
     
     override func setupLayout() {
         emoticonsView.setupCollectionViewLayout(createLayout())
-        NSLayoutConstraint.activate(
-            [
-                emoticonsView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
-                emoticonsView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30),
-                emoticonsView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30),
-                emoticonsView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
-            ])
+        NSLayoutConstraint.activate([
+            emoticonsView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
+            emoticonsView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30),
+            emoticonsView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30),
+            emoticonsView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
+        ])
     }
     
     private func createLayout() -> UICollectionViewCompositionalLayout {

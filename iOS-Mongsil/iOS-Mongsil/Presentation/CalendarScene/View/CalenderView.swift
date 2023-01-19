@@ -2,15 +2,12 @@
 //  CalenderView.swift
 //  iOS-Mongsil
 //
-//  Created by Kiwon Song on 2023/01/16.
+//  Created by Kiwi, Groot on 2023/01/16.
 //
 
 import UIKit
 
 final class CalenderView: SuperViewSetting, MonthViewDelegate {
-    
-    //MARK: - CalendarData Properties
-    
     private var numOfDaysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31]
     private var currentMonthIndex: Int = 0
     private var currentYear: Int = 0
@@ -19,13 +16,10 @@ final class CalenderView: SuperViewSetting, MonthViewDelegate {
     private var todaysDate = 0
     private var firstWeekDayOfMonth = 0
     private var emoticon: String?
+    private let calendarHeaderView = CalendarHeaderView()
     var didTapcell: (([Int]) -> ())?
     var loadCellEmoticon: (([Int]) -> ())?
     
-    
-    //MARK: - Setup CalendarView
-    
-    private let calendarHeaderView = CalendarHeaderView()
     private let calendarCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -57,7 +51,6 @@ final class CalenderView: SuperViewSetting, MonthViewDelegate {
             calendarHeaderView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
             calendarHeaderView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor)
         ])
-        
         NSLayoutConstraint.activate([
             calendarCollectionView.topAnchor.constraint(equalTo: calendarHeaderView.bottomAnchor),
             calendarCollectionView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 22.5),
@@ -196,18 +189,24 @@ extension CalenderView: UICollectionViewDataSource {
 }
 
 extension CalenderView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width / 7 - 7
         let height: CGFloat = width
         
         return CGSize(width: width, height: height)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 7
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 7
     }
 }

@@ -2,7 +2,7 @@
 //  EmoticonsCollectionView.swift
 //  iOS-Mongsil
 //
-//  Created by Groot on 2023/01/11.
+//  Created by Kiwi, Groot on 2023/01/11.
 //
 
 import UIKit
@@ -65,7 +65,7 @@ final class EmoticonsView: SuperViewSetting {
         emoticonCollectionView.setCollectionViewLayout(layout, animated: true)
     }
     
-    func setupCollecntionViewDelegate(_ viewController: UIViewController) {
+    func setupCollectionViewDelegate(_ viewController: UIViewController) {
         emoticonCollectionView.delegate = viewController as? UICollectionViewDelegate
         emoticonCollectionView.dataSource = viewController as? UICollectionViewDataSource
         delegate = viewController as? EmoticonsViewDelegate

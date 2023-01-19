@@ -2,7 +2,7 @@
 //  MockCommentRepository.swift
 //  iOS-MongsilTests
 //
-//  Created by Groot on 2023/01/18.
+//  Created by Kiwi, Groot on 2023/01/18.
 //
 
 import Foundation
@@ -37,13 +37,11 @@ final class MockCommentRepository: CommentRepository {
     static let stubId = UUID()
     static let stubComment = Comment(id: stubId, date: Date(), emoticon: .notBad, text: "TestText")
     static var isSuccess: Bool = true
-    var comments: [Comment] = {
-        [
+    var comments: [Comment] = {[
             Comment(id: stubId, date: Date(), emoticon: .notBad, text: "TestText"),
             Comment(id: stubId, date: Date(), emoticon: .notBad, text: "TestText"),
             Comment(id: stubId, date: Date(), emoticon: .notBad, text: "TestText")
-        ]
-    }()
+        ]}()
     
     func create(input: Comment) -> AnyPublisher<Void, Error> {
         Future<Void, Error> { promise in

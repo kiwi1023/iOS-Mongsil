@@ -516,6 +516,10 @@
 		37B67C4C296567FB00F81118 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				4D3033AE29655D4C00234166 /* DiaryEntity+CoreDataClass.swift */,
+				4D3033AF29655D4C00234166 /* DiaryEntity+CoreDataProperties.swift */,
+				4D3033B029655D4C00234166 /* CommentEntity+CoreDataClass.swift */,
+				4D3033B129655D4C00234166 /* CommentEntity+CoreDataProperties.swift */,
 				37B67C4D2965680A00F81118 /* CoreDataRepsotories */,
 				4D3033B629655EA500234166 /* CoreDataManager */,
 				4DF883AA295D603400B507E2 /* CoreDataStorage */,
@@ -711,10 +715,6 @@
 		4DF88384295D59A400B507E2 = {
 			isa = PBXGroup;
 			children = (
-				4D3033AE29655D4C00234166 /* DiaryEntity+CoreDataClass.swift */,
-				4D3033AF29655D4C00234166 /* DiaryEntity+CoreDataProperties.swift */,
-				4D3033B029655D4C00234166 /* CommentEntity+CoreDataClass.swift */,
-				4D3033B129655D4C00234166 /* CommentEntity+CoreDataProperties.swift */,
 				4DF8838F295D59A400B507E2 /* iOS-Mongsil */,
 				4DF883B5295D9EBB00B507E2 /* iOS-MongsilTests */,
 				4DF8838E295D59A400B507E2 /* Products */,

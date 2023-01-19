@@ -2,7 +2,7 @@
 //  Diary.swift
 //  iOS-Mongsil
 //
-//  Created by Kiwon Song on 2022/12/29.
+//  Created by Kiwi, Groot on 2022/12/29.
 //
 
 import Foundation
