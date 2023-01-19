@@ -2,18 +2,23 @@
 //  CalendarListView.swift
 //  iOS-Mongsil
 //
-//  Created by Kiwon Song on 2023/01/16.
+//  Created by Kiwi, Groot on 2023/01/16.
 //
 
 import UIKit
 
 final class CalendarListView: SuperViewSetting {
-    private let monthsArray = ["January", "Faburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    private let monthsArray = ["January", "Faburary", "March"
+                               , "April", "May", "June", "July",
+                               "August", "September", "October",
+                               "November", "December"]
     private var numOfDaysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31]
     private var currentMonthIndex: Int = 0
     private var currentYear: Int = 0
     private var todaysDate = 0
     private var commentsCount = 0
+    private let calendarListCollectionView = UICollectionView(frame: .zero,
+                                                              collectionViewLayout: UICollectionViewFlowLayout())
     var didTapcell: (([Int], BackgroundImage) -> ())?
     var loadCommentsCount: (([Int]) -> ())?
     var backgroundImages: [BackgroundImage] = [] {
@@ -21,10 +26,7 @@ final class CalendarListView: SuperViewSetting {
             calendarListCollectionView.reloadData()
         }
     }
-    
-    private let calendarListCollectionView = UICollectionView(frame: .zero,
-                                                              collectionViewLayout: UICollectionViewFlowLayout())
-    
+   
     func getCommentsCount(count: Int) {
         self.commentsCount = count
     }

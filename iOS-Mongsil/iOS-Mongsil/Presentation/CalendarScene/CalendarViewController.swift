@@ -2,7 +2,7 @@
 //  CalendarViewController.swift
 //  iOS-Mongsil
 //
-//  Created by Kiwon Song on 2023/01/16.
+//  Created by Kiwi, Groot on 2023/01/16.
 //
 
 import UIKit
@@ -33,6 +33,7 @@ final class CalendarViewController: SuperViewControllerSetting {
             let date = dateData.map { String($0) }
             
             guard let dateData = "\(date[0])-\(date[1])-\(date[2])".date else { return }
+            
             self.input.send(.dateDidTap(dateData))
         }
         calendarView.loadCellEmoticon = { [weak self] dateData in
@@ -50,7 +51,7 @@ final class CalendarViewController: SuperViewControllerSetting {
             let dateString = dateData.map { String($0) }
             
             guard let date = "\(dateString[0])-\(dateString[1])-\(dateString[2])".date else { return }
-            
+    
             self.input.send(.fetchCommentsCount(date))
         }
         listview.didTapcell = { [weak self] dateData , backgroundImage in
@@ -59,6 +60,7 @@ final class CalendarViewController: SuperViewControllerSetting {
             let date = dateData.map { String($0) }
             
             guard let dateData = "\(date[0])-\(date[1])-\(date[2])".date else { return }
+            
             self.input.send(.listImageDidTap(dateData, backgroundImage))
         }
         
@@ -79,28 +81,24 @@ final class CalendarViewController: SuperViewControllerSetting {
             calendarView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             calendarView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
-        
         NSLayoutConstraint.activate([
             listview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             listview.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             listview.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             listview.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
-        
         NSLayoutConstraint.activate([
             listImageView.widthAnchor.constraint(equalToConstant: 60),
             listImageView.heightAnchor.constraint(equalToConstant: 60),
             listImageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -25),
             listImageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -25)
         ])
-        
         NSLayoutConstraint.activate([
             calendarSignImageView.widthAnchor.constraint(equalToConstant: 30),
             calendarSignImageView.heightAnchor.constraint(equalToConstant: 30),
             calendarSignImageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -40),
             calendarSignImageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40)
         ])
-        
         NSLayoutConstraint.activate([
             listSignImageView.widthAnchor.constraint(equalToConstant: 30),
             listSignImageView.heightAnchor.constraint(equalToConstant: 30),
@@ -117,11 +115,13 @@ final class CalendarViewController: SuperViewControllerSetting {
             target: self,
             action: #selector(didTapSettingButton)
         )
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "관심", style: .plain, target: self, action: #selector(didTapFavoriteButton))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "관심",
+                                                           style: .plain,
+                                                           target: self,
+                                                           action: #selector(didTapFavoriteButton))
         navigationItem.leftBarButtonItem?.setTitleTextAttributes(attributes, for: .normal)
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem = backBarButtonItem
-
     }
     
     @objc
@@ -184,7 +184,6 @@ final class CalendarViewController: SuperViewControllerSetting {
     
     @objc
     private func didTapListButton() {
-        
         if listSignImageView.isHidden == false {
             showListView()
             self.input.send(.diaryListButtonDidTap)
@@ -195,7 +194,6 @@ final class CalendarViewController: SuperViewControllerSetting {
     
     @objc
     private func didTapCalendarButton() {
-        
         if calendarSignImageView.isHidden == false {
             showCalendarView()
         } else if calendarSignImageView.isHidden {
@@ -238,7 +236,8 @@ final class CalendarViewController: SuperViewControllerSetting {
             case .fetchImageData(let data):
                 self.listview.backgroundImages = data
             case .showCommentView(let randomData, let date):
-                self.navigationController?.pushViewController(CommentsViewController(date: date, image: randomData), animated: true)
+                self.navigationController?.pushViewController(CommentsViewController(date: date, image: randomData),
+                                                              animated: true)
             case .fetchLastEmoticon(let emoticon):
                 self.calendarView.getEmoticon(emoticon: emoticon)
             case .fetchCommentsCount(let count):

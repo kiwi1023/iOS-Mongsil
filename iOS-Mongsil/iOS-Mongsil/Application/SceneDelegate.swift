@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  iOS-Mongsil
 //
-//  Created by Kiwon Song on 2022/12/29.
+//  Created by Kiwi, Groot on 2022/12/29.
 //
 
 import UIKit
@@ -10,8 +10,9 @@ import UIKit
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
+    func scene(_ scene: UIScene,
+               willConnectTo session: UISceneSession,
+               options connectionOptions: UIScene.ConnectionOptions) {
         if UserDefaults.standard.bool(forKey: "toggleState") {
             guard let windowScene = (scene as? UIWindowScene) else { return }
             let window = UIWindow(windowScene: windowScene)

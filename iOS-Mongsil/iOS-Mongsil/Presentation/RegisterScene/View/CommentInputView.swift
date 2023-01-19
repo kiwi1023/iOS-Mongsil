@@ -2,11 +2,10 @@
 //  CommentInputView.swift
 //  iOS-Mongsil
 //
-//  Created by Groot on 2023/01/13.
+//  Created by Kiwi, Groot on 2023/01/13.
 //
 
 import UIKit
-
 
 protocol CommentInputViewDelegate: AnyObject {
     func didTapAddCommentButton(_ comment: String)
@@ -111,8 +110,7 @@ final class CommentInputView: SuperViewSetting {
     }
     
     override func setupLayout() {
-        NSLayoutConstraint.activate(
-            [
+        NSLayoutConstraint.activate([
                 horizontalStackView.topAnchor.constraint(equalTo: topAnchor),
                 horizontalStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
                 horizontalStackView.trailingAnchor.constraint(equalTo: trailingAnchor),

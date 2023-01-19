@@ -2,13 +2,12 @@
 //  SettingViewCell.swift
 //  iOS-Mongsil
 //
-//  Created by Kiwon Song on 2023/01/17.
+//  Created by Kiwi, Groot on 2023/01/17.
 //
 
 import UIKit
 
 final class SettingViewCell: UICollectionViewCell {
-  
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemBackground
@@ -18,7 +17,7 @@ final class SettingViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         super.init(coder: NSCoder())
-        debugPrint("ProductListViewController Initialize error")
+        debugPrint("SettingViewCell Initialize error")
     }
     
     private func addUIComponents() {

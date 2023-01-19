@@ -2,7 +2,7 @@
 //  EmoticonCollectionViewCell.swift
 //  iOS-Mongsil
 //
-//  Created by Groot on 2023/01/11.
+//  Created by Kiwi, Groot on 2023/01/11.
 //
 
 import UIKit

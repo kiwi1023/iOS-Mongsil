@@ -2,7 +2,7 @@
 //  MenuViewModel.swift
 //  iOS-Mongsil
 //
-//  Created by Groot on 2023/01/13.
+//  Created by Kiwi, Groot on 2023/01/13.
 //
 
 import Foundation

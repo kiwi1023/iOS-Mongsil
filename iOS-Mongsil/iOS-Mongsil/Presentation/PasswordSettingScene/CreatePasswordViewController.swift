@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  iOS-Mongsil
 //
-//  Created by Kiwon Song on 2023/01/17.
+//  Created by Kiwi, Groot on 2023/01/17.
 //
 
 import UIKit
@@ -34,10 +34,13 @@ final class CreatePasswordViewController: SuperViewControllerSetting, CreatePass
     }
     
     func putWrongPassword() {
-        let titleAttributes = [NSAttributedString.Key.font: UIFont(name: "GamjaFlower-Regular", size: 23)!, NSAttributedString.Key.foregroundColor: UIColor.black]
+        let titleAttributes = [NSAttributedString.Key.font: UIFont(name: "GamjaFlower-Regular", size: 23)!,
+                               NSAttributedString.Key.foregroundColor: UIColor.black]
         let titleStiring = NSAttributedString(string: "알림", attributes: titleAttributes)
-        let massageAttributes = [NSAttributedString.Key.font: UIFont(name: "GamjaFlower-Regular", size: 16)!, NSAttributedString.Key.foregroundColor: UIColor.darkGray]
-        let massageString = NSAttributedString(string: "비밀번호가 일치 하지 않습니다.\n 처음부터 다시 시도해 주세요.", attributes: massageAttributes)
+        let massageAttributes = [NSAttributedString.Key.font: UIFont(name: "GamjaFlower-Regular", size: 16)!,
+                                 NSAttributedString.Key.foregroundColor: UIColor.darkGray]
+        let massageString = NSAttributedString(string: "비밀번호가 일치 하지 않습니다.\n 처음부터 다시 시도해 주세요.",
+                                               attributes: massageAttributes)
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         alertController.setValue(titleStiring, forKey: "attributedTitle")
         alertController.setValue(massageString, forKey: "attributedMessage")

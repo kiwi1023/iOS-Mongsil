@@ -2,13 +2,12 @@
 //  ViewSettingProtocol.swift
 //  iOS-Mongsil
 //
-//  Created by Kiwon Song on 2023/01/06.
+//  Created by Kiwi, Groot on 2023/01/06.
 //
 
 import UIKit
 
 protocol ViewSettingProtocol {
-    
     init()
     
     func setupDefault()
@@ -17,7 +16,6 @@ protocol ViewSettingProtocol {
 }
 
 class SuperViewControllerSetting: UIViewController , ViewSettingProtocol {
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder :)")
     }
@@ -40,7 +38,6 @@ class SuperViewControllerSetting: UIViewController , ViewSettingProtocol {
 }
 
 class SuperViewSetting: UIView , ViewSettingProtocol {
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder :)")
     }

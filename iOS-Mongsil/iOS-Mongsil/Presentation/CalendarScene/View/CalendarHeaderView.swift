@@ -2,7 +2,7 @@
 //  CalendarHeaderView.swift
 //  iOS-Mongsil
 //
-//  Created by Kiwon Song on 2023/01/16.
+//  Created by Kiwi, Groot on 2023/01/16.
 //
 
 import UIKit
@@ -12,17 +12,12 @@ protocol MonthViewDelegate: AnyObject {
 }
 
 final class CalendarHeaderView: SuperViewSetting {
-    //MARK: - CalendarData Properties
-    
     private let monthsArray = ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"]
     private let daysArray = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     private var currentMonthIndex = 0
     private var currentYear: Int = 0
-    
-    //MARK: - Setup CalendarHeaderView
-    
     weak var delegate: MonthViewDelegate?
-   
+    
     override func setupDefault() {
         currentMonthIndex = Calendar.current.component(.month, from: Date()) - 1
         currentYear = Calendar.current.component(.year, from: Date())
@@ -37,6 +32,7 @@ final class CalendarHeaderView: SuperViewSetting {
         [leftButton, dateLabel, rightButton].forEach {
             dateStackView.addArrangedSubview($0)
         }
+        
         for index in 0..<7 {
             let label = UILabel()
             label.text = daysArray[index]
@@ -88,16 +84,18 @@ final class CalendarHeaderView: SuperViewSetting {
     
     private let rightButton: UIButton = {
         let botton = UIButton()
-        botton.setImage(UIImage(systemName: "chevron.forward", withConfiguration: UIImage.SymbolConfiguration(weight: .medium)), for: .normal)
+        botton.setImage(UIImage(systemName: "chevron.forward",
+                                withConfiguration: UIImage.SymbolConfiguration(weight: .medium)), for: .normal)
         botton.tintColor = .black
         botton.translatesAutoresizingMaskIntoConstraints = false
-
+        
         return botton
     }()
     
     private let leftButton: UIButton = {
         let botton = UIButton()
-        botton.setImage(UIImage(systemName: "chevron.backward", withConfiguration: UIImage.SymbolConfiguration(weight: .medium)), for: .normal)
+        botton.setImage(UIImage(systemName: "chevron.backward",
+                                withConfiguration: UIImage.SymbolConfiguration(weight: .medium)), for: .normal)
         botton.tintColor = .black
         botton.translatesAutoresizingMaskIntoConstraints = false
         

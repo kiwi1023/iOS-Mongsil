@@ -2,7 +2,7 @@
 //  CommentsTableView.swift
 //  iOS-Mongsil
 //
-//  Created by Groot on 2023/01/08.
+//  Created by Kiwi, Groot on 2023/01/08.
 //
 
 import UIKit
@@ -60,12 +60,11 @@ final class CommentsView: SuperViewSetting {
     }
     
     override func setupLayout() {
-        NSLayoutConstraint.activate(
-            [
-                commentsTableView.topAnchor.constraint(equalTo: topAnchor),
-                commentsTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                commentsTableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                commentsTableView.bottomAnchor.constraint(equalTo: bottomAnchor)
-            ])
+        NSLayoutConstraint.activate([
+            commentsTableView.topAnchor.constraint(equalTo: topAnchor),
+            commentsTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            commentsTableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            commentsTableView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
     }
 }

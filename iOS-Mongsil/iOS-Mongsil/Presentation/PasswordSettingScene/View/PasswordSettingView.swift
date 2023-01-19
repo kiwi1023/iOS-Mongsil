@@ -2,7 +2,7 @@
 //  PasswordSettingView.swift
 //  iOS-Mongsil
 //
-//  Created by Kiwon Song on 2023/01/17.
+//  Created by Kiwi, Groot on 2023/01/17.
 //
 
 import UIKit
@@ -13,7 +13,6 @@ protocol PassswordSettingViewDelegate: AnyObject {
 }
 
 final class PasswordSettingView: SuperViewSetting {
-    
     private var isTappedPasswordButton = UserDefaults.standard.bool(forKey: "toggleState")
     weak var delegate: PassswordSettingViewDelegate?
     
@@ -155,7 +154,8 @@ final class PasswordSettingView: SuperViewSetting {
     
     @objc private func setToggleButton() {
         isTappedPasswordButton.toggle()
-        isTappedPasswordButton ? toggleButton.setImage(UIImage(named: "icSwitchOn"), for: .normal) : toggleButton.setImage(UIImage(named: "icSwitchOff"), for: .normal)
+        isTappedPasswordButton ? toggleButton.setImage(UIImage(named: "icSwitchOn"),
+                                                       for: .normal) : toggleButton.setImage(UIImage(named: "icSwitchOff"), for: .normal)
         UserDefaults.standard.set(self.isTappedPasswordButton, forKey: "toggleState")
         
         if isTappedPasswordButton {

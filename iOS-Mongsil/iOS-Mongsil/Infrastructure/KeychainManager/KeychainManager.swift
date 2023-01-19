@@ -2,7 +2,7 @@
 //  KeychainManager.swift
 //  iOS-Mongsil
 //
-//  Created by Kiwon Song on 2023/01/19.
+//  Created by Kiwi, Groot on 2023/01/19.
 //
 
 import Foundation
@@ -12,7 +12,6 @@ struct KeyChain {
     var passWord: String
 }
 
-
 final class KeyChainManger {
     static let shared = KeyChainManger()
     
@@ -21,16 +20,12 @@ final class KeyChainManger {
     func addItemsOnKeyChain(_ newPassword: String) {
         let keyChain = KeyChain(passWord: newPassword)
         let passWord = keyChain.passWord.data(using: String.Encoding.utf8)!
-        
         let query: [String : Any] = [kSecClass as String: kSecClassGenericPassword,
                                      kSecAttrAccount as String: keyChain.userName,
                                      kSecValueData as String: passWord]
-        
         let status = SecItemAdd(query as CFDictionary, nil)
         
-        guard status == errSecSuccess else {
-            return
-        }
+        guard status == errSecSuccess else { return }
     }
     
     func readKeyChain() -> KeyChain? {
@@ -41,14 +36,8 @@ final class KeyChainManger {
         var item: CFTypeRef?
         let status = SecItemCopyMatching(query as CFDictionary, &item)
         
-        guard status != errSecItemNotFound else {
-            return nil
-        }
-        
-        guard status == errSecSuccess else {
-            return nil
-        }
-        
+        guard status != errSecItemNotFound else { return nil }
+        guard status == errSecSuccess else { return nil }
         guard let resultItem = item as? [String : Any],
               let passWordData = resultItem[kSecValueData as String] as? Data,
               let passWord = String(data: passWordData, encoding: String.Encoding.utf8),
@@ -69,13 +58,8 @@ final class KeyChainManger {
                                           kSecValueData as String: passWord]
         let status = SecItemUpdate(query as CFDictionary, attributte as CFDictionary)
         
-        guard status != errSecItemNotFound else {
-            return
-        }
-        
-        guard status == errSecSuccess else {
-            return
-        }
+        guard status != errSecItemNotFound else { return }
+        guard status == errSecSuccess else { return }
     }
     
     func deleteItemOnKeyChain() {

@@ -2,7 +2,7 @@
 //  FavoriteViewCell.swift
 //  iOS-Mongsil
 //
-//  Created by Kiwon Song on 2023/01/16.
+//  Created by Kiwi, Groot on 2023/01/16.
 //
 
 import UIKit
@@ -20,7 +20,7 @@ final class FavoriteViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         super.init(coder: NSCoder())
-        debugPrint("ProductListViewController Initialize error")
+        debugPrint("FavoriteViewCell Initialize error")
     }
     
     private func addUIComponents() {

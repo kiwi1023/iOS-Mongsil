@@ -2,7 +2,7 @@
 //  CalendarListViewCell.swift
 //  iOS-Mongsil
 //
-//  Created by Kiwon Song on 2023/01/16.
+//  Created by Kiwi, Groot on 2023/01/16.
 //
 
 import UIKit
@@ -62,6 +62,7 @@ final class CalendarListViewCell: UICollectionViewCell {
         imageView.image = UIImage(named: "icComment")
         imageView.translatesAutoresizingMaskIntoConstraints=false
         imageView.tintColor = .white
+        
         return imageView
     }()
     
@@ -144,35 +145,30 @@ final class CalendarListViewCell: UICollectionViewCell {
             backgroundImageView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
             backgroundImageView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -7)
         ])
-        
         NSLayoutConstraint.activate([
             placeHolderImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             placeHolderImageView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
             placeHolderImageView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
             placeHolderImageView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -7)
         ])
-        
         NSLayoutConstraint.activate([
             dayLabel.heightAnchor.constraint(equalToConstant: 40),
             dayLabel.widthAnchor.constraint(equalToConstant: 50),
             dayLabel.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor, constant: 14),
             dayLabel.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: -30)
         ])
-        
         NSLayoutConstraint.activate([
             yearMonthStackView.heightAnchor.constraint(equalToConstant: 40),
             yearMonthStackView.widthAnchor.constraint(equalToConstant: 90),
             yearMonthStackView.leadingAnchor.constraint(equalTo: dayLabel.trailingAnchor, constant: 5),
             yearMonthStackView.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: -30)
         ])
-        
         NSLayoutConstraint.activate([
             commentCountLabel.heightAnchor.constraint(equalToConstant: 15),
             commentCountLabel.widthAnchor.constraint(equalToConstant: 30),
             commentCountLabel.trailingAnchor.constraint(equalTo: backgroundImageView.trailingAnchor, constant: -20),
             commentCountLabel.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: -35)
         ])
-        
         NSLayoutConstraint.activate([
             commentImageView.heightAnchor.constraint(equalToConstant: 20),
             commentImageView.widthAnchor.constraint(equalToConstant: 20),

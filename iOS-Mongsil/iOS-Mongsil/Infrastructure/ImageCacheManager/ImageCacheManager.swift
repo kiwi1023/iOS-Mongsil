@@ -2,7 +2,7 @@
 //  ImageCacheManager.swift
 //  iOS-Mongsil
 //
-//  Created by Groot on 2023/01/05.
+//  Created by Kiwi, Groot on 2023/01/05.
 //
 
 import Foundation

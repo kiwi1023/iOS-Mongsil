@@ -2,7 +2,7 @@
 //  MockDiaryRepository.swift
 //  iOS-MongsilTests
 //
-//  Created by Groot on 2023/01/18.
+//  Created by Kiwi, Groot on 2023/01/18.
 //
 
 import Foundation
