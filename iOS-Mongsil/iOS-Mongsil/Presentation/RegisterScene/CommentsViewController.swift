@@ -105,7 +105,7 @@ final class CommentsViewController: SuperViewControllerSetting {
         else { return }
         
         let keyboardRectangle = keyboardFrame.cgRectValue
-        view.frame.origin.y = -keyboardRectangle.height
+        view.frame.origin.y = -(keyboardRectangle.height + 4)
         isShowKeyboard = true
     }
     
