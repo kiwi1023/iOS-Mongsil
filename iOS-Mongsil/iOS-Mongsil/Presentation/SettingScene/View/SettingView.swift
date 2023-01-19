@@ -61,7 +61,10 @@ final class SettingView: SuperViewSetting {
         
         return layout
     }()
-    var didTapcell: (() -> ())?
+    var didTapFirstCell: (() -> ())?
+    var didTapSecondCell: (() -> ())?
+    var didTapThirdCell: (() -> ())?
+    var didTapFourthCell: (() -> ())?
     
     override func setupDefault() {
         
@@ -126,7 +129,13 @@ extension SettingView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if indexPath.item == 0 {
-            didTapcell?()
+            didTapFirstCell?()
+        } else if indexPath.item == 1 {
+            didTapSecondCell?()
+        } else if indexPath.item == 2 {
+            didTapThirdCell?()
+        } else if indexPath.item == 3 {
+            didTapFourthCell?()
         }
     }
 }

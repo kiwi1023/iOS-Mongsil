@@ -21,6 +21,7 @@
 		370EF82629712248000DDAF5 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370EF82529712248000DDAF5 /* MenuViewModel.swift */; };
 		370EF82829712A81000DDAF5 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370EF82729712A81000DDAF5 /* MenuView.swift */; };
 		370EF82A297140F4000DDAF5 /* CommentInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370EF829297140F4000DDAF5 /* CommentInputView.swift */; };
+		373A84A8297909BF0050A03D /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373A84A7297909BF0050A03D /* DatePickerView.swift */; };
 		373D1C9029669165002A3B3D /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D1C8F29669165002A3B3D /* NetworkServiceTests.swift */; };
 		373D1C9329669228002A3B3D /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D1C9229669228002A3B3D /* MockNetworkManager.swift */; };
 		373D1C9529669277002A3B3D /* MockNetworkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D1C9429669277002A3B3D /* MockNetworkData.swift */; };
@@ -48,7 +49,6 @@
 		37A277112976ADF300AF2CA0 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A277102976ADF300AF2CA0 /* NotificationViewController.swift */; };
 		37A277142976B11000AF2CA0 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A277132976B11000AF2CA0 /* NotificationView.swift */; };
 		37A277182976D0DA00AF2CA0 /* DatePickerViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A277172976D0DA00AF2CA0 /* DatePickerViewContoller.swift */; };
-		37A2771C2976DE5500AF2CA0 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A2771B2976DE5500AF2CA0 /* DatePickerView.swift */; };
 		37A2771E29781BC800AF2CA0 /* MockDiaryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A2771D29781BC800AF2CA0 /* MockDiaryRepository.swift */; };
 		37A2772029781BFA00AF2CA0 /* MockCommentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A2771F29781BFA00AF2CA0 /* MockCommentRepository.swift */; };
 		37A277222978205300AF2CA0 /* DefaultCommentUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A277212978205300AF2CA0 /* DefaultCommentUseCaseTests.swift */; };
@@ -128,6 +128,7 @@
 		370EF82529712248000DDAF5 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		370EF82729712A81000DDAF5 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		370EF829297140F4000DDAF5 /* CommentInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputView.swift; sourceTree = "<group>"; };
+		373A84A7297909BF0050A03D /* DatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		373D1C8F29669165002A3B3D /* NetworkServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		373D1C9229669228002A3B3D /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
 		373D1C9429669277002A3B3D /* MockNetworkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkData.swift; sourceTree = "<group>"; };
@@ -154,7 +155,6 @@
 		37A277102976ADF300AF2CA0 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		37A277132976B11000AF2CA0 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		37A277172976D0DA00AF2CA0 /* DatePickerViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewContoller.swift; sourceTree = "<group>"; };
-		37A2771B2976DE5500AF2CA0 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		37A2771D29781BC800AF2CA0 /* MockDiaryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDiaryRepository.swift; sourceTree = "<group>"; };
 		37A2771F29781BFA00AF2CA0 /* MockCommentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCommentRepository.swift; sourceTree = "<group>"; };
 		37A277212978205300AF2CA0 /* DefaultCommentUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCommentUseCaseTests.swift; sourceTree = "<group>"; };
@@ -493,7 +493,7 @@
 		37A2771A2976DE4900AF2CA0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				37A2771B2976DE5500AF2CA0 /* DatePickerView.swift */,
+				373A84A7297909BF0050A03D /* DatePickerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -986,6 +986,7 @@
 				4D3033CA29668E3300234166 /* BackgroundImageDTO.swift in Sources */,
 				370EF82429712235000DDAF5 /* MenuViewController.swift in Sources */,
 				37B67C57296590AC00F81118 /* DefaultCommentRepositoryManager.swift in Sources */,
+				373A84A8297909BF0050A03D /* DatePickerView.swift in Sources */,
 				4DD8BD9229768AEC00D89546 /* SettingView.swift in Sources */,
 				37A277142976B11000AF2CA0 /* NotificationView.swift in Sources */,
 				37A276FC29756EB800AF2CA0 /* FavoriteViewController.swift in Sources */,
