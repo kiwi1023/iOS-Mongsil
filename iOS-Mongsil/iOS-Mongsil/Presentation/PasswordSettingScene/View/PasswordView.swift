@@ -33,6 +33,7 @@ class PasswordView: SuperViewSetting {
         passwordCollectionView.delegate = self
         passwordCollectionView.dataSource = self
         passwordCollectionView.register(PasswordViewCell.self, forCellWithReuseIdentifier: "Cell")
+        passwordCollectionView.isScrollEnabled = false
     }
     
     override func addUIComponents() {

@@ -8,6 +8,8 @@
 import UIKit
 
 final class PasswordViewController: SuperViewControllerSetting, PasswordViewDelegate {
+    static var isEnteredForeground = false
+    
     private let passwordView = PasswordView()
     
     override func setupDefault() {
@@ -41,6 +43,10 @@ final class PasswordViewController: SuperViewControllerSetting, PasswordViewDele
     }
     
     func putCorrectPassword() {
-        self.navigationController?.pushViewController(CalendarViewController(), animated: true)
+        if PasswordViewController.isEnteredForeground {
+            dismiss(animated: false)
+        } else {
+            self.navigationController?.pushViewController(CalendarViewController(), animated: true)
+        }
     }
 }
