@@ -59,7 +59,7 @@ final class CalendarViewModel: ViewModelBuilder {
             case .viewDidLoad:
                 self.fetchDiaries()
             case .diaryListButtonDidTap:
-                self.output.send(.fetchImageData(self.backgroundImage))
+                self.output.send(.fetchImageData(self.backgroundImage.shuffled()))
             case .dateDidTap(let date):
                 guard self.backgroundImage.count != 0 else { return }
                 
