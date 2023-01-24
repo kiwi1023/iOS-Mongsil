@@ -106,7 +106,7 @@ final class MenuViewController: SuperViewControllerSetting, AlertProtocol {
             menuView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             menuView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             menuView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            menuView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25)
+            menuView.heightAnchor.constraint(equalToConstant: 80)
         ])
     }
 }
@@ -168,18 +168,12 @@ extension MenuViewController: MenuViewDelegate {
                                  didFinishSavingWithError error: Error?,
                                  contextInfo: UnsafeMutableRawPointer?) {
         guard error == nil else { return }
-        
-        let alertController = UIAlertController(title: "완료", message: "이미지가 갤러리에 저장되었습니다.",
-                                                preferredStyle: .alert)
-        alertController.addAction(.init(title: "확인", style: .cancel))
-        present(alertController, animated: true)
+
+        present(makeConformAlert(titleText: "완료" ,massageText: "이미지가 갤러리에 저장되었습니다."), animated: true)
     }
     
     private func alertPermissionDenied() {
-        let alertController = UIAlertController(title: "실패", message: "설정앱에서 권한을 허용해주세요.",
-                                                preferredStyle: .alert)
-        alertController.addAction(.init(title: "확인", style: .cancel))
-        present(alertController, animated: true)
+        present(makeConformAlert(titleText: "실패" ,massageText: "설정앱에서 권한을 허용해주세요."), animated: true)
     }
 }
 

@@ -31,7 +31,7 @@ final class MenuView: SuperViewSetting {
     private let isShowCommentsLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "일기 숨기기"
+        label.text = "일기 보이기"
         label.font = UIFont(name: "GamjaFlower-Regular", size: 18.0)
         
         return label
@@ -117,8 +117,8 @@ final class MenuView: SuperViewSetting {
     
     private func setIsShowCommentsItems() {
         isHiddenComments.toggle()
-        isHiddenComments ? setupIsShowCommentsButtonImageViewOn() : setupIsShowCommentsButtonImageViewOff()
-        isShowCommentsLabel.text = isHiddenComments ? "일기 보이기" : "일기 숨기기"
+        isHiddenComments ? setupIsShowCommentsButtonImageViewOff() : setupIsShowCommentsButtonImageViewOn()
+        isShowCommentsLabel.text = isHiddenComments ? "일기 숨기기" : "일기 보이기"
     }
     
     private func setupIsShowCommentsButtonImageViewOn() {
@@ -183,7 +183,6 @@ final class MenuView: SuperViewSetting {
                 shareButton.heightAnchor.constraint(equalToConstant: 30),
                 shareLabel.centerXAnchor.constraint(equalTo: shareButton.centerXAnchor),
                 shareLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
-                
             ])
         NSLayoutConstraint.activate([
                 scrapImageButton.trailingAnchor.constraint(equalTo: downloadImageButton.leadingAnchor, constant: -25),
