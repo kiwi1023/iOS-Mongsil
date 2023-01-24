@@ -13,7 +13,7 @@ protocol MenuViewControllerDelegate: AnyObject {
     func didTapIsShowCommentsButton()
 }
 
-final class MenuViewController: SuperViewControllerSetting {
+final class MenuViewController: SuperViewControllerSetting, AlertProtocol {
     private let menuView = MenuView()
     private let viewModel: MenuViewModel
     private let input = PassthroughSubject<MenuViewModel.Input, Never>()

@@ -24,7 +24,7 @@ class SettingViewController: SuperViewControllerSetting, MFMailComposeViewContro
         settingView.didTapFirstCell = { [weak self] in
             guard let self = self else { return }
             
-            self.navigationController?.pushViewController(PassWordSettingViewController(), animated: true)
+            self.navigationController?.pushViewController(PasswordSettingViewController(), animated: true)
         }
         settingView.didTapSecondCell = { [weak self] in
             guard let self = self else { return }

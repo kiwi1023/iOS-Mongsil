@@ -1,5 +1,5 @@
 //
-//  PassWordSettingViewController.swift
+//  PasswordSettingViewController.swift
 //  iOS-Mongsil
 //
 //  Created by Kiwi, Groot on 2023/01/17.
@@ -7,8 +7,7 @@
 
 import UIKit
 
-final class PassWordSettingViewController: SuperViewControllerSetting, PassswordSettingViewDelegate {
-    
+final class PasswordSettingViewController: SuperViewControllerSetting, PassswordSettingViewDelegate {
     private let passwordSettingView = PasswordSettingView()
     
     override func setupDefault() {

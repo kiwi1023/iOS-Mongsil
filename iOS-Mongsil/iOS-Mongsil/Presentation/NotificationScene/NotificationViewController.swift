@@ -8,7 +8,7 @@
 import UIKit
 import UserNotifications
 
-final class NotificationViewController: SuperViewControllerSetting {
+final class NotificationViewController: SuperViewControllerSetting, AlertProtocol {
     private let notificationView = NotificationView()
     private let notificationCenter = UNUserNotificationCenter.current()
     private let userDefault = UserDefaults.standard
@@ -20,6 +20,23 @@ final class NotificationViewController: SuperViewControllerSetting {
         
         set {
             userDefault.set(newValue, forKey: "isOnNotification")
+        }
+    }
+    private var notificationTime: Date? {
+        get {
+            userDefault.object(forKey: "notificationTime") as? Date
+        }
+        
+        set {
+            userDefault.set(newValue, forKey: "notificationTime")
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if isSelectedTime == true {
+            present(makeConformAlert(massageText: "알림이 설정되었습니다."), animated: true)
         }
     }
     
