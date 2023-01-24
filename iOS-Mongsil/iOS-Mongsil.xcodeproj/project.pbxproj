@@ -22,6 +22,8 @@
 		370EF82829712A81000DDAF5 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370EF82729712A81000DDAF5 /* MenuView.swift */; };
 		370EF82A297140F4000DDAF5 /* CommentInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370EF829297140F4000DDAF5 /* CommentInputView.swift */; };
 		373A84A8297909BF0050A03D /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373A84A7297909BF0050A03D /* DatePickerView.swift */; };
+		373A84CA297E53B90050A03D /* CommentUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373A84C7297E53B90050A03D /* CommentUpdateViewController.swift */; };
+		373A84CB297E53B90050A03D /* CommentUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373A84C9297E53B90050A03D /* CommentUpdateView.swift */; };
 		373D1C9029669165002A3B3D /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D1C8F29669165002A3B3D /* NetworkServiceTests.swift */; };
 		373D1C9329669228002A3B3D /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D1C9229669228002A3B3D /* MockNetworkManager.swift */; };
 		373D1C9529669277002A3B3D /* MockNetworkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D1C9429669277002A3B3D /* MockNetworkData.swift */; };
@@ -131,6 +133,8 @@
 		370EF82729712A81000DDAF5 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		370EF829297140F4000DDAF5 /* CommentInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputView.swift; sourceTree = "<group>"; };
 		373A84A7297909BF0050A03D /* DatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
+		373A84C7297E53B90050A03D /* CommentUpdateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentUpdateViewController.swift; sourceTree = "<group>"; };
+		373A84C9297E53B90050A03D /* CommentUpdateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentUpdateView.swift; sourceTree = "<group>"; };
 		373D1C8F29669165002A3B3D /* NetworkServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		373D1C9229669228002A3B3D /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
 		373D1C9429669277002A3B3D /* MockNetworkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkData.swift; sourceTree = "<group>"; };
@@ -272,6 +276,23 @@
 				37A2770529756F8C00AF2CA0 /* ViewModel */,
 			);
 			path = MenuScene;
+			sourceTree = "<group>";
+		};
+		373A84C6297E53B90050A03D /* UpdateScene */ = {
+			isa = PBXGroup;
+			children = (
+				373A84C7297E53B90050A03D /* CommentUpdateViewController.swift */,
+				373A84C8297E53B90050A03D /* View */,
+			);
+			path = UpdateScene;
+			sourceTree = "<group>";
+		};
+		373A84C8297E53B90050A03D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				373A84C9297E53B90050A03D /* CommentUpdateView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		373D1C8D29669165002A3B3D /* Infrastructure */ = {
@@ -794,6 +815,7 @@
 				37A276F429756EB700AF2CA0 /* FavoriteScene */,
 				370EF822297121DF000DDAF5 /* MenuScene */,
 				370EF81029703F88000DDAF5 /* EmoticonsScene */,
+				373A84C6297E53B90050A03D /* UpdateScene */,
 				370EF81529703F88000DDAF5 /* RegisterScene */,
 				4DD8BD8A2976834900D89546 /* SettingScene */,
 				4DD8BD942976AED600D89546 /* PasswordSettingScene */,
@@ -972,6 +994,7 @@
 				37A276F329756EAE00AF2CA0 /* CalendarListViewCell.swift in Sources */,
 				37B67C542965906100F81118 /* DefaultDiaryRepositoryManager.swift in Sources */,
 				373D1CA12966E860002A3B3D /* ImageCacheManager.swift in Sources */,
+				373A84CA297E53B90050A03D /* CommentUpdateViewController.swift in Sources */,
 				4DE8B4412978430600870790 /* PasswordView.swift in Sources */,
 				4D3033BF296596A000234166 /* APIConfiguration.swift in Sources */,
 				37A276EF29756EAE00AF2CA0 /* CalendarViewCell.swift in Sources */,
@@ -1031,6 +1054,7 @@
 				4DE8B4392978335E00870790 /* PasswordHeaderView.swift in Sources */,
 				4DF8839B295D59A400B507E2 /* iOS_Mongsil.xcdatamodeld in Sources */,
 				37B67C512965685100F81118 /* CoreDataDiaryRepository.swift in Sources */,
+				373A84CB297E53B90050A03D /* CommentUpdateView.swift in Sources */,
 				37A276EC29756EAE00AF2CA0 /* CalendarViewModel.swift in Sources */,
 				4DE8B43B297833EF00870790 /* PasswordViewCell.swift in Sources */,
 			);

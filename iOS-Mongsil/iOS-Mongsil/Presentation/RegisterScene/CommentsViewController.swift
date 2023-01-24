@@ -14,7 +14,6 @@ final class CommentsViewController: SuperViewControllerSetting {
     private var cancellables = Set<AnyCancellable>()
     private let commentsView = CommentsView()
     private let commentInputView = CommentInputView()
-    private var isShowKeyboard = false
     private lazy var inputTextViewMaxHeight = commentInputView.commentTextViewMaxHeight()
     
     init(date: Date, image: BackgroundImage) {
@@ -42,11 +41,35 @@ final class CommentsViewController: SuperViewControllerSetting {
     
     override func setupDefault() {
         bindViewModel()
+        setupNavigationBar()
         setupGradient()
         setupKeyboardNotifications()
         setupTapGesture()
         commentsView.setupDelegates(self)
         commentInputView.setupDelegates(self)
+    }
+    
+    private func setupNavigationBar() {
+        let image = UIImage(named: "icMenu")
+        let menuButton = UIBarButtonItem(image: image,
+                                         style: .done,
+                                         target: self,
+                                         action: #selector(didTapMenuButton))
+        navigationItem.rightBarButtonItem = menuButton
+    }
+    
+    @objc
+    private func didTapMenuButton() {
+        presentMenuView()
+    }
+    
+    private func presentMenuView() {
+        let viewContoller = MenuViewController(date: viewModel.date,
+                                               image: viewModel.image,
+                                               isHiddenComments: commentsView.isHidden)
+        viewContoller.modalPresentationStyle = .overFullScreen
+        viewContoller.delegate = self
+        present(viewContoller, animated: true)
     }
     
     private func bindViewModel() {
@@ -106,19 +129,26 @@ final class CommentsViewController: SuperViewControllerSetting {
         
         let keyboardRectangle = keyboardFrame.cgRectValue
         view.frame.origin.y = -(keyboardRectangle.height + 4)
-        isShowKeyboard = true
     }
     
     @objc
     private func keyboardWillHide(_ notification: NSNotification) {
         view.frame.origin.y = 0
-        isShowKeyboard = false
     }
     
     private func setupTapGesture() {
-        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
-        tapGesture.delegate = self
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapView))
         view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc
+    private func didTapView() {
+        view.endEditing(true)
+    }
+    
+    private func setupIsHiddenCommentsViewAndCommentInputView(_ value: Bool) {
+        commentsView.isHidden = value
+        commentInputView.isHidden = value
     }
     
     override func addUIComponents() {
@@ -128,16 +158,16 @@ final class CommentsViewController: SuperViewControllerSetting {
     
     override func setupLayout() {
         NSLayoutConstraint.activate([
-                commentsView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-                commentsView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
-                commentsView.bottomAnchor.constraint(equalTo: commentInputView.topAnchor, constant: -4),
-                commentsView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3)
-            ])
+            commentsView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            commentsView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
+            commentsView.bottomAnchor.constraint(equalTo: commentInputView.topAnchor, constant: -4),
+            commentsView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3)
+        ])
         NSLayoutConstraint.activate([
-                commentInputView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-                commentInputView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
-                commentInputView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-            ])
+            commentInputView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            commentInputView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
+            commentInputView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
 }
 
@@ -174,8 +204,7 @@ extension CommentsViewController: UITableViewDelegate {
         let updateSwipeAction = UIContextualAction(style: .normal, title: "편집", handler: { [weak self] _, _, _ in
             guard let self = self else { return }
             
-            self.showCommentTextUpdateAlert(indexPath)
-            self.isShowKeyboard = true
+            self.presentCommentUpdateView(indexPath)
         })
         let deleteSwipeAction = UIContextualAction(style: .normal, title: "삭제", handler: { [weak self] _, _, _ in
             guard let self = self else { return }
@@ -190,27 +219,13 @@ extension CommentsViewController: UITableViewDelegate {
         return configuration
     }
     
-    private func showCommentTextUpdateAlert(_ indexPath: IndexPath) {
-        let comment = viewModel.comments[indexPath.row]
-        let alertController = UIAlertController(title: "편집할 내용을 입력하세요", message: nil, preferredStyle: .alert)
-        alertController.addTextField()
-        alertController.textFields?.first?.text = comment.text
-        alertController.textFields?.first?.font = UIFont(name: "GamjaFlower-Regular", size: 18.0)
-        let updateAction = UIAlertAction(title: "확인", style: .default) { [weak self] _ in
-            guard let self = self,
-                  let text = alertController.textFields?.first?.text else { return }
-            
-            self.input.send(.didTapUpdateCommentButton(comment.id, text, comment.emoticon))
-            self.isShowKeyboard = false
-        }
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel) { [weak self] _ in
-            guard let self = self else { return }
-            
-            self.isShowKeyboard = false
-        }
-        alertController.addAction(updateAction)
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true)
+    private func presentCommentUpdateView(_ indexPath: IndexPath) {
+        let viewController = CommentUpdateViewController()
+        viewController.delegate = self
+        viewController.indexPath = indexPath
+        viewController.text = viewModel.comments[indexPath.row].text
+        setupIsHiddenCommentsViewAndCommentInputView(true)
+        present(viewController, animated: true)
     }
 }
 
@@ -257,32 +272,15 @@ extension CommentsViewController: UITextViewDelegate {
     }
 }
 
-extension CommentsViewController: UIGestureRecognizerDelegate {
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        guard touch.view?.isDescendant(of: commentInputView) == false else { return false }
-        guard touch.view?.isDescendant(of: commentsView) == false else {
-            view.endEditing(true)
-            
-            return false
-        }
-        guard isShowKeyboard == false else {
-            view.endEditing(true)
-            
-            return true
-        }
-        
-        presentMenuView()
-        
-        return true
+extension CommentsViewController: CommentUpdateViewControllerDelegate {
+    func didTapCloseButton() {
+       setupIsHiddenCommentsViewAndCommentInputView(false)
     }
     
-    private func presentMenuView() {
-        let viewContoller = MenuViewController(date: viewModel.date,
-                                               image: viewModel.image,
-                                               isHiddenComments: commentsView.isHidden)
-        viewContoller.modalPresentationStyle = .overFullScreen
-        viewContoller.delegate = self
-        present(viewContoller, animated: true)
+    func didTapConfirmButton(indexPath: IndexPath, text: String) {
+        let comment = viewModel.comments[indexPath.row]
+        input.send(.didTapUpdateCommentButton(comment.id, text, comment.emoticon))
+       setupIsHiddenCommentsViewAndCommentInputView(false)
     }
 }
 
