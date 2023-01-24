@@ -68,7 +68,7 @@ final class CalenderView: SuperViewSetting, MonthViewDelegate {
         firstWeekDayOfMonth = getFirstWeekDay()
         
         if currentMonthIndex == 2 && currentYear % 4 == 0 {
-            numOfDaysInMonth[currentMonthIndex-1] = 29
+            numOfDaysInMonth[currentMonthIndex - 1] = 29
         }
     }
     
@@ -140,7 +140,7 @@ extension CalenderView: UICollectionViewDataSource {
             let previousMonthDate = numOfDaysInMonth[previousMonth - 1]
             let date = previousMonthDate - (firstWeekDayOfMonth - 2) + indexPath.row
             setDayColor(day: indexPath.item, cell: cell)
-            cell.dayLabel.text="\(date)"
+            cell.dayLabel.text = "\(date)"
             cell.dayLabel.alpha = 0.3
         } else if indexPath.item > numOfDaysInMonth[currentMonthIndex - 1] + (firstWeekDayOfMonth - 2) {
             let date = indexPath.item - numOfDaysInMonth[currentMonthIndex - 1] - (firstWeekDayOfMonth - 2)
@@ -183,6 +183,7 @@ extension CalenderView: UICollectionViewDataSource {
             
             if let emoticon = emoticon {
                 cell.emoticonImageView.image = UIImage(named: emoticon)
+                cell.dayLabel.isHidden = true
             }
         }
     }

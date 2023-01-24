@@ -45,12 +45,12 @@ final class CalendarHeaderView: SuperViewSetting {
     override func setupLayout() {
         NSLayoutConstraint.activate([
             dateStackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            dateStackView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 100),
-            dateStackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,constant: -100)
+            dateStackView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 90),
+            dateStackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,constant: -90)
         ])
         
         NSLayoutConstraint.activate([
-            weekdayStackView.topAnchor.constraint(equalTo: dateStackView.bottomAnchor, constant: 40),
+            weekdayStackView.topAnchor.constraint(equalTo: dateStackView.bottomAnchor, constant: 20),
             weekdayStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             weekdayStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             weekdayStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -20)
@@ -60,7 +60,7 @@ final class CalendarHeaderView: SuperViewSetting {
     private let dateStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.alignment = .center
-        stackView.spacing = 20
+        stackView.distribution = .fillProportionally
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -76,30 +76,31 @@ final class CalendarHeaderView: SuperViewSetting {
         let label = UILabel()
         label.text = "Default Month Year text"
         label.textAlignment = .center
-        label.setContentHuggingPriority(UILayoutPriority(100), for: .horizontal)
         label.font = UIFont(name: "GamjaFlower-Regular", size: 22)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let rightButton: UIButton = {
-        let botton = UIButton()
-        botton.setImage(UIImage(systemName: "chevron.forward",
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "chevron.forward",
                                 withConfiguration: UIImage.SymbolConfiguration(weight: .medium)), for: .normal)
-        botton.tintColor = .black
-        botton.translatesAutoresizingMaskIntoConstraints = false
+        button.contentEdgeInsets = UIEdgeInsets(top: 20, left: 17, bottom: 20, right: 17)
+        button.tintColor = .black
+        button.translatesAutoresizingMaskIntoConstraints = false
         
-        return botton
+        return button
     }()
     
     private let leftButton: UIButton = {
-        let botton = UIButton()
-        botton.setImage(UIImage(systemName: "chevron.backward",
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "chevron.backward",
                                 withConfiguration: UIImage.SymbolConfiguration(weight: .medium)), for: .normal)
-        botton.tintColor = .black
-        botton.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = .black
+        button.contentEdgeInsets = UIEdgeInsets(top: 20, left: 17, bottom: 20, right: 17)
+        button.translatesAutoresizingMaskIntoConstraints = false
         
-        return botton
+        return button
     }()
     
     @objc

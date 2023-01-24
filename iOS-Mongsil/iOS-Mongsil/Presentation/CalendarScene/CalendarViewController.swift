@@ -20,6 +20,11 @@ final class CalendarViewController: SuperViewControllerSetting {
         calendarView.reload()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
     override func setupDefault() {
         bind()
         self.input.send(.viewDidLoad)
@@ -27,6 +32,7 @@ final class CalendarViewController: SuperViewControllerSetting {
         listview.isHidden = true
         setNavigationBar()
         setupImageViewGesture()
+        setPasscodeNotification()
         calendarView.didTapcell = { [weak self] dateData in
             guard let self = self else { return }
             
@@ -63,7 +69,6 @@ final class CalendarViewController: SuperViewControllerSetting {
             
             self.input.send(.listImageDidTap(dateData, backgroundImage))
         }
-        
     }
     
     override func addUIComponents() {
@@ -77,8 +82,8 @@ final class CalendarViewController: SuperViewControllerSetting {
     override func setupLayout() {
         NSLayoutConstraint.activate([
             calendarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 130),
-            calendarView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-            calendarView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            calendarView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            calendarView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             calendarView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
         NSLayoutConstraint.activate([
@@ -120,8 +125,9 @@ final class CalendarViewController: SuperViewControllerSetting {
                                                            target: self,
                                                            action: #selector(didTapFavoriteButton))
         navigationItem.leftBarButtonItem?.setTitleTextAttributes(attributes, for: .normal)
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        let backBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem = backBarButtonItem
+        navigationItem.backBarButtonItem?.setTitleTextAttributes(attributes, for: .normal)
     }
     
     @objc
@@ -247,3 +253,28 @@ final class CalendarViewController: SuperViewControllerSetting {
     }
 }
 
+extension CalendarViewController {
+    func setPasscodeNotification() {
+        NotificationCenter.default.addObserver(
+            forName: UIApplication.willEnterForegroundNotification,
+            object: nil,
+            queue: .main) { [weak self] _ in
+                guard let self = self, UserDefaults.standard.bool(forKey: "toggleState") else { return }
+                
+                let passwordView = PasswordViewController()
+                passwordView.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+                self.getTopMostViewController()?.present(passwordView, animated: false, completion: nil)
+                PasswordViewController.isEnteredForeground = true
+            }
+    }
+    
+    func getTopMostViewController() -> UIViewController? {
+        var rootViewController = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.window?.rootViewController
+        
+        while let presentedViewController = rootViewController?.presentedViewController {
+            rootViewController = presentedViewController
+        }
+        
+        return rootViewController
+    }
+}

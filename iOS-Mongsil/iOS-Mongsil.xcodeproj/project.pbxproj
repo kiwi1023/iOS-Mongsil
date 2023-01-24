@@ -76,7 +76,6 @@
 		4D4500D9297566DA005A11B0 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D4500D7297566DA005A11B0 /* Lato-Bold.ttf */; };
 		4D4500DA297566DA005A11B0 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D4500D8297566DA005A11B0 /* Lato-Regular.ttf */; };
 		4D9B03312978CBA3001E6191 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9B03302978CBA3001E6191 /* KeychainManager.swift */; };
-		4D9B033529794DDE001E6191 /* FavoriteViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9B033429794DDE001E6191 /* FavoriteViewModelTests.swift */; };
 		4DCAD91E29702C0F00B35717 /* NetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */; };
 		4DCAD92029702F1F00B35717 /* BackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */; };
 		4DD214C82970328600C91CFB /* DefualtNetworkUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */; };
@@ -95,6 +94,7 @@
 		4DE8B43D29783D5B00870790 /* EditPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8B43C29783D5B00870790 /* EditPasswordViewController.swift */; };
 		4DE8B43F297842E200870790 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8B43E297842E200870790 /* PasswordViewController.swift */; };
 		4DE8B4412978430600870790 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8B4402978430600870790 /* PasswordView.swift */; };
+		4DF29CA0297FA4F000E08BC3 /* FavoriteViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF29C9F297FA4F000E08BC3 /* FavoriteViewModelTests.swift */; };
 		4DF88391295D59A400B507E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88390295D59A400B507E2 /* AppDelegate.swift */; };
 		4DF88393295D59A400B507E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88392295D59A400B507E2 /* SceneDelegate.swift */; };
 		4DF8839B295D59A400B507E2 /* iOS_Mongsil.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4DF88399295D59A400B507E2 /* iOS_Mongsil.xcdatamodeld */; };
@@ -183,7 +183,6 @@
 		4D4500D7297566DA005A11B0 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		4D4500D8297566DA005A11B0 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		4D9B03302978CBA3001E6191 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
-		4D9B033429794DDE001E6191 /* FavoriteViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoriteViewModelTests.swift; path = "iOS-MongsilTests/Presentation/CalendarViewModel/FavoriteViewModelTests.swift"; sourceTree = SOURCE_ROOT; };
 		4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepository.swift; sourceTree = "<group>"; };
 		4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImage.swift; sourceTree = "<group>"; };
 		4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefualtNetworkUseCase.swift; sourceTree = "<group>"; };
@@ -202,6 +201,7 @@
 		4DE8B43C29783D5B00870790 /* EditPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPasswordViewController.swift; sourceTree = "<group>"; };
 		4DE8B43E297842E200870790 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		4DE8B4402978430600870790 /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
+		4DF29C9F297FA4F000E08BC3 /* FavoriteViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewModelTests.swift; sourceTree = "<group>"; };
 		4DF8838D295D59A400B507E2 /* iOS-Mongsil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Mongsil.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF88390295D59A400B507E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DF88392295D59A400B507E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -632,16 +632,9 @@
 		4D9B033329794DAF001E6191 /* FavoriteViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				4D9B033429794DDE001E6191 /* FavoriteViewModelTests.swift */,
+				4DF29C9F297FA4F000E08BC3 /* FavoriteViewModelTests.swift */,
 			);
 			path = FavoriteViewModel;
-			sourceTree = "<group>";
-		};
-		4D9B0337297967A6001E6191 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		4DCAD91B29702BDB00B35717 /* Network */ = {
@@ -764,7 +757,6 @@
 			children = (
 				4D9B03322979196B001E6191 /* Font */,
 				4DF8839C295D59A500B507E2 /* Assets.xcassets */,
-				4D9B0337297967A6001E6191 /* New Group */,
 				4DF8839E295D59A500B507E2 /* LaunchScreen.storyboard */,
 				4DF883A1295D59A500B507E2 /* Info.plist */,
 			);
@@ -1046,7 +1038,6 @@
 			files = (
 				373D1C9529669277002A3B3D /* MockNetworkData.swift in Sources */,
 				374E9C59297527DF007AC2DD /* MenuViewModelTests.swift in Sources */,
-				4D9B033529794DDE001E6191 /* FavoriteViewModelTests.swift in Sources */,
 				373D1C9329669228002A3B3D /* MockNetworkManager.swift in Sources */,
 				374E9C572975171C007AC2DD /* CommentsViewModelTests.swift in Sources */,
 				37A2771E29781BC800AF2CA0 /* MockDiaryRepository.swift in Sources */,
@@ -1056,6 +1047,7 @@
 				373D1C9029669165002A3B3D /* NetworkServiceTests.swift in Sources */,
 				4DF883B7295D9EBB00B507E2 /* DefaultDiaryUseCaseTests.swift in Sources */,
 				4DD214CA2970340A00C91CFB /* DefaultNetworkUseCaseTests.swift in Sources */,
+				4DF29CA0297FA4F000E08BC3 /* FavoriteViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1207,17 +1199,19 @@
 				INFOPLIST_FILE = "iOS-Mongsil/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "몽실";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Kiwi.iOS-Mongsil";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.KiwonSong.iOS-Mongsil";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1240,17 +1234,19 @@
 				INFOPLIST_FILE = "iOS-Mongsil/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "몽실";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Kiwi.iOS-Mongsil";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.KiwonSong.iOS-Mongsil";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
