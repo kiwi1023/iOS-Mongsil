@@ -35,21 +35,43 @@ final class NotificationViewController: SuperViewControllerSetting, AlertProtoco
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        presentCurrentNotificationAuthorizationState()
+    }
+    
+    private func presentCurrentNotificationAuthorizationState() {
+        guard isSelectedTime == true else { return }
         
-        if isSelectedTime == true {
-            present(makeConformAlert(massageText: "알림이 설정되었습니다."), animated: true)
+        notificationCenter.getNotificationSettings { [weak self] settings in
+            guard let self = self else { return }
+            
+            switch settings.alertSetting {
+            case .enabled:
+                DispatchQueue.main.async {
+                    self.present(self.makeConformAlert(massageText: "알림이 설정되었습니다."), animated: true)
+                }
+            default:
+                self.isOnNotification = false
+                DispatchQueue.main.async {
+                    self.present(self.makeConformAlert(massageText: "설정앱에서 권한을 설정해주세요."), animated: true)
+                    self.notificationView.setupIsOnNotification(self.isOnNotification)
+                }
+            }
         }
     }
     
     override func setupDefault() {
+        setupNavigation()
+        notificationView.delegate = self
+        notificationView.setupIsOnNotification(isOnNotification)
+    }
+    
+    private func setupNavigation() {
         let attributes = [
             NSAttributedString.Key.font: UIFont(name: "GamjaFlower-Regular", size: 23) ?? UIFont(),
             NSAttributedString.Key.foregroundColor: UIColor(named: "weekdayColor") as Any
         ]
         navigationController?.navigationBar.titleTextAttributes = attributes
         navigationItem.title = "알림 설정"
-        notificationView.setupIsOnNotification(isOnNotification)
-        notificationView.delegate = self
     }
     
     override func addUIComponents() {
@@ -83,9 +105,16 @@ extension NotificationViewController: NotificationViewDelegate {
     private func requestNotificationAuthorization() {
         let authOptions: UNAuthorizationOptions = [.alert, .sound, .badge]
         
-        notificationCenter.requestAuthorization(options: authOptions) { success, error in
-            if let error = error {
-                print(error)
+        notificationCenter.requestAuthorization(options: authOptions) { [weak self] success, error in
+            guard let self = self else { return }
+            
+            if success == false {
+                self.isOnNotification = false
+                DispatchQueue.main.async {
+                    self.present(self.makeConformAlert(titleText: "실패", massageText: "설정앱에서 권한을 설정해주세요"),
+                                 animated: true)
+                    self.notificationView.setupIsOnNotification(self.isOnNotification)
+                }
             }
         }
     }
