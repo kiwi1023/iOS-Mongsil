@@ -13,6 +13,7 @@ final class NotificationViewController: SuperViewControllerSetting, AlertProtoco
     private let notificationCenter = UNUserNotificationCenter.current()
     private let userDefault = UserDefaults.standard
     private var selectedDateComponents: DateComponents?
+    private var isSelectedTime = false
     private var isOnNotification: Bool {
         get {
             userDefault.object(forKey: "isOnNotification") as? Bool ?? false
@@ -101,9 +102,9 @@ extension NotificationViewController: NotificationViewDelegate {
         notificationCenter.add(request)
     }
     
-    func didTapChevronButton() {
-        let viewController = DatePickerViewContoller()
-        viewController.delegate = self
+    func didTapTimeSelectButton() {
+        isSelectedTime = false
+        let viewController = DatePickerViewContoller(delegate: self, selectedTime: notificationTime)
         viewController.modalPresentationStyle = .fullScreen
         present(viewController, animated: true)
     }
@@ -112,6 +113,8 @@ extension NotificationViewController: NotificationViewDelegate {
 extension NotificationViewController: DatePickerViewContollerDelegate {
     func didTapConfirmButton(dateComponents: DateComponents) {
         selectedDateComponents = dateComponents
+        notificationTime = Calendar.current.date(from: dateComponents)
         registerNotifocation()
+        isSelectedTime = true
     }
 }

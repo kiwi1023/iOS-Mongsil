@@ -12,12 +12,28 @@ protocol DatePickerViewContollerDelegate: AnyObject {
 }
 
 final class DatePickerViewContoller: SuperViewControllerSetting {
-    weak var delegate: DatePickerViewContollerDelegate?
+    private weak var delegate: DatePickerViewContollerDelegate?
+    private var notificationTime: Date?
     private let datePickerView = DatePickerView()
+    
+    init(delegate: DatePickerViewContollerDelegate? = nil, selectedTime: Date? = nil) {
+        self.delegate = delegate
+        self.notificationTime = selectedTime
+        super.init()
+    }
+    
+    required init() {
+        fatalError("init() has not been implemented")
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func setupDefault() {
         view.backgroundColor = UIColor(named: "closeButtonColor")
         datePickerView.delegate = self
+        datePickerView.setupDatePicker(date: notificationTime)
     }
 
     override func addUIComponents() {

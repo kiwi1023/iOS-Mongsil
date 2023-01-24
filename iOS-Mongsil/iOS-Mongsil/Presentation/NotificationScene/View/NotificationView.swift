@@ -9,7 +9,7 @@ import UIKit
 
 protocol NotificationViewDelegate: AnyObject {
     func didTapToggleButton()
-    func didTapChevronButton()
+    func didTapTimeSelectButton()
 }
 
 final class NotificationView: SuperViewSetting {
@@ -36,20 +36,13 @@ final class NotificationView: SuperViewSetting {
         return button
     }()
     
-    private let selectTimeLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "GamjaFlower-Regular", size: 23)
-        label.text = "시간 선택"
-        
-        return label
-    }()
-    
-    private let chevronButton: UIButton = {
+    private let selectTimeButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(nil, action: #selector(didTapChevronButton), for: .touchDown)
-        button.setImage(UIImage(named: "icCloseCopy"), for: .normal)
+        button.setTitle("시간선택", for: .normal)
+        button.titleLabel?.font = UIFont(name: "GamjaFlower-Regular", size: 23)
+        button.setTitleColor(.black, for: .normal)
+        button.addTarget(nil, action: #selector(didTapSelectTimeButton), for: .touchDown)
         
         return button
     }()
@@ -60,8 +53,7 @@ final class NotificationView: SuperViewSetting {
     }
     
     private func setupIsHiddenView() {
-        selectTimeLabel.isHidden = !isOnNotification
-        chevronButton.isHidden = !isOnNotification
+        selectTimeButton.isHidden = !isOnNotification
         toggleButton.setImage(buttonImage, for: .normal)
     }
     
@@ -71,15 +63,14 @@ final class NotificationView: SuperViewSetting {
     }
     
     @objc
-    private func didTapChevronButton() {
-        delegate?.didTapChevronButton()
+    private func didTapSelectTimeButton() {
+        delegate?.didTapTimeSelectButton()
     }
     
     override func addUIComponents() {
         addSubview(alarmLabel)
         addSubview(toggleButton)
-        addSubview(selectTimeLabel)
-        addSubview(chevronButton)
+        addSubview(selectTimeButton)
     }
     
     override func setupLayout() {
@@ -94,12 +85,8 @@ final class NotificationView: SuperViewSetting {
         ])
         
         NSLayoutConstraint.activate([
-            selectTimeLabel.topAnchor.constraint(equalTo: alarmLabel.bottomAnchor, constant: 30),
-            selectTimeLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor)
-        ])
-        NSLayoutConstraint.activate([
-            chevronButton.topAnchor.constraint(equalTo: toggleButton.bottomAnchor, constant: 30),
-            chevronButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
+            selectTimeButton.topAnchor.constraint(equalTo: alarmLabel.bottomAnchor, constant: 30),
+            selectTimeButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor)
         ])
     }
 }

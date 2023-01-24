@@ -67,6 +67,12 @@ final class DatePickerView: SuperViewSetting {
         
         return button
     }()
+    
+    func setupDatePicker(date: Date?) {
+        guard let date = date else { return }
+        
+        datePicker.date = date
+    }
 
     @objc
     private func didTapCloseButton() {
