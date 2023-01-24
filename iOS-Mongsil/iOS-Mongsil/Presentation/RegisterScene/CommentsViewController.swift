@@ -293,6 +293,8 @@ extension CommentsViewController: CommentInputViewDelegate {
     
     func didTapAddCommentButton(_ didTapAddCommentButton: String) {
         input.send(.didTapCreateCommentButton(didTapAddCommentButton))
+        NotificationCenter.default.post(name: Notification.Name("Reload"),
+                                        object: self)
     }
 }
 

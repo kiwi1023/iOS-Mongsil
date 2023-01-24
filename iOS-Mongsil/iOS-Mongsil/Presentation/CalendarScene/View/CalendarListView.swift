@@ -34,6 +34,7 @@ final class CalendarListView: SuperViewSetting {
     override func setupDefault() {
         configurationCollectionView()
         setupCalendarData()
+        setNotification()
     }
     
     private func configurationCollectionView() {
@@ -65,6 +66,20 @@ final class CalendarListView: SuperViewSetting {
             calendarListCollectionView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
             calendarListCollectionView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    private func setNotification() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(reload),
+            name: Notification.Name("Reload"),
+            object: nil
+        )
+    }
+    
+    @objc
+    private func reload() {
+        calendarListCollectionView.reloadData()
     }
 }
 
