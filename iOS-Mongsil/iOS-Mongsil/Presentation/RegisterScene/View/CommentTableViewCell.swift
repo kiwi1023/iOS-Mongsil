@@ -31,6 +31,7 @@ final class CommentTableViewCell: UITableViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.spacing = 4
         stackView.axis = .vertical
+        stackView.distribution = .fillProportionally
         
         return stackView
     }()

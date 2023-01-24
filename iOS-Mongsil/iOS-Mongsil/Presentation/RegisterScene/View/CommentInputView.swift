@@ -20,6 +20,7 @@ final class CommentInputView: SuperViewSetting {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.spacing = 8
         stackView.axis = .horizontal
+        stackView.distribution = .equalSpacing
         
         return stackView
     }()
@@ -41,7 +42,7 @@ final class CommentInputView: SuperViewSetting {
         textView.textContainerInset = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         textView.textColor = .white
         textView.text = "오늘의 기분을 입력해주세요."
-        textView.font = UIFont(name: "NanumSeHwaCe", size: 20.0)
+        textView.font = UIFont(name: "NanumSeHwaCe", size: 23.0)
         textView.showsVerticalScrollIndicator = false
         
         return textView
@@ -117,7 +118,8 @@ final class CommentInputView: SuperViewSetting {
                 horizontalStackView.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
         NSLayoutConstraint.activate([
-                commentTextView.widthAnchor.constraint(equalTo: horizontalStackView.widthAnchor, multiplier: 0.75)
+            commentTextView.widthAnchor.constraint(equalTo: horizontalStackView.widthAnchor, multiplier: 0.75),
+            commentTextView.heightAnchor.constraint(equalToConstant: commentTextViewMaxHeight() / 2.68)
             ])
     }
 }
