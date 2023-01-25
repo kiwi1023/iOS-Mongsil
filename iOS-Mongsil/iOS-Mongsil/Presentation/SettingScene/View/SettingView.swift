@@ -10,8 +10,10 @@ import UIKit
 enum SettingViewTitleData: CaseIterable {
     case setPassword
     case setNotification
+    case backUp
     case writeReview
     case writeInquiry
+   
     
     var image: String {
         switch self {
@@ -19,6 +21,8 @@ enum SettingViewTitleData: CaseIterable {
             return "icPassword"
         case .setNotification:
             return "icNotice"
+        case .backUp:
+            return "icBackup"
         case .writeReview:
             return "icReview"
         case .writeInquiry:
@@ -32,6 +36,8 @@ enum SettingViewTitleData: CaseIterable {
             return "비밀번호 설정"
         case .setNotification:
             return "알림 설정"
+        case .backUp:
+            return "백업/복원"
         case .writeReview:
             return "리뷰쓰기"
         case .writeInquiry:
@@ -44,6 +50,8 @@ enum SettingViewTitleData: CaseIterable {
         case .setPassword:
             return true
         case .setNotification:
+            return true
+        case .backUp:
             return true
         case .writeReview:
             return false
@@ -65,6 +73,8 @@ final class SettingView: SuperViewSetting {
     var didTapSecondCell: (() -> ())?
     var didTapThirdCell: (() -> ())?
     var didTapFourthCell: (() -> ())?
+    var didTapFifthCell: (() -> ())?
+    
     
     override func setupDefault() {
         
@@ -136,6 +146,8 @@ extension SettingView: UICollectionViewDelegate {
             didTapThirdCell?()
         } else if indexPath.item == 3 {
             didTapFourthCell?()
+        } else if indexPath.item == 4 {
+            didTapFifthCell?()
         }
     }
 }

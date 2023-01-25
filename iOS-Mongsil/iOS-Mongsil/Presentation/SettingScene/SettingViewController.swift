@@ -7,8 +7,10 @@
 
 import UIKit
 import MessageUI
+import FirebaseAuth
+import AuthenticationServices
 
-class SettingViewController: SuperViewControllerSetting, MFMailComposeViewControllerDelegate {
+class SettingViewController: SuperViewControllerSetting, MFMailComposeViewControllerDelegate, ASAuthorizationControllerDelegate {
     let settingView = SettingView()
     
     override func setupDefault() {
@@ -34,9 +36,14 @@ class SettingViewController: SuperViewControllerSetting, MFMailComposeViewContro
         settingView.didTapThirdCell = { [weak self] in
             guard let self = self else { return }
             
-            self.presentReviewPage()
+            self.presentLoginPage()
         }
         settingView.didTapFourthCell = { [weak self] in
+            guard let self = self else { return }
+            
+            self.presentReviewPage()
+        }
+        settingView.didTapFifthCell = { [weak self] in
             guard let self = self else { return }
             
             if MFMailComposeViewController.canSendMail() {
@@ -45,6 +52,11 @@ class SettingViewController: SuperViewControllerSetting, MFMailComposeViewContro
                 self.presentErrorAlert()
             }
         }
+    }
+    
+    private func presentLoginPage() {
+        let loginView = LoginViewController()
+        present(loginView, animated: true)
     }
     
     private func presentReviewPage() {
