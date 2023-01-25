@@ -59,7 +59,7 @@ final class CalendarViewModel: ViewModelBuilder {
             case .viewDidLoad:
                 self.fetchDiaries()
             case .diaryListButtonDidTap:
-                self.output.send(.fetchImageData(self.backgroundImage.shuffled()))
+                self.output.send(.fetchImageData(self.backgroundImage))
             case .dateDidTap(let date):
                 guard self.backgroundImage.count != 0 else { return }
                 
@@ -93,7 +93,7 @@ final class CalendarViewModel: ViewModelBuilder {
         } receiveValue: { [weak self] fetchedData in
             guard let self = self else { return }
             
-            self.backgroundImage = fetchedData
+            self.backgroundImage = fetchedData.shuffled()
             self.output.send(.fetchImageDataSuccess(()))
         }.store(in: &cancellable)
     }
