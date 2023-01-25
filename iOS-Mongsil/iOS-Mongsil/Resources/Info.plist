@@ -3,7 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string></string>
+	<string>사진을 저장하기 위해 사진앱에 대한 저장 권한이 필요합니다.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>사진을 저장하기 위해 사진앱에 대한 저장 권한이 필요합니다.</string>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 	<key>UIAppFonts</key>

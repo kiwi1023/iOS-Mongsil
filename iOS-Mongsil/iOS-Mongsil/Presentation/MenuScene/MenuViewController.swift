@@ -145,22 +145,41 @@ extension MenuViewController: MenuViewDelegate {
     private func downloadBackgroundImage() {
         guard let image = backgroundImage else { return }
         
-        PHPhotoLibrary.requestAuthorization({ [weak self] status in
-            guard let self = self else { return }
-            
-            switch status {
-            case .authorized:
-                UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.alertSavedImage), nil)
-            case .denied:
-                DispatchQueue.main.sync {
-                    self.alertPermissionDenied()
+        if #available(iOS 14, *) {
+            PHPhotoLibrary.requestAuthorization(for: .addOnly) { [weak self] status in
+                guard let self = self else { return }
+                
+                switch status {
+                case .authorized:
+                    UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.alertSavedImage), nil)
+                case .denied:
+                    DispatchQueue.main.sync {
+                        self.alertPermissionDenied()
+                    }
+                case .restricted, .notDetermined:
+                    break
+                default:
+                    break
                 }
-            case .restricted, .notDetermined:
-                break
-            default:
-                break
             }
-        })
+        } else {
+            PHPhotoLibrary.requestAuthorization({ [weak self] status in
+                guard let self = self else { return }
+                
+                switch status {
+                case .authorized:
+                    UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.alertSavedImage), nil)
+                case .denied:
+                    DispatchQueue.main.sync {
+                        self.alertPermissionDenied()
+                    }
+                case .restricted, .notDetermined:
+                    break
+                default:
+                    break
+                }
+            })
+        }
     }
     
     @objc
@@ -168,7 +187,7 @@ extension MenuViewController: MenuViewDelegate {
                                  didFinishSavingWithError error: Error?,
                                  contextInfo: UnsafeMutableRawPointer?) {
         guard error == nil else { return }
-
+        
         present(makeConformAlert(titleText: "완료" ,massageText: "이미지가 갤러리에 저장되었습니다."), animated: true)
     }
     
