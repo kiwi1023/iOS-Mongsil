@@ -85,6 +85,7 @@
 		4DB5BF5D2987D76E003AC6DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DB5BF5C2987D76E003AC6DA /* GoogleService-Info.plist */; };
 		4DB5BF612987DC9B003AC6DA /* BackUpSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5BF602987DC9B003AC6DA /* BackUpSettingView.swift */; };
 		4DB5BF632987DD3C003AC6DA /* BackUpSettingVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5BF622987DD3C003AC6DA /* BackUpSettingVIewController.swift */; };
+		4DB5BF662987DE75003AC6DA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5BF652987DE75003AC6DA /* LoginViewController.swift */; };
 		4DCAD91E29702C0F00B35717 /* NetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */; };
 		4DCAD92029702F1F00B35717 /* BackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */; };
 		4DD214C82970328600C91CFB /* DefualtNetworkUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */; };
@@ -199,6 +200,7 @@
 		4DB5BF5C2987D76E003AC6DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4DB5BF602987DC9B003AC6DA /* BackUpSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpSettingView.swift; sourceTree = "<group>"; };
 		4DB5BF622987DD3C003AC6DA /* BackUpSettingVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpSettingVIewController.swift; sourceTree = "<group>"; };
+		4DB5BF652987DE75003AC6DA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepository.swift; sourceTree = "<group>"; };
 		4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImage.swift; sourceTree = "<group>"; };
 		4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefualtNetworkUseCase.swift; sourceTree = "<group>"; };
@@ -678,6 +680,7 @@
 			isa = PBXGroup;
 			children = (
 				4DB5BF622987DD3C003AC6DA /* BackUpSettingVIewController.swift */,
+				4DB5BF652987DE75003AC6DA /* LoginViewController.swift */,
 				4DB5BF5F2987DC85003AC6DA /* View */,
 			);
 			path = BackUpSettingScene;
@@ -1021,6 +1024,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DB5BF662987DE75003AC6DA /* LoginViewController.swift in Sources */,
 				4DD8BD9B2976B28A00D89546 /* PasswordSettingView.swift in Sources */,
 				37A276EE29756EAE00AF2CA0 /* CalendarViewController.swift in Sources */,
 				370EF81D29703F88000DDAF5 /* EmoticonsViewController.swift in Sources */,
