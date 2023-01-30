@@ -36,15 +36,20 @@ final class CommentsViewModel: ViewModelBuilder {
     let date: Date
     let image: BackgroundImage
     
-    init(date: Date,
-         image: BackgroundImage,
-         commentUseCase: CommentUseCase = DefaultCommentUseCase(
-            repositoryManager: DefaultCommentRepositoryManager(
-                repository: CoreDataCommentRepository())))
-    {
+    init(date: Date, image: BackgroundImage) {
+        var repositoryManager: CommentRepositoryManager
+        
+        if UserDefaults.standard.bool(forKey: "BackupToggleState") == false {
+            repositoryManager = DefaultCommentRepositoryManager(
+                repository: CoreDataCommentRepository())
+        } else {
+            repositoryManager = MultipleCommentRepositoryManager(repository: CoreDataCommentRepository(),
+                                                                 remoteRepository: FirebaseCommentRepository())
+        }
+        
+        self.commentUseCase = DefaultCommentUseCase(repositoryManager: repositoryManager)
         self.date = date
         self.image = image
-        self.commentUseCase = commentUseCase
     }
     
     func transform(input: AnyPublisher<Input, Never>) -> AnyPublisher<Output, Never> {

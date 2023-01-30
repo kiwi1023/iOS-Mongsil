@@ -30,15 +30,20 @@ final class MenuViewModel: ViewModelBuilder {
     private let image: BackgroundImage
     private var isScrappad: Bool?
     
-    init(date: Date,
-         image: BackgroundImage,
-         diaryUseCase: DiaryUseCase = DefaultDiaryUseCase(
-            repositoryManager: DefaultDiaryRepositoryManager(
-                repository: CoreDataDiaryRepository())))
-    {
+    init(date: Date, image: BackgroundImage) {
+        var repositoryManager: DiaryRepositoryManager
+        
+        if UserDefaults.standard.bool(forKey: "BackupToggleState") == false {
+            repositoryManager = DefaultDiaryRepositoryManager(
+                repository: CoreDataDiaryRepository())
+        } else {
+            repositoryManager = MultipleDiaryRepositoryManager(repository: CoreDataDiaryRepository(),
+                                                               remoteRepository: FirebaseDiaryRepository())
+        }
+        
+        self.diaryUsecase = DefaultDiaryUseCase(repositoryManager: repositoryManager)
         self.date = date
         self.image = image
-        self.diaryUsecase = diaryUseCase
     }
     
     func transform(input: AnyPublisher<MenuViewModelInput, Never>) -> AnyPublisher<MenuViewModelOutput, Never> {
