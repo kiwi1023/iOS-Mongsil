@@ -84,6 +84,7 @@
 		4DB5BF5A2987D712003AC6DA /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 4DB5BF592987D712003AC6DA /* FirebaseDatabase */; };
 		4DB5BF5D2987D76E003AC6DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DB5BF5C2987D76E003AC6DA /* GoogleService-Info.plist */; };
 		4DB5BF612987DC9B003AC6DA /* BackUpSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5BF602987DC9B003AC6DA /* BackUpSettingView.swift */; };
+		4DB5BF632987DD3C003AC6DA /* BackUpSettingVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5BF622987DD3C003AC6DA /* BackUpSettingVIewController.swift */; };
 		4DCAD91E29702C0F00B35717 /* NetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */; };
 		4DCAD92029702F1F00B35717 /* BackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */; };
 		4DD214C82970328600C91CFB /* DefualtNetworkUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */; };
@@ -197,6 +198,7 @@
 		4DB5BF5B2987D730003AC6DA /* iOS-Mongsil.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iOS-Mongsil.entitlements"; sourceTree = "<group>"; };
 		4DB5BF5C2987D76E003AC6DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4DB5BF602987DC9B003AC6DA /* BackUpSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpSettingView.swift; sourceTree = "<group>"; };
+		4DB5BF622987DD3C003AC6DA /* BackUpSettingVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpSettingVIewController.swift; sourceTree = "<group>"; };
 		4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepository.swift; sourceTree = "<group>"; };
 		4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImage.swift; sourceTree = "<group>"; };
 		4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefualtNetworkUseCase.swift; sourceTree = "<group>"; };
@@ -675,6 +677,7 @@
 		4DB5BF5E2987DC66003AC6DA /* BackUpSettingScene */ = {
 			isa = PBXGroup;
 			children = (
+				4DB5BF622987DD3C003AC6DA /* BackUpSettingVIewController.swift */,
 				4DB5BF5F2987DC85003AC6DA /* View */,
 			);
 			path = BackUpSettingScene;
@@ -1031,6 +1034,7 @@
 				4DCAD92029702F1F00B35717 /* BackgroundImage.swift in Sources */,
 				4DF88391295D59A400B507E2 /* AppDelegate.swift in Sources */,
 				4D3033B829655EBE00234166 /* CoreDataManager.swift in Sources */,
+				4DB5BF632987DD3C003AC6DA /* BackUpSettingVIewController.swift in Sources */,
 				37A276F329756EAE00AF2CA0 /* CalendarListViewCell.swift in Sources */,
 				37B67C542965906100F81118 /* DefaultDiaryRepositoryManager.swift in Sources */,
 				373D1CA12966E860002A3B3D /* ImageCacheManager.swift in Sources */,

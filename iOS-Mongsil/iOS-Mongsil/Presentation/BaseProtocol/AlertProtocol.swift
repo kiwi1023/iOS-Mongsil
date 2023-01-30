@@ -9,6 +9,9 @@ import UIKit
 
 protocol AlertProtocol {
     func makeConformAlert(titleText: String, massageText: String?) -> UIAlertController
+    func makeCancellableConformAlert(titleText: String,
+                                     massageText: String?,
+                                     okAction: @escaping (UIAlertAction) -> Void) -> UIAlertController
 }
 
 extension AlertProtocol {
@@ -23,6 +26,22 @@ extension AlertProtocol {
         let okAction = UIAlertAction(title: "확인", style: .default) { _ in }
         alertController.addAction(okAction)
          
+        return alertController
+    }
+    
+    func makeCancellableConformAlert(titleText: String = "", massageText: String?, okAction: @escaping (UIAlertAction) -> Void) -> UIAlertController {
+        let titleAttributes = [NSAttributedString.Key.font: UIFont(name: "GamjaFlower-Regular", size: 23)!, NSAttributedString.Key.foregroundColor: UIColor.black]
+        let titleStiring = NSAttributedString(string: titleText, attributes: titleAttributes)
+        let massageAttributes = [NSAttributedString.Key.font: UIFont(name: "GamjaFlower-Regular", size: 16)!, NSAttributedString.Key.foregroundColor: UIColor.darkGray]
+        let massageString = NSAttributedString(string: massageText ?? "", attributes: massageAttributes)
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        alertController.setValue(titleStiring, forKey: "attributedTitle")
+        alertController.setValue(massageString, forKey: "attributedMessage")
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: okAction)
+        let cancelAction = UIAlertAction(title: "취소", style: .destructive)
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        
         return alertController
     }
 }
