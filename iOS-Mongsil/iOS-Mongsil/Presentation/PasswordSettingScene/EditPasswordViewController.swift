@@ -37,7 +37,7 @@ final class EditPasswordViewController: SuperViewControllerSetting, CreatePasswo
     
     func putCorrectPassword(_ password: [Int]) {
         let passwordString = password.map(String.init).joined()
-        KeyChainManger.shared.updateItemOnKeyChain(passwordString)
+        KeyChainManger.shared.updateItemOnKeyChain(passwordString, dataType: .passWord)
         dismiss(animated: true)
     }
 }

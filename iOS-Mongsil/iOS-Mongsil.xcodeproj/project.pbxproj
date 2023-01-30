@@ -83,6 +83,7 @@
 		4DB5BF582987D712003AC6DA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 4DB5BF572987D712003AC6DA /* FirebaseAuth */; };
 		4DB5BF5A2987D712003AC6DA /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 4DB5BF592987D712003AC6DA /* FirebaseDatabase */; };
 		4DB5BF5D2987D76E003AC6DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DB5BF5C2987D76E003AC6DA /* GoogleService-Info.plist */; };
+		4DB5BF612987DC9B003AC6DA /* BackUpSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5BF602987DC9B003AC6DA /* BackUpSettingView.swift */; };
 		4DCAD91E29702C0F00B35717 /* NetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */; };
 		4DCAD92029702F1F00B35717 /* BackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */; };
 		4DD214C82970328600C91CFB /* DefualtNetworkUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */; };
@@ -195,6 +196,7 @@
 		4D9B03302978CBA3001E6191 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		4DB5BF5B2987D730003AC6DA /* iOS-Mongsil.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iOS-Mongsil.entitlements"; sourceTree = "<group>"; };
 		4DB5BF5C2987D76E003AC6DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4DB5BF602987DC9B003AC6DA /* BackUpSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpSettingView.swift; sourceTree = "<group>"; };
 		4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepository.swift; sourceTree = "<group>"; };
 		4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImage.swift; sourceTree = "<group>"; };
 		4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefualtNetworkUseCase.swift; sourceTree = "<group>"; };
@@ -670,6 +672,22 @@
 			path = FavoriteViewModel;
 			sourceTree = "<group>";
 		};
+		4DB5BF5E2987DC66003AC6DA /* BackUpSettingScene */ = {
+			isa = PBXGroup;
+			children = (
+				4DB5BF5F2987DC85003AC6DA /* View */,
+			);
+			path = BackUpSettingScene;
+			sourceTree = "<group>";
+		};
+		4DB5BF5F2987DC85003AC6DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4DB5BF602987DC9B003AC6DA /* BackUpSettingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4DCAD91B29702BDB00B35717 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -830,6 +848,7 @@
 				370EF81529703F88000DDAF5 /* RegisterScene */,
 				4DD8BD8A2976834900D89546 /* SettingScene */,
 				4DD8BD942976AED600D89546 /* PasswordSettingScene */,
+				4DB5BF5E2987DC66003AC6DA /* BackUpSettingScene */,
 				4DD8BD84297681C900D89546 /* Common */,
 			);
 			path = Presentation;
@@ -1003,6 +1022,7 @@
 				37A276EE29756EAE00AF2CA0 /* CalendarViewController.swift in Sources */,
 				370EF81D29703F88000DDAF5 /* EmoticonsViewController.swift in Sources */,
 				37B67C4F2965682F00F81118 /* CoreDataCommentRepository.swift in Sources */,
+				4DB5BF612987DC9B003AC6DA /* BackUpSettingView.swift in Sources */,
 				37A276F029756EAE00AF2CA0 /* CalendarHeaderView.swift in Sources */,
 				4D3033CC29668E8600234166 /* BackgroundImageRequest.swift in Sources */,
 				4DD8BD8E2976844700D89546 /* SettingViewCell.swift in Sources */,

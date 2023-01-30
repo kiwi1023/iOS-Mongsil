@@ -110,7 +110,7 @@ extension PasswordView: UICollectionViewDelegate {
         
         if didTapCellCount == 4 {
             let passwordString = passwordData.map(String.init).joined()
-            passwordString == KeyChainManger.shared.readKeyChain()?.passWord ? delegate?.putCorrectPassword() : resetPasswordData()
+            passwordString == KeyChainManger.shared.readKeyChain(dataType: .passWord) ? delegate?.putCorrectPassword() : resetPasswordData()
         }
     }
     

@@ -30,7 +30,7 @@ class CreatePasswordView: SuperViewSetting {
     weak var delegate: CreatePasswordViewDelegate?
     
     deinit {
-        let password = KeyChainManger.shared.readKeyChain()?.passWord
+        let password = KeyChainManger.shared.readKeyChain(dataType: .passWord)
         if password == nil,
            secondPasswordData.count != 4,
            UserDefaults.standard.bool(forKey: "toggleState") == true {

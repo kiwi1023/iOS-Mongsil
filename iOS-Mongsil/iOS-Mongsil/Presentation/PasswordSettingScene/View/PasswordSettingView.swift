@@ -169,7 +169,7 @@ final class PasswordSettingView: SuperViewSetting {
                            options: .curveEaseIn,
                            animations: {
                 self.editPasswordLabel.alpha = 0.0
-                KeyChainManger.shared.deleteItemOnKeyChain()
+                KeyChainManger.shared.deleteItemOnKeyChain(dataType: .passWord)
             })
         }
     }
