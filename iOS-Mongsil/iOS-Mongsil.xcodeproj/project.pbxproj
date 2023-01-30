@@ -82,10 +82,10 @@
 		4DB5BF562987D712003AC6DA /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4DB5BF552987D712003AC6DA /* FirebaseAnalytics */; };
 		4DB5BF582987D712003AC6DA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 4DB5BF572987D712003AC6DA /* FirebaseAuth */; };
 		4DB5BF5A2987D712003AC6DA /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 4DB5BF592987D712003AC6DA /* FirebaseDatabase */; };
-		4DB5BF5D2987D76E003AC6DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DB5BF5C2987D76E003AC6DA /* GoogleService-Info.plist */; };
 		4DB5BF612987DC9B003AC6DA /* BackUpSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5BF602987DC9B003AC6DA /* BackUpSettingView.swift */; };
 		4DB5BF632987DD3C003AC6DA /* BackUpSettingVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5BF622987DD3C003AC6DA /* BackUpSettingVIewController.swift */; };
 		4DB5BF662987DE75003AC6DA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5BF652987DE75003AC6DA /* LoginViewController.swift */; };
+		4DB5BF6A2987E1C9003AC6DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DB5BF692987E1C8003AC6DA /* GoogleService-Info.plist */; };
 		4DCAD91E29702C0F00B35717 /* NetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */; };
 		4DCAD92029702F1F00B35717 /* BackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */; };
 		4DD214C82970328600C91CFB /* DefualtNetworkUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */; };
@@ -197,10 +197,10 @@
 		4D4500D8297566DA005A11B0 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		4D9B03302978CBA3001E6191 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		4DB5BF5B2987D730003AC6DA /* iOS-Mongsil.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iOS-Mongsil.entitlements"; sourceTree = "<group>"; };
-		4DB5BF5C2987D76E003AC6DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4DB5BF602987DC9B003AC6DA /* BackUpSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpSettingView.swift; sourceTree = "<group>"; };
 		4DB5BF622987DD3C003AC6DA /* BackUpSettingVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpSettingVIewController.swift; sourceTree = "<group>"; };
 		4DB5BF652987DE75003AC6DA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4DB5BF692987E1C8003AC6DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepository.swift; sourceTree = "<group>"; };
 		4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImage.swift; sourceTree = "<group>"; };
 		4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefualtNetworkUseCase.swift; sourceTree = "<group>"; };
@@ -817,7 +817,7 @@
 				4DF8839C295D59A500B507E2 /* Assets.xcassets */,
 				4DF8839E295D59A500B507E2 /* LaunchScreen.storyboard */,
 				4DF883A1295D59A500B507E2 /* Info.plist */,
-				4DB5BF5C2987D76E003AC6DA /* GoogleService-Info.plist */,
+				4DB5BF692987E1C8003AC6DA /* GoogleService-Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -999,7 +999,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DF883A0295D59A500B507E2 /* LaunchScreen.storyboard in Resources */,
-				4DB5BF5D2987D76E003AC6DA /* GoogleService-Info.plist in Resources */,
+				4DB5BF6A2987E1C9003AC6DA /* GoogleService-Info.plist in Resources */,
 				4D4500DA297566DA005A11B0 /* Lato-Regular.ttf in Resources */,
 				4D4500D9297566DA005A11B0 /* Lato-Bold.ttf in Resources */,
 				37A2770C29757F2D00AF2CA0 /* NanumSeHwaCe.ttf in Resources */,

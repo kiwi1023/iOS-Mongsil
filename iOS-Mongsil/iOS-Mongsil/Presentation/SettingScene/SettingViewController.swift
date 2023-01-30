@@ -7,8 +7,10 @@
 
 import UIKit
 import MessageUI
+import AuthenticationServices
+import FirebaseAuth
 
-class SettingViewController: SuperViewControllerSetting, MFMailComposeViewControllerDelegate {
+final class SettingViewController: SuperViewControllerSetting, AlertProtocol, MFMailComposeViewControllerDelegate {
     let settingView = SettingView()
     
     override func setupDefault() {
@@ -34,15 +36,53 @@ class SettingViewController: SuperViewControllerSetting, MFMailComposeViewContro
         settingView.didTapThirdCell = { [weak self] in
             guard let self = self else { return }
             
-            self.presentReviewPage()
+            self.presentLoginPage()
         }
         settingView.didTapFourthCell = { [weak self] in
+            guard let self = self else { return }
+            
+            self.presentReviewPage()
+        }
+        settingView.didTapFifthCell = { [weak self] in
             guard let self = self else { return }
             
             if MFMailComposeViewController.canSendMail() {
                 self.presentMailView()
             } else {
                 self.presentErrorAlert()
+            }
+        }
+    }
+    
+    private func showLoginView() {
+        DispatchQueue.main.async { [weak self] in
+            self?.navigationController?.pushViewController(BackUpSettingViewController(), animated: true)
+        }
+        DispatchQueue.main.async { [weak self] in
+            let loginView = LoginViewController()
+            loginView.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+            self?.present(loginView, animated: true)
+        }
+    }
+    
+    private func presentLoginPage() {
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        appleIDProvider.getCredentialState(forUserID: KeyChainManger.shared.readKeyChain(dataType: .userIdentifier) ?? "") { (credentialState, error) in
+            switch credentialState {
+            case .authorized:
+                DispatchQueue.main.async {
+                    self.navigationController?.pushViewController(BackUpSettingViewController(), animated: true)
+                }
+            case .revoked, .notFound:
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    
+                    self.present(self.makeCancellableConformAlert(titleText: "알림", massageText: "백업 및 복원 기능을 사용하려면 애플아이디 로그인이 필요합니다. 그래도 진행하시겠습니까?", okAction: { [weak self] _ in
+                        self?.showLoginView()
+                    }), animated: true)
+                }
+            default:
+                break
             }
         }
     }
@@ -56,7 +96,7 @@ class SettingViewController: SuperViewControllerSetting, MFMailComposeViewContro
             guard let writeReviewURL = components?.url else {
                 return
             }
-
+            
             UIApplication.shared.open(writeReviewURL, options: [:], completionHandler: nil)
         }
     }
