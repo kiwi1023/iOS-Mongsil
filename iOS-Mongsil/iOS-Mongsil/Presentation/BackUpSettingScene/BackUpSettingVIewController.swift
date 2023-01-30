@@ -6,12 +6,17 @@
 //
 
 import UIKit
+import Combine
 import FirebaseAuth
 
 final class BackUpSettingViewController: SuperViewControllerSetting, BackUpSettingViewDelegate, AlertProtocol {
+    private let viewModel = BackUpSettingViewModel()
+    private let input: PassthroughSubject<BackUpSettingViewModel.Input, Never> = .init()
+    private var cancellables = Set<AnyCancellable>()
     private let backUpSettingView = BackUpSettingView()
     
     override func setupDefault() {
+        bind()
         let attributes = [ NSAttributedString.Key.font: UIFont(name: "GamjaFlower-Regular", size: 23)!,
                            NSAttributedString.Key.foregroundColor: UIColor(named: "weekdayColor") as Any]
         navigationController?.navigationBar.titleTextAttributes = attributes
@@ -45,7 +50,7 @@ final class BackUpSettingViewController: SuperViewControllerSetting, BackUpSetti
     }
     
     func didTapRestorationLabel() {
-        print("복원")
+        self.input.send(.restorationLabeldidTap)
     }
     
     func didTapLogoutLabel() {
@@ -61,5 +66,17 @@ final class BackUpSettingViewController: SuperViewControllerSetting, BackUpSetti
             self?.navigationController?.popViewController(animated: true)
             KeyChainManger.shared.deleteItemOnKeyChain(dataType: .userIdentifier)
         }), animated: true)
+    }
+    
+    private func bind() {
+        let output = viewModel.transform(input: input.eraseToAnyPublisher())
+        output.sink { event in
+            switch event {
+            case .addDataToLocalRepository(()):
+                print("복원성공")
+            case .dataBaseError(_):
+                self.present(self.makeConformAlert(massageText: "데이터를 복원하는데 실패하였습니다"), animated: true)
+            }
+        }.store(in: &cancellables)
     }
 }

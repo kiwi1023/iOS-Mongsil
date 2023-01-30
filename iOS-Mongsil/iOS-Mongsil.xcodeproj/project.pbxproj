@@ -94,6 +94,7 @@
 		4DB5BF612987DC9B003AC6DA /* BackUpSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5BF602987DC9B003AC6DA /* BackUpSettingView.swift */; };
 		4DB5BF632987DD3C003AC6DA /* BackUpSettingVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5BF622987DD3C003AC6DA /* BackUpSettingVIewController.swift */; };
 		4DB5BF662987DE75003AC6DA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5BF652987DE75003AC6DA /* LoginViewController.swift */; };
+		4DB5BF6D2987F465003AC6DA /* BackUpSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5BF6C2987F465003AC6DA /* BackUpSettingViewModel.swift */; };
 		4DCAD91E29702C0F00B35717 /* NetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */; };
 		4DCAD92029702F1F00B35717 /* BackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */; };
 		4DD214C82970328600C91CFB /* DefualtNetworkUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */; };
@@ -217,6 +218,7 @@
 		4DB5BF602987DC9B003AC6DA /* BackUpSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpSettingView.swift; sourceTree = "<group>"; };
 		4DB5BF622987DD3C003AC6DA /* BackUpSettingVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpSettingVIewController.swift; sourceTree = "<group>"; };
 		4DB5BF652987DE75003AC6DA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4DB5BF6C2987F465003AC6DA /* BackUpSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpSettingViewModel.swift; sourceTree = "<group>"; };
 		4DCAD91D29702C0F00B35717 /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepository.swift; sourceTree = "<group>"; };
 		4DCAD91F29702F1F00B35717 /* BackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImage.swift; sourceTree = "<group>"; };
 		4DD214C72970328600C91CFB /* DefualtNetworkUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefualtNetworkUseCase.swift; sourceTree = "<group>"; };
@@ -752,6 +754,7 @@
 				4DB5BF622987DD3C003AC6DA /* BackUpSettingVIewController.swift */,
 				4DB5BF652987DE75003AC6DA /* LoginViewController.swift */,
 				4DB5BF5F2987DC85003AC6DA /* View */,
+				4DB5BF6B2987F427003AC6DA /* ViewModel */,
 			);
 			path = BackUpSettingScene;
 			sourceTree = "<group>";
@@ -762,6 +765,14 @@
 				4DB5BF602987DC9B003AC6DA /* BackUpSettingView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4DB5BF6B2987F427003AC6DA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4DB5BF6C2987F465003AC6DA /* BackUpSettingViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		4DCAD91B29702BDB00B35717 /* Network */ = {
@@ -1147,6 +1158,7 @@
 				4DF88393295D59A400B507E2 /* SceneDelegate.swift in Sources */,
 				37DA79B42987EFE4000B5590 /* FirebaseManager.swift in Sources */,
 				37A276F229756EAE00AF2CA0 /* CalenderView.swift in Sources */,
+				4DB5BF6D2987F465003AC6DA /* BackUpSettingViewModel.swift in Sources */,
 				37A276F129756EAE00AF2CA0 /* CalendarListView.swift in Sources */,
 				370EF82029703F88000DDAF5 /* CommentTableViewCell.swift in Sources */,
 				37A277182976D0DA00AF2CA0 /* DatePickerViewContoller.swift in Sources */,
