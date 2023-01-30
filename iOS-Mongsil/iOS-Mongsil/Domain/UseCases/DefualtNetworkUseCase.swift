@@ -12,7 +12,7 @@ protocol NetworkUseCase {
     func request() -> AnyPublisher<[BackgroundImage], Error>
 }
 
-class DefaultNetworkUseCase: NetworkUseCase {
+final class DefaultNetworkUseCase: NetworkUseCase {
     let networkRepository: NetworkRepository
     
     init(networkRepository: NetworkRepository) {

@@ -7,9 +7,13 @@
 
 import Foundation
 
-struct KeyChain {
-    var userName: String = "Mongsil"
-    var passWord: String
+enum KeyChain: String {
+    case passWord
+    case userIdentifier
+    
+    var userName: String {
+        return self.rawValue
+    }
 }
 
 final class KeyChainManger {
@@ -17,19 +21,19 @@ final class KeyChainManger {
     
     private init() { }
     
-    func addItemsOnKeyChain(_ newPassword: String) {
-        let keyChain = KeyChain(passWord: newPassword)
-        let passWord = keyChain.passWord.data(using: String.Encoding.utf8)!
+    func addItemsOnKeyChain(_ newPassword: String, dataType: KeyChain) {
+        let passWord = newPassword.data(using: String.Encoding.utf8)!
         let query: [String : Any] = [kSecClass as String: kSecClassGenericPassword,
-                                     kSecAttrAccount as String: keyChain.userName,
+                                     kSecAttrAccount as String: dataType.userName,
                                      kSecValueData as String: passWord]
         let status = SecItemAdd(query as CFDictionary, nil)
         
         guard status == errSecSuccess else { return }
     }
     
-    func readKeyChain() -> KeyChain? {
+    func readKeyChain(dataType: KeyChain) -> String? {
         let query: [String : Any] = [kSecClass as String: kSecClassGenericPassword,
+                                     kSecAttrAccount as String: dataType.userName,
                                      kSecMatchLimit as String: kSecMatchLimitOne,
                                      kSecReturnAttributes as String: true,
                                      kSecReturnData as String: true]
@@ -40,21 +44,18 @@ final class KeyChainManger {
         guard status == errSecSuccess else { return nil }
         guard let resultItem = item as? [String : Any],
               let passWordData = resultItem[kSecValueData as String] as? Data,
-              let passWord = String(data: passWordData, encoding: String.Encoding.utf8),
-              let userID = resultItem[kSecAttrAccount as String] as? String else {
+              let passWord = String(data: passWordData, encoding: String.Encoding.utf8) else {
             return nil
         }
-        
-        let keyChain = KeyChain(userName: userID, passWord: passWord)
-        
-        return keyChain
+
+        return passWord
     }
     
-    func updateItemOnKeyChain(_ newPassword: String) {
+    func updateItemOnKeyChain(_ newPassword: String, dataType: KeyChain) {
         let query: [String : Any] = [kSecClass as String: kSecClassGenericPassword]
-        let keyChain = KeyChain(passWord: newPassword)
-        let passWord = keyChain.passWord.data(using: String.Encoding.utf8)!
-        let attributte: [String : Any] = [kSecAttrAccount as String : keyChain.userName,
+      
+        let passWord = newPassword.data(using: String.Encoding.utf8)!
+        let attributte: [String : Any] = [kSecAttrAccount as String : dataType.userName,
                                           kSecValueData as String: passWord]
         let status = SecItemUpdate(query as CFDictionary, attributte as CFDictionary)
         
@@ -62,9 +63,9 @@ final class KeyChainManger {
         guard status == errSecSuccess else { return }
     }
     
-    func deleteItemOnKeyChain() {
+    func deleteItemOnKeyChain(dataType: KeyChain) {
         let deleteQuery: [CFString: Any] = [kSecClass: kSecClassGenericPassword,
-                                      kSecAttrAccount: "Mongsil"]
+                                      kSecAttrAccount: dataType.userName]
         let status = SecItemDelete(deleteQuery as CFDictionary)
         if status == errSecSuccess {
             print("remove key-data complete")
@@ -73,4 +74,3 @@ final class KeyChainManger {
         }
     }
 }
-
