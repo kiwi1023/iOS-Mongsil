@@ -63,6 +63,8 @@
 		37B67C59296591D000F81118 /* RepositoryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B67C58296591D000F81118 /* RepositoryError.swift */; };
 		37D919AB297FABF700E9F31A /* AlertProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D919AA297FABF700E9F31A /* AlertProtocol.swift */; };
 		37DA79A52987EC37000B5590 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37DA79A42987EC37000B5590 /* GoogleService-Info.plist */; };
+		37DA79A82987ECBA000B5590 /* MultipleCommentRepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DA79A72987ECBA000B5590 /* MultipleCommentRepositoryManager.swift */; };
+		37DA79AA2987ECDF000B5590 /* MultipleDiaryRepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DA79A92987ECDF000B5590 /* MultipleDiaryRepositoryManager.swift */; };
 		37DA79AE2987EFD1000B5590 /* CommentDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DA79AD2987EFD1000B5590 /* CommentDTO.swift */; };
 		37DA79B02987EFD6000B5590 /* DiaryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DA79AF2987EFD6000B5590 /* DiaryDTO.swift */; };
 		37DA79B22987EFDD000B5590 /* FirebaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DA79B12987EFDD000B5590 /* FirebaseError.swift */; };
@@ -186,6 +188,8 @@
 		37B67C58296591D000F81118 /* RepositoryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryError.swift; sourceTree = "<group>"; };
 		37D919AA297FABF700E9F31A /* AlertProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertProtocol.swift; sourceTree = "<group>"; };
 		37DA79A42987EC37000B5590 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		37DA79A72987ECBA000B5590 /* MultipleCommentRepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleCommentRepositoryManager.swift; sourceTree = "<group>"; };
+		37DA79A92987ECDF000B5590 /* MultipleDiaryRepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleDiaryRepositoryManager.swift; sourceTree = "<group>"; };
 		37DA79AD2987EFD1000B5590 /* CommentDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentDTO.swift; sourceTree = "<group>"; };
 		37DA79AF2987EFD6000B5590 /* DiaryDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryDTO.swift; sourceTree = "<group>"; };
 		37DA79B12987EFDD000B5590 /* FirebaseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseError.swift; sourceTree = "<group>"; };
@@ -892,6 +896,7 @@
 			isa = PBXGroup;
 			children = (
 				37B67C552965908B00F81118 /* DefaultRepositoryManager */,
+				37DA79A62987EC81000B5590 /* MultipleRepositoryManager */,
 				37B67C4C296567FB00F81118 /* CoreData */,
 				37DA79922987E5B0000B5590 /* Firebase */,
 				4DCAD91B29702BDB00B35717 /* Network */,
@@ -1125,6 +1130,7 @@
 				4D3033C229659A1000234166 /* APIError.swift in Sources */,
 				370EF82A297140F4000DDAF5 /* CommentInputView.swift in Sources */,
 				37DA79B02987EFD6000B5590 /* DiaryDTO.swift in Sources */,
+				37DA79A82987ECBA000B5590 /* MultipleCommentRepositoryManager.swift in Sources */,
 				4D3033C429659AB800234166 /* NetworkManager.swift in Sources */,
 				4DE8B43D29783D5B00870790 /* EditPasswordViewController.swift in Sources */,
 				4D9B03312978CBA3001E6191 /* KeychainManager.swift in Sources */,
@@ -1166,6 +1172,7 @@
 				37B67C59296591D000F81118 /* RepositoryError.swift in Sources */,
 				4D3033B229655D4C00234166 /* DiaryEntity+CoreDataClass.swift in Sources */,
 				37A276FB29756EB800AF2CA0 /* FavoriteViewModel.swift in Sources */,
+				37DA79AA2987ECDF000B5590 /* MultipleDiaryRepositoryManager.swift in Sources */,
 				37D919AB297FABF700E9F31A /* AlertProtocol.swift in Sources */,
 				4D3033B429655D4C00234166 /* CommentEntity+CoreDataClass.swift in Sources */,
 				370EF78429703D1A000DDAF5 /* ViewModelBuilderProtocol.swift in Sources */,
