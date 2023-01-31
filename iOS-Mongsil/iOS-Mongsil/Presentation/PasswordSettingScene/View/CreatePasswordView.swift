@@ -14,6 +14,18 @@ protocol CreatePasswordViewDelegate: AnyObject {
 }
 
 class CreatePasswordView: SuperViewSetting {
+    private enum CreatePasswordViewNameSpace {
+        static let fontText = "GamjaFlower-Regular"
+        static let passwordHeader = "새 암호를 입력해 주세요."
+        static let userDefaultKeyValue = "toggleState"
+        static let notificationName = "SwitchTurnOff"
+        static let cellIdentifier = "Cell"
+        static let xmark = "xmark"
+        static let confirmPasswordHeader = "한번 더 입력해 주세요."
+        static let passwordColor = "passwordColor"
+        static let delete = "삭제"
+    }
+    
     private var passwordCollectionView: UICollectionView! = nil
     private let passwordLayout: UICollectionViewLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -21,7 +33,7 @@ class CreatePasswordView: SuperViewSetting {
         
         return layout
     }()
-    private let passwordHeader = PasswordHeaderView(frame: .zero, title: "새 암호를 입력해 주세요.")
+    private let passwordHeader = PasswordHeaderView(frame: .zero, title: CreatePasswordViewNameSpace.passwordHeader)
     private var didTapFirstCellCount = 0
     private var didTapSecondCellCount = 0
     private var isFirstDataFinished = false
@@ -33,8 +45,8 @@ class CreatePasswordView: SuperViewSetting {
         let password = KeyChainManger.shared.readKeyChain(dataType: .passWord)
         if password == nil,
            secondPasswordData.count != 4,
-           UserDefaults.standard.bool(forKey: "toggleState") == true {
-            NotificationCenter.default.post(name: Notification.Name("SwitchTurnOff"),
+           UserDefaults.standard.bool(forKey: CreatePasswordViewNameSpace.userDefaultKeyValue) == true {
+            NotificationCenter.default.post(name: Notification.Name(CreatePasswordViewNameSpace.notificationName),
                                             object: self)
         }
     }
@@ -46,7 +58,7 @@ class CreatePasswordView: SuperViewSetting {
         passwordCollectionView.translatesAutoresizingMaskIntoConstraints = false
         passwordCollectionView.delegate = self
         passwordCollectionView.dataSource = self
-        passwordCollectionView.register(PasswordViewCell.self, forCellWithReuseIdentifier: "Cell")
+        passwordCollectionView.register(PasswordViewCell.self, forCellWithReuseIdentifier: CreatePasswordViewNameSpace.cellIdentifier)
     }
     
     override func addUIComponents() {
@@ -76,7 +88,7 @@ class CreatePasswordView: SuperViewSetting {
     private let closeButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "xmark"), for: .normal)
+        button.setImage(UIImage(systemName: CreatePasswordViewNameSpace.xmark), for: .normal)
         button.tintColor = .systemGray
         
         return button
@@ -94,14 +106,14 @@ extension CreatePasswordView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PasswordViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CreatePasswordViewNameSpace.cellIdentifier, for: indexPath) as! PasswordViewCell
         
         if indexPath.item == 9 {
             cell.numberLabel.isHidden = true
         } else if indexPath.item == 10 {
             cell.numberLabel.text = "\(0)"
         } else if indexPath.item == 11 {
-            cell.numberLabel.text = "삭제"
+            cell.numberLabel.text = CreatePasswordViewNameSpace.delete
         } else {
             cell.numberLabel.text = "\(indexPath.item + 1)"
         }
@@ -130,10 +142,10 @@ extension CreatePasswordView: UICollectionViewDelegate {
         }
         
         if didTapFirstCellCount == 4 {
-            passwordHeader.titleLabel.text = "한번 더 입력해 주세요."
+            passwordHeader.titleLabel.text = CreatePasswordViewNameSpace.confirmPasswordHeader
             
             for index in 0...3 {
-                passwordHeader.signImageViews[index].tintColor = UIColor(named: "passwordColor")
+                passwordHeader.signImageViews[index].tintColor = UIColor(named: CreatePasswordViewNameSpace.passwordColor)
             }
             didTapFirstCellCount += 1
             isFirstDataFinished = true
@@ -150,7 +162,7 @@ extension CreatePasswordView: UICollectionViewDelegate {
                   didTapFirstCellCount != 0 else { return }
             
             didTapFirstCellCount -= 1
-            passwordHeader.signImageViews[didTapFirstCellCount].tintColor = UIColor(named: "passwordColor")
+            passwordHeader.signImageViews[didTapFirstCellCount].tintColor = UIColor(named: CreatePasswordViewNameSpace.passwordColor)
             firstPasswordData.removeLast()
         } else {
             guard didTapFirstCellCount != 5 else { return }
@@ -171,7 +183,7 @@ extension CreatePasswordView: UICollectionViewDelegate {
             guard didTapSecondCellCount != 0 else { return }
             
             didTapSecondCellCount -= 1
-            passwordHeader.signImageViews[didTapSecondCellCount].tintColor = UIColor(named: "passwordColor")
+            passwordHeader.signImageViews[didTapSecondCellCount].tintColor = UIColor(named: CreatePasswordViewNameSpace.passwordColor)
             secondPasswordData.removeLast()
         } else {
             guard didTapSecondCellCount != 4 else { return }
@@ -194,10 +206,10 @@ extension CreatePasswordView: UICollectionViewDelegate {
         didTapFirstCellCount = 0
         didTapSecondCellCount = 0
         isFirstDataFinished = false
-        passwordHeader.titleLabel.text = "새 암호를 입력해 주세요."
+        passwordHeader.titleLabel.text = CreatePasswordViewNameSpace.confirmPasswordHeader
         
         for index in 0...3 {
-            passwordHeader.signImageViews[index].tintColor = UIColor(named: "passwordColor")
+            passwordHeader.signImageViews[index].tintColor = UIColor(named: CreatePasswordViewNameSpace.passwordColor)
         }
     }
 }

@@ -9,6 +9,15 @@ import UIKit
 import Combine
 
 final class CommentsViewController: SuperViewControllerSetting {
+    private enum CommentsViewControllerNameSpace {
+        static let menuImage = "icMenu"
+        static let cellIdentifier = "CommentTableViewCell"
+        static let editText = "편집"
+        static let deleteText = "삭제"
+        static let textViewText = "오늘의 기분을 입력해주세요."
+        static let reload = "Reload"
+    }
+    
     private let viewModel: CommentsViewModel
     private let input = PassthroughSubject<CommentsViewModel.Input, Never>()
     private var cancellables = Set<AnyCancellable>()
@@ -50,7 +59,7 @@ final class CommentsViewController: SuperViewControllerSetting {
     }
     
     private func setupNavigationBar() {
-        let image = UIImage(named: "icMenu")
+        let image = UIImage(named: CommentsViewControllerNameSpace.menuImage)
         let menuButton = UIBarButtonItem(image: image,
                                          style: .done,
                                          target: self,
@@ -177,7 +186,7 @@ extension CommentsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CommentTableViewCell",
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CommentsViewControllerNameSpace.cellIdentifier,
                                                        for: indexPath) as? CommentTableViewCell
         else { return UITableViewCell() }
         
@@ -201,12 +210,14 @@ extension CommentsViewController: UITableViewDataSource {
 extension CommentsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let updateSwipeAction = UIContextualAction(style: .normal, title: "편집", handler: { [weak self] _, _, _ in
+        let updateSwipeAction = UIContextualAction(style: .normal, title: CommentsViewControllerNameSpace.editText,
+                                                   handler: { [weak self] _, _, _ in
             guard let self = self else { return }
             
             self.presentCommentUpdateView(indexPath)
         })
-        let deleteSwipeAction = UIContextualAction(style: .normal, title: "삭제", handler: { [weak self] _, _, _ in
+        let deleteSwipeAction = UIContextualAction(style: .normal, title: CommentsViewControllerNameSpace.deleteText,
+                                                   handler: { [weak self] _, _, _ in
             guard let self = self else { return }
             
             self.input.send(.didTapDeleteCommentButton(self.viewModel.comments[indexPath.row].id))
@@ -260,14 +271,14 @@ extension CommentsViewController: UITextViewDelegate {
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == "오늘의 기분을 입력해주세요." {
+        if textView.text == CommentsViewControllerNameSpace.textViewText {
             textView.text = nil
         }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            textView.text = "오늘의 기분을 입력해주세요."
+            textView.text = CommentsViewControllerNameSpace.textViewText
         }
     }
 }
@@ -293,7 +304,7 @@ extension CommentsViewController: CommentInputViewDelegate {
     
     func didTapAddCommentButton(_ didTapAddCommentButton: String) {
         input.send(.didTapCreateCommentButton(didTapAddCommentButton))
-        NotificationCenter.default.post(name: Notification.Name("Reload"),
+        NotificationCenter.default.post(name: Notification.Name(CommentsViewControllerNameSpace.reload),
                                         object: self)
     }
 }

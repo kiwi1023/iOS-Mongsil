@@ -14,6 +14,14 @@ protocol MenuViewControllerDelegate: AnyObject {
 }
 
 final class MenuViewController: SuperViewControllerSetting, AlertProtocol {
+    private enum MenuViewControllerNameSpace {
+        static let activityViewTitle = "공유"
+        static let successTitle = "성공"
+        static let failureTitle = "실패"
+        static let successMessage = "이미지가 갤러리에 저장되었습니다."
+        static let failureMessage = "설정앱에서 권한을 허용해주세요."
+    }
+    
     private let menuView = MenuView()
     private let viewModel: MenuViewModel
     private let input = PassthroughSubject<MenuViewModel.Input, Never>()
@@ -129,7 +137,7 @@ extension MenuViewController: MenuViewDelegate {
     func didTapShareButton() {
         let activityViewController = UIActivityViewController(activityItems: [backgroundImage as Any],
                                                               applicationActivities: nil)
-        activityViewController.title = "공유"
+        activityViewController.title = MenuViewControllerNameSpace.activityViewTitle
         activityViewController.modalPresentationStyle = .fullScreen
         present(activityViewController, animated: true)
     }
@@ -188,11 +196,13 @@ extension MenuViewController: MenuViewDelegate {
                                  contextInfo: UnsafeMutableRawPointer?) {
         guard error == nil else { return }
         
-        present(makeConformAlert(titleText: "완료" ,massageText: "이미지가 갤러리에 저장되었습니다."), animated: true)
+        present(makeConformAlert(titleText: MenuViewControllerNameSpace.successTitle ,
+                                 massageText: MenuViewControllerNameSpace.successMessage), animated: true)
     }
     
     private func alertPermissionDenied() {
-        present(makeConformAlert(titleText: "실패" ,massageText: "설정앱에서 권한을 허용해주세요."), animated: true)
+        present(makeConformAlert(titleText: MenuViewControllerNameSpace.failureTitle ,
+                                 massageText: MenuViewControllerNameSpace.failureMessage), animated: true)
     }
 }
 

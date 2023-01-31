@@ -10,6 +10,17 @@ import Combine
 import FirebaseAuth
 
 final class BackUpSettingViewController: SuperViewControllerSetting, BackUpSettingViewDelegate, AlertProtocol {
+    private enum BackUpSettingViewControllerNameSpace {
+        static let fontText = "GamjaFlower-Regular"
+        static let weekdayColor = "weekdayColor"
+        static let navigationTitle = "백업/복원 설정"
+        static let notifinationName = "Login"
+        static let alertTitle = "알림"
+        static let alertMessage = "애플아이디의 변경을 원하실 경우 기존의 아이디는 로그아웃 됩니다. 그래도 진행하시겠습니까?"
+        static let restorationMessage = "복원성공"
+        static let failureMessage = "데이터를 복원하는데 실패하였습니다"
+    }
+    
     private let viewModel = BackUpSettingViewModel()
     private let input: PassthroughSubject<BackUpSettingViewModel.Input, Never> = .init()
     private var cancellables = Set<AnyCancellable>()
@@ -17,16 +28,17 @@ final class BackUpSettingViewController: SuperViewControllerSetting, BackUpSetti
     
     override func setupDefault() {
         bind()
-        let attributes = [ NSAttributedString.Key.font: UIFont(name: "GamjaFlower-Regular", size: 23)!,
-                           NSAttributedString.Key.foregroundColor: UIColor(named: "weekdayColor") as Any]
+        let attributes = [ NSAttributedString.Key.font: UIFont(name: BackUpSettingViewControllerNameSpace.fontText,
+                                                               size: 23)!,
+                           NSAttributedString.Key.foregroundColor: UIColor(named: BackUpSettingViewControllerNameSpace.weekdayColor) as Any]
         navigationController?.navigationBar.titleTextAttributes = attributes
-        navigationItem.title = "백업/복원 설정"
+        navigationItem.title = BackUpSettingViewControllerNameSpace.navigationTitle
         backUpSettingView.delegate = self
         
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(doPopViewController),
-            name: Notification.Name("Login"),
+            name: Notification.Name(BackUpSettingViewControllerNameSpace.notifinationName),
             object: nil
         )
     }
@@ -54,7 +66,9 @@ final class BackUpSettingViewController: SuperViewControllerSetting, BackUpSetti
     }
     
     func didTapLogoutLabel() {
-        self.present(self.makeCancellableConformAlert(titleText: "알림", massageText: "애플아이디의 변경을 원하실 경우 기존의 아이디는 로그아웃 됩니다. 그래도 진행하시겠습니까?", okAction: { [weak self] _ in
+        self.present(self.makeCancellableConformAlert(titleText: BackUpSettingViewControllerNameSpace.alertTitle,
+                                                      massageText: BackUpSettingViewControllerNameSpace.alertMessage,
+                                                      okAction: { [weak self] _ in
             let firebaseAuth = Auth.auth()
             
             do {
@@ -73,9 +87,10 @@ final class BackUpSettingViewController: SuperViewControllerSetting, BackUpSetti
         output.sink { event in
             switch event {
             case .addDataToLocalRepository(()):
-                print("복원성공")
+                print(BackUpSettingViewControllerNameSpace.restorationMessage)
             case .dataBaseError(_):
-                self.present(self.makeConformAlert(massageText: "데이터를 복원하는데 실패하였습니다"), animated: true)
+                self.present(self.makeConformAlert(massageText: BackUpSettingViewControllerNameSpace.failureMessage),
+                             animated: true)
             }
         }.store(in: &cancellables)
     }

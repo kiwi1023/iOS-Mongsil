@@ -13,17 +13,25 @@ protocol NotificationViewDelegate: AnyObject {
 }
 
 final class NotificationView: SuperViewSetting {
+    private enum NotificationViewNameSpace {
+        static let toggleSwitchOn = "icSwitchOn"
+        static let toggleSwitchOff = "icSwitchOff"
+        static let alarmLabelText = "알림"
+        static let selectTimeButtonTitle = "시간선택"
+        static let textFont = "GamjaFlower-Regular"
+    }
+    
     private var isOnNotification = false
     private var buttonImage: UIImage? {
-        isOnNotification ? UIImage(named: "icSwitchOn") : UIImage(named: "icSwitchOff")
+        isOnNotification ? UIImage(named: NotificationViewNameSpace.toggleSwitchOn) : UIImage(named: NotificationViewNameSpace.toggleSwitchOff)
     }
     weak var delegate: NotificationViewDelegate?
     
     private let alarmLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "GamjaFlower-Regular", size: 23)
-        label.text = "알림"
+        label.font = UIFont(name: NotificationViewNameSpace.textFont, size: 23)
+        label.text = NotificationViewNameSpace.alarmLabelText
         
         return label
     }()
@@ -39,8 +47,8 @@ final class NotificationView: SuperViewSetting {
     private let selectTimeButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("시간선택", for: .normal)
-        button.titleLabel?.font = UIFont(name: "GamjaFlower-Regular", size: 23)
+        button.setTitle(NotificationViewNameSpace.selectTimeButtonTitle, for: .normal)
+        button.titleLabel?.font = UIFont(name: NotificationViewNameSpace.textFont, size: 23)
         button.setTitleColor(.black, for: .normal)
         button.addTarget(nil, action: #selector(didTapSelectTimeButton), for: .touchDown)
         

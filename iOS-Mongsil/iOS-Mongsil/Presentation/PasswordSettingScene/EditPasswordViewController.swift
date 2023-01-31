@@ -8,6 +8,10 @@
 import UIKit
 
 final class EditPasswordViewController: SuperViewControllerSetting, CreatePasswordViewDelegate, AlertProtocol {
+    private enum EditPasswordViewControllerNameSpace {
+        static let notiMessage = "비밀번호가 일치하지 않습니다.\n 처음부터 다시 시도해 주세요."
+    }
+    
     private let createPasswordView = CreatePasswordView()
     
     override func setupDefault() {
@@ -32,7 +36,7 @@ final class EditPasswordViewController: SuperViewControllerSetting, CreatePasswo
     }
     
     func putWrongPassword() {
-        present(makeConformAlert(massageText: "비밀번호가 일치하지 않습니다.\n 처음부터 다시 시도해 주세요."), animated: true)
+        present(makeConformAlert(massageText: EditPasswordViewControllerNameSpace.notiMessage), animated: true)
     }
     
     func putCorrectPassword(_ password: [Int]) {

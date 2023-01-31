@@ -8,6 +8,14 @@
 import UIKit
 
 final class CalenderView: SuperViewSetting, MonthViewDelegate {
+    private enum CalenderViewNameSpace {
+        static let textFont = "GamjaFlower-Regular"
+        static let saturdayColor = "saturdayColor"
+        static let sundayColor = "sundayColor"
+        static let weekdayColor = "weekdayColor"
+        static let cellIdentifier = "Cell"
+    }
+    
     private var numOfDaysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31]
     private var currentMonthIndex: Int = 0
     private var currentYear: Int = 0
@@ -37,7 +45,7 @@ final class CalenderView: SuperViewSetting, MonthViewDelegate {
         calendarHeaderView.delegate = self
         calendarCollectionView.delegate = self
         calendarCollectionView.dataSource = self
-        calendarCollectionView.register(CalendarViewCell.self, forCellWithReuseIdentifier: "Cell")
+        calendarCollectionView.register(CalendarViewCell.self, forCellWithReuseIdentifier: CalenderViewNameSpace.cellIdentifier)
     }
     
     override func addUIComponents() {
@@ -110,7 +118,8 @@ extension CalenderView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CalendarViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalenderViewNameSpace.cellIdentifier,
+                                                      for: indexPath) as! CalendarViewCell
         cell.todayImageView.isHidden = true
         cell.selectedStateImageView.isHidden = true
         setEmoticonImage(indexPath, cell)
@@ -126,11 +135,11 @@ extension CalenderView: UICollectionViewDataSource {
     
     private func setDayColor(day: Int, cell: CalendarViewCell) {
         if day % 7 == 6 {
-            cell.dayLabel.textColor = UIColor(named: "saturdayColor")
+            cell.dayLabel.textColor = UIColor(named: CalenderViewNameSpace.saturdayColor)
         } else if day % 7 == 0 {
-            cell.dayLabel.textColor =  UIColor(named: "sundayColor")
+            cell.dayLabel.textColor =  UIColor(named: CalenderViewNameSpace.sundayColor)
         } else {
-            cell.dayLabel.textColor = UIColor(named: "weekdayColor")
+            cell.dayLabel.textColor = UIColor(named: CalenderViewNameSpace.weekdayColor)
         }
     }
     

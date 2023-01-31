@@ -8,6 +8,10 @@
 import UIKit
 
 final class PasswordViewController: SuperViewControllerSetting, PasswordViewDelegate, AlertProtocol {
+    private enum PasswordViewControllerNameSpace {
+        static let alertMessage = "비밀번호가 일치하지 않습니다"
+    }
+    
     static var isEnteredForeground = false
     
     private let passwordView = PasswordView()
@@ -30,7 +34,7 @@ final class PasswordViewController: SuperViewControllerSetting, PasswordViewDele
     }
     
     func putWrongPassword() {
-        present(makeConformAlert(massageText: "비밀번호가 일치하지 않습니다"), animated: true)
+        present(makeConformAlert(massageText: PasswordViewControllerNameSpace.alertMessage), animated: true)
     }
     
     func putCorrectPassword() {

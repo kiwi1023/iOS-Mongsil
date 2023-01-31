@@ -13,6 +13,12 @@ protocol CommentUpdateViewDelegate: AnyObject {
 }
 
 final class CommentUpdateView: SuperViewSetting {
+    private enum CommentUpdateViewNameSpace {
+        static let fontText = "NanumSeHwaCe"
+        static let okButtonTitle = "확인"
+        static let cancelButtonTitle = "취소"
+    }
+    
     weak var delegate: CommentUpdateViewDelegate?
 
     private let mainStackView: UIStackView = {
@@ -42,7 +48,7 @@ final class CommentUpdateView: SuperViewSetting {
         textView.layer.cornerRadius = 20
         textView.layer.borderColor = UIColor.white.cgColor
         textView.textContainerInset = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
-        textView.font = UIFont(name: "NanumSeHwaCe", size: 23.0)
+        textView.font = UIFont(name: CommentUpdateViewNameSpace.fontText, size: 23.0)
         textView.backgroundColor = UIColor.black.withAlphaComponent(0)
         textView.textColor = .white
         textView.showsVerticalScrollIndicator = false
@@ -54,8 +60,8 @@ final class CommentUpdateView: SuperViewSetting {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(nil, action: #selector(didTapCloseButton), for: .touchDown)
-        button.setTitle("취소", for: .normal)
-        button.titleLabel?.font = UIFont(name: "NanumSeHwaCe", size: 23.0)
+        button.setTitle(CommentUpdateViewNameSpace.cancelButtonTitle, for: .normal)
+        button.titleLabel?.font = UIFont(name: CommentUpdateViewNameSpace.fontText, size: 23.0)
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = UIColor.black.withAlphaComponent(0)
         
@@ -66,8 +72,8 @@ final class CommentUpdateView: SuperViewSetting {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(nil, action: #selector(didTapConfirmButton), for: .touchDown)
-        button.setTitle("확인", for: .normal)
-        button.titleLabel?.font = UIFont(name: "NanumSeHwaCe", size: 23.0)
+        button.setTitle(CommentUpdateViewNameSpace.okButtonTitle, for: .normal)
+        button.titleLabel?.font = UIFont(name: CommentUpdateViewNameSpace.fontText, size: 23.0)
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = UIColor.black.withAlphaComponent(0)
         

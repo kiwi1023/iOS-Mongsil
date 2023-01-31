@@ -13,6 +13,14 @@ protocol PasswordViewDelegate: AnyObject {
 }
 
 class PasswordView: SuperViewSetting {
+    private enum PasswordViewNameSpace {
+        static let fontText = "GamjaFlower-Regular"
+        static let passwordHeader = "암호를 입력해 주세요."
+        static let cellIdentifier = "Cell"
+        static let passwordColor = "passwordColor"
+        static let delete = "삭제"
+    }
+    
     private var passwordCollectionView: UICollectionView! = nil
     private let passwordLayout: UICollectionViewLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -20,7 +28,7 @@ class PasswordView: SuperViewSetting {
         
         return layout
     }()
-    private let passwordHeader = PasswordHeaderView(frame: .zero, title: "암호를 입력해 주세요.")
+    private let passwordHeader = PasswordHeaderView(frame: .zero, title: PasswordViewNameSpace.passwordHeader)
     private var didTapCellCount = 0
     private var passwordData: [Int] = []
     weak var delegate: PasswordViewDelegate?
@@ -32,7 +40,7 @@ class PasswordView: SuperViewSetting {
         passwordCollectionView.translatesAutoresizingMaskIntoConstraints = false
         passwordCollectionView.delegate = self
         passwordCollectionView.dataSource = self
-        passwordCollectionView.register(PasswordViewCell.self, forCellWithReuseIdentifier: "Cell")
+        passwordCollectionView.register(PasswordViewCell.self, forCellWithReuseIdentifier: PasswordViewNameSpace.cellIdentifier)
         passwordCollectionView.isScrollEnabled = false
     }
     
@@ -63,14 +71,15 @@ extension PasswordView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PasswordViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PasswordViewNameSpace.cellIdentifier,
+                                                      for: indexPath) as! PasswordViewCell
         
         if indexPath.item == 9 {
             cell.numberLabel.isHidden = true
         } else if indexPath.item == 10 {
             cell.numberLabel.text = "\(0)"
         } else if indexPath.item == 11 {
-            cell.numberLabel.text = "삭제"
+            cell.numberLabel.text = PasswordViewNameSpace.delete
         } else {
             cell.numberLabel.text = "\(indexPath.item + 1)"
         }
@@ -95,7 +104,7 @@ extension PasswordView: UICollectionViewDelegate {
             guard didTapCellCount != 0 else { return }
           
             didTapCellCount -= 1
-            passwordHeader.signImageViews[didTapCellCount].tintColor = UIColor(named: "passwordColor")
+            passwordHeader.signImageViews[didTapCellCount].tintColor = UIColor(named: PasswordViewNameSpace.passwordColor)
             passwordData.removeLast()
         } else {
             passwordHeader.signImageViews[didTapCellCount].tintColor = .black
@@ -120,7 +129,7 @@ extension PasswordView: UICollectionViewDelegate {
         didTapCellCount = 0
        
         for index in 0...3 {
-            passwordHeader.signImageViews[index].tintColor = UIColor(named: "passwordColor")
+            passwordHeader.signImageViews[index].tintColor = UIColor(named: PasswordViewNameSpace.passwordColor)
         }
     }
 }

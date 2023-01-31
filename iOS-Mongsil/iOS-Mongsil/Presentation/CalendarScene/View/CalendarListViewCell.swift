@@ -9,6 +9,13 @@ import UIKit
 import Combine
 
 final class CalendarListViewCell: UICollectionViewCell {
+    private enum CalendarListViewCellNameSpace {
+        static let textFontRegular = "Lato-Regular"
+        static let textFontBold = "Lato-Bold"
+        static let commentImage = "icComment"
+        static let placeHolder = "placeHolder"
+    }
+    
     private var cancellables = Set<AnyCancellable>()
     
     private let backgroundImageView: UIImageView = {
@@ -30,7 +37,7 @@ final class CalendarListViewCell: UICollectionViewCell {
     private let yearLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.font = UIFont(name: "Lato-Regular", size: 15)
+        label.font = UIFont(name: CalendarListViewCellNameSpace.textFontRegular, size: 15)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints=false
         
@@ -40,7 +47,7 @@ final class CalendarListViewCell: UICollectionViewCell {
     private let monthLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.font = UIFont(name: "Lato-Bold", size: 16)
+        label.font = UIFont(name: CalendarListViewCellNameSpace.textFontBold, size: 16)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints=false
         
@@ -50,7 +57,7 @@ final class CalendarListViewCell: UICollectionViewCell {
     private let dayLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont(name: "Lato-Regular", size: 40)
+        label.font = UIFont(name: CalendarListViewCellNameSpace.textFontRegular, size: 40)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints=false
         
@@ -59,7 +66,7 @@ final class CalendarListViewCell: UICollectionViewCell {
     
     private let commentImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "icComment")
+        imageView.image = UIImage(named: CalendarListViewCellNameSpace.commentImage)
         imageView.translatesAutoresizingMaskIntoConstraints=false
         imageView.tintColor = .white
         
@@ -68,7 +75,7 @@ final class CalendarListViewCell: UICollectionViewCell {
     
     private let placeHolderImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "placeHolder")
+        imageView.image = UIImage(named: CalendarListViewCellNameSpace.placeHolder)
         imageView.translatesAutoresizingMaskIntoConstraints=false
         
         return imageView
@@ -77,7 +84,7 @@ final class CalendarListViewCell: UICollectionViewCell {
     private let commentCountLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont(name: "Lato-Regular", size: 15)
+        label.font = UIFont(name: CalendarListViewCellNameSpace.textFontRegular, size: 15)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints=false
         

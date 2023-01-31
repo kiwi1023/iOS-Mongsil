@@ -12,6 +12,13 @@ protocol EmoticonsViewDelegate: NSObject {
 }
 
 final class EmoticonsView: SuperViewSetting {
+    private enum EmoticonsViewNameSpace {
+        static let titleLabelText = "오늘 기분은 어때요?"
+        static let cellIdentifier = "EmoticonCollectionViewCell"
+        static let fontText = "GamjaFlower-Regular"
+        static let xmark = "xmark"
+    }
+    
     private weak var delegate: EmoticonsViewDelegate?
     
     private let mainStackView: UIStackView = {
@@ -26,7 +33,7 @@ final class EmoticonsView: SuperViewSetting {
     private let closeButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "xmark"), for: .normal)
+        button.setImage(UIImage(systemName: EmoticonsViewNameSpace.xmark), for: .normal)
         button.tintColor = .systemGray
         
         return button
@@ -35,8 +42,8 @@ final class EmoticonsView: SuperViewSetting {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "GamjaFlower-Regular", size: 26.0)
-        label.text = "오늘 기분은 어때요?"
+        label.font = UIFont(name: EmoticonsViewNameSpace.fontText, size: 26.0)
+        label.text = EmoticonsViewNameSpace.titleLabelText
         
         return label
     }()
@@ -46,7 +53,7 @@ final class EmoticonsView: SuperViewSetting {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(EmoticonCollectionViewCell.self,
-                                forCellWithReuseIdentifier: "EmoticonCollectionViewCell")
+                                forCellWithReuseIdentifier: EmoticonsViewNameSpace.cellIdentifier)
         collectionView.showsVerticalScrollIndicator = false
         
         return collectionView

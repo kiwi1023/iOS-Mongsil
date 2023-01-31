@@ -13,6 +13,16 @@ protocol DatePickerViewDelegate: AnyObject {
 }
 
 final class DatePickerView: SuperViewSetting {
+    private enum DatePickerViewNameSpace {
+        static let textFont = "GamjaFlower-Regular"
+        static let closeButtonColor = "closeButtonColor"
+        static let confirmButtonColor = "confirmButtonColor"
+        static let closeButtonBackgroundColor = "closeButtonBackgroundColor"
+        static let confirmButtonBackgroundColor = "confirmButtonBackgroundColor"
+        static let okMessage = "확인"
+        static let cancelMessage = "취소"
+    }
+    
     weak var delegate: DatePickerViewDelegate?
 
     private let mainStackView: UIStackView = {
@@ -46,10 +56,10 @@ final class DatePickerView: SuperViewSetting {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(nil, action: #selector(didTapCloseButton), for: .touchDown)
-        button.setTitle("취소", for: .normal)
-        button.titleLabel?.font = UIFont(name: "GamjaFlower-Regular", size: 23)
-        button.setTitleColor(UIColor(named: "closeButtonColor"), for: .normal)
-        button.backgroundColor = UIColor(named: "closeButtonBackgroundColor")
+        button.setTitle(DatePickerViewNameSpace.cancelMessage, for: .normal)
+        button.titleLabel?.font = UIFont(name: DatePickerViewNameSpace.textFont, size: 23)
+        button.setTitleColor(UIColor(named: DatePickerViewNameSpace.closeButtonColor), for: .normal)
+        button.backgroundColor = UIColor(named: DatePickerViewNameSpace.closeButtonBackgroundColor)
         button.layer.cornerRadius = 25
         
         return button
@@ -59,10 +69,10 @@ final class DatePickerView: SuperViewSetting {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(nil, action: #selector(didTapConfirmButton), for: .touchDown)
-        button.setTitle("확인", for: .normal)
-        button.titleLabel?.font = UIFont(name: "GamjaFlower-Regular", size: 23)
-        button.setTitleColor(UIColor(named: "confirmButtonColor"), for: .normal)
-        button.backgroundColor = UIColor(named: "confirmButtonBackgroundColor")
+        button.setTitle(DatePickerViewNameSpace.okMessage, for: .normal)
+        button.titleLabel?.font = UIFont(name: DatePickerViewNameSpace.textFont, size: 23)
+        button.setTitleColor(UIColor(named: DatePickerViewNameSpace.confirmButtonColor), for: .normal)
+        button.backgroundColor = UIColor(named: DatePickerViewNameSpace.confirmButtonBackgroundColor)
         button.layer.cornerRadius = 25
         
         return button

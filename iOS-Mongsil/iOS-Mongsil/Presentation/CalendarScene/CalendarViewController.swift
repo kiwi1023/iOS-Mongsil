@@ -9,6 +9,19 @@ import UIKit
 import Combine
 
 final class CalendarViewController: SuperViewControllerSetting {
+    private enum CalendarViewControllerNameSpace {
+        static let backButtonTitle = "뒤로"
+        static let leftBarButtonTitle = "관심"
+        static let gearshape = "gearshape.fill"
+        static let weekdayColor = "weekdayColor"
+        static let textFont = "GamjaFlower-Regular"
+        static let listButtonColor = "listButtonColor"
+        static let menuImage = "icMenu"
+        static let calendarIamge = "icCalendar"
+        static let circle = "circle.fill"
+        static let userDefaultKeyValue = "toggleState"
+    }
+    
     private let viewModel = CalendarViewModel()
     private let input: PassthroughSubject<CalendarViewModel.Input, Never> = .init()
     private var cancellables = Set<AnyCancellable>()
@@ -113,19 +126,22 @@ final class CalendarViewController: SuperViewControllerSetting {
     }
     
     private func setNavigationBar() {
-        let attributes = [NSAttributedString.Key.font: UIFont(name: "GamjaFlower-Regular", size: 23)!]
-        navigationController?.navigationBar.tintColor = UIColor(named: "weekdayColor")
+        let attributes = [NSAttributedString.Key.font: UIFont(name: CalendarViewControllerNameSpace.textFont, size: 23)!]
+        navigationController?.navigationBar.tintColor = UIColor(named: CalendarViewControllerNameSpace.weekdayColor)
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "gearshape.fill"), style: .done,
+            image: UIImage(systemName: CalendarViewControllerNameSpace.gearshape), style: .done,
             target: self,
             action: #selector(didTapSettingButton)
         )
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "관심",
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: CalendarViewControllerNameSpace.leftBarButtonTitle,
                                                            style: .plain,
                                                            target: self,
                                                            action: #selector(didTapFavoriteButton))
         navigationItem.leftBarButtonItem?.setTitleTextAttributes(attributes, for: .normal)
-        let backBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: nil)
+        let backBarButtonItem = UIBarButtonItem(title: CalendarViewControllerNameSpace.backButtonTitle,
+                                                style: .plain,
+                                                target: self,
+                                                action: nil)
         self.navigationItem.backBarButtonItem = backBarButtonItem
         navigationItem.backBarButtonItem?.setTitleTextAttributes(attributes, for: .normal)
     }
@@ -144,7 +160,7 @@ final class CalendarViewController: SuperViewControllerSetting {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
-        imageView.tintColor = UIColor(named: "listButtonColor")
+        imageView.tintColor = UIColor(named: CalendarViewControllerNameSpace.listButtonColor)
         imageView.layer.shadowColor =  CGColor(red: 185.0 / 255.0,
                                                green: 134.0 / 255.0,
                                                blue: 0.0 / 255.0,
@@ -179,9 +195,9 @@ final class CalendarViewController: SuperViewControllerSetting {
             action: #selector(didTapCalendarButton)
         )
         
-        listSignImageView.image = UIImage(named: "icMenu")
-        calendarSignImageView.image = UIImage(named: "icCalendar")
-        listImageView.image = UIImage(systemName: "circle.fill")
+        listSignImageView.image = UIImage(named: CalendarViewControllerNameSpace.menuImage)
+        calendarSignImageView.image = UIImage(named: CalendarViewControllerNameSpace.calendarIamge)
+        listImageView.image = UIImage(systemName: CalendarViewControllerNameSpace.circle)
         listSignImageView.addGestureRecognizer(listTapGesture)
         listSignImageView.isUserInteractionEnabled = true
         calendarSignImageView.addGestureRecognizer(calendarTapGesture)
@@ -259,7 +275,8 @@ extension CalendarViewController {
             forName: UIApplication.willEnterForegroundNotification,
             object: nil,
             queue: .main) { [weak self] _ in
-                guard let self = self, UserDefaults.standard.bool(forKey: "toggleState") else { return }
+                guard let self = self,
+                      UserDefaults.standard.bool(forKey: CalendarViewControllerNameSpace.userDefaultKeyValue) else { return }
                 
                 let passwordView = PasswordViewController()
                 passwordView.modalPresentationStyle = UIModalPresentationStyle.fullScreen

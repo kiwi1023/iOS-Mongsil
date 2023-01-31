@@ -8,6 +8,10 @@
 import UIKit
 
 final class EmoticonCollectionViewCell: UICollectionViewCell {
+    private enum EmoticonCollectionViewCellNameSpace {
+        static let fontText = "GamjaFlower-Regular"
+    }
+    
     private let emoticonImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -19,7 +23,7 @@ final class EmoticonCollectionViewCell: UICollectionViewCell {
     private let emoticonLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "GamjaFlower-Regular", size: 18.0)
+        label.font = UIFont(name: EmoticonCollectionViewCellNameSpace.fontText, size: 18.0)
         
         return label
     }()

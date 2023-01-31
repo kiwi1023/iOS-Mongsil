@@ -8,13 +8,19 @@
 import UIKit
 
 final class PasswordSettingViewController: SuperViewControllerSetting, PassswordSettingViewDelegate {
+    private enum PasswordSettingViewControllerNameSpace {
+        static let weekdayColor = "weekdayColor"
+        static let textFont = "GamjaFlower-Regular"
+        static let navigationbarTitle = "비밀번호 설정"
+    }
+    
     private let passwordSettingView = PasswordSettingView()
     
     override func setupDefault() {
-        let attributes = [ NSAttributedString.Key.font: UIFont(name: "GamjaFlower-Regular", size: 23)!,
-                           NSAttributedString.Key.foregroundColor: UIColor(named: "weekdayColor") as Any]
+        let attributes = [ NSAttributedString.Key.font: UIFont(name: PasswordSettingViewControllerNameSpace.textFont, size: 23)!,
+                           NSAttributedString.Key.foregroundColor: UIColor(named: PasswordSettingViewControllerNameSpace.weekdayColor) as Any]
         navigationController?.navigationBar.titleTextAttributes = attributes
-        navigationItem.title = "비밀번호 설정"
+        navigationItem.title = PasswordSettingViewControllerNameSpace.navigationbarTitle
         passwordSettingView.delegate = self
     }
     

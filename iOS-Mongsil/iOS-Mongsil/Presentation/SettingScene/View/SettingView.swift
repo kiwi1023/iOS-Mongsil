@@ -62,6 +62,10 @@ enum SettingViewTitleData: CaseIterable {
 }
 
 final class SettingView: SuperViewSetting {
+    private enum SettingViewNameSpace {
+        static let cellIdentifier = "SettingViewCell"
+    }
+    
     private var settingCollectionView: UICollectionView! = nil
     private let settingLayout: UICollectionViewLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -81,7 +85,7 @@ final class SettingView: SuperViewSetting {
         configurationCollectionView()
         settingCollectionView.delegate = self
         settingCollectionView.dataSource = self
-        settingCollectionView.register(SettingViewCell.self, forCellWithReuseIdentifier: "SettingViewCell")
+        settingCollectionView.register(SettingViewCell.self, forCellWithReuseIdentifier: SettingViewNameSpace.cellIdentifier)
     }
     
     override func addUIComponents() {
@@ -114,7 +118,7 @@ extension SettingView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SettingViewCell",
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SettingViewNameSpace.cellIdentifier,
                                                       for: indexPath) as! SettingViewCell
         let settingData = SettingViewTitleData.allCases[indexPath.item]
         cell.configure(text: settingData.title, image: settingData.image, needChevronImage: settingData.needChavronImage)

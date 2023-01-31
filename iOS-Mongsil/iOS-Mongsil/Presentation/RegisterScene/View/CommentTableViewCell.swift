@@ -8,6 +8,10 @@
 import UIKit
 
 final class CommentTableViewCell: UITableViewCell {
+    private enum CommentTableViewCellNameSpace {
+        static let fontText = "NanumSeHwaCe"
+    }
+    
     private let mainStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -40,7 +44,7 @@ final class CommentTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .systemYellow
-        label.font = UIFont(name: "NanumSeHwaCe", size: 20.0)
+        label.font = UIFont(name: CommentTableViewCellNameSpace.fontText, size: 20.0)
         
         return label
     }()
@@ -50,7 +54,7 @@ final class CommentTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.textColor = .white
-        label.font = UIFont(name: "NanumSeHwaCe", size: 20.0)
+        label.font = UIFont(name: CommentTableViewCellNameSpace.fontText, size: 20.0)
         
         return label
     }()

@@ -8,6 +8,11 @@
 import UIKit
 
 final class SettingViewCell: UICollectionViewCell {
+    private enum SettingViewCellNameSpace {
+        static let fontText = "GamjaFlower-Regular"
+        static let chevron = "icCloseCopy"
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemBackground
@@ -52,7 +57,7 @@ final class SettingViewCell: UICollectionViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.font = UIFont(name: "GamjaFlower-Regular", size: 23)
+        label.font = UIFont(name: SettingViewCellNameSpace.fontText, size: 23)
         label.translatesAutoresizingMaskIntoConstraints=false
         
         return label
@@ -78,7 +83,7 @@ final class SettingViewCell: UICollectionViewCell {
         titleLabel.text = text
         titleImageView.image = UIImage(named: image)
         if needChevronImage {
-            chevronImage.image = UIImage(named: "icCloseCopy")
+            chevronImage.image = UIImage(named: SettingViewCellNameSpace.chevron)
         }
     }
 }

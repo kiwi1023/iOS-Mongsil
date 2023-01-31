@@ -15,6 +15,21 @@ protocol MenuViewDelegate: NSObject {
 }
 
 final class MenuView: SuperViewSetting {
+    private enum MenuViewNameSpace {
+        static let commentViewOffImage = "icViewOff"
+        static let commentsLabelText = "일기 보이기"
+        static let fontText = "GamjaFlower-Regular"
+        static let shareImage = "icShare"
+        static let shareLabelText = "공유"
+        static let likeImage = "icLike"
+        static let scrapImageLabelText = "스크랩"
+        static let downloadImage = "icDownload"
+        static let downloadLabelText = "저장"
+        static let hideCommentsLabelText = "일기 숨기기"
+        static let commentViewOnImage = "icViewOn"
+        static let selectedLikeImage = "icLikeSel"
+    }
+    
     private var isHiddenComments = false
     private var isScrappedBackground = false
     weak var delegate: MenuViewDelegate?
@@ -22,7 +37,7 @@ final class MenuView: SuperViewSetting {
     private let isShowCommentsButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "icViewOff"), for: .normal)
+        button.setImage(UIImage(named: MenuViewNameSpace.commentViewOffImage), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         
         return button
@@ -31,8 +46,8 @@ final class MenuView: SuperViewSetting {
     private let isShowCommentsLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "일기 보이기"
-        label.font = UIFont(name: "GamjaFlower-Regular", size: 18.0)
+        label.text = MenuViewNameSpace.commentsLabelText
+        label.font = UIFont(name: MenuViewNameSpace.fontText, size: 18.0)
         
         return label
     }()
@@ -40,7 +55,7 @@ final class MenuView: SuperViewSetting {
     private let shareButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "icShare"), for: .normal)
+        button.setImage(UIImage(named: MenuViewNameSpace.shareImage), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         
         return button
@@ -49,8 +64,8 @@ final class MenuView: SuperViewSetting {
     private let shareLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "공유"
-        label.font = UIFont(name: "GamjaFlower-Regular", size: 18.0)
+        label.text = MenuViewNameSpace.shareLabelText
+        label.font = UIFont(name: MenuViewNameSpace.fontText, size: 18.0)
         
         return label
     }()
@@ -58,7 +73,7 @@ final class MenuView: SuperViewSetting {
     private let scrapImageButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "icLike"), for: .normal)
+        button.setImage(UIImage(named: MenuViewNameSpace.likeImage), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
 
         button.tintColor = .black
@@ -69,8 +84,8 @@ final class MenuView: SuperViewSetting {
     private let scrapImageLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "스크랩"
-        label.font = UIFont(name: "GamjaFlower-Regular", size: 18.0)
+        label.text = MenuViewNameSpace.scrapImageLabelText
+        label.font = UIFont(name: MenuViewNameSpace.fontText, size: 18.0)
         
         return label
     }()
@@ -78,7 +93,7 @@ final class MenuView: SuperViewSetting {
     private let downloadImageButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "icDownload"), for: .normal)
+        button.setImage(UIImage(named: MenuViewNameSpace.downloadImage), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         
         return button
@@ -87,8 +102,8 @@ final class MenuView: SuperViewSetting {
     private let downloadImageLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "저장"
-        label.font = UIFont(name: "GamjaFlower-Regular", size: 18.0)
+        label.text = MenuViewNameSpace.downloadLabelText
+        label.font = UIFont(name: MenuViewNameSpace.fontText, size: 18.0)
         
         return label
     }()
@@ -118,15 +133,15 @@ final class MenuView: SuperViewSetting {
     private func setIsShowCommentsItems() {
         isHiddenComments.toggle()
         isHiddenComments ? setupIsShowCommentsButtonImageViewOff() : setupIsShowCommentsButtonImageViewOn()
-        isShowCommentsLabel.text = isHiddenComments ? "일기 숨기기" : "일기 보이기"
+        isShowCommentsLabel.text = isHiddenComments ? MenuViewNameSpace.commentsLabelText : MenuViewNameSpace.hideCommentsLabelText
     }
     
     private func setupIsShowCommentsButtonImageViewOn() {
-        isShowCommentsButton.setImage(UIImage(named: "icViewOn"), for: .normal)
+        isShowCommentsButton.setImage(UIImage(named: MenuViewNameSpace.commentViewOnImage), for: .normal)
     }
     
     private func setupIsShowCommentsButtonImageViewOff() {
-        isShowCommentsButton.setImage(UIImage(named: "icViewOff"), for: .normal)
+        isShowCommentsButton.setImage(UIImage(named: MenuViewNameSpace.commentViewOffImage), for: .normal)
     }
     
     @objc
@@ -146,11 +161,11 @@ final class MenuView: SuperViewSetting {
     }
     
     private func setupscrapImageButtonImageLikeSel() {
-        scrapImageButton.setImage(UIImage(named: "icLikeSel"), for: .normal)
+        scrapImageButton.setImage(UIImage(named: MenuViewNameSpace.selectedLikeImage), for: .normal)
     }
     
     private func setupscrapImageButtonImageLike() {
-        scrapImageButton.setImage(UIImage(named: "icLike"), for: .normal)
+        scrapImageButton.setImage(UIImage(named: MenuViewNameSpace.likeImage), for: .normal)
     }
     
     @objc

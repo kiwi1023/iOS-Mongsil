@@ -11,12 +11,31 @@ import AuthenticationServices
 import FirebaseAuth
 
 final class SettingViewController: SuperViewControllerSetting, AlertProtocol, MFMailComposeViewControllerDelegate {
+    private enum SettingViewControllerNameSpace {
+        static let fontText = "GamjaFlower-Regular"
+        static let weekdayColor = "weekdayColor"
+        static let setting = "설정"
+        static let backUpNotiMessage = "백업 및 복원 기능을 사용하려면 애플아이디 로그인이 필요합니다. 그래도 진행하시겠습니까?"
+        static let notification = "알림"
+        static let appStoreUrl = "https://apps.apple.com/app/id1666528737"
+        static let action = "action"
+        static let writeReview = "write-review"
+        static let email = "mongsil.ios.help@gmail.com"
+        static let composeViewText = "문의 및 의견"
+        static let currentVersion = "CFBundleShortVersionString"
+        static let mailFailure = "메일 전송 실패"
+        static let mailFailureNotiMessage = "메일을 보내려면 'Mail' 앱이 필요합니다. App Store에서 해당 앱을 복원하거나 이메일 설정을 확인하고 다시 시도해주세요."
+        static let appstore = "App Store로 이동하기"
+        static let mailUrl = "https://apps.apple.com/kr/app/mail/id1108187098"
+        static let cancelText = "취소"
+    }
+    
     let settingView = SettingView()
     
     override func setupDefault() {
         let attributes = [
-            NSAttributedString.Key.font: UIFont(name: "GamjaFlower-Regular", size: 23)!,
-            NSAttributedString.Key.foregroundColor: UIColor(named: "weekdayColor") as Any
+            NSAttributedString.Key.font: UIFont(name: SettingViewControllerNameSpace.fontText, size: 23)!,
+            NSAttributedString.Key.foregroundColor: UIColor(named: SettingViewControllerNameSpace.weekdayColor) as Any
         ]
         navigationController?.navigationBar.titleTextAttributes = attributes
         navigationItem.title = "설정"
@@ -77,7 +96,7 @@ final class SettingViewController: SuperViewControllerSetting, AlertProtocol, MF
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
                     
-                    self.present(self.makeCancellableConformAlert(titleText: "알림", massageText: "백업 및 복원 기능을 사용하려면 애플아이디 로그인이 필요합니다. 그래도 진행하시겠습니까?", okAction: { [weak self] _ in
+                    self.present(self.makeCancellableConformAlert(titleText: SettingViewControllerNameSpace.notification, massageText: SettingViewControllerNameSpace.backUpNotiMessage, okAction: { [weak self] _ in
                         self?.showLoginView()
                     }), animated: true)
                 }
@@ -88,10 +107,10 @@ final class SettingViewController: SuperViewControllerSetting, AlertProtocol, MF
     }
     
     private func presentReviewPage() {
-        if let appstoreURL = URL(string: "https://apps.apple.com/app/id1666528737") {
+        if let appstoreURL = URL(string: SettingViewControllerNameSpace.appStoreUrl) {
             var components = URLComponents(url: appstoreURL, resolvingAgainstBaseURL: false)
             components?.queryItems = [
-                URLQueryItem(name: "action", value: "write-review")
+                URLQueryItem(name: SettingViewControllerNameSpace.action, value: SettingViewControllerNameSpace.writeReview)
             ]
             guard let writeReviewURL = components?.url else {
                 return
@@ -116,8 +135,8 @@ final class SettingViewController: SuperViewControllerSetting, AlertProtocol, MF
         
         -------------------
         """
-        composeViewController.setToRecipients(["mongsil.ios.help@gmail.com"])
-        composeViewController.setSubject("문의 및 의견")
+        composeViewController.setToRecipients([SettingViewControllerNameSpace.email])
+        composeViewController.setSubject(SettingViewControllerNameSpace.composeViewText)
         composeViewController.setMessageBody(bodyString, isHTML: false)
         self.present(composeViewController, animated: true, completion: nil)
     }
@@ -137,22 +156,22 @@ final class SettingViewController: SuperViewControllerSetting, AlertProtocol, MF
     
     private func getCurrentVersion() -> String {
         guard let dictionary = Bundle.main.infoDictionary,
-              let version = dictionary["CFBundleShortVersionString"] as? String else { return "" }
+              let version = dictionary[SettingViewControllerNameSpace.currentVersion] as? String else { return "" }
         
         return version
     }
     
     private func presentErrorAlert() {
-        let sendMailErrorAlert = UIAlertController(title: "메일 전송 실패",
-                                                   message: "메일을 보내려면 'Mail' 앱이 필요합니다. App Store에서 해당 앱을 복원하거나 이메일 설정을 확인하고 다시 시도해주세요.",
+        let sendMailErrorAlert = UIAlertController(title: SettingViewControllerNameSpace.mailFailure,
+                                                   message: SettingViewControllerNameSpace.mailFailureNotiMessage,
                                                    preferredStyle: .alert)
-        let goAppStoreAction = UIAlertAction(title: "App Store로 이동하기", style: .default) { _ in
-            if let url = URL(string: "https://apps.apple.com/kr/app/mail/id1108187098"),
+        let goAppStoreAction = UIAlertAction(title: SettingViewControllerNameSpace.appstore, style: .default) { _ in
+            if let url = URL(string: SettingViewControllerNameSpace.mailUrl),
                UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
         }
-        let cancleAction = UIAlertAction(title: "취소", style: .destructive, handler: nil)
+        let cancleAction = UIAlertAction(title: SettingViewControllerNameSpace.cancelText, style: .destructive, handler: nil)
         sendMailErrorAlert.addAction(goAppStoreAction)
         sendMailErrorAlert.addAction(cancleAction)
         self.present(sendMailErrorAlert, animated: true, completion: nil)

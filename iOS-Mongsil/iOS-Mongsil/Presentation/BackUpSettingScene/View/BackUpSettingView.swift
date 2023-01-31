@@ -13,7 +13,18 @@ protocol BackUpSettingViewDelegate: AnyObject {
 }
 
 final class BackUpSettingView: SuperViewSetting {
-    private var isTappedPasswordButton = UserDefaults.standard.bool(forKey: "BackupToggleState")
+    private enum LoginViewControllerNameSpace {
+        static let userDefaultKeyValue = "BackupToggleState"
+        static let fontText = "GamjaFlower-Regular"
+        static let notifinationName = "Login"
+        static let logoutLabelText = "애플 아이디 변경"
+        static let setAutoBackupLabelText = "자동백업설정"
+        static let restorationLabelText = "데이터 복구하기"
+        static let switchOn = "icSwitchOn"
+        static let switchOff = "icSwitchOff"
+    }
+    
+    private var isTappedPasswordButton = UserDefaults.standard.bool(forKey: LoginViewControllerNameSpace.userDefaultKeyValue)
     weak var delegate: BackUpSettingViewDelegate?
     
     override func setupDefault() {
@@ -63,9 +74,9 @@ final class BackUpSettingView: SuperViewSetting {
     private let logoutLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.font = UIFont(name: "GamjaFlower-Regular", size: 23)
+        label.font = UIFont(name: LoginViewControllerNameSpace.fontText, size: 23)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "애플 아이디 변경"
+        label.text = LoginViewControllerNameSpace.logoutLabelText
        
         return label
     }()
@@ -73,9 +84,9 @@ final class BackUpSettingView: SuperViewSetting {
     private let setAutoBackupLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.font = UIFont(name: "GamjaFlower-Regular", size: 23)
+        label.font = UIFont(name: LoginViewControllerNameSpace.fontText, size: 23)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "자동백업설정"
+        label.text = LoginViewControllerNameSpace.setAutoBackupLabelText
         
         return label
     }()
@@ -91,9 +102,9 @@ final class BackUpSettingView: SuperViewSetting {
     private let restorationLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.font = UIFont(name: "GamjaFlower-Regular", size: 23)
+        label.font = UIFont(name: LoginViewControllerNameSpace.fontText, size: 23)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "데이터 복구하기"
+        label.text = LoginViewControllerNameSpace.restorationLabelText
         
         return label
     }()
@@ -126,17 +137,17 @@ final class BackUpSettingView: SuperViewSetting {
     
     private func setToggleImage() {
         if isTappedPasswordButton {
-            toggleButton.setImage(UIImage(named: "icSwitchOn"), for: .normal)
+            toggleButton.setImage(UIImage(named: LoginViewControllerNameSpace.switchOn), for: .normal)
         } else {
-            toggleButton.setImage(UIImage(named: "icSwitchOff"), for: .normal)
+            toggleButton.setImage(UIImage(named: LoginViewControllerNameSpace.switchOff), for: .normal)
         }
     }
     
     @objc private func setToggleButton() {
         isTappedPasswordButton.toggle()
-        isTappedPasswordButton ? toggleButton.setImage(UIImage(named: "icSwitchOn"),
-                                                       for: .normal) : toggleButton.setImage(UIImage(named: "icSwitchOff"), for: .normal)
-        UserDefaults.standard.set(self.isTappedPasswordButton, forKey: "BackupToggleState")
+        isTappedPasswordButton ? toggleButton.setImage(UIImage(named: LoginViewControllerNameSpace.switchOn),
+                                                       for: .normal) : toggleButton.setImage(UIImage(named: LoginViewControllerNameSpace.switchOff), for: .normal)
+        UserDefaults.standard.set(self.isTappedPasswordButton, forKey: LoginViewControllerNameSpace.userDefaultKeyValue)
     }
 }
 

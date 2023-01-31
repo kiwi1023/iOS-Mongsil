@@ -8,6 +8,11 @@
 import UIKit
 
 final class CreatePasswordViewController: SuperViewControllerSetting, CreatePasswordViewDelegate, AlertProtocol {
+    private enum CreatePasswordViewControllerNameSpace {
+        static let notificationName = "SetToggle"
+        static let notiMessage = "비밀번호가 일치하지 않습니다.\n 처음부터 다시 시도해 주세요."
+    }
+    
     private let createPasswordView = CreatePasswordView()
     
     override func setupDefault() {
@@ -28,13 +33,13 @@ final class CreatePasswordViewController: SuperViewControllerSetting, CreatePass
     }
     
     func didTapCloseButton() {
-        NotificationCenter.default.post(name: Notification.Name("SetToggle"),
+        NotificationCenter.default.post(name: Notification.Name(CreatePasswordViewControllerNameSpace.notificationName),
                                         object: self)
         dismiss(animated: true)
     }
     
     func putWrongPassword() {
-        present(makeConformAlert(massageText: "비밀번호가 일치하지 않습니다.\n 처음부터 다시 시도해 주세요."), animated: true)
+        present(makeConformAlert(massageText: CreatePasswordViewControllerNameSpace.notiMessage), animated: true)
     }
     
     func putCorrectPassword(_ password: [Int]) {

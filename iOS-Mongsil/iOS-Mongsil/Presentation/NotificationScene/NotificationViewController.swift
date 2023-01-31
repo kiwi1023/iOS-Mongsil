@@ -9,6 +9,20 @@ import UIKit
 import UserNotifications
 
 final class NotificationViewController: SuperViewControllerSetting, AlertProtocol {
+    private enum NotificationViewControllerNameSpace {
+        static let isOnNotificationKeyValue = "isOnNotification"
+        static let notificationTimeKeyValue = "notificationTime"
+        static let setAlertMessage = "알림이 설정되었습니다."
+        static let authAlretMessage = "설정앱에서 권한을 설정해주세요."
+        static let textFont = "GamjaFlower-Regular"
+        static let weekdayColor = "weekdayColor"
+        static let navigationbarTitle = "알림 설정"
+        static let failAlertTitle = "실패"
+        static let notificationMessage = "오늘 하루 어떠셨나요? 오늘의 기분을 한번 기록해 볼까요?"
+        static let notificationTitle = "몽실"
+        static let notificationId = "Mongsil"
+    }
+    
     private let notificationView = NotificationView()
     private let notificationCenter = UNUserNotificationCenter.current()
     private let userDefault = UserDefaults.standard
@@ -16,20 +30,20 @@ final class NotificationViewController: SuperViewControllerSetting, AlertProtoco
     private var isSelectedTime = false
     private var isOnNotification: Bool {
         get {
-            userDefault.object(forKey: "isOnNotification") as? Bool ?? false
+            userDefault.object(forKey: NotificationViewControllerNameSpace.isOnNotificationKeyValue) as? Bool ?? false
         }
         
         set {
-            userDefault.set(newValue, forKey: "isOnNotification")
+            userDefault.set(newValue, forKey: NotificationViewControllerNameSpace.isOnNotificationKeyValue)
         }
     }
     private var notificationTime: Date? {
         get {
-            userDefault.object(forKey: "notificationTime") as? Date
+            userDefault.object(forKey: NotificationViewControllerNameSpace.notificationTimeKeyValue) as? Date
         }
         
         set {
-            userDefault.set(newValue, forKey: "notificationTime")
+            userDefault.set(newValue, forKey: NotificationViewControllerNameSpace.notificationTimeKeyValue)
         }
     }
     
@@ -47,12 +61,14 @@ final class NotificationViewController: SuperViewControllerSetting, AlertProtoco
             switch settings.alertSetting {
             case .enabled:
                 DispatchQueue.main.async {
-                    self.present(self.makeConformAlert(massageText: "알림이 설정되었습니다."), animated: true)
+                    self.present(self.makeConformAlert(massageText: NotificationViewControllerNameSpace.setAlertMessage),
+                                 animated: true)
                 }
             default:
                 self.isOnNotification = false
                 DispatchQueue.main.async {
-                    self.present(self.makeConformAlert(massageText: "설정앱에서 권한을 설정해주세요."), animated: true)
+                    self.present(self.makeConformAlert(massageText: NotificationViewControllerNameSpace.authAlretMessage),
+                                 animated: true)
                     self.notificationView.setupIsOnNotification(self.isOnNotification)
                 }
             }
@@ -67,11 +83,11 @@ final class NotificationViewController: SuperViewControllerSetting, AlertProtoco
     
     private func setupNavigation() {
         let attributes = [
-            NSAttributedString.Key.font: UIFont(name: "GamjaFlower-Regular", size: 23) ?? UIFont(),
-            NSAttributedString.Key.foregroundColor: UIColor(named: "weekdayColor") as Any
+            NSAttributedString.Key.font: UIFont(name: NotificationViewControllerNameSpace.textFont, size: 23) ?? UIFont(),
+            NSAttributedString.Key.foregroundColor: UIColor(named: NotificationViewControllerNameSpace.weekdayColor) as Any
         ]
         navigationController?.navigationBar.titleTextAttributes = attributes
-        navigationItem.title = "알림 설정"
+        navigationItem.title = NotificationViewControllerNameSpace.navigationbarTitle
     }
     
     override func addUIComponents() {
@@ -111,7 +127,8 @@ extension NotificationViewController: NotificationViewDelegate {
             if success == false {
                 self.isOnNotification = false
                 DispatchQueue.main.async {
-                    self.present(self.makeConformAlert(titleText: "실패", massageText: "설정앱에서 권한을 설정해주세요"),
+                    self.present(self.makeConformAlert(titleText: NotificationViewControllerNameSpace.failAlertTitle,
+                                                       massageText: NotificationViewControllerNameSpace.authAlretMessage),
                                  animated: true)
                     self.notificationView.setupIsOnNotification(self.isOnNotification)
                 }
@@ -123,10 +140,12 @@ extension NotificationViewController: NotificationViewDelegate {
         guard let dateComponents = selectedDateComponents, isOnNotification == true else { return }
         
         let content = UNMutableNotificationContent()
-        content.title = "몽실"
-        content.body = "오늘 하루 어떠셨나요? 오늘의 기분을 한번 기록해 볼까요?"
+        content.title = NotificationViewControllerNameSpace.notificationTitle
+        content.body = NotificationViewControllerNameSpace.notificationMessage
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-        let request = UNNotificationRequest(identifier: "Mosil", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: NotificationViewControllerNameSpace.notificationId,
+                                            content: content,
+                                            trigger: trigger)
         notificationCenter.removeAllPendingNotificationRequests()
         notificationCenter.add(request)
     }

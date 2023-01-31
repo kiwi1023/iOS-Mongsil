@@ -9,6 +9,12 @@ import UIKit
 import Combine
 
 final class FavoriteViewController: SuperViewControllerSetting {
+    private enum FavoriteViewControllerNameSpace {
+        static let textFont = "GamjaFlower-Regular"
+        static let weekdayColor = "weekdayColor"
+        static let navigationTitle = "관심"
+    }
+    
     private let viewModel = FavoriteViewModel()
     private let input: PassthroughSubject<FavoriteViewModel.Input, Never> = .init()
     private var cancellables = Set<AnyCancellable>()
@@ -46,10 +52,10 @@ final class FavoriteViewController: SuperViewControllerSetting {
     }
     
     private func setNavigationBar() {
-        let attributes = [ NSAttributedString.Key.font: UIFont(name: "GamjaFlower-Regular", size: 23)!,
-                           NSAttributedString.Key.foregroundColor: UIColor(named: "weekdayColor") as Any]
+        let attributes = [ NSAttributedString.Key.font: UIFont(name: FavoriteViewControllerNameSpace.textFont, size: 23)!,
+                           NSAttributedString.Key.foregroundColor: UIColor(named: FavoriteViewControllerNameSpace.weekdayColor) as Any]
         navigationController?.navigationBar.titleTextAttributes = attributes
-        navigationItem.title = "관심"
+        navigationItem.title = FavoriteViewControllerNameSpace.navigationTitle
     }
     
     override func addUIComponents() {

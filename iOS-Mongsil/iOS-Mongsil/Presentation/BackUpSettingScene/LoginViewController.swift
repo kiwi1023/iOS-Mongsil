@@ -12,6 +12,11 @@ import CryptoKit
 
 
 final class LoginViewController: SuperViewControllerSetting {
+    private enum LoginViewControllerNameSpace {
+        static let xmark = "xmark"
+        static let notifinationName = "Login"
+    }
+    
     private var currentNonce: String?
     private let authorizationButton = ASAuthorizationAppleIDButton()
     private let loginProviderStackView: UIStackView = {
@@ -24,7 +29,7 @@ final class LoginViewController: SuperViewControllerSetting {
     private let closeButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "xmark"), for: .normal)
+        button.setImage(UIImage(systemName: LoginViewControllerNameSpace.xmark), for: .normal)
         button.tintColor = .systemGray
         
         return button
@@ -63,7 +68,7 @@ final class LoginViewController: SuperViewControllerSetting {
     @objc
     private func didTapCloseButton() {
         dismiss(animated: true)
-        NotificationCenter.default.post(name: Notification.Name("Login"),
+        NotificationCenter.default.post(name: Notification.Name(LoginViewControllerNameSpace.notifinationName),
                                         object: self)
     }
     

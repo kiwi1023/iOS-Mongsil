@@ -9,6 +9,10 @@ import UIKit
 import Combine
 
 final class FavoriteView: SuperViewSetting {
+    private enum FavoriteViewNameSpace {
+        static let cellIdentifier = "FavoriteCell"
+    }
+    
     private var favoriteCollectionView: UICollectionView! = nil
     var diaries: [Diary] = [] {
         didSet {
@@ -37,7 +41,7 @@ final class FavoriteView: SuperViewSetting {
         favoriteCollectionView = UICollectionView(frame: .zero, collectionViewLayout: favoriteLayout)
         favoriteCollectionView.dataSource = self
         favoriteCollectionView.delegate = self
-        favoriteCollectionView.register(FavoriteViewCell.self, forCellWithReuseIdentifier: "FavoriteCell")
+        favoriteCollectionView.register(FavoriteViewCell.self, forCellWithReuseIdentifier: FavoriteViewNameSpace.cellIdentifier)
         favoriteCollectionView.translatesAutoresizingMaskIntoConstraints = false
         favoriteCollectionView.showsVerticalScrollIndicator = false
     }
@@ -62,7 +66,7 @@ extension FavoriteView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteCell",
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoriteViewNameSpace.cellIdentifier,
                                                       for: indexPath) as! FavoriteViewCell
         
         cell.configure(data: diaries[indexPath.item])

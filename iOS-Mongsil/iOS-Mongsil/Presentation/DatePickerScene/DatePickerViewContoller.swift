@@ -12,6 +12,10 @@ protocol DatePickerViewContollerDelegate: AnyObject {
 }
 
 final class DatePickerViewContoller: SuperViewControllerSetting {
+    private enum DatePickerViewContollerNameSpace {
+        static let closeButtonColor = "closeButtonColor"
+    }
+    
     private weak var delegate: DatePickerViewContollerDelegate?
     private var notificationTime: Date?
     private let datePickerView = DatePickerView()
@@ -31,7 +35,7 @@ final class DatePickerViewContoller: SuperViewControllerSetting {
     }
     
     override func setupDefault() {
-        view.backgroundColor = UIColor(named: "closeButtonColor")
+        view.backgroundColor = UIColor(named: DatePickerViewContollerNameSpace.closeButtonColor)
         datePickerView.delegate = self
         datePickerView.setupDatePicker(date: notificationTime)
     }

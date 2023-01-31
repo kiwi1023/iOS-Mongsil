@@ -13,7 +13,19 @@ protocol PassswordSettingViewDelegate: AnyObject {
 }
 
 final class PasswordSettingView: SuperViewSetting {
-    private var isTappedPasswordButton = UserDefaults.standard.bool(forKey: "toggleState")
+    private enum PasswordSettingViewNameSpace {
+        static let fontText = "GamjaFlower-Regular"
+        static let userDefaultKeyValue = "toggleState"
+        static let warningText = "! 암호를 분실했을 경우 앱을 삭제하고 재설치 해야하며, \n 재설치 시 기존 다이어리 내용은 삭제 됩니다. !"
+        static let setPasswordLabelText = "앱화면잠금"
+        static let editPasswordLabelText = "비밀번호 변경"
+        static let switchOn = "icSwitchOn"
+        static let switchOff = "icSwitchOff"
+        static let switchTurnOff = "SwitchTurnOff"
+        static let setToggle = "SetToggle"
+    }
+    
+    private var isTappedPasswordButton = UserDefaults.standard.bool(forKey: PasswordSettingViewNameSpace.userDefaultKeyValue)
     weak var delegate: PassswordSettingViewDelegate?
     
     override func setupDefault() {
@@ -67,10 +79,10 @@ final class PasswordSettingView: SuperViewSetting {
     private let warningLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.font = UIFont(name: "GamjaFlower-Regular", size: 15)
+        label.font = UIFont(name: PasswordSettingViewNameSpace.fontText, size: 15)
         label.textColor = .systemRed
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "! 암호를 분실했을 경우 앱을 삭제하고 재설치 해야하며, \n 재설치 시 기존 다이어리 내용은 삭제 됩니다. !"
+        label.text = PasswordSettingViewNameSpace.warningText
         label.numberOfLines = 0
         
         return label
@@ -79,9 +91,9 @@ final class PasswordSettingView: SuperViewSetting {
     private let setPasswordLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.font = UIFont(name: "GamjaFlower-Regular", size: 23)
+        label.font = UIFont(name: PasswordSettingViewNameSpace.fontText, size: 23)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "앱화면잠금"
+        label.text = PasswordSettingViewNameSpace.setPasswordLabelText
         
         return label
     }()
@@ -97,9 +109,9 @@ final class PasswordSettingView: SuperViewSetting {
     private let editPasswordLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.font = UIFont(name: "GamjaFlower-Regular", size: 23)
+        label.font = UIFont(name: PasswordSettingViewNameSpace.fontText, size: 23)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "비밀번호 변경"
+        label.text = PasswordSettingViewNameSpace.editPasswordLabelText
         
         return label
     }()
@@ -120,10 +132,10 @@ final class PasswordSettingView: SuperViewSetting {
     
     private func setToggleImage() {
         if isTappedPasswordButton {
-            toggleButton.setImage(UIImage(named: "icSwitchOn"), for: .normal)
+            toggleButton.setImage(UIImage(named: PasswordSettingViewNameSpace.switchOn), for: .normal)
             self.editPasswordLabel.alpha = 1.0
         } else {
-            toggleButton.setImage(UIImage(named: "icSwitchOff"), for: .normal)
+            toggleButton.setImage(UIImage(named: PasswordSettingViewNameSpace.switchOff), for: .normal)
             self.editPasswordLabel.alpha = 0.0
         }
     }
@@ -140,23 +152,23 @@ final class PasswordSettingView: SuperViewSetting {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(setToggleButton),
-            name: Notification.Name("SetToggle"),
+            name: Notification.Name(PasswordSettingViewNameSpace.setToggle),
             object: nil
         )
         
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(setToggleButton),
-            name: Notification.Name("SwitchTurnOff"),
+            name: Notification.Name(PasswordSettingViewNameSpace.switchTurnOff),
             object: nil
         )
     }
     
     @objc private func setToggleButton() {
         isTappedPasswordButton.toggle()
-        isTappedPasswordButton ? toggleButton.setImage(UIImage(named: "icSwitchOn"),
-                                                       for: .normal) : toggleButton.setImage(UIImage(named: "icSwitchOff"), for: .normal)
-        UserDefaults.standard.set(self.isTappedPasswordButton, forKey: "toggleState")
+        isTappedPasswordButton ? toggleButton.setImage(UIImage(named: PasswordSettingViewNameSpace.switchOn),
+                                                       for: .normal) : toggleButton.setImage(UIImage(named: PasswordSettingViewNameSpace.switchOff), for: .normal)
+        UserDefaults.standard.set(self.isTappedPasswordButton, forKey: PasswordSettingViewNameSpace.userDefaultKeyValue)
         
         if isTappedPasswordButton {
             UIView.animate(withDuration: 0.2, delay: 0.0,

@@ -7,6 +7,13 @@
 import UIKit
 
 final class PasswordHeaderView: UIView {
+    private enum PasswordHeaderViewNameSpace {
+        static let fontText = "GamjaFlower-Regular"
+        static let passwordImage = "icPassword"
+        static let circle = "circle.fill"
+        static let passwordColor = "passwordColor"
+    }
+    
     var signImageViews: [UIImageView] = []
     private var title: String
     
@@ -37,8 +44,8 @@ final class PasswordHeaderView: UIView {
         
         for _ in 0...3 {
             let imageView = UIImageView()
-            imageView.image = UIImage(systemName: "circle.fill")
-            imageView.tintColor = UIColor(named: "passwordColor")
+            imageView.image = UIImage(systemName: PasswordHeaderViewNameSpace.circle)
+            imageView.tintColor = UIColor(named: PasswordHeaderViewNameSpace.passwordColor)
             
             passwordSignImageStackView.addArrangedSubview(imageView)
             signImageViews.append(imageView)
@@ -58,24 +65,24 @@ final class PasswordHeaderView: UIView {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.font = UIFont(name: "GamjaFlower-Regular", size: 23)
-        label.translatesAutoresizingMaskIntoConstraints=false
+        label.font = UIFont(name: PasswordHeaderViewNameSpace.fontText, size: 23)
+        label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
     
     private let titleImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints=false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "icPassword")
+        imageView.image = UIImage(named: PasswordHeaderViewNameSpace.passwordImage)
         
         return imageView
     }()
     
     private let passwordSignImageStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints=false
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.alignment = .center
         stackView.spacing = 20
         
@@ -84,7 +91,7 @@ final class PasswordHeaderView: UIView {
     
     private let passwordHeaderStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints=false
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.alignment = .center
         stackView.axis = .vertical
         stackView.spacing = 10

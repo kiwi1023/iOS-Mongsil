@@ -8,6 +8,10 @@
 import UIKit
 
 final class EmoticonsViewController: SuperViewControllerSetting {
+    private enum EmoticonsViewControllerNameSpace {
+        static let cellIdentifier = "EmoticonCollectionViewCell"
+    }
+    
     private var viewModel: EmoticonsViewModel
     private let emoticonsView = EmoticonsView()
     
@@ -69,7 +73,7 @@ extension EmoticonsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmoticonCollectionViewCell",
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmoticonsViewControllerNameSpace.cellIdentifier,
                                                             for: indexPath) as? EmoticonCollectionViewCell
         else { return UICollectionViewCell() }
         

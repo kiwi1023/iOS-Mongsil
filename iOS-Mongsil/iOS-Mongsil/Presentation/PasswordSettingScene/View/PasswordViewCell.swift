@@ -8,6 +8,10 @@
 import UIKit
 
 final class PasswordViewCell: UICollectionViewCell {
+    private enum PasswordViewCellNameSpace {
+        static let fontText = "GamjaFlower-Regular"
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemBackground
@@ -37,7 +41,7 @@ final class PasswordViewCell: UICollectionViewCell {
     let numberLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont(name: "GamjaFlower-Regular", size: 25)
+        label.font = UIFont(name: PasswordViewCellNameSpace.fontText, size: 25)
         label.translatesAutoresizingMaskIntoConstraints=false
         
         return label

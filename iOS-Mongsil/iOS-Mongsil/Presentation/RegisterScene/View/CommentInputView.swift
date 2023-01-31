@@ -13,6 +13,12 @@ protocol CommentInputViewDelegate: AnyObject {
 }
 
 final class CommentInputView: SuperViewSetting {
+    private enum CommentInputViewNameSpace {
+        static let fontText = "NanumSeHwaCe"
+        static let okText = "확인"
+        static let textViewText = "오늘의 기분을 입력해주세요."
+    }
+    
     private weak var delegate: CommentInputViewDelegate?
     
     private let horizontalStackView: UIStackView = {
@@ -41,8 +47,8 @@ final class CommentInputView: SuperViewSetting {
         textView.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
         textView.textContainerInset = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         textView.textColor = .white
-        textView.text = "오늘의 기분을 입력해주세요."
-        textView.font = UIFont(name: "NanumSeHwaCe", size: 23.0)
+        textView.text = CommentInputViewNameSpace.textViewText
+        textView.font = UIFont(name: CommentInputViewNameSpace.fontText, size: 23.0)
         textView.showsVerticalScrollIndicator = false
         
         return textView
@@ -54,8 +60,8 @@ final class CommentInputView: SuperViewSetting {
         button.tintColor = .white
         button.backgroundColor = UIColor.black.withAlphaComponent(0)
         button.setContentCompressionResistancePriority(.required, for: .horizontal)
-        button.setTitle("확인", for: .normal)
-        button.titleLabel?.font = UIFont(name: "NanumSeHwaCe", size: 22.0)
+        button.setTitle(CommentInputViewNameSpace.okText, for: .normal)
+        button.titleLabel?.font = UIFont(name: CommentInputViewNameSpace.fontText, size: 22.0)
         
         return button
     }()
@@ -87,7 +93,7 @@ final class CommentInputView: SuperViewSetting {
     private func didTapAddCommentButton() {
         guard commentTextView.text != nil &&
                 commentTextView.text != "" &&
-                commentTextView.text != "오늘의 기분을 입력해주세요." else { return }
+                commentTextView.text != CommentInputViewNameSpace.textViewText else { return }
         
         delegate?.didTapAddCommentButton(commentTextView.text ?? "")
         commentTextView.text = nil

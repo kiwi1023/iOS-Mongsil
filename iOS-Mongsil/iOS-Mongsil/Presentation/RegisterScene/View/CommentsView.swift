@@ -8,6 +8,10 @@
 import UIKit
 
 final class CommentsView: SuperViewSetting {
+    private enum CommentsViewNameSpace {
+        static let cellIdentifier = "CommentTableViewCell"
+    }
+    
     var tableView: UITableView {
         commentsTableView
     }
@@ -15,7 +19,7 @@ final class CommentsView: SuperViewSetting {
     private let commentsTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(CommentTableViewCell.self, forCellReuseIdentifier: "CommentTableViewCell")
+        tableView.register(CommentTableViewCell.self, forCellReuseIdentifier: CommentsViewNameSpace.cellIdentifier)
         tableView.allowsSelection = false
         tableView.backgroundColor = UIColor.black.withAlphaComponent(0)
         tableView.showsVerticalScrollIndicator = false

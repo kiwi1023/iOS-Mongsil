@@ -8,6 +8,11 @@
 import UIKit
 
 final class CalendarViewCell: UICollectionViewCell {
+    private enum CalendarViewCellNameSpace {
+        static let textFont = "GamjaFlower-Regular"
+        static let circle = "circle.fill"
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemBackground
@@ -57,7 +62,7 @@ final class CalendarViewCell: UICollectionViewCell {
     let dayLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont(name: "GamjaFlower-Regular", size: 20)
+        label.font = UIFont(name: CalendarViewCellNameSpace.textFont, size: 20)
         label.translatesAutoresizingMaskIntoConstraints=false
         
         return label
@@ -65,7 +70,7 @@ final class CalendarViewCell: UICollectionViewCell {
     
     let todayImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "circle.fill")
+        imageView.image = UIImage(systemName: CalendarViewCellNameSpace.circle)
         imageView.tintColor = .systemRed
         imageView.translatesAutoresizingMaskIntoConstraints=false
         
@@ -74,7 +79,7 @@ final class CalendarViewCell: UICollectionViewCell {
     
     let selectedStateImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "circle.fill")
+        imageView.image = UIImage(systemName: CalendarViewCellNameSpace.circle)
         imageView.tintColor = .darkGray
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false

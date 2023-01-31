@@ -8,6 +8,11 @@
 import UIKit
 
 final class CalendarListView: SuperViewSetting {
+    private enum CalendarListViewNameSpace {
+        static let cellIdentifier = "ListCell"
+        static let notificationName = "Reload"
+    }
+    
     private let monthsArray = ["January", "Faburary", "March"
                                , "April", "May", "June", "July",
                                "August", "September", "October",

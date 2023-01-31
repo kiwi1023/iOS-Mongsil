@@ -12,6 +12,12 @@ protocol MonthViewDelegate: AnyObject {
 }
 
 final class CalendarHeaderView: SuperViewSetting {
+    private enum CalendarHeaderViewNameSpace {
+        static let textFont = "GamjaFlower-Regular"
+        static let chevronForward = "chevron.forward"
+        static let chevronBackward = "chevron.backward"
+    }
+    
     private let monthsArray = ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"]
     private let daysArray = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     private var currentMonthIndex = 0
@@ -36,7 +42,7 @@ final class CalendarHeaderView: SuperViewSetting {
         for index in 0..<7 {
             let label = UILabel()
             label.text = daysArray[index]
-            label.font = UIFont(name: "GamjaFlower-Regular", size: 15)
+            label.font = UIFont(name: CalendarHeaderViewNameSpace.textFont, size: 15)
             label.textAlignment = .center
             weekdayStackView.addArrangedSubview(label)
         }
@@ -74,16 +80,15 @@ final class CalendarHeaderView: SuperViewSetting {
     
     private let dateLabel: UILabel = {
         let label = UILabel()
-        label.text = "Default Month Year text"
         label.textAlignment = .center
-        label.font = UIFont(name: "GamjaFlower-Regular", size: 22)
+        label.font = UIFont(name: CalendarHeaderViewNameSpace.textFont, size: 22)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let rightButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "chevron.forward",
+        button.setImage(UIImage(systemName: CalendarHeaderViewNameSpace.chevronForward,
                                 withConfiguration: UIImage.SymbolConfiguration(weight: .medium)), for: .normal)
         button.contentEdgeInsets = UIEdgeInsets(top: 20, left: 17, bottom: 20, right: 17)
         button.tintColor = .black
@@ -94,7 +99,7 @@ final class CalendarHeaderView: SuperViewSetting {
     
     private let leftButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "chevron.backward",
+        button.setImage(UIImage(systemName: CalendarHeaderViewNameSpace.chevronBackward,
                                 withConfiguration: UIImage.SymbolConfiguration(weight: .medium)), for: .normal)
         button.tintColor = .black
         button.contentEdgeInsets = UIEdgeInsets(top: 20, left: 17, bottom: 20, right: 17)

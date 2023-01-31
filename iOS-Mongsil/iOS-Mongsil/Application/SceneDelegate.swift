@@ -8,12 +8,16 @@
 import UIKit
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    private enum SceneDelegateNameSpace {
+        static let userDefaultKeyValue = "toggleState"
+    }
+    
     var window: UIWindow?
     
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
-        if UserDefaults.standard.bool(forKey: "toggleState") {
+        if UserDefaults.standard.bool(forKey: SceneDelegateNameSpace.userDefaultKeyValue) {
             guard let windowScene = (scene as? UIWindowScene) else { return }
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = UINavigationController(rootViewController: PasswordViewController())
