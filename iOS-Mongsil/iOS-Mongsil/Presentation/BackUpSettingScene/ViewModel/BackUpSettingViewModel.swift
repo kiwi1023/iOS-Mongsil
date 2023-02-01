@@ -2,7 +2,7 @@
 //  BackUpSettingViewModel.swift
 //  iOS-Mongsil
 //
-//  Created by Kiwon Song on 2023/01/30.
+//  Created by Kiwi, Groot on 2023/01/30.
 //
 
 import Foundation
