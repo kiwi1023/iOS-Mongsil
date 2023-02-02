@@ -29,15 +29,15 @@
 
 |비밀번호 입력|달력|리스트|
 |:--:|:--:|:--:|
-|<img src = "https://i.imgur.com/XghAhiS.gif" width="250" height="400">|<img src = "https://i.imgur.com/QG5juhL.gif" width="250" height="400">|<img src = "https://i.imgur.com/xbeIFF9.gif" width="250" height="400">|
+|<img src = "https://i.imgur.com/XghAhiS.gif" width="250">|<img src = "https://i.imgur.com/QG5juhL.gif" width="250">|<img src = "https://i.imgur.com/xbeIFF9.gif" width="250">|
 
 |일기 추가|일기 수정/삭제|일기 메뉴화면|
 |:--:|:--:|:--:|
-|<img src = "https://i.imgur.com/CZkjqao.gif" width="250" height="400">|<img src = "https://i.imgur.com/4gmDikl.gif" width="250" height="400">|<img src = "https://i.imgur.com/LvVZy7u.gif" width="250" height="400">|
+|<img src = "https://i.imgur.com/CZkjqao.gif" width="250">|<img src = "https://i.imgur.com/4gmDikl.gif" width="250">|<img src = "https://i.imgur.com/LvVZy7u.gif" width="250">|
 
 |관심|설정|
 |:--:|:--:|
-|<img src = "https://i.imgur.com/qph5PiT.gif" width="250" height="400">|<img src = "https://i.imgur.com/oYsVULk.gif" width="250" height="400">|
+|<img src = "https://i.imgur.com/qph5PiT.gif" width="250">|<img src = "https://i.imgur.com/oYsVULk.gif" width="250">|
 
 ## 👀 고민한 점
 <details>
