@@ -23,6 +23,7 @@ final class FavoriteViewController: SuperViewControllerSetting {
             
             self.input.send(.didTapCell(data))
         }
+        setNotification()
     }
     
     private func bind() {
@@ -64,5 +65,20 @@ final class FavoriteViewController: SuperViewControllerSetting {
             favoriteView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
     }
+    
+    private func setNotification() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(reload),
+            name: Notification.Name("ReloadFavoriteView"),
+            object: nil
+        )
+    }
+    
+    @objc
+    private func reload() {
+        self.input.send(.viewDidLoad)
+    }
 }
+
 
