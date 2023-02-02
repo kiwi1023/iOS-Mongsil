@@ -77,7 +77,7 @@ final class CalendarListView: SuperViewSetting {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(reload),
-            name: Notification.Name("Reload"),
+            name: Notification.Name(CalendarListViewNameSpace.notificationName),
             object: nil
         )
     }
@@ -95,7 +95,7 @@ extension CalendarListView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ListCell",
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarListViewNameSpace.cellIdentifier,
                                                       for: indexPath) as! CalendarListViewCell
         var year = currentYear
         var day = todaysDate - indexPath.item

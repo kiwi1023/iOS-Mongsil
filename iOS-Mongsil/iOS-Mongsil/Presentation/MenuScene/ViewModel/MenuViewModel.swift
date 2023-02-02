@@ -119,6 +119,8 @@ final class MenuViewModel: ViewModelBuilder {
                     self?.output.send(.dataBaseFailure(error))
                 case .finished:
                     self?.fetchDiary()
+                    NotificationCenter.default.post(name: Notification.Name("ReloadFavoriteView"),
+                                                    object: self)
                 }
             }, receiveValue: { })
             .store(in: &cancellables)

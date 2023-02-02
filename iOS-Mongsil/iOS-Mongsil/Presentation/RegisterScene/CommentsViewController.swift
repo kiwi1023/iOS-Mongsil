@@ -220,6 +220,8 @@ extension CommentsViewController: UITableViewDelegate {
                                                    handler: { [weak self] _, _, _ in
             guard let self = self else { return }
             
+            NotificationCenter.default.post(name: Notification.Name(CommentsViewControllerNameSpace.reload),
+                                            object: self)
             self.input.send(.didTapDeleteCommentButton(self.viewModel.comments[indexPath.row].id))
         })
         updateSwipeAction.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)

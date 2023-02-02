@@ -13,6 +13,7 @@ final class FavoriteViewController: SuperViewControllerSetting {
         static let textFont = "GamjaFlower-Regular"
         static let weekdayColor = "weekdayColor"
         static let navigationTitle = "관심"
+        static let reload = "ReloadFavoriteView"
     }
     
     private let viewModel = FavoriteViewModel()
@@ -29,6 +30,7 @@ final class FavoriteViewController: SuperViewControllerSetting {
             
             self.input.send(.didTapCell(data))
         }
+        setNotification() 
     }
     
     private func bind() {
@@ -39,6 +41,7 @@ final class FavoriteViewController: SuperViewControllerSetting {
             switch event {
             case .fetchFavoriteDataSuccess(let data):
                 self.favoriteView.getDiaryData(data: data)
+                print(data)
             case .fetchFavoriteDataFailure(let error):
                 print(error)
             case .fetchCellDiaryData(let diary):
@@ -70,5 +73,20 @@ final class FavoriteViewController: SuperViewControllerSetting {
             favoriteView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
     }
+    
+    private func setNotification() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(reload),
+            name: Notification.Name(FavoriteViewControllerNameSpace.reload),
+            object: nil
+        )
+    }
+    
+    @objc
+    private func reload() {
+        self.input.send(.viewDidLoad)
+    }
 }
+
 
