@@ -124,7 +124,7 @@ extension CalenderView: UICollectionViewDataSource {
         cell.selectedStateImageView.isHidden = true
         setEmoticonImage(indexPath, cell)
         
-        if indexPath.item + 1 == todaysDate && currentYear == presentYear && currentMonthIndex == presentMonthIndex {
+        if indexPath.item + 2 == todaysDate + getFirstWeekDay() && currentYear == presentYear && currentMonthIndex == presentMonthIndex {
             cell.todayImageView.isHidden = false
         }
         
