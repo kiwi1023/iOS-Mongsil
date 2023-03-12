@@ -120,7 +120,7 @@ final class CalendarViewController: SuperViewControllerSetting {
             target: self,
             action: #selector(didTapSettingButton)
         )
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "관심",
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "스크랩",
                                                            style: .plain,
                                                            target: self,
                                                            action: #selector(didTapFavoriteButton))
