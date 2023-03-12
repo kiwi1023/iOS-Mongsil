@@ -50,7 +50,7 @@ final class FavoriteViewController: SuperViewControllerSetting {
         let attributes = [ NSAttributedString.Key.font: UIFont(name: "GamjaFlower-Regular", size: 23)!,
                            NSAttributedString.Key.foregroundColor: UIColor(named: "weekdayColor") as Any]
         navigationController?.navigationBar.titleTextAttributes = attributes
-        navigationItem.title = "관심"
+        navigationItem.title = "스크랩"
     }
     
     override func addUIComponents() {
