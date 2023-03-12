@@ -15,6 +15,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().backgroundColor = .clear
         UINavigationBar.appearance().isTranslucent = true
+        removeKeychainAtFirstLaunch()
+        
         return true
     }
     
@@ -34,5 +36,25 @@ extension AppDelegate {
         guard ((UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.window?.rootViewController) != nil else {
             return
         }
+    }
+    
+    private func removeKeychainAtFirstLaunch() {
+        guard UserDefaults.isFirstLaunch() else { return }
+        
+        KeyChainManger.shared.deleteItemOnKeyChain()
+    }
+}
+
+extension UserDefaults {
+    public static func isFirstLaunch() -> Bool {
+        let hasBeenLaunchedBeforeFlag = "hasBeenLaunchedBeforeFlag"
+        let isFirstLaunch = !UserDefaults.standard.bool(forKey: hasBeenLaunchedBeforeFlag)
+        
+        if isFirstLaunch {
+            UserDefaults.standard.set(true, forKey: hasBeenLaunchedBeforeFlag)
+            UserDefaults.standard.synchronize()
+        }
+        
+        return isFirstLaunch
     }
 }
