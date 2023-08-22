@@ -83,9 +83,31 @@ extension PasswordView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.frame.width * 0.3
-        let height: CGFloat = width
-        return CGSize(width: width, height: height)
+        let numberOfColumns: CGFloat = 4
+        let spacing: CGFloat = 10 // Adjust as needed
+        let totalSpacing = (numberOfColumns - 1) * spacing
+        let availableWidth = collectionView.frame.width - totalSpacing
+        let widthPerItem = availableWidth / numberOfColumns
+        let height: CGFloat = widthPerItem
+        return CGSize(width: widthPerItem, height: height)
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10 // Adjust as needed
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 10 // Adjust as needed
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10) // Adjust as needed
     }
 }
 
